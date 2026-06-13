@@ -9,13 +9,15 @@ import { Section } from "./Section";
 const navLinks = [
   { label: "Product", href: "/what-is-swarm" },
   { label: "Loop", href: "/the-loop" },
+  { label: "Skills", href: "/skills" },
   { label: "Docs", href: "https://github.com/jcosta33/swarm/blob/main/docs" },
   { label: "GitHub", href: "https://github.com/jcosta33/swarm" },
 ];
 
 const footerLinks = [
   { label: "GitHub", href: "https://github.com/jcosta33/swarm" },
-  { label: "Starter kit", href: "https://github.com/jcosta33/swarm/tree/main/starter-kit" },
+  { label: "Starter kit", href: "https://github.com/jcosta33/swarm-starter-kit" },
+  { label: "Skills", href: "/skills" },
   { label: "Docs", href: "https://github.com/jcosta33/swarm/blob/main/docs" },
   { label: "Colophon", href: "/colophon" },
 ];

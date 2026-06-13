@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, FolderPlus, Rocket } from "lucide-react";
+import { ArrowRight, FolderPlus, Rocket, Wrench } from "lucide-react";
 import { Section } from "../components/Section";
 import { Card } from "../components/Card";
 import { Button } from "../components/Button";
@@ -81,6 +81,80 @@ export default function GetStartedPage() {
               rel="noopener noreferrer"
             >
               Read ADOPTING.md <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </Button>
+        </Card>
+      </Section>
+
+      <Section className="flex flex-col gap-8">
+        <h2 className="font-heading text-2xl font-bold uppercase tracking-tight text-concrete-100">
+          What the starter kit gives you
+        </h2>
+        <ul className="grid gap-4 sm:grid-cols-2">
+          <li className="flex items-start gap-3 text-concrete-400">
+            <span className="mt-2 h-2 w-2 rounded-full bg-swarm-yellow" aria-hidden="true" />
+            <span>
+              <strong className="text-concrete-100">AGENTS.md</strong> — the bootloader your agent
+              reads on every task.
+            </span>
+          </li>
+          <li className="flex items-start gap-3 text-concrete-400">
+            <span className="mt-2 h-2 w-2 rounded-full bg-swarm-yellow" aria-hidden="true" />
+            <span>
+              <strong className="text-concrete-100">Core guides</strong> — write-spec,
+              implement-task, review-output, save-findings, and more.
+            </span>
+          </li>
+          <li className="flex items-start gap-3 text-concrete-400">
+            <span className="mt-2 h-2 w-2 rounded-full bg-swarm-yellow" aria-hidden="true" />
+            <span>
+              <strong className="text-concrete-100">Eight templates</strong> — spec, task, review,
+              finding, status, intake, inventory, change-plan.
+            </span>
+          </li>
+          <li className="flex items-start gap-3 text-concrete-400">
+            <span className="mt-2 h-2 w-2 rounded-full bg-swarm-yellow" aria-hidden="true" />
+            <span>
+              <strong className="text-concrete-100">Flow folders</strong> — specs/, tasks/,
+              reviews/, findings/, and the rest, each with a one-line README.
+            </span>
+          </li>
+          <li className="flex items-start gap-3 text-concrete-400">
+            <span className="mt-2 h-2 w-2 rounded-full bg-swarm-yellow" aria-hidden="true" />
+            <span>
+              <strong className="text-concrete-100">status.md</strong> — a hand-edited workboard
+              for tracking what is in flight.
+            </span>
+          </li>
+          <li className="flex items-start gap-3 text-concrete-400">
+            <span className="mt-2 h-2 w-2 rounded-full bg-swarm-yellow" aria-hidden="true" />
+            <span>
+              <strong className="text-concrete-100">decisions/</strong> — an ADR ledger, seeded
+              with why you adopted Swarm.
+            </span>
+          </li>
+        </ul>
+      </Section>
+
+      <Section>
+        <Card className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-factory-800 text-swarm-yellow">
+              <Wrench className="h-6 w-6" aria-hidden="true" />
+            </div>
+            <div>
+              <h2 className="font-heading text-2xl font-bold uppercase tracking-tight text-concrete-100">
+                Need more depth?
+              </h2>
+              <p className="mt-2 text-concrete-400">
+                Install optional skills for specific stances and change shapes — persona-skeptic,
+                write-feature, write-fix, and others.
+              </p>
+            </div>
+          </div>
+          <Button variant="secondary" asChild>
+            <Link href="/skills/">
+              Browse skills <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </Button>
         </Card>
