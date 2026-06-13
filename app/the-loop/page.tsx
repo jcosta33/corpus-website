@@ -6,11 +6,11 @@ import { HazardStripe } from "../components/HazardStripe";
 export const metadata: Metadata = {
   title: "The loop — Swarm",
   description:
-    "Pull → Spec → Task → Run → Review → Close. The six steps that turn a ticket into a shipped, reviewed change.",
+    "Pull → Spec → Task → Run → Review → Close. The six steps that keep humans in the driver seat while agents do the work.",
   openGraph: {
     title: "The loop — Swarm",
     description:
-      "Pull → Spec → Task → Run → Review → Close. The six steps that turn a ticket into a shipped, reviewed change.",
+      "Pull → Spec → Task → Run → Review → Close. The six steps that keep humans in the driver seat while agents do the work.",
     type: "website",
     images: ["/og-the-loop.png"],
   },
@@ -123,7 +123,8 @@ export default function TheLoopPage() {
           </h1>
           <p className="mt-6 text-xl leading-relaxed text-concrete-400">
             Pull → Spec → Task → Run → Review → Close. Each step produces a file the next step can
-            read. No handwaving, no lost context.
+            read. The agent runs the steps; the human decides when to move forward. No handwaving,
+            no lost context, no autonomous joyrides.
           </p>
         </div>
       </Section>

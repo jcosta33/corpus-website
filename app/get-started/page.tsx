@@ -8,11 +8,11 @@ import { Button } from "../components/Button";
 export const metadata: Metadata = {
   title: "Get started — Swarm",
   description:
-    "Adopt Swarm in a new repo with the starter kit, or copy the kit into an existing project.",
+    "Adopt Swarm in a new repo or an existing project. Start writing specs and keeping humans in the loop in plain markdown.",
   openGraph: {
     title: "Get started — Swarm",
     description:
-      "Adopt Swarm in a new repo with the starter kit, or copy the kit into an existing project.",
+      "Adopt Swarm in a new repo or an existing project. Start writing specs and keeping humans in the loop in plain markdown.",
     type: "website",
     images: ["/og-get-started.png"],
   },
@@ -31,7 +31,7 @@ export default function GetStartedPage() {
           </h1>
           <p className="mt-6 text-xl leading-relaxed text-concrete-400">
             Pick a path. Either way, you are writing specs and tasks in plain markdown five minutes
-            from now.
+            from now. The agent gets a contract; you keep the keys.
           </p>
         </div>
       </Section>

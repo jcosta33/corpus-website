@@ -10,13 +10,13 @@ import { HeroHexGrid } from "./components/HeroHexGrid";
 import { LoopDiagram } from "./components/LoopDiagram";
 
 export const metadata: Metadata = {
-  title: "Swarm — a hive for your coding agents",
+  title: "Swarm — specs for humans, tasks for agents",
   description:
-    "A lightweight spec and review workflow for teams using coding agents. Plain markdown, any agent, no runtime.",
+    "A lightweight spec and review workflow that keeps you in the driver seat while coding agents do the typing. Plain markdown, any agent, no runtime.",
   openGraph: {
-    title: "Swarm — a hive for your coding agents",
+    title: "Swarm — specs for humans, tasks for agents",
     description:
-      "A lightweight spec and review workflow for teams using coding agents. Plain markdown, any agent, no runtime.",
+      "A lightweight spec and review workflow that keeps you in the driver seat while coding agents do the typing. Plain markdown, any agent, no runtime.",
     type: "website",
     images: ["/og-home.png"],
   },
@@ -70,6 +70,11 @@ const features = [
       "Every requirement carries a verification method. Evidence shows the reviewer exactly where to look.",
   },
   {
+    title: "Humans in the loop",
+    description:
+      "Agents draft, run, and paste evidence. Humans decide when the evidence is good enough. No autopilot.",
+  },
+  {
     title: "Honesty framework",
     description:
       "Rules say whether they are convention, checklist, toolable, or enforced — no enforcement theater.",
@@ -89,7 +94,8 @@ export default function HomePage() {
             </h1>
             <p className="mt-6 text-lg leading-8 text-concrete-400 sm:text-xl">
               Turn tickets into clear specs, specs into agent-ready tasks, and agent output into
-              evidence you can review — plain markdown, any agent, no runtime.
+              evidence you can review. You stay in the driver seat; the agent stays in the loop.
+              Plain markdown, any agent, no runtime.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button asChild>
@@ -123,8 +129,8 @@ export default function HomePage() {
               Five walls. One workflow.
             </h2>
             <p className="mt-4 text-concrete-400">
-              Teams using coding agents hit the same walls. Swarm answers each one with a small
-              markdown artifact and the habit of working from it.
+              Coding agents are great at typing, terrible at knowing when to stop. Swarm answers
+              each wall with a small markdown artifact and the habit of keeping a human in the loop.
             </p>
           </div>
 
@@ -234,7 +240,7 @@ exactly one \`<nav>\` and one \`<footer>\`; nav links are valid.
           <h2 className="max-w-2xl font-heading text-3xl font-bold uppercase tracking-tight text-concrete-100 sm:text-4xl">
             Built for validation, not generation.
           </h2>
-          <ul className="grid gap-6 md:grid-cols-3">
+          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {features.map((feature) => (
               <li key={feature.title}>
                 <Card className="h-full">
@@ -256,11 +262,11 @@ exactly one \`<nav>\` and one \`<footer>\`; nav links are valid.
         <HazardStripe height="sm" />
         <Section className="py-16 text-center">
           <h2 className="font-heading text-3xl font-bold uppercase tracking-tight text-concrete-100 sm:text-4xl">
-            Stop herding agents with chat history.
+            Stop vibe-coding into the void.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-concrete-400">
             Copy the starter kit, write your first spec, and give your agents a contract they can
-            read.
+            read. You still make the calls; they just finally know what you meant.
           </p>
           <div className="mt-10 flex justify-center">
             <Button asChild>

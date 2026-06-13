@@ -6,11 +6,11 @@ import { Card } from "../components/Card";
 export const metadata: Metadata = {
   title: "What is Swarm — Swarm",
   description:
-    "Swarm is a lightweight spec and review workflow for teams using coding agents. Works today with plain markdown; no runtime required.",
+    "Swarm is a lightweight spec and review workflow that keeps humans in the driver seat while coding agents do the work. Plain markdown; no runtime required.",
   openGraph: {
     title: "What is Swarm — Swarm",
     description:
-      "Swarm is a lightweight spec and review workflow for teams using coding agents. Works today with plain markdown; no runtime required.",
+      "Swarm is a lightweight spec and review workflow that keeps humans in the driver seat while coding agents do the work. Plain markdown; no runtime required.",
     type: "website",
     images: ["/og-what-is-swarm.png"],
   },
@@ -20,12 +20,13 @@ export const metadata: Metadata = {
 };
 
 const isList = [
-  "a spec format agents can work from",
+  "a spec format humans write and agents work from",
   "a task-packet format that bounds agent work",
   "a review-packet format that shows where human attention goes",
   "a findings convention so lessons survive the session",
   "a starter kit of markdown templates",
   "a workspace convention",
+  "a way to keep humans in the loop without hovering over every keystroke",
 ];
 
 const isNotList = [
@@ -39,6 +40,8 @@ const isNotList = [
   "a complete SDLC platform",
   "a formal verification system",
   "a guarantee that agent output is correct",
+  "a license to vibe-code and hope for the best",
+  "a way to remove humans from decisions",
 ];
 
 const adjacent = [
@@ -124,10 +127,11 @@ export default function WhatIsSwarmPage() {
           <p className="mt-6 text-xl leading-relaxed text-concrete-100">
             Swarm is a lightweight spec and review workflow for teams using coding agents. Turn
             tickets into clear specs, specs into agent-ready tasks, and agent output into evidence
-            you can review — plain markdown, any agent, no runtime.
+            you can review. The agent does the typing; you stay in the driver seat.
           </p>
           <p className="mt-4 text-concrete-400">
-            Works today — plain markdown plus your agent; no Swarm tooling required.
+            Works today — plain markdown plus your agent; no Swarm runtime, no autopilot, no
+            vibes-required dress code.
           </p>
         </div>
       </Section>
