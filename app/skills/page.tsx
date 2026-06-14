@@ -32,7 +32,7 @@ import { TerminalCursor } from "../components/TerminalCursor";
 export const metadata: Metadata = {
   title: "Skills — Swarm",
   description:
-    "An optional catalog of agent guides for Swarm workflows: conditioning stances and code-authoring depth, installable into any agent CLI.",
+    "Optional agent guides for Swarm workflows: conditioning stances and code-authoring depth. Not shortcuts — discipline prompts that load when the work matches.",
   openGraph: {
     title: "Skills — Swarm",
     description:
@@ -150,11 +150,12 @@ export default function SkillsPage() {
             <TerminalCursor className="ml-2 align-middle" />
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-100">
-            An optional catalog of agent guides — conditioning stances and code-authoring depth — in
-            the open Agent Skills format. Install only what your work calls for.
+            Optional agent guides — conditioning stances and code-authoring depth — in the open Agent
+            Skills format. Install only what your work calls for.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
-            The starter kit ships the core loop; this catalog is the extra seasoning.
+            Skills are not shortcuts. They are discipline prompts that load when the task matches and
+            keep the agent from drifting.
           </p>
         </div>
       </Section>
@@ -305,9 +306,9 @@ export default function SkillsPage() {
             Why there is no runtime
           </h2>
           <p className="mt-4 text-concrete-400">
-            A skill is a markdown guide your agent reads when the work matches. That means you can
-            read it first, pin to a commit, and audit what your agent was told to do. If you are
-            looking for command-line scaffolding or automated checks, that is{" "}
+            A skill is a markdown guide your agent reads when the work matches. You can read it
+            first, pin to a commit, and audit what your agent was told to do. If you want command-line
+            scaffolding or automated checks, that is{" "}
             <Link
               href="/cli/"
               className="text-swarm-yellow underline hover:no-underline focus-ring rounded"

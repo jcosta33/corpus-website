@@ -22,7 +22,7 @@ import {
 export const metadata: Metadata = {
   title: "What is Swarm — Swarm",
   description:
-    "Swarm is a lightweight spec and review workflow that keeps humans in the driver seat while coding agents do the work. Plain markdown; no runtime required.",
+    "AI writes code that looks right. Swarm is a lightweight spec-and-review workflow that keeps humans in the driver seat. Plain markdown; no runtime required.",
   openGraph: {
     title: "What is Swarm — Swarm",
     description:
@@ -60,6 +60,7 @@ const isNotList = [
   "a formal verification system",
   "a guarantee that agent output is correct",
   "a license to vibe-code and hope for the best",
+  "a magic fix for AI hallucinations",
   "a way to remove humans from decisions",
 ];
 
@@ -160,6 +161,11 @@ export default function WhatIsSwarmPage() {
             What is <span className="text-swarm-yellow text-glow">Swarm</span>
             <TerminalCursor className="ml-2 align-middle" />
           </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
+            A lightweight spec-and-review discipline for teams using coding agents. We assume the
+            agent will drift, over-engineer, or skip the edge case — and give you the files to catch
+            it before it ships.
+          </p>
         </div>
       </Section>
 
@@ -169,12 +175,13 @@ export default function WhatIsSwarmPage() {
             <span className="text-swarm-yellow">$</span> swarm doctor --summary
           </p>
           <p className="mt-2 text-concrete-100">
-            Swarm is a lightweight spec and review workflow for teams using coding agents. Turn
-            tickets into clear specs, specs into agent-ready tasks, and agent output into evidence
-            you can review.
+            Swarm is a spec-and-review workflow for teams using coding agents. Turn tickets into
+            clear specs, specs into agent-ready tasks, and agent output into evidence a human can
+            review.
           </p>
           <p className="mt-2 text-drone-green">✓ agent does the typing</p>
-          <p className="text-drone-green">✓ human stays in the driver seat</p>
+          <p className="text-drone-green">✓ human owns the gates</p>
+          <p className="text-drone-green">✓ every claim needs evidence</p>
           <p className="text-drone-green">✓ plain markdown, any agent, no runtime</p>
           <p className="mt-2 text-concrete-400">
             <span className="text-swarm-yellow">$</span> _
@@ -258,7 +265,7 @@ export default function WhatIsSwarmPage() {
             <span>error.log — 6 failure modes detected</span>
           </div>
           <h2 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-concrete-100">
-            Failure modes Swarm positions against
+            Failure modes you are already seeing
           </h2>
         </div>
         <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

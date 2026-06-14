@@ -26,7 +26,7 @@ import { Badge } from "../components/Badge";
 export const metadata: Metadata = {
   title: "CLI — Swarm",
   description:
-    "swarm-cli is the reference command-line companion for the Swarm framework: sandboxed worktrees, task-driven sessions, and quality-of-life automation.",
+    "swarm-cli is optional command-line automation for the Swarm workflow: sandboxed worktrees, task-driven sessions, and check compression. Not an orchestrator.",
   openGraph: {
     title: "CLI — Swarm",
     description:
@@ -82,12 +82,13 @@ export default function CliPage() {
             <TerminalCursor className="ml-2 align-middle" />
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-100">
-            The reference command-line companion for the Swarm framework. Quality-of-life automation
-            around the spec-and-review workflow.
+            Optional command-line automation for the Swarm workflow. It does not replace your
+            judgment — it just sets up the worktree, runs the checks, and turns a finished task file
+            into a PR.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
             Sandboxed worktrees, Markdown task files as the source of truth, and commands that
-            compress context, run checks, and keep your main checkout clean.
+            compress check output so the agent can read it.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Badge variant="hazard">In flux</Badge>
@@ -183,9 +184,10 @@ export default function CliPage() {
             Why a CLI if Swarm is markdown-only?
           </h2>
           <p className="mt-4 text-concrete-400">
-            The framework itself is just conventions and files. The CLI is optional automation: it
+            The workflow itself is just conventions and files. The CLI is optional automation: it
             spins up worktrees, runs checks, compresses output, and turns a finished task file into
-            a PR. Use it if you want less typing; ignore it if you prefer to orchestrate by hand.
+            a PR. It is a helper, not an orchestrator. Use it if you want less typing; ignore it if
+            you prefer to orchestrate by hand.
           </p>
         </div>
         <ul className="grid gap-4 sm:grid-cols-3">

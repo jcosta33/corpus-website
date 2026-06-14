@@ -27,11 +27,11 @@ import { SignalPulse } from "./components/SignalPulse";
 export const metadata: Metadata = {
   title: "Swarm — specs for humans, tasks for agents",
   description:
-    "A lightweight spec and review workflow that keeps you in the driver seat while coding agents do the typing. Plain markdown, any agent, no runtime.",
+    "AI writes code that looks right. Swarm is a lightweight spec-and-review workflow that keeps humans in the driver seat. Plain markdown, any agent, no runtime.",
   openGraph: {
     title: "Swarm — specs for humans, tasks for agents",
     description:
-      "A lightweight spec and review workflow that keeps you in the driver seat while coding agents do the typing. Plain markdown, any agent, no runtime.",
+      "AI writes code that looks right. Swarm is a lightweight spec-and-review workflow that keeps humans in the driver seat. Plain markdown, any agent, no runtime.",
     type: "website",
     images: ["/og-home.png"],
   },
@@ -127,19 +127,25 @@ export default function HomePage() {
             </div>
 
             <h1 className="font-heading text-4xl font-bold uppercase tracking-tight text-concrete-100 sm:text-6xl lg:text-7xl">
-              A hive for your
+              AI writes code.
               <br />
-              <span className="text-swarm-yellow text-glow">coding agents</span>
+              <span className="text-swarm-yellow text-glow">You keep the wheel.</span>
               <TerminalCursor className="ml-2 align-middle" />
             </h1>
 
             <TerminalWindow className="mx-auto mt-10 max-w-2xl text-left">
               <p className="text-concrete-400">
+                <span className="text-swarm-yellow">$</span> swarm status
+              </p>
+              <p className="mt-1 text-concrete-100">
+                66% of devs say AI output is almost right, but not quite.
+              </p>
+              <p className="mt-2 text-concrete-400">
                 <span className="text-swarm-yellow">$</span> swarm init
               </p>
               <p className="mt-1 text-drone-green">✓ scaffolded .agents/ workspace</p>
               <p className="mt-2 text-concrete-400">
-                <span className="text-swarm-yellow">$</span> swarm new spec --title &quot;keep humans in the loop&quot;
+                <span className="text-swarm-yellow">$</span> swarm new spec --title &quot;every claim needs evidence&quot;
               </p>
               <p className="mt-1 text-concrete-100">
                 Turn tickets into clear specs, specs into agent-ready tasks, and agent output into
@@ -183,11 +189,12 @@ export default function HomePage() {
               <span>sys.log — 5 warnings detected</span>
             </div>
             <h2 className="mt-3 font-heading text-3xl font-bold uppercase tracking-tight text-concrete-100 sm:text-4xl">
-              Five walls. One workflow.
+              Five ways agent code goes sideways.
             </h2>
             <p className="mt-4 text-concrete-400">
-              Coding agents are great at typing, terrible at knowing when to stop. Swarm answers
-              each wall with a small markdown artifact and the habit of keeping a human in the loop.
+              Coding agents are fast. They are also wrong in ways that look correct. Swarm catches
+              the &quot;almost right&quot; before it ships by turning every change into a spec, a task, and a
+              review packet with pasted evidence.
             </p>
           </div>
 
@@ -233,7 +240,7 @@ export default function HomePage() {
             </h2>
             <p className="mt-4 text-concrete-400">
               Pull → Spec → Task → Run → Review → Close. Each step produces a file the next step can
-              read. No handwaving, no lost context, no autonomous joyrides.
+              read. The agent does the work; the human owns the gates.
             </p>
           </div>
           <LoopDiagram />
@@ -348,7 +355,7 @@ export default function HomePage() {
             <span>human approval required</span>
           </div>
           <h2 className="mt-6 font-heading text-3xl font-bold uppercase tracking-tight text-concrete-100 sm:text-4xl">
-            Stop vibe-coding into the void.
+            Stop shipping &quot;almost right&quot; code.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-concrete-400">
             Copy the starter kit, write your first spec, and give your agents a contract they can

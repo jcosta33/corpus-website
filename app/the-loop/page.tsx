@@ -10,7 +10,7 @@ import { TerminalCursor } from "../components/TerminalCursor";
 export const metadata: Metadata = {
   title: "The loop — Swarm",
   description:
-    "Pull → Spec → Task → Run → Review → Close. The six steps that keep humans in the driver seat while agents do the work.",
+    "Pull → Spec → Task → Run → Review → Close. The six steps that keep a human at every decision gate while agents do the typing.",
   openGraph: {
     title: "The loop — Swarm",
     description:
@@ -138,7 +138,7 @@ export default function TheLoopPage() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
             Pull → Spec → Task → Run → Review → Close. Each step produces a file the next step can
-            read. The agent runs the steps; the human decides when to move forward.
+            read. The agent does the work between gates; a human decides at every gate.
           </p>
         </div>
       </Section>

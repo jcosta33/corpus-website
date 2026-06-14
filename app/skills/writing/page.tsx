@@ -81,7 +81,7 @@ export default function WritingSkillsPage() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-100">
             A skill is a markdown file your agent reads when the work matches. It is instructions,
-            not code — and like any prompt, its structure determines whether it actually fires.
+            not magic — and like any prompt, its structure determines whether it actually fires.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
             This page distills the evidence-backed authoring guide from the{" "}
@@ -93,7 +93,8 @@ export default function WritingSkillsPage() {
             >
               swarm-skills docs
             </Link>
-            .
+            . No shortcuts. No silver bullets. Just a format that makes the agent more likely to do
+            the right thing.
           </p>
         </div>
       </Section>
