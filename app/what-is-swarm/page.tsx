@@ -179,7 +179,7 @@ export default function WhatIsCalmaPage() {
         <Panel brushed className="mx-auto max-w-3xl p-2">
           <TerminalWindow title="diagnostics" className="mx-auto max-w-3xl">
             <p className="text-concrete-400">
-              <span className="text-swarm-yellow">$</span> cat what-is-swarm.md
+              <span className="text-swarm-yellow">$</span> cat what-is-calma.md
             </p>
             <p className="mt-2 text-concrete-100">
               Calma is a spec-and-review workflow for teams using coding agents. Turn tickets into
