@@ -19,7 +19,7 @@ export function LoopDiagram() {
           return (
             <li
               key={step.label}
-              className="group relative flex flex-col gap-3 p-4 panel-raised rivet-row transition-all duration-150 hover:translate-y-px hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_3px_0_rgba(0,0,0,0.55)]"
+              className="group relative flex flex-col gap-3 p-4 panel-raised rivet-row transition-all duration-150 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.2),inset_0_-2px_0_rgba(0,0,0,0.5)]"
             >
               <div className="flex items-center justify-between">
                 <span className="font-mono text-xs font-medium text-brass">{step.number}</span>

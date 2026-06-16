@@ -145,9 +145,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-40">
         <Section as="div" className="flex h-16 items-center justify-between">
           <Link href="/" className="focus-ring rounded-sm" aria-label="Calma home">
-            <div className="panel-raised brushed-metal p-1.5">
-              <Logo className="h-6 w-auto text-concrete-100" />
-            </div>
+            <Logo className="text-lg text-concrete-100" />
           </Link>
 
           <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
@@ -172,7 +170,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
           <button
             ref={toggleRef}
             type="button"
-            className="toggle inline-flex items-center justify-center rounded-[3px] border border-panel-border bg-panel-raised p-2 text-concrete-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_4px_0_rgba(0,0,0,0.55)] hover:text-swarm-yellow focus-ring active:translate-y-1 active:shadow-[inset_0_2px_4px_rgba(0,0,0,0.35),0_2px_0_rgba(0,0,0,0.55)] lg:hidden"
+            className="toggle inline-flex items-center justify-center rounded-[3px] border border-panel-border bg-panel-raised p-2 text-concrete-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),inset_0_-2px_0_rgba(0,0,0,0.5)] hover:text-swarm-yellow focus-ring active:translate-y-px active:shadow-[inset_0_2px_4px_rgba(0,0,0,0.45)] lg:hidden"
             aria-expanded={menuOpen}
             aria-label="Toggle navigation menu"
             onClick={() => setMenuOpen((open) => !open)}
@@ -229,9 +227,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
         >
           <div className="flex flex-col gap-2">
             <Link href="/" aria-label="Calma home" className="focus-ring rounded-sm w-fit">
-              <div className="panel-raised brushed-metal p-1.5">
-                <Logo className="h-5 w-auto text-concrete-100" />
-              </div>
+              <Logo className="text-base text-concrete-100" />
             </Link>
             <p className="text-sm text-concrete-400">
               Built with Calma. The agents don&apos;t get to grade their own homework — a different session

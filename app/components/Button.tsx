@@ -34,16 +34,16 @@ export function Button({
   const styles = {
     primary: [
       "border border-panel-border bg-swarm-yellow text-black",
-      "shadow-[inset_0_1px_0_rgba(255,255,255,0.45),0_5px_0_rgba(0,0,0,0.55)]",
+      "shadow-[inset_0_1px_0_rgba(255,255,255,0.55),inset_0_-3px_0_rgba(0,0,0,0.4)]",
       "hover:bg-yellow-300",
-      "active:translate-y-1 active:shadow-[inset_0_2px_4px_rgba(0,0,0,0.35),0_2px_0_rgba(0,0,0,0.55)]",
+      "active:translate-y-px active:shadow-[inset_0_2px_5px_rgba(0,0,0,0.45)]",
       "disabled:bg-concrete-500 disabled:text-black disabled:shadow-none",
     ].join(" "),
     secondary: [
       "border border-panel-border bg-panel-raised text-concrete-100",
-      "shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_5px_0_rgba(0,0,0,0.55)]",
+      "shadow-[inset_0_1px_0_rgba(255,255,255,0.1),inset_0_-2px_0_rgba(0,0,0,0.5)]",
       "hover:border-brass hover:text-brass",
-      "active:translate-y-1 active:shadow-[inset_0_2px_4px_rgba(0,0,0,0.35),0_2px_0_rgba(0,0,0,0.55)]",
+      "active:translate-y-px active:shadow-[inset_0_2px_5px_rgba(0,0,0,0.45)]",
       "disabled:border-panel-border disabled:text-concrete-500 disabled:shadow-none",
     ].join(" "),
   };
