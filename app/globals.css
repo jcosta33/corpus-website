@@ -426,3 +426,34 @@ body::after {
     animation: none;
   }
 }
+
+/* Brushed-metal scrollbars — keep the black silky-smooth even when content scrolls
+   (docs sidebar, code blocks, tables, terminal bodies). Tokens only. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-panel-recessed);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-panel-edge), var(--color-panel-border));
+  border-radius: var(--radius-panel);
+  border: 2px solid var(--color-panel-recessed);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-aluminium), var(--color-panel-edge));
+}
+::-webkit-scrollbar-corner {
+  background: var(--color-panel-recessed);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-panel-edge) var(--color-panel-recessed);
+}
+
+/* Branded text selection */
+::selection {
+  background: var(--color-swarm-yellow);
+  color: var(--color-black);
+}

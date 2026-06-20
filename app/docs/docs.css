@@ -16,7 +16,12 @@
   top: 5rem;
   max-height: calc(100vh - 6rem);
   overflow-y: auto;
-  padding-right: 0.5rem;
+  /* recessed instrument well — carry the metal chassis into the docs nav */
+  background: var(--color-panel-recessed);
+  border: 1px solid var(--color-panel-border);
+  border-radius: var(--radius-panel);
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.6);
+  padding: 1rem 0.85rem;
 }
 .docs-nav-group {
   margin-bottom: 1.5rem;
@@ -76,6 +81,8 @@
   background-color: rgba(250, 204, 21, 0.08);
   border-left-color: var(--color-swarm-yellow);
   font-weight: 500;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.45); /* engraved */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 /* ---------- Search (Pagefind UI, themed via its CSS variables) ---------- */
@@ -208,7 +215,8 @@
   padding: 1rem 1.1rem;
   margin: 1.25rem 0;
   overflow-x: auto;
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.55);
+  /* recessed CRT screen — top glint glass + inner shadow, same family as the marketing terminals */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 2px 6px rgba(0, 0, 0, 0.55);
 }
 .docs-prose pre code {
   background: none;

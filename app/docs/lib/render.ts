@@ -14,6 +14,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeStringify from "rehype-stringify";
 import { visit } from "unist-util-visit";
 import type { Root } from "mdast";
+import type { Root as HastRoot } from "hast";
 
 const REPO_ROOT = path.join(CANON, ".."); // the swarm repo root (docs/ lives under it)
 const GH_BLOB = "https://github.com/jcosta33/swarm/blob/main/";
@@ -68,6 +69,16 @@ const selectiveRawHtml: Plugin<[], Root> = () => (tree) => {
   });
 };
 
+// GFM task-list items (`- [ ]` / `- [x]`) render as disabled <input type=checkbox> with no label,
+// which axe flags. Give each an aria-label reflecting its state (a11y; the checkbox is decorative,
+// the list text carries the content).
+const rehypeLabelTaskCheckboxes: Plugin<[], HastRoot> = () => (tree) => {
+  visit(tree, "element", (node) => {
+    if (node.tagName !== "input" || node.properties?.type !== "checkbox") return;
+    node.properties.ariaLabel = node.properties.checked ? "completed" : "to do";
+  });
+};
+
 export async function renderDoc(markdown: string, currentDir: string): Promise<string> {
   const file = await unified()
     .use(remarkParse)
@@ -77,6 +88,7 @@ export async function renderDoc(markdown: string, currentDir: string): Promise<s
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
     .use(rehypeSlug)
+    .use(rehypeLabelTaskCheckboxes)
     .use(rehypeStringify, { allowDangerousHtml: true })
     .process(markdown);
   return String(file);
