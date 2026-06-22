@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  Brain,
   Bug,
   ExternalLink,
   FileCode,
-  FileSearch,
   Files,
   FolderSearch,
   Glasses,
   Hammer,
   Layers,
-  PenTool,
   Puzzle,
   Rocket,
   Scale,
-  ScrollText,
   ShieldCheck,
   Sparkles,
   Swords,
@@ -57,37 +53,17 @@ const stances = [
   {
     skill: "persona-skeptic",
     icon: Scale,
-    use: "judging another agent's work — refute by default, re-run the checks",
-  },
-  {
-    skill: "persona-architect",
-    icon: PenTool,
-    use: "shaping a spec free of smuggled implementation",
-  },
-  {
-    skill: "persona-auditor",
-    icon: FileSearch,
-    use: "recording present state with file:line findings",
-  },
-  {
-    skill: "persona-documentarian",
-    icon: ScrollText,
-    use: "writing human-facing docs a reader can actually follow",
-  },
-  {
-    skill: "persona-researcher",
-    icon: Brain,
-    use: "depth inquiry against primary sources",
-  },
-  {
-    skill: "persona-surveyor",
-    icon: FolderSearch,
-    use: "breadth research across patterns or products",
+    use: "judging another agent's work, deepening an audit, or root-causing — refute by default; the lever is the checks you re-run yourself",
   },
   {
     skill: "persona-challenger",
     icon: Swords,
-    use: "pressure-testing a live proposal before it's built — surface assumptions, steelman the alternative",
+    use: "pressure-testing a live proposal before it's built — surface assumptions, steelman the alternative, ground every challenge externally",
+  },
+  {
+    skill: "persona-surveyor",
+    icon: FolderSearch,
+    use: "breadth research across patterns or products — three named instances per claimed pattern",
   },
   {
     skill: "empirical-proof",
@@ -154,7 +130,7 @@ export default function SkillsPage() {
     <div className="flex flex-col gap-24 py-24">
       <Section>
         <PageHero
-          eyebrow="skills.catalog — 18 skills"
+          eyebrow="skills.catalog — 14 skills"
           title={<>Calma <span className="text-swarm-yellow text-glow">skills</span></>}
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
@@ -215,8 +191,11 @@ export default function SkillsPage() {
           </div>
           <Heading className="mt-3">Conditioning stances</Heading>
           <p className="mt-4 text-concrete-400">
-            Cognitive postures that tilt what the agent looks for and refuses. Load one alongside a
-            task guide when the work needs a particular lens.
+            Cross-cutting cognitive postures that tilt what the agent looks for and refuses — load one
+            alongside a task guide when the work needs a particular lens. These are the stances that
+            apply across several guides; the ones tied to a single kind of work (a spec, an audit, a
+            research note, a doc) already ship folded into that work guide, so you get them by using
+            the guide.
           </p>
         </div>
         <ul className="reveal grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
