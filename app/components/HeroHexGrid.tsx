@@ -1,8 +1,15 @@
-// Six-step seal field — concentric instrument rings plus a hexagram whose six
-// points map to Pull, Spec, Task, Run, Review, Close. Kept as HeroHexGrid for
-// the existing import surface.
+// Six-step seal field — concentric instrument rings plus a six-node loop dial.
+// Kept as HeroHexGrid for the existing import surface.
 const TICKS = Array.from({ length: 72 }, (_, i) => i);
 const GOLD = "#d88a24";
+const LOOP_POINTS = Array.from({ length: 6 }, (_, i) => {
+  const angle = -90 + i * 60;
+  const rad = (angle * Math.PI) / 180;
+  return {
+    x: 300 + Math.cos(rad) * 210,
+    y: 300 + Math.sin(rad) * 210,
+  };
+});
 
 export function HeroHexGrid({ className = "" }: { className?: string }) {
   return (
@@ -48,21 +55,38 @@ export function HeroHexGrid({ className = "" }: { className?: string }) {
           })}
         </g>
 
-        {/* inscribed six-step seal */}
-        <path
-          d="M300 60 L502 410 L98 410 Z"
+        {/* inscribed six-step loop dial */}
+        <polygon
+          points={LOOP_POINTS.map((p) => `${p.x},${p.y}`).join(" ")}
           stroke={GOLD}
           strokeWidth="1"
           strokeLinejoin="round"
           opacity="0.7"
         />
-        <path
-          d="M300 540 L98 190 L502 190 Z"
-          stroke={GOLD}
-          strokeWidth="1"
-          strokeLinejoin="round"
-          opacity="0.7"
-        />
+        {LOOP_POINTS.map((p) => (
+          <line
+            key={`${p.x}-${p.y}`}
+            x1="300"
+            y1="300"
+            x2={p.x}
+            y2={p.y}
+            stroke={GOLD}
+            strokeWidth="0.8"
+            opacity="0.62"
+          />
+        ))}
+        {LOOP_POINTS.map((p) => (
+          <circle
+            key={`node-${p.x}-${p.y}`}
+            cx={p.x}
+            cy={p.y}
+            r="6"
+            fill="none"
+            stroke={GOLD}
+            strokeWidth="1"
+            opacity="0.85"
+          />
+        ))}
       </svg>
     </div>
   );

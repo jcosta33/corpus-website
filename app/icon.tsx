@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
-// Generated at build (works under output:export) — no logo asset needed. The hermetic seal — a gilt
-// ring with an inscribed hexagram and a centred quintessence — on night black; a visual mark, no
+// Generated at build (works under output:export) — no logo asset needed. The six-node loop mark on
+// night black; a visual mark, no
 // brand text. Emits 192 + 512 (purpose any) — the pair Chrome requires for PWA installability, and
 // the favicon Next wires into <head>.
 export const dynamic = "force-static";
@@ -11,8 +11,8 @@ const MARK =
   encodeURIComponent(
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">` +
       `<circle cx="16" cy="16" r="13.6" stroke="#d88a24" stroke-width="1.4"/>` +
-      `<path d="M16 4.5 L25.96 21.75 L6.04 21.75 Z" stroke="#d88a24" stroke-width="1.4" stroke-linejoin="round"/>` +
-      `<path d="M16 27.5 L6.04 10.25 L25.96 10.25 Z" stroke="#d88a24" stroke-width="1.4" stroke-linejoin="round"/>` +
+      `<polygon points="16,4.5 25.96,10.25 25.96,21.75 16,27.5 6.04,21.75 6.04,10.25" stroke="#d88a24" stroke-width="1.4" stroke-linejoin="round"/>` +
+      `<path d="M16 16 L16 4.5 M16 16 L25.96 10.25 M16 16 L25.96 21.75 M16 16 L16 27.5 M16 16 L6.04 21.75 M16 16 L6.04 10.25" stroke="#d88a24" stroke-width="0.9" opacity="0.75"/>` +
       `<circle cx="16" cy="16" r="2.2" fill="#f0b85c"/>` +
       `</svg>`
   );

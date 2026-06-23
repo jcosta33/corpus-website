@@ -68,7 +68,7 @@ the `corpus` repo.
 
 A horizontal or radial diagram (desktop) stacking vertically (mobile) with six
 nodes. Each node has a number, label, and one-sentence explanation. The diagram
-echoes the six-point seal.
+echoes the six-node loop mark.
 
 Verify with: all six steps appear in order; `npm run build` passes.
 

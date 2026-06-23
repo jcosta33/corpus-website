@@ -13,6 +13,7 @@ const navLinks = [
   { label: "Skills", href: "/skills" },
   { label: "Agents", href: "/agents" },
   { label: "CLI", href: "/cli" },
+  { label: "MCP", href: "/mcp" },
   { label: "Get started", href: "/get-started" },
   { label: "Docs", href: "/docs" },
   { label: "GitHub", href: "https://github.com/jcosta33/corpus" },
@@ -23,6 +24,7 @@ const footerLinks = [
   { label: "Skills", href: "/skills" },
   { label: "Agents", href: "/agents" },
   { label: "CLI", href: "/cli" },
+  { label: "MCP", href: "/mcp" },
   { label: "GitHub", href: "https://github.com/jcosta33/corpus" },
   {
     label: "Starter kit",

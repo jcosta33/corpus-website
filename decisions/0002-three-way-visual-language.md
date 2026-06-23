@@ -27,8 +27,8 @@ Adopt a three-way visual language:
 
 1. **1970s institutional sci-fi** — the structure: panels, terminals, grids,
    rails, lamps, switches, and dense operating surfaces.
-2. **Alchemical geometry** — the symbolic layer: gold ink, circles, seals,
-   transmutation labels, and a six-point mark tied to the six corpus steps.
+2. **Alchemical geometry** — the symbolic layer: gold ink, circles, loop marks,
+   transmutation labels, and a six-node mark tied to the six corpus steps.
 3. **Manuscript archive** — the artifact layer: paper insets, folio notes,
    marginalia, pencil rules, stamped labels, and evidence ledgers.
 
@@ -38,7 +38,7 @@ utility with a small ritual charge.
 
 ### Concrete choices
 
-- **Logo:** a compact six-point seal plus lowercase `corpus`.
+- **Logo:** a compact six-node loop mark plus lowercase `corpus`.
 - **Wordmark:** semibold old-style serif or tuned display serif; no wide
   uppercase tracking and no thin elegant weight.
 - **Dark surfaces:** black/graphite chassis for navigation, panels, terminals,

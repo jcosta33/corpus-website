@@ -60,6 +60,7 @@ export function LoopDiagram() {
       y: 50 + Math.sin(rad) * 33,
     };
   });
+  const sealPath = sealPoints.map((point) => `${point.x},${point.y}`).join(" ");
 
   return (
     <div className="reveal flex flex-col gap-8">
@@ -87,18 +88,26 @@ export function LoopDiagram() {
               stroke="rgba(216,138,36,0.36)"
               strokeWidth="0.8"
             />
-            <path
-              d="M50 17 L78.58 66.5 L21.42 66.5 Z"
+            <polygon
+              points={sealPath}
               fill="none"
               stroke="var(--color-aurum)"
               strokeWidth="0.8"
+              strokeLinejoin="round"
             />
-            <path
-              d="M50 83 L21.42 33.5 L78.58 33.5 Z"
-              fill="none"
-              stroke="var(--color-aurum)"
-              strokeWidth="0.8"
-            />
+            {sealPoints.map((point) => (
+              <line
+                key={`spoke-${point.label}`}
+                x1="50"
+                y1="50"
+                x2={point.x}
+                y2={point.y}
+                stroke="var(--color-aurum)"
+                strokeWidth="0.55"
+                opacity="0.72"
+              />
+            ))}
+            <circle cx="50" cy="50" r="2.2" fill="var(--color-aurum)" />
             {sealPoints.map((point) => (
               <g key={point.label}>
                 <circle

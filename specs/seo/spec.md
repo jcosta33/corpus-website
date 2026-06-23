@@ -71,6 +71,7 @@ Verify with: `curl https://<domain>/robots.txt` returns the file.
 - `/get-started`
 - `/skills`
 - `/cli`
+- `/mcp`
 
 The `/kitchen-sink` route is excluded.
 

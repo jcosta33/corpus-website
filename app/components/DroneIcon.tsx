@@ -1,7 +1,16 @@
 import type { CSSProperties } from "react";
 
-// The hermetic seal — a hexagon enclosing a hexagram with a centred quintessence. Echoes the
-// wordmark Logo; used inline as a section glyph. Strokes inherit currentColor.
+const points = [
+  [16, 6],
+  [26, 11],
+  [26, 21],
+  [16, 26],
+  [6, 21],
+  [6, 11],
+];
+
+// The six-node loop mark. Echoes the wordmark Logo; used inline as a section glyph.
+// Strokes inherit currentColor.
 export function DroneIcon({ className = "", style }: { className?: string; style?: CSSProperties }) {
   return (
     <svg
@@ -12,27 +21,25 @@ export function DroneIcon({ className = "", style }: { className?: string; style
       style={style}
       aria-hidden="true"
     >
-      {/* the cell — a hexagon */}
-      <path
-        d="M16 6L26 11V21L16 26L6 21V11L16 6Z"
+      <circle cx="16" cy="16" r="13" stroke="currentColor" strokeWidth="1.1" />
+      <polygon
+        points={points.map(([x, y]) => `${x},${y}`).join(" ")}
         stroke="currentColor"
         strokeWidth="1.3"
         strokeLinejoin="round"
       />
-      {/* hexagram — fire △ and water ▽ joined */}
-      <path
-        d="M16 9 L22.5 20.5 L9.5 20.5 Z"
-        stroke="currentColor"
-        strokeWidth="1.3"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M16 23 L9.5 11.5 L22.5 11.5 Z"
-        stroke="currentColor"
-        strokeWidth="1.3"
-        strokeLinejoin="round"
-      />
-      {/* the quintessence */}
+      {points.map(([x, y]) => (
+        <line
+          key={`${x}-${y}`}
+          x1="16"
+          y1="16"
+          x2={x}
+          y2={y}
+          stroke="currentColor"
+          strokeWidth="0.9"
+          opacity="0.75"
+        />
+      ))}
       <circle cx="16" cy="16" r="1.7" fill="currentColor" />
     </svg>
   );

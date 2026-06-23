@@ -22,6 +22,7 @@ The framework's canonical docs live in the `corpus` repo:
 | `/skills`         | `corpus-skills` repo (future work)                                                                   |
 | `/agents`         | `corpus-agents` repo (Claude-Code-first worker definitions; ADR-0092)                                |
 | `/cli`            | `corpus-cli` repo (future work)                                                                      |
+| `/mcp`            | `corpus-mcp` repo, `corpus` ADR-0085                                                                 |
 
 ## Quarterly review
 

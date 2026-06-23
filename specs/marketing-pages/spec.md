@@ -85,7 +85,7 @@ Plus a link to `docs/ADOPTING.md` in the `corpus` repo.
 
 Verify with: both links resolve; `npm run build` passes.
 
-### AC-006 — `/skills`, `/agents`, and `/cli` are operational reference pages
+### AC-006 — `/skills`, `/agents`, `/cli`, and `/mcp` are operational reference pages
 
 These pages use the three-way visual language without overclaiming:
 
@@ -95,9 +95,11 @@ These pages use the three-way visual language without overclaiming:
   evidence requirements.
 - `/cli` reads as a terminal reference with command groups, expected output, and
   verification notes.
+- `/mcp` reads as a read-only adapter reference with MCP config, tool/resource
+  surface, guardrails, and links to `corpus-mcp`.
 
 Verify with: the routes exist and render; copy matches the sibling repo READMEs;
-no page claims the CLI or agent catalog decides whether code is done.
+no page claims the CLI, agent catalog, or MCP server decides whether code is done.
 
 ### AC-007 — 404 page uses the global shell
 
@@ -120,6 +122,7 @@ and a "Back to corpus" link.
 - `app/get-started/page.tsx`
 - `app/skills/page.tsx`
 - `app/cli/page.tsx`
+- `app/mcp/page.tsx`
 - `app/not-found.tsx`
 
 ## Sources
@@ -131,8 +134,8 @@ All marketing copy derives from the `corpus` framework repo
 - Homepage, `/what-is-corpus`: `docs/01-what-is-corpus.md`
 - `/the-loop`: `docs/02-basic-workflow.md`
 - `/get-started`: `docs/ADOPTING.md`
-- `/skills`, `/agents`, `/cli`: operational reference pages linking to their
-  sibling repos.
+- `/skills`, `/agents`, `/cli`, `/mcp`: operational reference pages linking to
+  their sibling repos and the relevant framework ADRs.
 
 ## Dropped from sources
 

@@ -102,7 +102,7 @@ const commands = [
   },
   {
     cmd: "show <task|spec|review|checks>",
-    what: "Project a parsed artifact as JSON. It is how editors, CI, and the MCP server read your workspace.",
+    what: "Project a parsed artifact as JSON. It is how editors, CI, and corpus-mcp read your workspace.",
     icon: Blocks,
   },
   {
@@ -360,6 +360,16 @@ export default function CliPage() {
             >
               Read the full reference on GitHub →
             </Link>
+          </p>
+          <p className="mt-4 text-concrete-400">
+            Using an MCP-capable client?{" "}
+            <Link
+              href="/mcp/"
+              className="text-corpus-yellow underline hover:no-underline focus-ring rounded-sm"
+            >
+              corpus-mcp exposes the same read and reconcile facts
+            </Link>{" "}
+            without adding verdict authority.
           </p>
         </Card>
       </Section>

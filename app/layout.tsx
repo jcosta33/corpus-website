@@ -29,6 +29,7 @@ const siteGraph = {
         "https://github.com/jcosta33/corpus-starter-kit",
         "https://github.com/jcosta33/corpus-skills",
         "https://github.com/jcosta33/corpus-cli",
+        "https://github.com/jcosta33/corpus-mcp",
       ],
     },
     {

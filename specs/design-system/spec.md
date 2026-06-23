@@ -77,7 +77,7 @@ passes; the rendered HTML contains the font CSS variables.
 A `Shell` component renders on every route via `app/layout.tsx`:
 
 - **Nav:**
-  - Logo: six-point seal plus lowercase `corpus`, linking to `/`.
+  - Logo: six-node loop mark plus lowercase `corpus`, linking to `/`.
   - Links: Product (`/what-is-corpus`), Loop (`/the-loop`), Docs
     (`https://github.com/jcosta33/corpus/blob/main/docs`), GitHub
     (`https://github.com/jcosta33/corpus`).
@@ -113,7 +113,7 @@ without errors; components have TypeScript prop types.
 
 ### AC-005 — Seal and manuscript motifs are reusable
 
-A reusable six-point seal motif maps to Pull, Spec, Task, Run, Review, Close.
+A reusable six-node loop motif maps to Pull, Spec, Task, Run, Review, Close.
 Paper artifact utilities support ruled lines, small source labels, marginal
 notes, and stamped labels without turning full pages into parchment or making
 the copy sound ceremonial.

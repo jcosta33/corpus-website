@@ -51,7 +51,7 @@ workflow. This plan sequences the work so each wave leaves the site green.
 - Homepage live with hero, problem section, loop diagram, example, feature grid,
   and CTA.
 - Marketing pages live: `/what-is-corpus`, `/the-loop`, `/get-started`.
-- Placeholder pages live: `/skills`, `/cli` (post-launch content).
+- Operational reference pages live: `/skills`, `/agents`, `/cli`, `/mcp`.
 - Accessibility, SEO, and testing specs implemented.
 - CI runs build, lint, type check, link check, and accessibility audit on every
   PR.
@@ -133,7 +133,7 @@ workflow. This plan sequences the work so each wave leaves the site green.
 
 - Contrast ratios and reduced motion.
 - Correctness of links to `corpus`, `corpus-starter-kit`, `corpus-skills`,
-  `corpus-cli` repos.
+  `corpus-cli`, `corpus-agents`, and `corpus-mcp` repos.
 - Whether the homepage headline matches the brand position.
 - Whether `/skills` and `/cli` are honest about being future work.
 

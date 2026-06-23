@@ -33,5 +33,6 @@ corpus keeps a human in charge of the firehose. Agents draft, run, and paste the
 - [Documentation home](https://corpusframework.dev/docs/): The full documentation, including the reference layer and the decision ledger.
 - [Get started](https://corpusframework.dev/get-started/): The two adoption paths — copy the starter kit, or run it by hand.
 - [The CLI](https://corpusframework.dev/cli/): The optional reference companion and its command surface.
+- [corpus-mcp](https://corpusframework.dev/mcp/): The optional read-only MCP bridge for agent clients.
 - [Canon on GitHub](https://github.com/jcosta33/corpus): The source repository for the docs, ADRs, and the checks contract.
 - [Starter kit](https://github.com/jcosta33/corpus-starter-kit): The copy-whole workspace template.

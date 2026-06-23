@@ -1,3 +1,12 @@
+const points = [
+  [16, 4.5],
+  [25.96, 10.25],
+  [25.96, 21.75],
+  [16, 27.5],
+  [6.04, 21.75],
+  [6.04, 10.25],
+];
+
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <span
@@ -32,45 +41,35 @@ export function Logo({ className = "" }: { className?: string }) {
           strokeWidth="1"
           opacity="0.95"
         />
-        <path
-          d="M16 4.5 L25.96 21.75 L6.04 21.75 Z"
+        <polygon
+          points={points.map(([x, y]) => `${x},${y}`).join(" ")}
           stroke="url(#corpus-gilt)"
           strokeWidth="1"
           strokeLinejoin="round"
         />
-        <path
-          d="M16 27.5 L6.04 10.25 L25.96 10.25 Z"
-          stroke="url(#corpus-gilt)"
-          strokeWidth="1"
-          strokeLinejoin="round"
-        />
-        {[4.5, 10.25, 21.75, 27.5].map((y, i) => {
-          const points =
-            i === 0
-              ? [[16, y]]
-              : i === 3
-                ? [[16, y]]
-                : i === 1
-                  ? [
-                      [6.04, y],
-                      [25.96, y],
-                    ]
-                  : [
-                      [6.04, y],
-                      [25.96, y],
-                    ];
-          return points.map(([x, py]) => (
+        {points.map(([x, y]) => (
+          <line
+            key={`spoke-${x}-${y}`}
+            x1="16"
+            y1="16"
+            x2={x}
+            y2={y}
+            stroke="url(#corpus-gilt)"
+            strokeWidth="0.65"
+            opacity="0.75"
+          />
+        ))}
+        {points.map(([x, y]) => (
             <circle
-              key={`${x}-${py}`}
+              key={`${x}-${y}`}
               cx={x}
-              cy={py}
+              cy={y}
               r="1.35"
               fill="#080604"
               stroke="url(#corpus-gilt)"
               strokeWidth="0.9"
             />
-          ));
-        })}
+        ))}
         <circle cx="16" cy="16" r="1.55" fill="#d88a24" />
       </svg>
       <span className="leading-none tracking-[0.02em]">corpus</span>
