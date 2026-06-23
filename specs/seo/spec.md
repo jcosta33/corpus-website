@@ -3,7 +3,7 @@ type: spec
 id: SPEC-seo
 title: SEO and social sharing
 status: draft
-owner: swarm-website
+owner: corpus-website
 sources:
   - intake/website.md
   - findings/FINDING-website-launch-gaps.md
@@ -40,7 +40,7 @@ present and within length limits.
 Static OG images live in `public/`:
 
 - `og-home.png`
-- `og-what-is-swarm.png`
+- `og-what-is-corpus.png`
 - `og-the-loop.png`
 - `og-get-started.png`
 
@@ -66,7 +66,7 @@ Verify with: `curl https://<domain>/robots.txt` returns the file.
 `app/sitemap.ts` generates a sitemap including:
 
 - `/`
-- `/what-is-swarm`
+- `/what-is-corpus`
 - `/the-loop`
 - `/get-started`
 - `/skills`

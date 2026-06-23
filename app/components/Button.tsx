@@ -1,4 +1,8 @@
-import type { ButtonHTMLAttributes, ReactNode, AnchorHTMLAttributes } from "react";
+import type {
+  ButtonHTMLAttributes,
+  ReactNode,
+  AnchorHTMLAttributes,
+} from "react";
 import Link from "next/link";
 
 type BaseButtonProps = {
@@ -33,7 +37,7 @@ export function Button({
 
   const styles = {
     primary: [
-      "border border-gold-deep bg-swarm-yellow text-night",
+      "border border-gold-deep bg-corpus-yellow text-night",
       "shadow-[inset_0_1px_0_rgba(255,243,212,0.5),inset_0_-2px_0_rgba(0,0,0,0.35)]",
       "hover:bg-gold-bright",
       "active:translate-y-px active:shadow-[inset_0_2px_5px_rgba(0,0,0,0.45)]",
@@ -51,7 +55,9 @@ export function Button({
   const classes = `${base} ${styles[variant]} ${disabled ? "cursor-not-allowed" : "cursor-pointer"} ${className}`;
 
   if (asChild) {
-    const child = children as React.ReactElement<AnchorHTMLAttributes<HTMLAnchorElement>>;
+    const child = children as React.ReactElement<
+      AnchorHTMLAttributes<HTMLAnchorElement>
+    >;
     const { href, ...childProps } = child.props;
     return (
       <Link

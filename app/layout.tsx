@@ -1,10 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk, EB_Garamond } from "next/font/google";
+import {
+  Inter,
+  JetBrains_Mono,
+  Space_Grotesk,
+  EB_Garamond,
+} from "next/font/google";
 import "./globals.css";
 import { Shell } from "./components/Shell";
 import { JsonLd } from "./components/JsonLd";
 
-const SITE_URL = "https://swarmframework.dev";
+const SITE_URL = "https://corpusframework.dev";
 
 // Site-wide structured data (SEO/GEO). The Organization + WebSite entities give answer engines and
 // crawlers a stable, machine-readable statement of what this is; the SearchAction is wired to the
@@ -20,10 +25,10 @@ const siteGraph = {
       description:
         "Corpus is a lightweight spec-and-review workflow for teams shipping code with coding agents.",
       sameAs: [
-        "https://github.com/jcosta33/swarm",
-        "https://github.com/jcosta33/swarm-starter-kit",
-        "https://github.com/jcosta33/swarm-skills",
-        "https://github.com/jcosta33/swarm-cli",
+        "https://github.com/jcosta33/corpus",
+        "https://github.com/jcosta33/corpus-starter-kit",
+        "https://github.com/jcosta33/corpus-skills",
+        "https://github.com/jcosta33/corpus-cli",
       ],
     },
     {
@@ -81,7 +86,7 @@ const ebGaramond = EB_Garamond({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://swarmframework.dev"),
+  metadataBase: new URL("https://corpusframework.dev"),
   title: "Corpus — A spec-and-review workflow for coding agents",
   description:
     "Corpus is a lightweight framework that helps teams ship better code with agents: specs, tasks, reviews, findings, and change plans.",
@@ -90,7 +95,12 @@ export const metadata: Metadata = {
     siteName: "Corpus",
     locale: "en_US",
     images: [
-      { url: "/og-home.png", width: 1200, height: 630, alt: "Corpus — a spec-and-review workflow for coding agents" },
+      {
+        url: "/og-home.png",
+        width: 1200,
+        height: 630,
+        alt: "Corpus — a spec-and-review workflow for coding agents",
+      },
     ],
   },
   twitter: {

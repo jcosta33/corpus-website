@@ -9,7 +9,7 @@ status: open
 
 Build a public marketing website for the Corpus framework. It should feel like an
 open-source project: tongue-in-cheek, laid back, not corporate. Visual theme:
-drone swarm + bee hive + industrial factory. Yellow primary, concrete greys,
+drone corpus + bee hive + industrial factory. Yellow primary, concrete greys,
 hazard accents.
 
 ## Must cover

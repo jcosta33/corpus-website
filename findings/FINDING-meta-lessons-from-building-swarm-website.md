@@ -1,15 +1,15 @@
 ---
 type: finding
-id: FINDING-meta-lessons-from-building-swarm-website
+id: FINDING-meta-lessons-from-building-corpus-website
 status: accepted
-source: BUILD-swarm-website
+source: BUILD-corpus-website
 ---
 
-# FINDING-meta-lessons-from-building-swarm-website — What building the website taught us about Corpus
+# FINDING-meta-lessons-from-building-corpus-website — What building the website taught us about Corpus
 
 ## Observation
 
-The swarm-website was built using the Corpus framework itself: a change plan, specs per feature,
+The corpus-website was built using the Corpus framework itself: a change plan, specs per feature,
 task files, a content-source contract, findings, an adversarial review, and continuous deployment.
 This finding records the meta-lessons that surfaced during the work.
 
@@ -49,10 +49,10 @@ self-review must produce fixes and critique, but it cannot issue the final Pass.
 
 ### 6. The four repo roles are clearer after using them
 
-- **swarm** — the canonical framework docs and decision ledger.
-- **swarm-starter-kit** — the copy-whole workspace with templates and guides.
-- **swarm-skills** — optional, installable agent guides for stances and change shapes.
-- **swarm-cli** — optional automation around the workflow; transitional but real.
+- **corpus** — the canonical framework docs and decision ledger.
+- **corpus-starter-kit** — the copy-whole workspace with templates and guides.
+- **corpus-skills** — optional, installable agent guides for stances and change shapes.
+- **corpus-cli** — optional automation around the workflow; transitional but real.
 
 Trying to explain each on the website forced a sharper separation than the READMEs imply.
 
@@ -70,7 +70,8 @@ environment-specific detail belongs in the deployment spec, not just in CI.
 ### 9. Mistakes survive despite checklists
 
 Examples from this build:
-- `CONTENT.md` was initially written to the wrong repo (`/Users/josecosta/dev/swarm/`).
+
+- `CONTENT.md` was initially written to the wrong repo (`/Users/josecosta/dev/corpus/`).
 - The logo SVG paths spelled "Moo Vo" instead of "Corpus."
 - An adversarial finding incorrectly claimed the footer nav lacked an accessible name.
 

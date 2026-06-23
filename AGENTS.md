@@ -1,4 +1,4 @@
-# AGENTS.md — swarm-website
+# AGENTS.md — corpus-website
 
 <!-- Keep this file short — aim for ~100 lines. Agents read it on every task,
      so every line spends always-loaded budget. -->

@@ -3,7 +3,7 @@ type: spec
 id: SPEC-marketing-pages
 title: Marketing content pages
 status: draft
-owner: swarm-website
+owner: corpus-website
 sources:
   - intake/website.md
   - specs/design-system/spec.md
@@ -43,16 +43,16 @@ Every page includes:
 
 - A link back to `/`.
 - Links to the other marketing pages where contextually relevant.
-- Links to the `swarm` docs repo for deeper reference.
+- Links to the `corpus` docs repo for deeper reference.
 
 Verify with: crawl the marketing routes and assert no broken internal links;
-external links point to `github.com/jcosta33/swarm*`.
+external links point to `github.com/jcosta33/corpus*`.
 
-### AC-003 — `/what-is-swarm` explains the framework
+### AC-003 — `/what-is-corpus` explains the framework
 
-Content must match the `swarm` repo:
+Content must match the `corpus` repo:
 
-- Definition from `docs/01-what-is-swarm.md` line 5.
+- Definition from `docs/01-what-is-corpus.md` line 5.
 - "What Corpus is" list (lines 31–38).
 - "What Corpus is not" list (lines 40–51).
 - Adjacent-tools table (lines 55–61).
@@ -77,10 +77,10 @@ formatted text.
 
 Two paths:
 
-1. **New repo:** use the `jcosta33/swarm-starter-kit` GitHub template.
+1. **New repo:** use the `jcosta33/corpus-starter-kit` GitHub template.
 2. **Existing project:** copy the kit into a workspace folder.
 
-Plus a link to `docs/ADOPTING.md` in the `swarm` repo.
+Plus a link to `docs/ADOPTING.md` in the `corpus` repo.
 
 Verify with: both links resolve; `npm run build` passes.
 
@@ -88,7 +88,7 @@ Verify with: both links resolve; `npm run build` passes.
 
 These pages are explicitly out of the launch wave. They are reserved routes with
 a placeholder card reading "Coming soon" and a link to the respective GitHub
-repos (`jcosta33/swarm-skills`, `jcosta33/swarm-cli`).
+repos (`jcosta33/corpus-skills`, `jcosta33/corpus-cli`).
 
 Verify with: the routes exist and render; no over-promising copy; links are
 valid.
@@ -109,7 +109,7 @@ and a "Back to hive" link.
 
 ## Affected areas
 
-- `app/what-is-swarm/page.tsx`
+- `app/what-is-corpus/page.tsx`
 - `app/the-loop/page.tsx`
 - `app/get-started/page.tsx`
 - `app/skills/page.tsx`
@@ -118,17 +118,17 @@ and a "Back to hive" link.
 
 ## Sources
 
-All marketing copy derives from the `swarm` framework repo
-(`https://github.com/jcosta33/swarm`). The authoritative sources are tracked in
+All marketing copy derives from the `corpus` framework repo
+(`https://github.com/jcosta33/corpus`). The authoritative sources are tracked in
 `CONTENT.md` and reviewed quarterly for drift.
 
-- Homepage, `/what-is-swarm`: `docs/01-what-is-swarm.md`
+- Homepage, `/what-is-corpus`: `docs/01-what-is-corpus.md`
 - `/the-loop`: `docs/02-basic-workflow.md`
 - `/get-started`: `docs/ADOPTING.md`
 - `/skills`, `/cli`: placeholder pages linking to their future repos.
 
 ## Dropped from sources
 
-- `/docs` subsite — docs live in the `swarm` repo; website links there.
+- `/docs` subsite — docs live in the `corpus` repo; website links there.
 - `/pricing` — Corpus is free/open source.
 - Full customer case studies — none exist.

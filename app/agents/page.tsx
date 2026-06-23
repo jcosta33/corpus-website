@@ -52,22 +52,22 @@ export const metadata: Metadata = {
 
 const readOnly = [
   {
-    agent: "swarm-reviewer",
+    agent: "corpus-reviewer",
     icon: Scale,
     use: "independently review a finished task or PR — re-run Verify, read the diff, draft the packet, no verdict",
   },
   {
-    agent: "swarm-explorer",
+    agent: "corpus-explorer",
     icon: Compass,
     use: "orient in a codebase read-only — locate and trace how something works, then report (no edits, no Bash)",
   },
   {
-    agent: "swarm-evidence-checker",
+    agent: "corpus-evidence-checker",
     icon: ShieldCheck,
     use: "re-run a task's Verify items and paste verbatim output; flag every claim that lacks evidence",
   },
   {
-    agent: "swarm-challenger",
+    agent: "corpus-challenger",
     icon: Swords,
     use: "pressure-test a proposal before it is built — assumptions, the steelmanned alternative, external evidence",
   },
@@ -75,29 +75,29 @@ const readOnly = [
 
 const authoring = [
   {
-    agent: "swarm-spec-author",
+    agent: "corpus-spec-author",
     icon: PenTool,
     use: "draft a spec from an intake note — verifiable requirements, no smuggled implementation",
   },
   {
-    agent: "swarm-researcher",
+    agent: "corpus-researcher",
     icon: Microscope,
     use: "investigate one question against primary sources → a research note, committing to no decision",
   },
   {
-    agent: "swarm-auditor",
+    agent: "corpus-auditor",
     icon: FileSearch,
     use: "audit a code area — present state, file:line, severity by impact, observation not prescription",
   },
   {
-    agent: "swarm-documentarian",
+    agent: "corpus-documentarian",
     icon: ScrollText,
     use: "draft human-facing docs — one Diátaxis frame, every example run as written",
   },
 ];
 
 function repoHref(agent: string) {
-  return `https://github.com/jcosta33/swarm-agents/blob/main/agents/${agent}.md`;
+  return `https://github.com/jcosta33/corpus-agents/blob/main/agents/${agent}.md`;
 }
 
 export default function AgentsPage() {
@@ -106,71 +106,87 @@ export default function AgentsPage() {
       <Section>
         <PageHero
           eyebrow="agents.catalog — 8 agents · claude code · ports to codex"
-          title={<>Corpus <span className="text-swarm-yellow text-glow">agents</span></>}
+          title={
+            <>
+              Corpus{" "}
+              <span className="text-corpus-yellow text-glow">agents</span>
+            </>
+          }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            Claude-Code-first worker definitions for the Corpus roles. Each runs in a fresh, isolated
-            context with its tools scoped to the work — you copy the one file you need.
+            Claude-Code-first worker definitions for the Corpus roles. Each runs
+            in a fresh, isolated context with its tools scoped to the work — you
+            copy the one file you need.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
-            Records and tripwires, never an orchestrator. Nothing here runs a model loop or owns the
-            verdict — a human still decides, and each refuses to grade its own work.
+            Records and tripwires, never an orchestrator. Nothing here runs a
+            model loop or owns the verdict — a human still decides, and each
+            refuses to grade its own work.
           </p>
         </PageHero>
       </Section>
 
       <Section className="flex flex-col gap-8">
-        <div className="flex items-center gap-2 text-xs font-mono uppercase text-swarm-yellow">
+        <div className="flex items-center gap-2 text-xs font-mono uppercase text-corpus-yellow">
           <DroneIcon className="h-4 w-4" />
           <span>install.sh — copy one worker</span>
         </div>
         <Panel brushed className="p-2">
           <TerminalWindow title="terminal">
-            <p className="text-concrete-500"># copy one agent into your repo (Claude Code reads .claude/agents/)</p>
-            <p className="text-concrete-100">
-              <span className="text-swarm-yellow">$</span> mkdir -p &lt;your-repo&gt;/.claude/agents
+            <p className="text-concrete-500">
+              # copy one agent into your repo (Claude Code reads
+              .claude/agents/)
             </p>
             <p className="text-concrete-100">
-              <span className="text-swarm-yellow">$</span> cp agents/swarm-reviewer.md
-              &lt;your-repo&gt;/.claude/agents/
+              <span className="text-corpus-yellow">$</span> mkdir -p
+              &lt;your-repo&gt;/.claude/agents
+            </p>
+            <p className="text-concrete-100">
+              <span className="text-corpus-yellow">$</span> cp
+              agents/corpus-reviewer.md &lt;your-repo&gt;/.claude/agents/
             </p>
             <p className="mt-2 text-concrete-500">
               # optional: the delegation-provenance hook + the read-only guard
             </p>
             <p className="text-concrete-100">
-              <span className="text-swarm-yellow">$</span> cp hooks/delegations.sh
-              hooks/readonly-guard.sh &lt;your-repo&gt;/.claude/hooks/
+              <span className="text-corpus-yellow">$</span> cp
+              hooks/delegations.sh hooks/readonly-guard.sh
+              &lt;your-repo&gt;/.claude/hooks/
             </p>
           </TerminalWindow>
         </Panel>
         <p className="text-concrete-400">
-          These are Claude Code <strong className="text-concrete-100">agents</strong> (
-          <code className="text-swarm-yellow">.claude/agents/</code>), not Agent-Skills, so it is
-          copy-based — <code className="text-swarm-yellow">npx skills</code> installs the{" "}
+          These are Claude Code{" "}
+          <strong className="text-concrete-100">agents</strong> (
+          <code className="text-corpus-yellow">.claude/agents/</code>), not
+          Agent-Skills, so it is copy-based —{" "}
+          <code className="text-corpus-yellow">npx skills</code> installs the{" "}
           <Link
             href="/skills/"
-            className="text-swarm-yellow underline hover:no-underline focus-ring rounded-sm"
+            className="text-corpus-yellow underline hover:no-underline focus-ring rounded-sm"
           >
             skills catalog
           </Link>
           , not these. Like skills, an agent names abstract command slots (
-          <code className="text-swarm-yellow">cmdTest</code>,{" "}
-          <code className="text-swarm-yellow">cmdLint</code>) that your repo&apos;s{" "}
-          <code className="text-swarm-yellow">AGENTS.md</code> fills in.
+          <code className="text-corpus-yellow">cmdTest</code>,{" "}
+          <code className="text-corpus-yellow">cmdLint</code>) that your
+          repo&apos;s <code className="text-corpus-yellow">AGENTS.md</code>{" "}
+          fills in.
         </p>
       </Section>
 
       <Section className="flex flex-col gap-12">
         <div className="max-w-2xl">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase text-swarm-yellow">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase text-corpus-yellow">
             <Sparkles className="h-4 w-4" aria-hidden="true" />
             <span>tier-1.conf — read-only workers</span>
           </div>
           <Heading className="mt-3">Read-only workers</Heading>
           <p className="mt-4 text-concrete-400">
-            Their <code className="text-swarm-yellow">tools</code> allowlist excludes Edit/Write; the
-            ones that keep Bash pair with the read-only guard. Scoping is toolable/partial — it narrows
-            the surface, it is not a sandbox.
+            Their <code className="text-corpus-yellow">tools</code> allowlist
+            excludes Edit/Write; the ones that keep Bash pair with the read-only
+            guard. Scoping is toolable/partial — it narrows the surface, it is
+            not a sandbox.
           </p>
         </div>
         <ul className="reveal grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -192,8 +208,12 @@ export default function AgentsPage() {
                           <Icon className="h-5 w-5" aria-hidden="true" />
                         </HexBadge>
                         <div>
-                          <h3 className="font-mono text-sm font-semibold text-brass">{a.agent}</h3>
-                          <p className="mt-1 text-sm leading-relaxed text-concrete-400">{a.use}</p>
+                          <h3 className="font-mono text-sm font-semibold text-brass">
+                            {a.agent}
+                          </h3>
+                          <p className="mt-1 text-sm leading-relaxed text-concrete-400">
+                            {a.use}
+                          </p>
                         </div>
                       </div>
                       <ExternalLink
@@ -217,9 +237,10 @@ export default function AgentsPage() {
           </div>
           <Heading className="mt-3">Bounded-authoring workers</Heading>
           <p className="mt-4 text-concrete-400">
-            These grant Edit/Write to draft one artifact. Their value is the baked-in discipline,
-            fresh-context isolation, and the delegation trace — not enforcement; a granted Write is not
-            path-locked, and the body says so. Each refuses to self-issue a verdict.
+            These grant Edit/Write to draft one artifact. Their value is the
+            baked-in discipline, fresh-context isolation, and the delegation
+            trace — not enforcement; a granted Write is not path-locked, and the
+            body says so. Each refuses to self-issue a verdict.
           </p>
         </div>
         <ul className="reveal grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -244,7 +265,9 @@ export default function AgentsPage() {
                           <h3 className="font-mono text-sm font-semibold text-drone-green">
                             {a.agent}
                           </h3>
-                          <p className="mt-1 text-sm leading-relaxed text-concrete-400">{a.use}</p>
+                          <p className="mt-1 text-sm leading-relaxed text-concrete-400">
+                            {a.use}
+                          </p>
                         </div>
                       </div>
                       <ExternalLink
@@ -268,17 +291,20 @@ export default function AgentsPage() {
           </div>
           <Heading className="mt-3">What is real, what is honor-system</Heading>
           <p className="mt-4 text-concrete-400">
-            A read-only agent&apos;s <code className="text-swarm-yellow">tools</code> allowlist genuinely
-            drops Edit/Write, and the guard hook trips on the obvious write idioms — but a shell can
-            still write, and a parent permission mode can bypass a hook. Nothing here is labelled
-            &ldquo;enforced.&rdquo; The honest limits are written down, with the bypasses cited.
+            A read-only agent&apos;s{" "}
+            <code className="text-corpus-yellow">tools</code> allowlist
+            genuinely drops Edit/Write, and the guard hook trips on the obvious
+            write idioms — but a shell can still write, and a parent permission
+            mode can bypass a hook. Nothing here is labelled
+            &ldquo;enforced.&rdquo; The honest limits are written down, with the
+            bypasses cited.
           </p>
           <p className="mt-6">
             <Link
-              href="https://github.com/jcosta33/swarm-agents/blob/main/docs/enforcement.md"
+              href="https://github.com/jcosta33/corpus-agents/blob/main/docs/enforcement.md"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-swarm-yellow underline hover:no-underline focus-ring rounded-sm"
+              className="text-corpus-yellow underline hover:no-underline focus-ring rounded-sm"
             >
               Read what the scoping does and does not guarantee →
             </Link>
@@ -290,18 +316,21 @@ export default function AgentsPage() {
             <Network className="h-4 w-4" />
             <span>provenance.note — the delegation trace</span>
           </div>
-          <Heading className="mt-3">Why not just the built-in reviewer?</Heading>
+          <Heading className="mt-3">
+            Why not just the built-in reviewer?
+          </Heading>
           <p className="mt-4 text-concrete-400">
-            You can get far with a built-in agent and a CLAUDE.md. These add a fresh isolated context
-            per role, a hard refusal to self-issue a verdict, and — with the hook — a reviewable
-            delegation trace the built-ins do not emit. Reach for them when that earns its keep.
+            You can get far with a built-in agent and a CLAUDE.md. These add a
+            fresh isolated context per role, a hard refusal to self-issue a
+            verdict, and — with the hook — a reviewable delegation trace the
+            built-ins do not emit. Reach for them when that earns its keep.
           </p>
           <p className="mt-6">
             <Link
-              href="https://github.com/jcosta33/swarm-agents/blob/main/docs/provenance.md"
+              href="https://github.com/jcosta33/corpus-agents/blob/main/docs/provenance.md"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-swarm-yellow underline hover:no-underline focus-ring rounded-sm"
+              className="text-corpus-yellow underline hover:no-underline focus-ring rounded-sm"
             >
               How the delegation trace works →
             </Link>
@@ -317,18 +346,24 @@ export default function AgentsPage() {
           </div>
           <Heading className="mt-3">Claude Code first, and it ports</Heading>
           <p className="mt-4 text-concrete-400">
-            The definitions are authored for Claude Code, but they are the single source — they don&apos;t
-            get hand-copied for other tools. <code className="text-swarm-yellow">swarm agents emit --codex</code>{" "}
-            generates Codex <code className="text-swarm-yellow">.codex/agents/*.toml</code> from the same
-            files, and the shared discipline — evidence over assertion, reconcile-only, no self-issued
-            verdict — ports through the open <code className="text-swarm-yellow">AGENTS.md</code> format that
-            Codex, Cursor, Copilot, Gemini CLI, and Aider all read.
+            The definitions are authored for Claude Code, but they are the
+            single source — they don&apos;t get hand-copied for other tools.{" "}
+            <code className="text-corpus-yellow">
+              corpus agents emit --codex
+            </code>{" "}
+            generates Codex{" "}
+            <code className="text-corpus-yellow">.codex/agents/*.toml</code>{" "}
+            from the same files, and the shared discipline — evidence over
+            assertion, reconcile-only, no self-issued verdict — ports through
+            the open <code className="text-corpus-yellow">AGENTS.md</code>{" "}
+            format that Codex, Cursor, Copilot, Gemini CLI, and Aider all read.
           </p>
           <p className="mt-4 text-concrete-400">
-            What does <em>not</em> travel, stated plainly: the tool-scoping allowlist and the hooks are
-            Claude-Code-only structural enforcement. Every emitted file says so in its header — a Codex
-            adopter gets the prose discipline and scopes tools in their own config. The discipline is
-            portable; the enforcement is not.
+            What does <em>not</em> travel, stated plainly: the tool-scoping
+            allowlist and the hooks are Claude-Code-only structural enforcement.
+            Every emitted file says so in its header — a Codex adopter gets the
+            prose discipline and scopes tools in their own config. The
+            discipline is portable; the enforcement is not.
           </p>
         </Card>
       </Section>
@@ -341,18 +376,18 @@ export default function AgentsPage() {
           </div>
           <Heading className="mt-3">The full catalog</Heading>
           <p className="mt-4 text-concrete-400">
-            Eight workers, two hooks, and the evidence behind the design — all plain markdown plus two
-            short POSIX-sh hooks. Read an agent before you install it; pin to a commit for a stable
-            install.
+            Eight workers, two hooks, and the evidence behind the design — all
+            plain markdown plus two short POSIX-sh hooks. Read an agent before
+            you install it; pin to a commit for a stable install.
           </p>
           <p className="mt-6">
             <Link
-              href="https://github.com/jcosta33/swarm-agents"
+              href="https://github.com/jcosta33/corpus-agents"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-swarm-yellow underline hover:no-underline focus-ring rounded-sm"
+              className="text-corpus-yellow underline hover:no-underline focus-ring rounded-sm"
             >
-              Browse swarm-agents on GitHub →
+              Browse corpus-agents on GitHub →
             </Link>
           </p>
         </Card>

@@ -5,23 +5,23 @@ was last checked against the canonical framework docs.
 
 ## Canonical sources
 
-The framework's canonical docs live in the `swarm` repo:
+The framework's canonical docs live in the `corpus` repo:
 
-- <https://github.com/jcosta33/swarm/blob/main/docs/01-what-is-swarm.md>
-- <https://github.com/jcosta33/swarm/blob/main/docs/ADOPTING.md>
-- <https://github.com/jcosta33/swarm/blob/main/README.md>
+- <https://github.com/jcosta33/corpus/blob/main/docs/01-what-is-corpus.md>
+- <https://github.com/jcosta33/corpus/blob/main/docs/ADOPTING.md>
+- <https://github.com/jcosta33/corpus/blob/main/README.md>
 
 ## Page source map
 
-| Page | Source files in `swarm` repo |
-|---|---|
-| `/` (homepage) | `docs/01-what-is-swarm.md` (problem statement, feature list), `README.md` (tagline) |
-| `/what-is-swarm` | `docs/01-what-is-swarm.md` (definition, is/is-not lists, adjacent-tools table, failure-modes table) |
-| `/the-loop` | `docs/02-basic-workflow.md`, `specs/design-system/spec.md` (loop diagram) |
-| `/get-started` | `docs/ADOPTING.md` (adoption paths) |
-| `/skills` | `swarm-skills` repo (future work) |
-| `/agents` | `swarm-agents` repo (Claude-Code-first worker definitions; ADR-0092) |
-| `/cli` | `swarm-cli` repo (future work) |
+| Page              | Source files in `corpus` repo                                                                        |
+| ----------------- | ---------------------------------------------------------------------------------------------------- |
+| `/` (homepage)    | `docs/01-what-is-corpus.md` (problem statement, feature list), `README.md` (tagline)                 |
+| `/what-is-corpus` | `docs/01-what-is-corpus.md` (definition, is/is-not lists, adjacent-tools table, failure-modes table) |
+| `/the-loop`       | `docs/02-basic-workflow.md`, `specs/design-system/spec.md` (loop diagram)                            |
+| `/get-started`    | `docs/ADOPTING.md` (adoption paths)                                                                  |
+| `/skills`         | `corpus-skills` repo (future work)                                                                   |
+| `/agents`         | `corpus-agents` repo (Claude-Code-first worker definitions; ADR-0092)                                |
+| `/cli`            | `corpus-cli` repo (future work)                                                                      |
 
 ## Quarterly review
 

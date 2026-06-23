@@ -3,7 +3,7 @@ type: spec
 id: SPEC-accessibility
 title: Accessibility standards
 status: draft
-owner: swarm-website
+owner: corpus-website
 sources:
   - intake/website.md
   - findings/FINDING-website-launch-gaps.md
@@ -39,7 +39,7 @@ violations.
 
 All interactive elements (links, buttons, form controls) have a visible focus
 indicator. The default browser outline is acceptable if not overridden; custom
-focus styles use `ring-2 ring-swarm-yellow ring-offset-2
+focus styles use `ring-2 ring-corpus-yellow ring-offset-2
 ring-offset-factory-950`.
 
 Verify with: tab through the page; every focusable element shows a visible

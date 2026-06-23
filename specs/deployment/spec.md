@@ -3,7 +3,7 @@ type: spec
 id: SPEC-deployment
 title: Deployment to Vercel
 status: draft
-owner: swarm-website
+owner: corpus-website
 sources:
   - intake/website.md
   - findings/FINDING-website-launch-gaps.md
@@ -13,7 +13,7 @@ sources:
 
 ## Intent
 
-Define how the swarm-website repo builds and deploys to Vercel from the `main`
+Define how the corpus-website repo builds and deploys to Vercel from the `main`
 branch. The deployment must be reproducible, branch-preview friendly, and
 compatible with the Corpus workspace files living alongside the Next.js app.
 
@@ -31,9 +31,9 @@ The Next.js config sets:
 
 ```ts
 const nextConfig = {
-  output: 'export',
-  distDir: 'dist',
-}
+  output: "export",
+  distDir: "dist",
+};
 ```
 
 Verify with: `npm run build` produces a `dist/` folder with `index.html` and
@@ -59,7 +59,7 @@ it; production URL updates.
 
 ### AC-004 — Custom domain is configured
 
-The site serves from `swarm.dev` (or the chosen domain). `www` redirects to
+The site serves from `corpus.dev` (or the chosen domain). `www` redirects to
 the apex domain or vice versa.
 
 Verify with: visit the domain; the site loads; `curl -I` shows the expected

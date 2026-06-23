@@ -6,4 +6,4 @@
 tmp/
 
 # Local state of the future Corpus CLI (machine state, never committed)
-.swarm/
+.corpus/

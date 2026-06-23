@@ -3,7 +3,7 @@ type: spec
 id: SPEC-homepage
 title: Homepage
 status: draft
-owner: swarm-website
+owner: corpus-website
 sources:
   - intake/website.md
   - specs/design-system/spec.md
@@ -37,10 +37,10 @@ Above the fold:
   and agent output into evidence you can review — plain markdown, any agent, no
   runtime."
 - **Primary CTA:** "Copy the starter kit" linking to
-  `https://github.com/jcosta33/swarm-starter-kit`.
+  `https://github.com/jcosta33/corpus-starter-kit`.
 - **Secondary CTA:** "Read the docs" linking to
-  `https://github.com/jcosta33/swarm/tree/main/docs`.
-- **Visual:** animated SVG hex grid in swarm yellow on the factory-950
+  `https://github.com/jcosta33/corpus/tree/main/docs`.
+- **Visual:** animated SVG hex grid in corpus yellow on the factory-950
   background; subtle, continuous motion.
 
 Verify with: `app/page.tsx` renders the hero; `npm run build` passes; CTAs have
@@ -59,8 +59,8 @@ A section listing the problems Corpus answers:
 Each wall gets a Lucide icon glyph, a one-line title, and a one-sentence
 description matching the Corpus framework's stated problem set.
 
-Verify with: the section renders; text matches `docs/01-what-is-swarm.md` in
-the `swarm` repo.
+Verify with: the section renders; text matches `docs/01-what-is-corpus.md` in
+the `corpus` repo.
 
 ### AC-003 — Loop section visualizes Pull → Spec → Task → Run → Review → Close
 
@@ -98,7 +98,7 @@ Three cards (not four — keep it tight):
 3. **Honesty framework.** Every rule says whether it is convention, checklist,
    toolable, or enforced.
 
-Verify with: cards render; copy is consistent with `swarm` docs.
+Verify with: cards render; copy is consistent with `corpus` docs.
 
 ### AC-007 — Final CTA section
 

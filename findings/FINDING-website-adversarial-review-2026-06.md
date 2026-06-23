@@ -5,7 +5,7 @@ status: fixed
 source: REVIEW-website-adversarial
 ---
 
-# FINDING-website-adversarial-review-2026-06 — Adversarial review of swarm-website launch wave
+# FINDING-website-adversarial-review-2026-06 — Adversarial review of corpus-website launch wave
 
 ## Reviewer stance
 
@@ -16,7 +16,7 @@ re-running.
 ## Validation run (reviewer worktree)
 
 ```
-cd /Users/josecosta/dev/swarm-website
+cd /Users/josecosta/dev/corpus-website
 npm install        # up to date, 2 moderate audit warnings
 npx tsc --noEmit   # pass
 npm run lint       # pass
@@ -101,7 +101,7 @@ npx lighthouse     # performance:100 accessibility:100 bestPractices:100 seo:100
 ## Re-validation run (after fixes)
 
 ```
-cd /Users/josecosta/dev/swarm-website
+cd /Users/josecosta/dev/corpus-website
 npm install        # 0 vulnerabilities
 npx tsc --noEmit   # pass
 npm run lint       # pass

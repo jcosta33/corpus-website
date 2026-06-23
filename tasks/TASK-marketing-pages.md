@@ -17,7 +17,7 @@ status: ready
 
 ## Scope
 
-Implement `/what-is-swarm`, `/the-loop`, `/get-started`, placeholder `/skills`
+Implement `/what-is-corpus`, `/the-loop`, `/get-started`, placeholder `/skills`
 and `/cli`, and the custom 404 page.
 
 ## Do not change
@@ -26,7 +26,7 @@ and `/cli`, and the custom 404 page.
 
 ## Affected areas
 
-- `app/what-is-swarm/page.tsx`
+- `app/what-is-corpus/page.tsx`
 - `app/the-loop/page.tsx`
 - `app/get-started/page.tsx`
 - `app/skills/page.tsx`
@@ -38,14 +38,14 @@ and `/cli`, and the custom 404 page.
 - [ ] `npm run build` exits 0
 - [ ] All routes render without errors
 - [ ] Internal links are valid (linkinator)
-- [ ] Content matches source docs in `swarm` repo
+- [ ] Content matches source docs in `corpus` repo
 
 ## Findings
 
 ## Run summary
 
 - Changed files:
-  - `app/what-is-swarm/page.tsx` — framework explainer with is/is-not lists, adjacent-tools table, failure-modes grid
+  - `app/what-is-corpus/page.tsx` — framework explainer with is/is-not lists, adjacent-tools table, failure-modes grid
   - `app/the-loop/page.tsx` — six-step loop with code examples
   - `app/get-started/page.tsx` — starter-kit and existing-project adoption paths
   - `app/skills/page.tsx` — placeholder "Coming soon" page
