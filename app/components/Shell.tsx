@@ -256,7 +256,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
         {children}
       </main>
 
-      <div className="hazard-trim border-t border-panel-border bg-panel-raised">
+      <div className="gilt-trim border-t border-panel-border bg-panel-raised">
         <Section
           as="footer"
           className="flex flex-col gap-8 py-12 md:flex-row md:items-center md:justify-between"
@@ -270,8 +270,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
               <Logo className="text-base text-concrete-100" />
             </Link>
             <p className="text-sm text-concrete-400">
-              Built with Corpus. The agents don&apos;t get to grade their own
-              homework — a different session reviewed it, a human merged it.
+              Built with Corpus. Keep the evidence; make the call yourself.
             </p>
           </div>
 

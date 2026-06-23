@@ -11,7 +11,6 @@ import {
   Scale,
   ScrollText,
   ShieldCheck,
-  Sparkles,
   Swords,
   Terminal,
 } from "lucide-react";
@@ -23,15 +22,17 @@ import { DroneIcon } from "../components/DroneIcon";
 import { HexBadge } from "../components/HexBadge";
 import { PageHero } from "../components/PageHero";
 import { Heading } from "../components/Heading";
+import { Badge } from "../components/Badge";
+import { PaperArtifact } from "../components/PaperArtifact";
 
 export const metadata: Metadata = {
   title: "Agents — Corpus",
   description:
-    "Claude-Code-first worker definitions for Corpus roles: independent review, read-only exploration, evidence-checking, and bounded authoring. Copy one file. Records and tripwires, never an orchestrator.",
+    "Claude-Code-first worker definitions for Corpus roles: independent review, read-only exploration, evidence-checking, and bounded authoring. Copy one file into your repo.",
   openGraph: {
     title: "Agents — Corpus",
     description:
-      "A copy-based catalog of Claude Code subagent definitions for Corpus roles — each in a fresh isolated context, with a reviewable delegation trace. Records, never an executor.",
+      "A copy-based catalog of Claude Code subagent definitions for Corpus roles, each in a fresh isolated context with an optional delegation trace.",
     type: "website",
     url: "/agents/",
     siteName: "Corpus",
@@ -54,7 +55,7 @@ const readOnly = [
   {
     agent: "corpus-reviewer",
     icon: Scale,
-    use: "independently review a finished task or PR — re-run Verify, read the diff, draft the packet, no verdict",
+    use: "independently review a finished task or PR — re-run Verify, read the diff, draft the packet",
   },
   {
     agent: "corpus-explorer",
@@ -105,25 +106,36 @@ export default function AgentsPage() {
     <div className="flex flex-col gap-24 py-24">
       <Section>
         <PageHero
-          eyebrow="agents.catalog — 8 agents · claude code · ports to codex"
+          eyebrow="worker files / agent roles"
           title={
             <>
-              Corpus{" "}
-              <span className="text-corpus-yellow text-glow">agents</span>
+              Corpus <span className="text-corpus-yellow">agents</span>
             </>
           }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            Claude-Code-first worker definitions for the Corpus roles. Each runs
-            in a fresh, isolated context with its tools scoped to the work — you
-            copy the one file you need.
+            Claude-Code-first worker definitions for Corpus roles: review,
+            exploration, evidence checking, and bounded authoring.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
-            Records and tripwires, never an orchestrator. Nothing here runs a
-            model loop or owns the verdict — a human still decides, and each
-            refuses to grade its own work.
+            These are role files you can copy into a repo. They help route work;
+            they do not run the project for you.
           </p>
         </PageHero>
+      </Section>
+
+      <Section>
+        <PaperArtifact
+          label="note"
+          title="delegation record"
+          meta="worker identity · inputs · tools · evidence"
+          className="mx-auto max-w-3xl"
+        >
+          <p>
+            A worker can return evidence. It cannot certify its own result. The
+            packet still routes review to a human or an independent reviewer.
+          </p>
+        </PaperArtifact>
       </Section>
 
       <Section className="flex flex-col gap-8">
@@ -178,7 +190,7 @@ export default function AgentsPage() {
       <Section className="flex flex-col gap-12">
         <div className="max-w-2xl">
           <div className="flex items-center gap-2 text-xs font-mono uppercase text-corpus-yellow">
-            <Sparkles className="h-4 w-4" aria-hidden="true" />
+            <ShieldCheck className="h-4 w-4" aria-hidden="true" />
             <span>tier-1.conf — read-only workers</span>
           </div>
           <Heading className="mt-3">Read-only workers</Heading>
@@ -188,6 +200,10 @@ export default function AgentsPage() {
             guard. Scoping is toolable/partial — it narrows the surface, it is
             not a sandbox.
           </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <Badge variant="draft">review required</Badge>
+            <Badge variant="unverified">toolable limits</Badge>
+          </div>
         </div>
         <ul className="reveal grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {readOnly.map((a) => {
@@ -231,7 +247,7 @@ export default function AgentsPage() {
 
       <Section className="flex flex-col gap-12">
         <div className="max-w-2xl">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase text-drone-green">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase text-phosphor">
             <Hammer className="h-4 w-4" aria-hidden="true" />
             <span>tier-2.conf — bounded authoring</span>
           </div>
@@ -240,8 +256,12 @@ export default function AgentsPage() {
             These grant Edit/Write to draft one artifact. Their value is the
             baked-in discipline, fresh-context isolation, and the delegation
             trace — not enforcement; a granted Write is not path-locked, and the
-            body says so. Each refuses to self-issue a verdict.
+            body says so.
           </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <Badge variant="ready">bounded draft</Badge>
+            <Badge variant="draft">review required</Badge>
+          </div>
         </div>
         <ul className="reveal grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {authoring.map((a) => {
@@ -255,14 +275,14 @@ export default function AgentsPage() {
                   aria-label={`${a.agent} definition on GitHub (opens in new tab)`}
                   className="group block rounded-sm focus-ring"
                 >
-                  <Card className="h-full border-panel-border hover:border-drone-green/50">
+                  <Card className="h-full border-panel-border hover:border-phosphor/50">
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex items-start gap-4">
                         <HexBadge color="green">
                           <Icon className="h-5 w-5" aria-hidden="true" />
                         </HexBadge>
                         <div>
-                          <h3 className="font-mono text-sm font-semibold text-drone-green">
+                          <h3 className="font-mono text-sm font-semibold text-phosphor">
                             {a.agent}
                           </h3>
                           <p className="mt-1 text-sm leading-relaxed text-concrete-400">
@@ -314,16 +334,16 @@ export default function AgentsPage() {
         <Card screws className="border-panel-border">
           <div className="flex items-center gap-2 text-xs font-mono uppercase text-brass">
             <Network className="h-4 w-4" />
-            <span>provenance.note — the delegation trace</span>
+            <span>delegation trace</span>
           </div>
           <Heading className="mt-3">
             Why not just the built-in reviewer?
           </Heading>
           <p className="mt-4 text-concrete-400">
             You can get far with a built-in agent and a CLAUDE.md. These add a
-            fresh isolated context per role, a hard refusal to self-issue a
-            verdict, and — with the hook — a reviewable delegation trace the
-            built-ins do not emit. Reach for them when that earns its keep.
+            fresh isolated context per role and — with the hook — a reviewable
+            delegation trace the built-ins do not emit. Reach for them when that
+            earns its keep.
           </p>
           <p className="mt-6">
             <Link
@@ -354,7 +374,7 @@ export default function AgentsPage() {
             generates Codex{" "}
             <code className="text-corpus-yellow">.codex/agents/*.toml</code>{" "}
             from the same files, and the shared discipline — evidence over
-            assertion, reconcile-only, no self-issued verdict — ports through
+            assertion and reconcile-only review — ports through
             the open <code className="text-corpus-yellow">AGENTS.md</code>{" "}
             format that Codex, Cursor, Copilot, Gemini CLI, and Aider all read.
           </p>

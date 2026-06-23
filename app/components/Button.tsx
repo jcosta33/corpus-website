@@ -6,7 +6,7 @@ import type {
 import Link from "next/link";
 
 type BaseButtonProps = {
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "ghost";
   children: ReactNode;
   className?: string;
   disabled?: boolean;
@@ -33,7 +33,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const base =
-    "btn toggle inline-flex items-center justify-center gap-2 rounded-panel px-6 py-3 text-base font-semibold focus-ring";
+    "btn toggle inline-flex items-center justify-center gap-2 rounded-[var(--radius-control)] px-6 py-3 text-base font-semibold focus-ring";
 
   const styles = {
     primary: [
@@ -49,6 +49,12 @@ export function Button({
       "hover:border-brass hover:text-brass",
       "active:translate-y-px active:shadow-[inset_0_2px_5px_rgba(0,0,0,0.45)]",
       "disabled:border-panel-border disabled:text-concrete-500 disabled:shadow-none",
+    ].join(" "),
+    ghost: [
+      "border border-transparent bg-transparent text-concrete-400",
+      "hover:border-panel-border hover:bg-panel hover:text-concrete-100",
+      "active:translate-y-px",
+      "disabled:text-concrete-500",
     ].join(" "),
   };
 

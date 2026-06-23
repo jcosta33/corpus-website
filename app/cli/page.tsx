@@ -26,7 +26,7 @@ import { PilotLamp } from "../components/PilotLamp";
 export const metadata: Metadata = {
   title: "CLI — Corpus",
   description:
-    "corpus-cli is optional command-line help for the Corpus workflow: it checks your specs, sets up one git worktree per task, and prints the board. It never owns the review verdict — that is still you.",
+    "corpus-cli is optional command-line help for the Corpus workflow: it checks your specs, sets up one git worktree per task, and prints the board. It does not decide whether code is done.",
   openGraph: {
     title: "CLI — Corpus",
     description:
@@ -62,7 +62,7 @@ const commands = [
   },
   {
     cmd: "check [file]",
-    what: "Lint a spec, or render the whole-workspace verdict. Exit 0 clean / 1 warnings / 2 blocking — so it drops straight into pre-commit and CI.",
+    what: "Lint a spec, or print the whole-workspace check summary. Exit 0 clean / 1 warnings / 2 blocking — so it drops straight into pre-commit and CI.",
     icon: ShieldCheck,
   },
   {
@@ -77,7 +77,7 @@ const commands = [
   },
   {
     cmd: "review <task>",
-    what: "Reconcile a finished run — the agent's self-report against the actual git diff against the spec. Surfaces omitted edits, out-of-scope changes, and unbacked claims. Never a verdict; that stays yours.",
+    what: "Reconcile a finished run — the agent's self-report against the actual git diff against the spec. Surfaces omitted edits, out-of-scope changes, and unbacked claims.",
     icon: ScanEye,
   },
   {
@@ -102,7 +102,7 @@ const commands = [
   },
   {
     cmd: "show <task|spec|review|checks>",
-    what: "Project a parsed artifact as JSON — read-only, renders no verdict. It is how editors, CI, and the MCP server read your workspace.",
+    what: "Project a parsed artifact as JSON. It is how editors, CI, and the MCP server read your workspace.",
     icon: Blocks,
   },
   {
@@ -124,9 +124,9 @@ const principles = [
     text: "The spec, the task, the evidence, the review — plain files you can read, diff, and grep. The CLI reads them; it does not replace them.",
   },
   {
-    title: "It never renders the verdict",
+    title: "It reports checks, not decisions",
     icon: ShieldCheck,
-    text: "corpus check tells you what is malformed or unverified. Whether the code is actually done is a call a human makes, every time.",
+    text: "corpus check tells you what is malformed or unverified. Whether the code is done is still a review decision.",
   },
 ];
 
@@ -138,7 +138,7 @@ export default function CliPage() {
           eyebrow="corpus-cli — reference implementation"
           title={
             <>
-              corpus<span className="text-corpus-yellow text-glow">-cli</span>
+              corpus<span className="text-corpus-yellow">-cli</span>
             </>
           }
         >
@@ -149,12 +149,12 @@ export default function CliPage() {
             finished run against the diff, and prints the board.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
-            It does the typing-adjacent work, not the thinking. It never decides
-            whether your code is done — that is still a human reading evidence.
-            Skip it entirely if you would rather drive by hand.
+            It handles the chores around the work, not the judgment. Skip it
+            entirely if you would rather drive by hand.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Badge variant="hazard">Command surface still settling</Badge>
+            <Badge variant="unverified">Command surface still settling</Badge>
+            <Badge variant="draft">Review stays human</Badge>
             <Badge variant="default">
               Node &gt;= 18.18 · &gt;= 22.6 from source
             </Badge>
@@ -230,7 +230,7 @@ export default function CliPage() {
 
       <Section className="flex flex-col gap-12">
         <div className="max-w-2xl">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase text-drone-green">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase text-phosphor">
             <Bug className="h-4 w-4" aria-hidden="true" />
             <span>commands.md — kept in sync, checked by test</span>
           </div>
@@ -244,7 +244,7 @@ export default function CliPage() {
             <code className="text-corpus-yellow">corpus review</code> reconciles
             a finished run — the agent&apos;s self-report against the real diff
             against the spec — and routes the mismatches to a human, without
-            ever rendering the verdict.
+            deciding whether the change is done.
           </p>
         </div>
         <ul className="grid gap-4 sm:grid-cols-2">
@@ -254,7 +254,7 @@ export default function CliPage() {
               <li key={c.cmd} className="min-w-0">
                 <Card
                   screws
-                  className="group h-full border-panel-border hover:border-drone-green/50"
+                  className="group h-full border-panel-border hover:border-phosphor/50"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex min-w-0 items-start gap-4">
@@ -262,7 +262,7 @@ export default function CliPage() {
                         <Icon className="h-5 w-5" aria-hidden="true" />
                       </HexBadge>
                       <div className="min-w-0">
-                        <h3 className="font-mono text-sm font-semibold text-drone-green break-words">
+                        <h3 className="font-mono text-sm font-semibold text-phosphor break-words">
                           corpus {c.cmd}
                         </h3>
                         <p className="mt-1 text-sm leading-relaxed text-concrete-400">
@@ -290,11 +290,11 @@ export default function CliPage() {
           </Heading>
           <p className="mt-4 text-concrete-400">
             The workflow itself is just conventions and files — you can run all
-            of Corpus with a text editor and a straight face. The CLI is
-            optional: it scaffolds the workspace, runs the checks at a gate, and
+            of Corpus with a text editor. The CLI is
+            optional: it scaffolds the workspace, runs the checks in CI, and
             keeps one worktree per task so parallel agents do not trample each
-            other. It is a helper, not an orchestrator, and it never renders the
-            verdict. Use it for less typing; ignore it if you would rather
+            other. It is a helper, not an orchestrator. Use it for less typing;
+            ignore it if you would rather
             orchestrate by hand.
           </p>
         </div>

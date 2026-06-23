@@ -16,16 +16,16 @@ export default function NotFoundPage() {
         404
       </h1>
       <p className="mt-4 text-2xl font-semibold text-concrete-100">
-        Drone lost signal.
+        Page not found.
       </p>
       <p className="mt-2 max-w-md text-concrete-400">
-        The page you are looking for is not in the hive. Check the URL or head
-        back home.
+        The page you are looking for does not exist. Check the URL or head back
+        home.
       </p>
       <div className="mt-8">
         <Button asChild>
           <Link href="/">
-            <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back to hive
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back to Corpus
           </Link>
         </Button>
       </div>

@@ -1,53 +1,56 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ── Corpus — Hermetic night-sky palette ──────────────────────────────────
-     Deep blue-black ground (the night sky), gilt/gold accents (illumination),
-     cool-neutral ink for text, alchemical verdigris/cinnabar for status. The
-     old industrial token NAMES are kept as aliases so every existing consumer
-     re-skins from this one source. */
+  /* Corpus — 1970s control surface + alchemical signal + manuscript archive. */
+  --color-night: #050506;
+  --color-chassis: #090a0d;
+  --color-panel: #14161c;
+  --color-panel-raised: #1d2028;
+  --color-panel-recessed: #050506;
+  --color-panel-border: #313642;
+  --color-panel-edge: #424857;
 
-  /* Night — backgrounds, deepest first */
-  --color-night: #06070e;
-  --color-night-raised: #0b0d18;
-  --color-night-well: #070811;
-
-  /* Fine lines — cool indigo hairlines and lit edges */
-  --color-line: #222640;
-  --color-line-bright: #3a4063;
-  --color-pewter: #9aa0b6;
-
-  /* Gilt — the illumination accent (replaces the old yellow) */
-  --color-gold: #c9a24a;
-  --color-gold-bright: #ebd08a;
-  --color-gold-deep: #7e6224;
-
-  /* Alchemical status hues */
-  --color-verdigris: #4ca98a;
-  --color-cinnabar: #c56a3a;
-
-  /* Ink — cool near-white text hierarchy on night */
-  --color-concrete-100: #e9e8f0;
-  --color-concrete-200: #d2d3de;
-  --color-concrete-300: #b7b9c8;
-  --color-concrete-400: #888ba0;
-  --color-concrete-500: #7c8096;
-  --color-concrete-900: #0d0e16;
+  --color-albedo: #e8decb;
+  --color-mercury: #a8b0b8;
+  --color-ash: #6f7782;
+  --color-concrete-100: var(--color-albedo);
+  --color-concrete-200: #d8d0c0;
+  --color-concrete-300: #c7bfaf;
+  --color-concrete-400: var(--color-mercury);
+  --color-concrete-500: var(--color-ash);
+  --color-concrete-900: #08090b;
   --color-black: #000000;
 
-  /* ── Aliases: the legacy industrial names map onto the new language ─────── */
-  --color-chassis: var(--color-night);
-  --color-panel-raised: var(--color-night-raised);
-  --color-panel-recessed: var(--color-night-well);
-  --color-panel-border: var(--color-line);
-  --color-panel-edge: var(--color-line-bright);
-  --color-aluminium: var(--color-pewter);
-  --color-brass: var(--color-gold);
-  --color-olive: #343a55;
-  --color-phosphor: var(--color-gold-bright);
-  --color-corpus-yellow: var(--color-gold);
-  --color-hazard-orange: var(--color-cinnabar);
-  --color-drone-green: var(--color-verdigris);
+  --color-aurum: #d6b45a;
+  --color-brass: #b8873a;
+  --color-amber: #f0a83a;
+  --color-phosphor: #48d597;
+  --color-verdigris: #39a7a0;
+  --color-rubedo: #c96a55;
+  --color-void-blue: #24324b;
+  --color-black-text: #08090b;
+
+  --color-paper: #e8decb;
+  --color-paper-warm: #d8cdb9;
+  --color-paper-line: #bfb39e;
+  --color-ink: #08090b;
+  --color-pencil: #58616e;
+
+  /* Compatibility aliases for older component classes while the site migrates. */
+  --color-night-raised: var(--color-panel-raised);
+  --color-night-well: var(--color-panel-recessed);
+  --color-line: var(--color-panel-border);
+  --color-line-bright: var(--color-panel-edge);
+  --color-pewter: var(--color-mercury);
+  --color-gold: var(--color-aurum);
+  --color-gold-bright: #ead48c;
+  --color-gold-deep: #7d6228;
+  --color-cinnabar: var(--color-rubedo);
+  --color-aluminium: var(--color-mercury);
+  --color-olive: var(--color-void-blue);
+  --color-corpus-yellow: var(--color-aurum);
+  --color-hazard-orange: var(--color-rubedo);
+  --color-drone-green: var(--color-phosphor);
 
   --color-background: var(--color-night);
   --color-foreground: var(--color-concrete-100);
@@ -57,12 +60,33 @@
   --font-heading: var(--font-space-grotesk);
   --font-display: var(--font-eb-garamond);
 
-  /* Fine radius — engraved plates, not rounded plastic */
-  --radius-panel: 2px;
+  --radius-panel: 6px;
+  --radius-control: 4px;
 }
 
 :root {
   color-scheme: dark;
+  --c-night: #050506;
+  --c-chassis: #090a0d;
+  --c-panel: #14161c;
+  --c-panel-raised: #1d2028;
+  --c-panel-border: #313642;
+  --c-albedo: #e8decb;
+  --c-mercury: #a8b0b8;
+  --c-ash: #6f7782;
+  --c-aurum: #d6b45a;
+  --c-brass: #b8873a;
+  --c-amber: #f0a83a;
+  --c-phosphor: #48d597;
+  --c-verdigris: #39a7a0;
+  --c-rubedo: #c96a55;
+  --c-void-blue: #24324b;
+  --c-paper: #e8decb;
+  --c-paper-warm: #d8cdb9;
+  --c-paper-line: #bfb39e;
+  --c-ink: #08090b;
+  --c-pencil: #58616e;
+  --c-black-text: #08090b;
 }
 
 html {
@@ -84,72 +108,40 @@ html {
 }
 
 body {
-  /* Night sky: a faint gilt aureole at the crown, a cool indigo nebula behind
-     it, over the deep blue-black ground. */
   background:
-    radial-gradient(
-        120% 80% at 50% -12%,
-        rgba(201, 162, 74, 0.1) 0%,
-        transparent 52%
-      )
-      fixed,
-    radial-gradient(
-        90% 64% at 50% 2%,
-        rgba(58, 64, 99, 0.22) 0%,
-        transparent 58%
-      )
-      fixed,
+    linear-gradient(rgba(49, 54, 66, 0.18) 1px, transparent 1px) fixed,
+    linear-gradient(90deg, rgba(49, 54, 66, 0.14) 1px, transparent 1px) fixed,
+    radial-gradient(120% 80% at 50% -16%, rgba(214, 180, 90, 0.08), transparent 48%) fixed,
+    radial-gradient(90% 70% at 50% 8%, rgba(36, 50, 75, 0.28), transparent 56%) fixed,
     var(--color-background);
+  background-size:
+    48px 48px,
+    48px 48px,
+    auto,
+    auto,
+    auto;
   color: var(--color-foreground);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Starfield — scattered points of light, tiled, with a whisper of paper tooth
-   for warmth and depth. */
+/* Archival tooth — barely visible paper grain over the dark instrument shell. */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.28;
   background-image:
-    radial-gradient(
-      1px 1px at 24px 38px,
-      rgba(233, 232, 240, 0.55),
-      transparent
-    ),
-    radial-gradient(
-      1px 1px at 132px 96px,
-      rgba(233, 232, 240, 0.4),
-      transparent
-    ),
-    radial-gradient(
-      1.4px 1.4px at 188px 156px,
-      rgba(235, 208, 138, 0.55),
-      transparent
-    ),
-    radial-gradient(
-      1px 1px at 76px 210px,
-      rgba(233, 232, 240, 0.35),
-      transparent
-    ),
-    radial-gradient(
-      1.2px 1.2px at 248px 64px,
-      rgba(235, 208, 138, 0.4),
-      transparent
-    ),
-    radial-gradient(
-      1px 1px at 300px 188px,
-      rgba(233, 232, 240, 0.3),
-      transparent
-    );
+    radial-gradient(1px 1px at 18px 22px, rgba(232, 222, 203, 0.16), transparent),
+    radial-gradient(1px 1px at 76px 92px, rgba(232, 222, 203, 0.1), transparent),
+    radial-gradient(1px 1px at 142px 44px, rgba(214, 180, 90, 0.12), transparent),
+    radial-gradient(1px 1px at 210px 132px, rgba(232, 222, 203, 0.1), transparent);
   background-repeat: repeat;
-  background-size: 340px 280px;
+  background-size: 240px 190px;
 }
 
-/* Edge vignette — deepens the night toward the frame, pulls focus to the
-   centre column. */
+/* Edge vignette — deepens the chassis toward the frame. */
 body::after {
   content: "";
   position: fixed;
@@ -159,7 +151,7 @@ body::after {
   background: radial-gradient(
     ellipse 92% 72% at 50% 30%,
     transparent 56%,
-    rgba(0, 0, 0, 0.62) 100%
+    rgba(0, 0, 0, 0.7) 100%
   );
 }
 
@@ -179,9 +171,8 @@ body::after {
   outline-offset: 2px;
 }
 
-/* Gilt band — the engraved divider that replaces the hazard stripe: a fine
-   diagonal guilloché hatch in gold, faint, like the tooling on a book plate. */
-.hazard-stripe {
+/* Gilt band — a fine diagonal guilloche hatch in gold. */
+.gilt-hatch {
   background-image: repeating-linear-gradient(
     45deg,
     transparent,
@@ -232,7 +223,7 @@ body::after {
   animation: scanline 8s linear infinite;
 }
 
-/* Slow celestial rotation — for alchemical rings */
+/* Slow instrument rotation — for alchemical rings */
 @keyframes rotate-slow {
   from {
     transform: rotate(0deg);
@@ -269,12 +260,7 @@ body::after {
   }
 }
 
-/* Gilt glow */
-.text-glow {
-  text-shadow: 0 0 18px rgba(201, 162, 74, 0.4);
-}
-
-/* Hexagonal clip — the hermetic cell */
+/* Hexagonal clip — the seal cell */
 .clip-hex {
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
@@ -283,31 +269,31 @@ body::after {
 .panel-raised {
   position: relative;
   border-radius: var(--radius-panel);
-  border: 1px solid var(--color-line);
-  background-color: var(--color-night-raised);
+  border: 1px solid var(--color-panel-border);
+  background-color: var(--color-panel-raised);
   background-image: linear-gradient(
     180deg,
-    rgba(233, 232, 240, 0.04) 0%,
+    rgba(232, 222, 203, 0.045) 0%,
     transparent 38%
   );
   box-shadow:
-    inset 0 1px 0 rgba(233, 232, 240, 0.06),
+    inset 0 1px 0 rgba(232, 222, 203, 0.06),
     inset 0 -1px 0 rgba(0, 0, 0, 0.55),
     0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Recessed well / screen — a deep inset with a faint gilt breath at the top */
+/* Recessed well / screen — a deep inset terminal cavity. */
 .panel-inset {
   position: relative;
   border-radius: var(--radius-panel);
-  border: 1px solid var(--color-line);
-  background-color: var(--color-night-well);
+  border: 1px solid var(--color-panel-border);
+  background-color: var(--color-night);
   box-shadow:
     inset 0 3px 9px rgba(0, 0, 0, 0.72),
     inset 0 0 64px rgba(0, 0, 0, 0.45);
 }
 
-/* Fine vertical engraving tooth — a subtler successor to brushed metal */
+/* Fine vertical engraving tooth — manuscript ruling meets machine plate. */
 .brushed-metal::before {
   content: "";
   position: absolute;
@@ -318,13 +304,13 @@ body::after {
     90deg,
     transparent,
     transparent 2px,
-    rgba(233, 232, 240, 0.022) 2px,
-    rgba(233, 232, 240, 0.022) 3px
+    rgba(232, 222, 203, 0.025) 2px,
+    rgba(232, 222, 203, 0.025) 3px
   );
-  opacity: 0.6;
+  opacity: 0.48;
 }
 
-/* Binding bosses — soft gilt-rimmed studs along top/bottom edges */
+/* Binding bosses — small fasteners like a bolted archival plate. */
 .rivet-row {
   position: relative;
 }
@@ -339,11 +325,11 @@ body::after {
   pointer-events: none;
   background-image: radial-gradient(
     circle at center,
-    var(--color-gold-deep) 1.6px,
+    var(--color-brass) 1.4px,
     transparent 2.2px
   );
   background-size: 26px 8px;
-  opacity: 0.55;
+  opacity: 0.42;
 }
 
 .rivet-row::before {
@@ -450,11 +436,11 @@ body::after {
       rgba(255, 248, 224, 0.7),
       transparent 42%
     ),
-    var(--color-gold);
+    var(--color-amber);
   box-shadow:
     inset 0 1px 1px rgba(0, 0, 0, 0.4),
-    0 0 12px rgba(201, 162, 74, 0.7),
-    0 0 4px var(--color-gold-bright);
+    0 0 10px rgba(240, 168, 58, 0.48),
+    0 0 3px var(--color-amber);
 }
 
 .pilot-lamp-green {
@@ -464,11 +450,25 @@ body::after {
       rgba(233, 255, 244, 0.7),
       transparent 42%
     ),
+    var(--color-phosphor);
+  box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.4),
+    0 0 10px rgba(72, 213, 151, 0.42),
+    0 0 3px var(--color-phosphor);
+}
+
+.pilot-lamp-teal {
+  background:
+    radial-gradient(
+      circle at 35% 35%,
+      rgba(232, 255, 253, 0.7),
+      transparent 42%
+    ),
     var(--color-verdigris);
   box-shadow:
     inset 0 1px 1px rgba(0, 0, 0, 0.4),
-    0 0 12px rgba(76, 169, 138, 0.65),
-    0 0 4px var(--color-verdigris);
+    0 0 10px rgba(57, 167, 160, 0.42),
+    0 0 3px var(--color-verdigris);
 }
 
 .pilot-lamp-red {
@@ -478,11 +478,11 @@ body::after {
       rgba(255, 236, 230, 0.7),
       transparent 42%
     ),
-    var(--color-cinnabar);
+    var(--color-rubedo);
   box-shadow:
     inset 0 1px 1px rgba(0, 0, 0, 0.4),
-    0 0 12px rgba(197, 106, 58, 0.65),
-    0 0 4px var(--color-cinnabar);
+    0 0 10px rgba(201, 106, 85, 0.42),
+    0 0 3px var(--color-rubedo);
 }
 
 .pilot-lamp-off {
@@ -496,15 +496,13 @@ body::after {
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Engraved / stamped label text — imprint with a gilt under-light */
+/* Engraved / stamped label text */
 .engraved {
   color: var(--color-concrete-300);
-  text-shadow:
-    0 -1px 0 rgba(0, 0, 0, 0.75),
-    0 1px 0 rgba(235, 208, 138, 0.1);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
 }
 
-/* Aged-glass screen — a deep well with a faint gilt cast */
+/* Aged-glass screen — terminal well, readable before theatrical. */
 .crt-screen {
   position: relative;
   background-color: var(--color-night-well);
@@ -541,16 +539,71 @@ body::after {
       transparent 50%,
       rgba(0, 0, 0, 0.38) 100%
     ),
-    linear-gradient(180deg, rgba(201, 162, 74, 0.045) 0%, transparent 100%);
+    linear-gradient(180deg, rgba(214, 180, 90, 0.035) 0%, transparent 100%);
   z-index: 2;
 }
 
-/* Gilt rule — a thin illuminated top accent (was the hazard chevron trim) */
-.hazard-trim {
+/* Manuscript artifact — specs, review packets, findings, source notes. */
+.paper-artifact {
+  position: relative;
+  color: var(--color-ink);
+  border: 1px solid rgba(184, 135, 58, 0.52);
+  border-radius: var(--radius-panel);
+  background:
+    linear-gradient(90deg, rgba(191, 179, 158, 0.28) 1px, transparent 1px),
+    repeating-linear-gradient(
+      180deg,
+      transparent 0,
+      transparent 31px,
+      rgba(111, 119, 130, 0.22) 32px
+    ),
+    linear-gradient(180deg, var(--color-paper), var(--color-paper-warm));
+  background-size:
+    40px 100%,
+    100% 32px,
+    auto;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 0 rgba(8, 9, 11, 0.08),
+    0 12px 28px rgba(0, 0, 0, 0.28);
+}
+
+.paper-artifact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 18px 22px, rgba(8, 9, 11, 0.07), transparent),
+    radial-gradient(1px 1px at 84px 66px, rgba(8, 9, 11, 0.05), transparent),
+    radial-gradient(1px 1px at 148px 18px, rgba(184, 135, 58, 0.09), transparent);
+  background-size: 180px 120px;
+  opacity: 0.7;
+}
+
+.paper-stamp {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(8, 9, 11, 0.42);
+  border-radius: var(--radius-control);
+  color: var(--color-ink);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  line-height: 1;
+  padding: 0.26rem 0.38rem;
+  text-transform: uppercase;
+  transform: rotate(-1deg);
+}
+
+/* Gilt rule — a thin illuminated top accent */
+.gilt-trim {
   position: relative;
 }
 
-.hazard-trim::before {
+.gilt-trim::before {
   content: "";
   position: absolute;
   left: 0;

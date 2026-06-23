@@ -101,14 +101,14 @@ export default function WritingSkillsPage() {
           title={
             <>
               Writing a{" "}
-              <span className="text-corpus-yellow text-glow">skill</span>
+              <span className="text-corpus-yellow">skill</span>
             </>
           }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
             A skill is a markdown file your agent reads when the work matches.
-            It is instructions, not magic — and like any prompt, its structure
-            determines whether it actually fires.
+            It is instructions with a load trigger — and like any prompt, its
+            structure determines whether it actually fires.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
             This page distills the evidence-backed authoring guide from the{" "}
@@ -259,9 +259,9 @@ export default function WritingSkillsPage() {
         <div className="grid gap-6 lg:grid-cols-2">
           <Card
             screws
-            className="border-panel-border hover:border-hazard-orange/50"
+            className="border-panel-border hover:border-rubedo/50"
           >
-            <h3 className="font-heading text-sm font-bold uppercase tracking-wide text-hazard-orange">
+            <h3 className="font-heading text-sm font-bold uppercase tracking-wide text-rubedo">
               Passive (weak)
             </h3>
             <p className="mt-2 font-mono text-sm text-concrete-400">
@@ -275,9 +275,9 @@ export default function WritingSkillsPage() {
           </Card>
           <Card
             screws
-            className="border-panel-border hover:border-drone-green/50"
+            className="border-panel-border hover:border-phosphor/50"
           >
-            <h3 className="font-heading text-sm font-bold uppercase tracking-wide text-drone-green">
+            <h3 className="font-heading text-sm font-bold uppercase tracking-wide text-phosphor">
               Directive (strong)
             </h3>
             <p className="mt-2 font-mono text-sm text-concrete-400">
@@ -329,7 +329,7 @@ export default function WritingSkillsPage() {
 
       <Section id="body-anatomy" className="flex flex-col gap-12">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase text-drone-green">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase text-phosphor">
             <BookOpen className="h-4 w-4" />
             <span>body.md — the rules that fire after activation</span>
           </div>
@@ -410,7 +410,7 @@ export default function WritingSkillsPage() {
 
       <Section id="forced-visible-output" className="flex flex-col gap-12">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase text-hazard-orange">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase text-rubedo">
             <Zap className="h-4 w-4" />
             <span>execution.log — make the invisible visible</span>
           </div>
@@ -518,49 +518,49 @@ export default function WritingSkillsPage() {
           </p>
           <ul className="mt-4 grid gap-2 sm:grid-cols-2">
             <li className="flex items-start gap-2 text-concrete-400">
-              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-drone-green" />
+              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-phosphor" />
               <span>
                 <strong>Multi-session</strong> — likely to span more than one
                 agent session
               </span>
             </li>
             <li className="flex items-start gap-2 text-concrete-400">
-              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-drone-green" />
+              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-phosphor" />
               <span>
-                <strong>Iterative gates</strong> — validate → fix → re-validate
+                <strong>Iteration</strong> — validate → fix → re-validate
                 cycles
               </span>
             </li>
             <li className="flex items-start gap-2 text-concrete-400">
-              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-drone-green" />
+              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-phosphor" />
               <span>
                 <strong>Hypothesis tracking</strong> — multiple competing
                 explanations
               </span>
             </li>
             <li className="flex items-start gap-2 text-concrete-400">
-              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-drone-green" />
+              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-phosphor" />
               <span>
                 <strong>Multi-stage plan</strong> — four or more distinct phases
               </span>
             </li>
             <li className="flex items-start gap-2 text-concrete-400">
-              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-drone-green" />
+              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-phosphor" />
               <span>
                 <strong>State separate from deliverable</strong> — working state
                 is not the final artefact
               </span>
             </li>
             <li className="flex items-start gap-2 text-concrete-400">
-              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-drone-green" />
+              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-phosphor" />
               <span>
-                <strong>Verification gates</strong> — paste-output proof
+                <strong>Verification checks</strong> — pasted command output
                 required
               </span>
             </li>
           </ul>
           <p className="mt-6 text-concrete-400">
-            Personas and cross-cutting quality gates like{" "}
+            Personas and cross-cutting quality checks like{" "}
             <code className="text-corpus-yellow">empirical-proof</code>{" "}
             deliberately ship no template — their discipline lives in the body
             and surfaces inside whichever workflow&apos;s task file is in play.
@@ -570,7 +570,7 @@ export default function WritingSkillsPage() {
 
       <Section id="scope" className="flex flex-col gap-12">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase text-hazard-orange">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase text-rubedo">
             <Box className="h-4 w-4" />
             <span>scope.txt — what stays out</span>
           </div>
@@ -586,7 +586,7 @@ export default function WritingSkillsPage() {
             <li key={item.title}>
               <Card screws className="h-full border-panel-border">
                 <div className="flex items-start justify-between gap-2">
-                  <h3 className="font-heading text-sm font-bold uppercase tracking-wide text-hazard-orange">
+                  <h3 className="font-heading text-sm font-bold uppercase tracking-wide text-rubedo">
                     {item.title}
                   </h3>
                   <PilotLamp color="red" className="shrink-0" />

@@ -40,7 +40,7 @@ violations.
 All interactive elements (links, buttons, form controls) have a visible focus
 indicator. The default browser outline is acceptable if not overridden; custom
 focus styles use `ring-2 ring-corpus-yellow ring-offset-2
-ring-offset-factory-950`.
+ring offset matching the dark chassis.
 
 Verify with: tab through the page; every focusable element shows a visible
 indicator.
@@ -62,7 +62,8 @@ Verify with: `axe-core` reports no "image-alt" or "button-name" violations.
 ### AC-005 — Reduced motion is respected
 
 All CSS animations and transitions honor `prefers-reduced-motion: reduce`. The
-hero hex grid stops animating; hover transitions become instant.
+seal, lamp, terminal, and diagram motion stops; hover transitions become
+instant.
 
 Verify with: enable reduced motion in OS/browser; reload the page; no motion
 persists.

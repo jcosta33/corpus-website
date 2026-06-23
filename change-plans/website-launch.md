@@ -46,7 +46,8 @@ workflow. This plan sequences the work so each wave leaves the site green.
 ## Target state
 
 - Static Next.js site deployed to Vercel from `main`.
-- Design system implemented with yellow/factory/drone aesthetic.
+- Design system implemented with 1970s sci-fi structure, alchemical geometry,
+  and manuscript artifact surfaces.
 - Homepage live with hero, problem section, loop diagram, example, feature grid,
   and CTA.
 - Marketing pages live: `/what-is-corpus`, `/the-loop`, `/get-started`.

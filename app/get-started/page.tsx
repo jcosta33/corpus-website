@@ -7,6 +7,7 @@ import { Button } from "../components/Button";
 import { Panel } from "../components/Panel";
 import { TerminalWindow } from "../components/TerminalWindow";
 import { Heading } from "../components/Heading";
+import { PaperArtifact } from "../components/PaperArtifact";
 
 export const metadata: Metadata = {
   title: "Get started — Corpus",
@@ -65,14 +66,14 @@ export default function GetStartedPage() {
       <Section>
         <div className="max-w-3xl">
           <div className="flex items-center gap-2 text-xs font-mono uppercase text-brass">
-            <span>onboarding / boot sequence</span>
+            <span>setup / first workspace</span>
           </div>
-          <h1 className="mt-3 font-heading text-4xl font-bold uppercase tracking-tight text-concrete-100 sm:text-5xl">
+          <h1 className="mt-3 font-heading text-4xl font-bold tracking-tight text-concrete-100 sm:text-5xl">
             Get started
           </h1>
           <p className="mt-6 text-xl leading-relaxed text-concrete-400">
             Pick a path. Either way you write specs and tasks in plain markdown
-            — the agent gets a clear brief, and you keep the keys.
+            — the agent gets a clear brief, and the review gets evidence.
           </p>
         </div>
       </Section>
@@ -182,6 +183,17 @@ export default function GetStartedPage() {
 
       <Section className="flex flex-col gap-8">
         <Heading>What the starter kit gives you</Heading>
+        <PaperArtifact
+          label="note"
+          title="starter kit contents"
+          meta="workspace / committed artifacts"
+          className="max-w-3xl"
+        >
+          <p>
+            AGENTS.md sets the local contract. Templates shape the records.
+            Status and findings keep the work legible after the session ends.
+          </p>
+        </PaperArtifact>
         <ul className="reveal grid gap-4 sm:grid-cols-2">
           <li className="flex items-start gap-3 text-concrete-400">
             <ListDot />

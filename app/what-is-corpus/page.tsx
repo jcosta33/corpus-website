@@ -4,6 +4,7 @@ import { Section } from "../components/Section";
 import { Card } from "../components/Card";
 import { Panel } from "../components/Panel";
 import { TerminalWindow } from "../components/TerminalWindow";
+import { PaperArtifact } from "../components/PaperArtifact";
 import { DroneIcon } from "../components/DroneIcon";
 import { HexBadge } from "../components/HexBadge";
 import { PageHero } from "../components/PageHero";
@@ -25,11 +26,11 @@ import { Button } from "../components/Button";
 export const metadata: Metadata = {
   title: "What is Corpus — Corpus",
   description:
-    "AI writes code that looks right. Corpus is a lightweight spec-and-review workflow that keeps humans in the driver seat. Plain markdown; no runtime required.",
+    "Corpus is a lightweight spec-and-review workflow for teams using coding agents. Plain markdown; no runtime required.",
   openGraph: {
     title: "What is Corpus — Corpus",
     description:
-      "Corpus is a lightweight spec and review workflow that keeps humans in the driver seat while coding agents do the work. Plain markdown; no runtime required.",
+      "Corpus is a lightweight spec and review workflow for teams using coding agents. Plain markdown; no runtime required.",
     type: "website",
     url: "/what-is-corpus/",
     siteName: "Corpus",
@@ -74,8 +75,8 @@ const isNotList = [
   "a complete SDLC platform",
   "a formal verification system",
   "a guarantee that agent output is correct",
-  "a license to vibe-code and hope for the best",
-  "a magic fix for AI hallucinations",
+  "permission to skip review",
+  "a way to treat plausible output as proof",
   "a way to remove humans from decisions",
 ];
 
@@ -92,7 +93,7 @@ const adjacent = [
     examples: "",
     does: "turn a written spec into an implementation",
     relation:
-      "Same family, opposite end. They optimize authoring the spec and generating the code; Corpus bets on the review side — every requirement carries a verification method, and the packet shows the evidence per requirement. Honestly? Author with one, gate with the other.",
+      "Same family, different job. They help author the spec and generate code; Corpus focuses on the review side — every requirement carries a verification method, and the packet shows the evidence per requirement.",
   },
   {
     product: "Issue trackers",
@@ -111,7 +112,7 @@ const adjacent = [
   {
     product: "Review tooling",
     examples: "PRs, CI, review bots",
-    does: "gate the merge",
+    does: "check the merge",
     relation:
       "Corpus does not replace the PR. The review packet rides alongside it and tells the reviewer where to look; CI output is the evidence the packet cites.",
   },
@@ -171,19 +172,19 @@ export default function WhatIsCorpusPage() {
           title={
             <>
               What is{" "}
-              <span className="text-corpus-yellow text-glow">Corpus</span>
+              <span className="text-corpus-yellow">Corpus</span>
             </>
           }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            A lightweight spec-and-review discipline for teams using coding
-            agents. Corpus assumes the agent will drift, over-engineer, or skip
-            the edge case — and gives you the files to catch it before it ships.
+            A lightweight spec-and-review workflow for teams using coding
+            agents. Corpus turns intent into files an agent can run and a human
+            can verify.
           </p>
         </PageHero>
       </Section>
 
-      <Section>
+      <Section className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
         <Panel brushed className="mx-auto max-w-3xl p-2">
           <TerminalWindow title="diagnostics" className="mx-auto max-w-3xl">
             <p className="text-concrete-400">
@@ -195,10 +196,10 @@ export default function WhatIsCorpusPage() {
               agents. Turn tickets into clear specs, specs into agent-ready
               tasks, and agent output into evidence a human can review.
             </p>
-            <p className="mt-2 text-drone-green">✓ agent does the typing</p>
-            <p className="text-drone-green">✓ human owns the gates</p>
-            <p className="text-drone-green">✓ every claim needs evidence</p>
-            <p className="text-drone-green">
+            <p className="mt-2 text-phosphor">✓ agent does the typing</p>
+            <p className="text-phosphor">✓ human makes the call</p>
+            <p className="text-phosphor">✓ every claim needs evidence</p>
+            <p className="text-phosphor">
               ✓ plain markdown, any agent, no runtime
             </p>
             <p className="mt-2 text-concrete-400">
@@ -206,11 +207,22 @@ export default function WhatIsCorpusPage() {
             </p>
           </TerminalWindow>
         </Panel>
+        <PaperArtifact
+          label="example"
+          title="artifact chain"
+          meta="intake -> spec -> task -> review -> finding"
+        >
+          <p>Intent becomes a requirement.</p>
+          <p className="text-pencil">The task bounds what may change.</p>
+          <p>The run pastes evidence.</p>
+          <p className="text-pencil">The review routes exceptions.</p>
+          <p>The finding preserves what the next task should know.</p>
+        </PaperArtifact>
       </Section>
 
       <Section className="reveal grid gap-12 lg:grid-cols-2">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono uppercase text-drone-green">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase text-phosphor">
             <CheckCircle className="h-4 w-4" aria-hidden="true" />
             <span>what it is</span>
           </div>
@@ -234,7 +246,7 @@ export default function WhatIsCorpusPage() {
         </div>
 
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono uppercase text-hazard-orange">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase text-rubedo">
             <XCircle className="h-4 w-4" aria-hidden="true" />
             <span>what it is not</span>
           </div>
@@ -260,7 +272,7 @@ export default function WhatIsCorpusPage() {
         <div className="max-w-2xl">
           <div className="flex items-center gap-2 text-xs font-mono uppercase text-corpus-yellow">
             <DroneIcon className="h-4 w-4" />
-            <span>network.map — adjacent nodes</span>
+            <span>nearby tools</span>
           </div>
           <Heading className="mt-3">Where Corpus sits</Heading>
         </div>
@@ -295,9 +307,9 @@ export default function WhatIsCorpusPage() {
 
       <Section className="flex flex-col gap-12">
         <div className="max-w-2xl">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase text-hazard-orange">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase text-rubedo">
             <ShieldAlert className="h-4 w-4" aria-hidden="true" />
-            <span>dross.log — failure modes detected</span>
+            <span>common failure modes</span>
           </div>
           <Heading className="mt-3">
             Failure modes you are already seeing
@@ -308,7 +320,7 @@ export default function WhatIsCorpusPage() {
             <li key={fm.mode}>
               <Card
                 screws
-                className="group h-full border-panel-border hover:border-hazard-orange/50"
+                className="group h-full border-panel-border hover:border-rubedo/50"
               >
                 <div className="flex items-start gap-3">
                   <HexBadge color="orange">
@@ -339,7 +351,7 @@ export default function WhatIsCorpusPage() {
             <Heading>See how it actually runs</Heading>
             <p className="mt-2 text-concrete-400">
               Six steps, each producing a file the next one reads. That is the
-              whole framework — no runtime, no magic.
+              whole framework: no runtime, no automatic decision.
             </p>
           </div>
           <Button asChild className="w-full md:w-auto">

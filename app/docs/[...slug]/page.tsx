@@ -134,6 +134,7 @@ export default async function DocPage({
   if (md === null) notFound();
   const dir = path.posix.dirname(slugPath);
   const { html, headings } = await renderDoc(md, dir === "." ? "" : dir);
+  const dates = docDates(slugPath);
 
   // Prev/next within the reading order, so a deep-doc / search landing isn't a dead end. Use each
   // doc's real title (not the short nav label) so a section-index page reads as e.g. "Worked
@@ -155,10 +156,24 @@ export default async function DocPage({
           slug,
           titleOf(md),
           descriptionOf(md),
-          docDates(slugPath),
+          dates,
         )}
       />
       <div className="docs-prose" data-pagefind-body>
+        <div className="docs-source-note" data-pagefind-ignore>
+          <span className="paper-stamp">source</span>
+          <span>
+            Source:{" "}
+            <Link
+              href={`https://github.com/jcosta33/corpus/blob/main/docs/${slugPath}.md`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              corpus/docs/{slugPath}.md
+            </Link>
+          </span>
+          {dates && <span>Modified: {dates.modified.slice(0, 10)}</span>}
+        </div>
         <div dangerouslySetInnerHTML={{ __html: html }} />
 
         {(prev || next) && (

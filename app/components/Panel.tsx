@@ -7,7 +7,7 @@ export interface PanelProps {
   brushed?: boolean;
   rivets?: boolean;
   screws?: boolean;
-  hazard?: boolean;
+  gilt?: boolean;
 }
 
 export function Panel({
@@ -17,7 +17,7 @@ export function Panel({
   brushed = false,
   rivets = false,
   screws = false,
-  hazard = false,
+  gilt = false,
 }: PanelProps) {
   const base = variant === "inset" ? "panel-inset" : "panel-raised";
   return (
@@ -38,9 +38,9 @@ export function Panel({
           aria-hidden="true"
         />
       )}
-      {hazard && (
+      {gilt && (
         <div
-          className="hazard-trim absolute inset-0 pointer-events-none z-0"
+          className="gilt-trim absolute inset-0 pointer-events-none z-0"
           aria-hidden="true"
         />
       )}

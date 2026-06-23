@@ -7,9 +7,10 @@ import { ToggleButton } from "../components/ToggleButton";
 import { RackRow } from "../components/RackRow";
 import { Section } from "../components/Section";
 import { CodeBlock } from "../components/CodeBlock";
-import { HazardStripe } from "../components/HazardStripe";
+import { GiltBand } from "../components/GiltBand";
 import { TerminalWindow } from "../components/TerminalWindow";
 import { Heading } from "../components/Heading";
+import { PaperArtifact } from "../components/PaperArtifact";
 import { AlertTriangle, CheckCircle, Wrench } from "lucide-react";
 
 export const metadata = {
@@ -50,9 +51,9 @@ export default function KitchenSinkPage() {
               Brushed metal, rivets, and screws.
             </p>
           </Panel>
-          <Panel hazard>
-            <h3 className="font-heading text-lg font-bold">Hazard panel</h3>
-            <p className="mt-2 text-concrete-400">Bolted-on caution trim.</p>
+          <Panel gilt>
+            <h3 className="font-heading text-lg font-bold">Gilt panel</h3>
+            <p className="mt-2 text-concrete-400">Thin gold rule for state changes.</p>
           </Panel>
         </div>
       </Section>
@@ -87,9 +88,28 @@ export default function KitchenSinkPage() {
         <Heading>Badges</Heading>
         <div className="flex flex-wrap gap-3">
           <Badge>default</Badge>
-          <Badge variant="hazard">hazard</Badge>
-          <Badge variant="success">success</Badge>
+          <Badge variant="ready">ready</Badge>
+          <Badge variant="pass">pass</Badge>
+          <Badge variant="unverified">unverified</Badge>
+          <Badge variant="blocked">blocked</Badge>
+          <Badge variant="draft">draft</Badge>
+          <Badge variant="archived">archived</Badge>
         </div>
+      </Section>
+
+      <Section className="flex flex-col gap-6">
+        <Heading>Paper artifact</Heading>
+        <PaperArtifact
+          label="review"
+          title="REVIEW-example"
+          meta="review packet / example"
+          className="max-w-2xl"
+        >
+          <p>AC-001 — Pass</p>
+          <p className="text-pencil">Evidence: build output pasted, exit 0.</p>
+          <p className="mt-3">AC-002 — Unverified</p>
+          <p className="text-pencil">Evidence missing; route to human attention.</p>
+        </PaperArtifact>
       </Section>
 
       <Section className="flex flex-col gap-6">
@@ -129,13 +149,13 @@ export default function KitchenSinkPage() {
           <p className="text-concrete-100">
             <span className="text-corpus-yellow">$</span> corpus status
           </p>
-          <p className="mt-1 text-drone-green">✓ all systems nominal</p>
+          <p className="mt-1 text-phosphor">✓ all systems nominal</p>
         </TerminalWindow>
       </Section>
 
       <Section className="flex flex-col gap-6">
-        <Heading>Hazard stripe</Heading>
-        <HazardStripe height="md" />
+        <Heading>Gilt divider</Heading>
+        <GiltBand height="md" />
       </Section>
 
       <Section className="flex flex-col gap-6">
@@ -159,13 +179,11 @@ export default function KitchenSinkPage() {
           <p className="text-corpus-yellow">
             Accent text for links and highlights.
           </p>
-          <p className="text-hazard-orange">
-            Hazard text for warnings and notices.
-          </p>
-          <p className="text-drone-green">Drone green for success states.</p>
+          <p className="text-rubedo">Rubedo text for blocked states.</p>
+          <p className="text-phosphor">Phosphor text for verified states.</p>
           <p className="text-brass">Brass hardware accent.</p>
           <p className="text-aluminium">Aluminium label accent.</p>
-          <p className="text-phosphor">Phosphor amber glow text.</p>
+          <p className="text-phosphor">Phosphor for verified output.</p>
         </div>
       </Section>
     </div>

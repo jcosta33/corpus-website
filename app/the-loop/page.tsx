@@ -14,21 +14,22 @@ import { Card } from "../components/Card";
 import { Button } from "../components/Button";
 import { Panel } from "../components/Panel";
 import { TerminalWindow } from "../components/TerminalWindow";
-import { HazardStripe } from "../components/HazardStripe";
+import { GiltBand } from "../components/GiltBand";
 import { HexBadge } from "../components/HexBadge";
 import { PageHero } from "../components/PageHero";
 import { Heading } from "../components/Heading";
+import { PaperArtifact } from "../components/PaperArtifact";
 
 const stepIcons = [Inbox, FileText, ListChecks, Terminal, ScanEye, GitMerge];
 
 export const metadata: Metadata = {
   title: "The loop — Corpus",
   description:
-    "Pull → Spec → Task → Run → Review → Close. The six steps that keep a human at every decision gate while agents do the typing.",
+    "Pull → Spec → Task → Run → Review → Close. The six-step workflow for turning agent work into reviewable files.",
   openGraph: {
     title: "The loop — Corpus",
     description:
-      "Pull → Spec → Task → Run → Review → Close. The six steps that keep humans in the driver seat while agents do the work.",
+      "Pull → Spec → Task → Run → Review → Close. A plain workflow for scoping agent work and reviewing the result.",
     type: "website",
     url: "/the-loop/",
     siteName: "Corpus",
@@ -73,7 +74,7 @@ const steps = [
   {
     number: "02",
     name: "Spec",
-    body: "Write requirements one per ID, each with a verification method. A requirement is only as good as the evidence that proves it.",
+    body: "Write requirements one per ID, each with a verification method. If you cannot check it, keep editing.",
     example: {
       title: "specs/shell/spec.md",
       lines: [
@@ -104,7 +105,7 @@ const steps = [
   {
     number: "03",
     name: "Task",
-    body: "Hand the agent a bounded packet: what to change, what not to change, and how to verify. The packet is the contract.",
+    body: "Hand the agent a bounded packet: what to change, what not to change, and how to verify.",
     example: {
       title: "tasks/TASK-shell.md",
       lines: [
@@ -163,7 +164,7 @@ const steps = [
   {
     number: "06",
     name: "Close",
-    body: "Merge the change, save findings so the next session starts from them, and update the board. The loop ends where the next one begins.",
+    body: "Merge the change, save findings so the next session can use them, and update the board.",
     example: {
       title: "findings/FINDING-tailwind-v4-syntax.md",
       lines: [
@@ -188,23 +189,36 @@ export default function TheLoopPage() {
     <div className="flex flex-col gap-24 py-24">
       <Section>
         <PageHero
-          eyebrow="opus.seq — 6 stages (+2 for rough terrain)"
+          eyebrow="workflow / 6 stages"
           title={
             <>
-              The <span className="text-corpus-yellow text-glow">loop</span>
+              The <span className="text-corpus-yellow">loop</span>
             </>
           }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            Pull → Spec → Task → Run → Review → Close. Each step leaves a file
-            the next one reads. Agents do the work between the gates; you decide
-            at each one. Two more steps — Inventory and Change Plan — switch on
-            only for brownfield or structural work.
+            Pull → Spec → Task → Run → Review → Close. Six steps, six files to
+            inspect, and a clearer handoff between agent work and review.
           </p>
         </PageHero>
       </Section>
 
-      <HazardStripe height="sm" />
+      <GiltBand height="sm" />
+
+      <Section>
+        <PaperArtifact
+          label="note"
+          title="six points / six steps"
+          meta="Pull · Spec · Task · Run · Review · Close"
+          className="mx-auto max-w-3xl"
+        >
+          <p>
+            The mark follows the process: each point creates or checks the
+            record the next point needs. Inventory and Change Plan appear when
+            the work is brownfield or structural.
+          </p>
+        </PaperArtifact>
+      </Section>
 
       <Section className="flex flex-col gap-16">
         {steps.map((step, index) => {
@@ -273,8 +287,8 @@ export default function TheLoopPage() {
             <Heading>Ready to run it?</Heading>
             <p className="mt-2 text-concrete-400">
               Copy the starter kit and write your first spec. The loop is the
-              same on day one as on day one hundred — and every finding you save
-              makes the next pass through it lighter.
+              same on day one as on day one hundred. Findings make the next
+              pass a little less annoying.
             </p>
           </div>
           <Button asChild className="w-full md:w-auto">
@@ -286,7 +300,7 @@ export default function TheLoopPage() {
         </Card>
       </Section>
 
-      <HazardStripe height="sm" />
+      <GiltBand height="sm" />
     </div>
   );
 }

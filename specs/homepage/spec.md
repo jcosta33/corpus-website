@@ -8,15 +8,18 @@ sources:
   - intake/website.md
   - specs/design-system/spec.md
   - reviews/REVIEW-SPEC-homepage.md
+  - decisions/0002-three-way-visual-language.md
 ---
 
 # SPEC-homepage — Marketing homepage
 
 ## Intent
 
-Create the landing page that explains Corpus in one scroll: what it is, why it
+Create the landing page that explains Corpus in one scan: what it is, why it
 exists, how the loop works, and where to start. The page should feel like a
-friendly factory foreman handing you a clipboard — not a SaaS sales deck.
+serious control surface with proof artifacts inserted into it — not a SaaS
+sales deck and not occult cosplay. Copy should stay direct and relaxed: use
+manuscript/ritual words as small labels, not as dramatic headings.
 
 ## Non-goals
 
@@ -28,20 +31,19 @@ friendly factory foreman handing you a clipboard — not a SaaS sales deck.
 
 ## Requirements
 
-### AC-001 — Hero section states the value prop
+### AC-001 — Hero section states the value prop and shows the control surface
 
 Above the fold:
 
-- **Headline:** "A hive for your coding agents."
-- **Subheadline:** "Turn tickets into clear specs, specs into agent-ready tasks,
-  and agent output into evidence you can review — plain markdown, any agent, no
-  runtime."
-- **Primary CTA:** "Copy the starter kit" linking to
-  `https://github.com/jcosta33/corpus-starter-kit`.
-- **Secondary CTA:** "Read the docs" linking to
-  `https://github.com/jcosta33/corpus/tree/main/docs`.
-- **Visual:** animated SVG hex grid in corpus yellow on the factory-950
-  background; subtle, continuous motion.
+- **Headline:** "Corpus."
+- **Subheadline:** "Structured agent work, checked at every step."
+- **Support copy:** "Define the work, run agents, verify outputs, preserve
+  evidence."
+- **Primary CTA:** "Start the loop" linking to `/get-started/`.
+- **Secondary CTA:** "Read the docs" linking to `/docs/`.
+- **Visual:** dark control panel with the six-step loop and an embedded
+  manuscript-style review/evidence artifact.
+- **Control panel heading:** "The loop at a glance."
 
 Verify with: `app/page.tsx` renders the hero; `npm run build` passes; CTAs have
 valid `href` attributes and open the correct URLs.
@@ -64,15 +66,15 @@ the `corpus` repo.
 
 ### AC-003 — Loop section visualizes Pull → Spec → Task → Run → Review → Close
 
-A horizontal diagram (desktop) stacking vertically (mobile) with six nodes.
-Each node has a number, label, and one-sentence explanation. Arrows connect the
-nodes. The section uses the hazard-stripe motif as a top border.
+A horizontal or radial diagram (desktop) stacking vertically (mobile) with six
+nodes. Each node has a number, label, and one-sentence explanation. The diagram
+echoes the six-point seal.
 
 Verify with: all six steps appear in order; `npm run build` passes.
 
 ### AC-004 — Spec/review example shows the core artifact
 
-A `CodeBlock`-styled example showing:
+A manuscript-style `PaperArtifact` or terminal/paper pairing showing:
 
 - A requirement with `Verify with:`.
 - A small review packet table with one Pass and one Unverified row.
@@ -90,20 +92,21 @@ overflow on the body element.
 
 ### AC-006 — Feature grid highlights distinctives
 
-Three cards (not four — keep it tight):
+Four compact cards:
 
 1. **Spec-first, not prompt-first.** Write the contract; let the agent execute.
 2. **Review by exception.** Evidence per requirement, human attention only where
    needed.
-3. **Honesty framework.** Every rule says whether it is convention, checklist,
+3. **Worktree discipline.** One task, one branch, one place to inspect.
+4. **Honesty framework.** Every rule says whether it is convention, checklist,
    toolable, or enforced.
 
 Verify with: cards render; copy is consistent with `corpus` docs.
 
 ### AC-007 — Final CTA section
 
-A closing band with hazard-stripe borders, a punchy line ("Stop herding agents
-with chat history."), and the starter-kit CTA again.
+A closing band with a practical line, "Start with one spec," and the
+get-started / starter-kit CTAs again.
 
 Verify with: `npm run build` passes; CTA links are valid.
 
@@ -111,7 +114,7 @@ Verify with: `npm run build` passes; CTA links are valid.
 
 The page sets:
 
-- `<title>`: "Corpus — a hive for your coding agents"
+- `<title>`: "Corpus — structured agent work, checked at every step"
 - `<meta name="description">`: "A lightweight spec and review workflow for
   teams using coding agents. Plain markdown, any agent, no runtime."
 - Open Graph image: `/og-home.png` (static asset).
@@ -128,13 +131,14 @@ start`; screenshot or report attached.
 
 ### AC-010 — Hero animation respects reduced motion
 
-When `prefers-reduced-motion: reduce` is set, the hex grid is static.
+When `prefers-reduced-motion: reduce` is set, seal, lamp, terminal, and diagram
+motion are static or near-instant.
 
 Verify with: toggle preference in browser dev tools; animation stops.
 
 ## Open questions
 
-- (non-blocking) Should the hex grid animate continuously or only on load?
+- (non-blocking) Should the hero control surface become interactive later?
 
 ## Affected areas
 

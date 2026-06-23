@@ -14,10 +14,10 @@ export function Eyebrow({ children, pulse = true, icon, className = "" }: Eyebro
   const lead = icon ?? (pulse ? <SignalPulse className="h-4 w-4" /> : null);
   return (
     <div
-      className={`inline-flex items-center gap-3 panel-raised brushed-metal px-4 py-1.5 ${className}`}
+      className={`inline-flex max-w-full items-center gap-3 panel-raised brushed-metal px-4 py-1.5 ${className}`}
     >
       {lead}
-      <span className="text-xs font-mono font-medium uppercase tracking-widest engraved">
+      <span className="min-w-0 break-words text-xs font-mono font-medium uppercase tracking-widest engraved">
         {children}
       </span>
     </div>

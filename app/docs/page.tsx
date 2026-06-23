@@ -26,7 +26,7 @@ function Section({ sec, intro }: { sec: NavSection; intro?: string }) {
 
 export default function DocsIndex() {
   if (!canonAvailable()) {
-    return <p>The canon was not available at build time (see canon.ts — W3 deploy wiring).</p>;
+    return <p>The docs source was not available at build time (see canon.ts — W3 deploy wiring).</p>;
   }
   const nav = buildNav();
   const find = (title: string) => nav.find((s) => s.title === title);

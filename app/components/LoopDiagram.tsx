@@ -51,8 +51,89 @@ const steps = [
 ];
 
 export function LoopDiagram() {
+  const sealPoints = steps.map((step, index) => {
+    const angle = -90 + index * 60;
+    const rad = (angle * Math.PI) / 180;
+    return {
+      ...step,
+      x: 50 + Math.cos(rad) * 33,
+      y: 50 + Math.sin(rad) * 33,
+    };
+  });
+
   return (
-    <div className="reveal flex flex-col gap-6">
+    <div className="reveal flex flex-col gap-8">
+      <div className="panel-raised grid gap-8 p-5 md:grid-cols-[18rem_1fr] md:items-center">
+        <div className="relative mx-auto aspect-square w-full max-w-[18rem]">
+          <svg
+            viewBox="0 0 100 100"
+            className="h-full w-full"
+            aria-label="Six-point Corpus loop seal"
+            role="img"
+          >
+            <circle
+              cx="50"
+              cy="50"
+              r="43"
+              fill="none"
+              stroke="var(--color-panel-border)"
+              strokeWidth="0.8"
+            />
+            <circle
+              cx="50"
+              cy="50"
+              r="31"
+              fill="none"
+              stroke="rgba(214,180,90,0.34)"
+              strokeWidth="0.8"
+            />
+            <path
+              d="M50 17 L78.58 66.5 L21.42 66.5 Z"
+              fill="none"
+              stroke="var(--color-aurum)"
+              strokeWidth="0.8"
+            />
+            <path
+              d="M50 83 L21.42 33.5 L78.58 33.5 Z"
+              fill="none"
+              stroke="var(--color-aurum)"
+              strokeWidth="0.8"
+            />
+            {sealPoints.map((point) => (
+              <g key={point.label}>
+                <circle
+                  cx={point.x}
+                  cy={point.y}
+                  r="4.1"
+                  fill="var(--color-night)"
+                  stroke="var(--color-aurum)"
+                  strokeWidth="0.9"
+                />
+                <text
+                  x={point.x}
+                  y={point.y + 1.2}
+                  textAnchor="middle"
+                  className="fill-aurum font-mono text-[4px] font-semibold"
+                >
+                  {point.number}
+                </text>
+              </g>
+            ))}
+          </svg>
+        </div>
+        <div>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-brass">
+            workflow / six steps
+          </p>
+          <h3 className="mt-2 font-heading text-2xl font-bold text-concrete-100">
+            Six steps, one loop.
+          </h3>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-concrete-400">
+            The mark maps to the workflow: Pull, Spec, Task, Run, Review,
+            Close. Each pass leaves a file the next step can use.
+          </p>
+        </div>
+      </div>
       <ol className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         {steps.map((step, index) => {
           const Icon = step.icon;

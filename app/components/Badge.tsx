@@ -2,23 +2,39 @@ import type { ReactNode } from "react";
 
 export interface BadgeProps {
   children: ReactNode;
-  variant?: "default" | "hazard" | "success";
+  variant?:
+    | "default"
+    | "success"
+    | "ready"
+    | "pass"
+    | "unverified"
+    | "blocked"
+    | "draft"
+    | "archived";
 }
 
 export function Badge({ children, variant = "default" }: BadgeProps) {
   const styles = {
     default:
-      "border-panel-border bg-panel-raised text-concrete-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] engraved",
-    hazard:
-      "border-corpus-yellow bg-panel-raised text-corpus-yellow font-bold shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]",
+      "border-panel-border bg-panel-raised text-concrete-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]",
     success:
-      "border-panel-border bg-panel-raised text-drone-green shadow-[inset_0_0_8px_rgba(34,197,94,0.25)]",
+      "border-phosphor/60 bg-panel-raised text-phosphor shadow-[inset_0_0_8px_rgba(72,213,151,0.14)]",
+    ready: "border-aurum/70 bg-panel-raised text-aurum",
+    pass: "border-phosphor/60 bg-panel-raised text-phosphor",
+    unverified: "border-amber/70 bg-panel-raised text-amber",
+    blocked: "border-rubedo/70 bg-panel-raised text-rubedo",
+    draft: "border-mercury/50 bg-panel-raised text-mercury",
+    archived: "border-ash/50 bg-panel-raised text-ash",
   };
 
   return (
     <span
-      className={`inline-flex items-center rounded-sm border px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide ${styles[variant]}`}
+      className={`inline-flex items-center gap-1.5 rounded-sm border px-2.5 py-0.5 font-mono text-xs font-semibold uppercase tracking-wide ${styles[variant]}`}
     >
+      <span
+        className="h-1.5 w-1.5 rounded-full bg-current"
+        aria-hidden="true"
+      />
       {children}
     </span>
   );

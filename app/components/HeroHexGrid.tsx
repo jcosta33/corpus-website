@@ -1,8 +1,8 @@
-// An alchemical astrolabe — concentric gilt rings, a slowly turning degree ring,
-// and an inscribed hexagram, very faint behind the hero. (Name kept for its one
-// consumer; the motif is the night-sky instrument, no longer a hex grid.)
+// Six-step seal field — concentric instrument rings plus a hexagram whose six
+// points map to Pull, Spec, Task, Run, Review, Close. Kept as HeroHexGrid for
+// the existing import surface.
 const TICKS = Array.from({ length: 72 }, (_, i) => i);
-const GOLD = "#c9a24a";
+const GOLD = "#d6b45a";
 
 export function HeroHexGrid({ className = "" }: { className?: string }) {
   return (
@@ -11,7 +11,7 @@ export function HeroHexGrid({ className = "" }: { className?: string }) {
       aria-hidden="true"
     >
       <svg
-        className="absolute left-1/2 top-1/2 h-[140%] w-auto min-w-[140%] -translate-x-1/2 -translate-y-1/2 opacity-[0.13]"
+        className="absolute left-1/2 top-1/2 h-[140%] w-auto min-w-[140%] -translate-x-1/2 -translate-y-1/2 opacity-[0.11]"
         viewBox="0 0 600 600"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ export function HeroHexGrid({ className = "" }: { className?: string }) {
           })}
         </g>
 
-        {/* inscribed hexagram — as above, so below */}
+        {/* inscribed six-step seal */}
         <path
           d="M300 60 L502 410 L98 410 Z"
           stroke={GOLD}

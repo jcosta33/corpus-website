@@ -13,8 +13,8 @@ export function HexBadge({
 }: HexBadgeProps) {
   const colors = {
     yellow: "border-corpus-yellow/80 text-corpus-yellow",
-    orange: "border-hazard-orange/80 text-hazard-orange",
-    green: "border-drone-green/80 text-drone-green",
+    orange: "border-rubedo/80 text-rubedo",
+    green: "border-phosphor/80 text-phosphor",
   };
 
   return (

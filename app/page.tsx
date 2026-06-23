@@ -3,34 +3,27 @@ import Link from "next/link";
 import {
   ArrowRight,
   CheckCircle,
-  ExternalLink,
   FileText,
   GitBranch,
-  Layers,
-  MessageSquareWarning,
-  Plus,
+  ListChecks,
+  ScanEye,
   Shield,
   Terminal,
-  Users,
 } from "lucide-react";
+import { Badge } from "./components/Badge";
 import { Button } from "./components/Button";
 import { Card } from "./components/Card";
-import { Panel } from "./components/Panel";
-import { Section } from "./components/Section";
-import { HazardStripe } from "./components/HazardStripe";
-import { HeroHexGrid } from "./components/HeroHexGrid";
-import { LoopDiagram } from "./components/LoopDiagram";
-import { TerminalCursor } from "./components/TerminalCursor";
-import { TerminalWindow } from "./components/TerminalWindow";
-import { DroneIcon } from "./components/DroneIcon";
-import { HexBadge } from "./components/HexBadge";
-import { PilotLamp } from "./components/PilotLamp";
-import { JsonLd } from "./components/JsonLd";
 import { Eyebrow } from "./components/Eyebrow";
+import { HeroHexGrid } from "./components/HeroHexGrid";
+import { JsonLd } from "./components/JsonLd";
+import { LoopDiagram } from "./components/LoopDiagram";
 import { PageHero } from "./components/PageHero";
+import { Panel } from "./components/Panel";
+import { PaperArtifact } from "./components/PaperArtifact";
+import { PilotLamp } from "./components/PilotLamp";
+import { Section } from "./components/Section";
+import { TerminalWindow } from "./components/TerminalWindow";
 
-// The product itself, as a citable entity for answer engines and rich results. Version + the free
-// offer match the v0.1.0 badge and the markdown-only, no-runtime reality stated in the copy.
 const softwareApp = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -40,19 +33,19 @@ const softwareApp = {
   softwareVersion: "0.1.0",
   url: "https://corpusframework.dev",
   description:
-    "Corpus is a lightweight spec-and-review workflow that keeps humans in charge of code written by AI agents. Plain markdown, any agent, no runtime.",
+    "Corpus is a lightweight spec-and-review workflow for teams using coding agents. Plain markdown, any agent, no runtime.",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   publisher: { "@id": "https://corpusframework.dev/#organization" },
 };
 
 export const metadata: Metadata = {
-  title: "Corpus — specs for humans, tasks for agents",
+  title: "Corpus — structured agent work, checked at every step",
   description:
-    "AI writes code that looks right. Corpus is a lightweight spec-and-review workflow that keeps humans in the driver seat. Plain markdown, any agent, no runtime.",
+    "Define the work, run agents, verify outputs, and preserve evidence with a lightweight markdown workflow.",
   openGraph: {
-    title: "Corpus — specs for humans, tasks for agents",
+    title: "Corpus — structured agent work, checked at every step",
     description:
-      "AI writes code that looks right. Corpus is a lightweight spec-and-review workflow that keeps humans in the driver seat. Plain markdown, any agent, no runtime.",
+      "A lightweight markdown workflow for autonomous coding loops: specs, tasks, reviews, findings, and evidence.",
     type: "website",
     url: "/",
     siteName: "Corpus",
@@ -62,106 +55,81 @@ export const metadata: Metadata = {
         url: "/og-home.png",
         width: 1200,
         height: 630,
-        alt: "Corpus — specs for humans, tasks for agents",
+        alt: "Corpus — structured agent work, checked at every step",
       },
     ],
   },
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
 };
 
-const walls = [
+const loopSteps = ["Pull", "Spec", "Task", "Run", "Review", "Close"];
+
+const failureModes = [
   {
-    icon: MessageSquareWarning,
+    code: "INTAKE",
     title: "Vague tickets",
-    code: "INTAKE-001",
-    description:
-      "The ticket says improve session handling; the agent picks one reading and builds it convincingly.",
+    text: "A ticket enters as prose. Corpus preserves it, then turns it into requirements.",
   },
   {
-    icon: Layers,
-    title: "Re-pasted context",
-    code: "CONTEXT-002",
-    description:
-      "The same constraints get retyped into every prompt — and forgotten in the one session that mattered.",
-  },
-  {
-    icon: GitBranch,
+    code: "SCOPE",
     title: "Agent drift",
-    code: "DRIFT-003",
-    description:
-      "Mid-task, the agent solves a nearby problem instead, touching files nobody mentioned.",
+    text: "A task packet names what to change, what not to touch, and how to verify.",
   },
   {
-    icon: FileText,
-    title: "Giant PRs",
-    code: "PR-004",
-    description:
-      "Forty files of plausible code arrive at once; nobody can say which requirement any hunk satisfies.",
+    code: "EVIDENCE",
+    title: "Unbacked completion",
+    text: "A Pass needs pasted output, a CI link, or a named manual observation.",
   },
   {
-    icon: MessageSquareWarning,
+    code: "LEDGER",
     title: "Lost findings",
-    code: "FINDING-005",
-    description:
-      "Hard-won lessons evaporate with the session; the next one re-learns them the expensive way.",
+    text: "Lessons move from a run summary into findings so the next task can load them.",
   },
 ];
 
 const features = [
   {
-    title: "Spec-first, not vibes-first",
-    command: "corpus new",
-    description:
-      "Write the contract once. The task packet bounds scope and tells the agent, in writing, what not to touch.",
+    icon: FileText,
+    title: "Spec-first",
+    label: "spec",
+    text: "Write the contract once. Give the agent a task packet, not a drifting chat thread.",
   },
   {
+    icon: ScanEye,
     title: "Review by exception",
-    command: "corpus check",
-    description:
-      "Every requirement names how it is verified. The review packet shows the evidence per requirement — so you read the exceptions, not the whole 40-file diff.",
+    label: "review",
+    text: "The review packet shows evidence per requirement and routes the exceptions to a human.",
   },
   {
-    title: "Humans decide",
-    command: "# this part is you",
-    description:
-      "Agents draft, run, and paste the output. You decide when the evidence is good enough. No autopilot, no merge-by-vibes.",
+    icon: GitBranch,
+    title: "Worktree discipline",
+    label: "branch",
+    text: "One task, one branch, one place to inspect what changed before it joins the main line.",
   },
   {
-    title: "No enforcement theater",
-    command: "# convention · checklist · toolable · enforced",
-    description:
-      "Every rule says what kind of guarantee it is — and cheerfully admits when the honest answer is “nothing checks this yet.”",
+    icon: Shield,
+    title: "Honesty framework",
+    label: "limits",
+    text: "Every rule says whether it is convention, checklist, toolable, or actually enforced.",
   },
 ];
 
-// Honest, plain-text Q&A — answers a reader (and an AI answer-engine) the real questions, grounded
-// in what Corpus actually is. Doubles as FAQPage structured data for generative-engine visibility.
 const faqs = [
   {
-    q: "Is Corpus just another spec-driven development tool?",
-    a: "No. Most spec-driven tools optimize generating code from a spec; Corpus's emphasis is the review gate. Every change produces a review packet with pasted evidence per requirement, and a human decides when it is good enough. The spec sets scope; the review is where “almost right” has to prove it is right.",
+    q: "Is Corpus an agent?",
+    a: "No. Your coding tool writes the code. Corpus structures the files around it: specs, tasks, reviews, findings, and the status board.",
   },
   {
-    q: "Do I need a particular AI agent?",
-    a: "No. Corpus is plain markdown and conventions, so it works with Claude Code, Cursor, Copilot, or any agent that reads files in your repo. Nothing to integrate, no lock-in.",
+    q: "Does Corpus decide whether code ships?",
+    a: "No. Agents can run checks and paste evidence; a human or independent reviewer owns the result.",
   },
   {
-    q: "Does Corpus replace code review, CI, or pull requests?",
-    a: "No — it rides alongside them. The review packet tells a reviewer where to look; your CI output is the evidence the packet cites. PRs and CI stay exactly where they are.",
+    q: "Do I need the CLI?",
+    a: "No. Corpus works as plain markdown. The optional CLI scaffolds, checks, isolates worktrees, and reconciles facts; it does not become a model loop.",
   },
   {
-    q: "Is there a runtime or a service to install?",
-    a: "No. The whole workflow is markdown files you can read, diff, and grep. An optional reference CLI does chores — checking specs, isolating tasks in worktrees, printing the board, launching a prepared task on your agent — but it never becomes an agent (no model loop, no edits), never renders the verdict, and you can skip it entirely.",
-  },
-  {
-    q: "What is “review by exception”?",
-    a: "Instead of reading a 40-file diff line by line, you read the review packet — it shows the evidence for each requirement and flags only the exceptions: what is unverified, missing, or out of scope. Your attention goes where it is actually needed.",
-  },
-  {
-    q: "Who makes the final call on whether code ships?",
-    a: "A human, every time. Agents draft, run, and paste output; you decide when the evidence is good enough. Corpus has no autopilot and no merge-by-vibes — which is where developers already are: in the 2025 Stack Overflow survey, the top reason to keep a person in the loop was “when I don't trust AI's answers.”",
+    q: "Why the seal?",
+    a: "The six points map to the six-step loop: Pull, Spec, Task, Run, Review, Close. It is a diagram before it is a mark.",
   },
 ];
 
@@ -175,80 +143,52 @@ const faqJsonLd = {
   })),
 };
 
+function StepRail() {
+  return (
+    <ol className="grid min-w-0 gap-2 sm:grid-cols-3">
+      {loopSteps.map((step, index) => (
+        <li
+          key={step}
+          className="flex min-w-0 items-center justify-between gap-3 rounded-panel border border-panel-border bg-panel px-3 py-2"
+        >
+          <span className="font-mono text-xs text-brass">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <span className="min-w-0 break-words font-heading text-sm font-bold text-concrete-100">
+            {step}
+          </span>
+          <PilotLamp
+            color={index < 5 ? "amber" : "green"}
+            className="scale-75"
+          />
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 export default function HomePage() {
   return (
     <>
       <JsonLd data={softwareApp} />
-      {/* Hero */}
-      <section className="relative isolate overflow-hidden border-b border-panel-border py-24 sm:py-32">
+      <section className="relative isolate overflow-hidden border-b border-panel-border py-20 sm:py-28">
         <HeroHexGrid />
         <Section className="relative z-10">
           <PageHero
-            eyebrow="v0.1.0 — spec-and-review workflow"
+            eyebrow="workflow / six steps"
             titleSize="hero"
-            title={
-              <>
-                AI writes code.
-                <br />
-                <span className="text-corpus-yellow text-glow">
-                  You keep the wheel.
-                </span>
-              </>
-            }
+            title="Corpus"
           >
-            <Panel brushed className="mx-auto mt-10 max-w-2xl p-2 text-left">
-              <TerminalWindow>
-                <p className="text-concrete-500">
-                  <span className="text-corpus-yellow">$</span> corpus status
-                </p>
-                <p className="mt-1 text-concrete-500">
-                  # the gap Corpus is built for:
-                </p>
-                <p className="mt-1 text-concrete-100">
-                  Only 33% of developers trust the accuracy of AI output. 84%
-                  use it anyway.
-                </p>
-                <p className="mt-2 text-concrete-500">
-                  <span className="text-corpus-yellow">$</span> corpus init
-                </p>
-                <p className="mt-1 text-drone-green">
-                  ✓ scaffolded workspace (specs/, tasks/, reviews/, status.md)
-                </p>
-                <p className="mt-2 text-concrete-500">
-                  <span className="text-corpus-yellow">$</span> corpus new spec
-                  evidence --from intake/WEB-412.md
-                </p>
-                <p className="mt-1 text-concrete-100">
-                  Turn tickets into clear specs, specs into agent-ready tasks,
-                  and agent output into evidence you can review.
-                </p>
-                <p className="mt-2 text-concrete-500">
-                  <span className="text-corpus-yellow">$</span>{" "}
-                  <TerminalCursor className="ml-0.5 align-middle" />
-                </p>
-              </TerminalWindow>
-            </Panel>
-            <p className="mx-auto mt-4 max-w-2xl text-center text-xs text-concrete-400">
-              Source: Stack Overflow 2025 Developer Survey —{" "}
-              <Link
-                href="https://survey.stackoverflow.co/2025/ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-corpus-yellow underline hover:no-underline focus-ring rounded-sm"
-              >
-                survey.stackoverflow.co/2025/ai
-                <ExternalLink className="h-3 w-3" aria-hidden="true" />
-              </Link>
+            <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-100">
+              Structured agent work, checked at every step.
             </p>
-
-            <div className="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
+            <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
+              Define the work, run agents, verify outputs, preserve evidence.
+            </p>
+            <div className="mt-9 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
               <Button asChild className="w-full sm:w-auto">
-                <Link
-                  href="https://github.com/jcosta33/corpus-starter-kit"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Copy the starter kit{" "}
+                <Link href="/get-started/">
+                  Start the loop{" "}
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
               </Button>
@@ -257,81 +197,174 @@ export default function HomePage() {
               </Button>
             </div>
           </PageHero>
+
+          <Panel brushed screws className="mx-auto mt-12 max-w-6xl p-3">
+            <div className="grid min-w-0 gap-3 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+              <div className="min-w-0 rounded-panel border border-panel-border bg-panel p-4">
+                <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <p className="font-mono text-xs uppercase tracking-[0.12em] text-brass">
+                      loop preview
+                    </p>
+                    <h2 className="mt-1 font-heading text-xl font-bold text-concrete-100 sm:text-2xl">
+                      The loop at a glance.
+                    </h2>
+                  </div>
+                  <Badge variant="ready">ready</Badge>
+                </div>
+                <StepRail />
+                <TerminalWindow title="corpus status" className="mt-4">
+                  <p className="text-concrete-500"># current run</p>
+                  <p>
+                    <span className="text-aurum">$</span> corpus review
+                    <wbr /> TASK-auth-refresh
+                  </p>
+                  <p className="mt-2 text-phosphor">
+                    PASS AC-001 — output pasted
+                  </p>
+                  <p className="text-amber">
+                    UNVERIFIED AC-002 — manual resize pending
+                  </p>
+                  <p className="text-concrete-400">
+                    HUMAN ATTENTION — retry.ts changed outside scope
+                  </p>
+                </TerminalWindow>
+              </div>
+
+              <PaperArtifact
+                label="review"
+                title="REVIEW-auth-refresh"
+                meta="review packet / example"
+              >
+                <p>
+                  AC-001 <span className="paper-stamp ml-2">pass</span>
+                </p>
+                <p className="text-pencil">
+                  Evidence: `npm test auth-refresh` pasted, exit 0.
+                </p>
+                <p className="mt-4">
+                  AC-002 <span className="paper-stamp ml-2">unverified</span>
+                </p>
+                <p className="text-pencil">
+                  Evidence missing. Human attention required before merge.
+                </p>
+                <p className="mt-4 border-t border-ink/20 pt-3 text-pencil">
+                  Don&apos;t mark it done without evidence.
+                </p>
+              </PaperArtifact>
+            </div>
+          </Panel>
         </Section>
       </section>
 
-      {/* Problem */}
-      <section className="py-24">
-        <Section className="flex flex-col gap-12">
+      <section className="py-20">
+        <Section className="flex flex-col gap-10">
           <div className="max-w-2xl">
-            <div className="flex items-center gap-2 text-xs font-mono uppercase text-hazard-orange">
-              <Terminal className="h-4 w-4" aria-hidden="true" />
-              <span>dross.log — 5 failure modes</span>
-            </div>
-            <h2 className="mt-3 font-heading text-3xl font-bold uppercase tracking-tight text-concrete-100 sm:text-4xl">
-              Five ways agent code goes sideways.
+            <Eyebrow icon={<Terminal className="h-4 w-4" aria-hidden="true" />}>
+              common failure modes
+            </Eyebrow>
+            <h2 className="mt-4 font-heading text-2xl font-bold text-concrete-100 sm:text-3xl">
+              The hard part is checking the work.
             </h2>
             <p className="mt-4 text-concrete-400">
-              Coding agents are fast — and wrong in ways that look correct. The{" "}
-              <span className="text-concrete-100">#1 frustration</span>{" "}
-              developers report with AI is code that is &quot;almost right, but
-              not quite&quot; — <span className="text-concrete-100">66%</span>{" "}
-              of them (
-              <Link
-                href="https://survey.stackoverflow.co/2025/ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-corpus-yellow underline hover:no-underline focus-ring rounded-sm"
-              >
-                Stack Overflow 2025
-              </Link>
-              ). And in a randomized trial, experienced devs on their own mature
-              repos came out{" "}
-              <span className="text-concrete-100">19% slower</span> with AI
-              while{" "}
-              <span className="text-concrete-100">feeling ~20% faster</span> (
-              <Link
-                href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-corpus-yellow underline hover:no-underline focus-ring rounded-sm"
-              >
-                METR
-              </Link>
-              ). Corpus doesn't answer that with hustle. Every change becomes a
-              spec, a task, and a review packet with pasted evidence — so
-              &quot;almost right&quot; has to prove itself before it ships.
+              Agents can produce a plausible diff faster than a team can verify
+              it. Corpus makes the handoff, scope, evidence, and memory visible
+              before the change ships.
             </p>
           </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {failureModes.map((mode) => (
+              <Card key={mode.title} screws className="h-full">
+                <div className="flex items-start justify-between gap-3">
+                  <p className="font-mono text-xs uppercase tracking-wide text-rubedo">
+                    {mode.code}
+                  </p>
+                  <PilotLamp color="red" />
+                </div>
+                <h3 className="mt-3 font-heading text-lg font-bold text-concrete-100">
+                  {mode.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-concrete-400">
+                  {mode.text}
+                </p>
+              </Card>
+            ))}
+          </div>
+        </Section>
+      </section>
 
-          <div className="reveal grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {walls.map((wall) => {
-              const Icon = wall.icon;
+      <section className="border-y border-panel-border bg-panel-raised py-20">
+        <Section className="flex flex-col gap-10">
+          <div className="max-w-2xl">
+            <Eyebrow>workflow / six steps</Eyebrow>
+            <h2 className="mt-4 font-heading text-2xl font-bold text-concrete-100 sm:text-3xl">
+              The six points are the loop.
+            </h2>
+            <p className="mt-4 text-concrete-400">
+              Pull, Spec, Task, Run, Review, Close. Each point creates or
+              checks an artifact the next point can read.
+            </p>
+          </div>
+          <LoopDiagram />
+        </Section>
+      </section>
+
+      <section className="py-20">
+        <Section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <Eyebrow icon={<CheckCircle className="h-4 w-4" aria-hidden="true" />}>
+              review packet / example
+            </Eyebrow>
+            <h2 className="mt-4 font-heading text-2xl font-bold text-concrete-100 sm:text-3xl">
+              Keep evidence next to the claim.
+            </h2>
+            <p className="mt-4 text-concrete-400">
+              Specs and reviews are working records. The paper treatment shows
+              up where commands, notes, and evidence live.
+            </p>
+          </div>
+          <PaperArtifact
+            label="spec"
+            title="SPEC-auth-refresh"
+            meta="spec example / acceptance criterion"
+          >
+            <p>AC-003 — Expired refresh token redirects to login</p>
+            <p className="mt-3 text-pencil">
+              The client must clear local session state and route the user to
+              `/login`.
+            </p>
+            <p className="mt-3">
+              Verify with:{" "}
+              <span className="font-semibold">auth-refresh-expired.test</span>
+            </p>
+          </PaperArtifact>
+        </Section>
+      </section>
+
+      <section className="border-y border-panel-border bg-panel-raised py-20">
+        <Section className="flex flex-col gap-10">
+          <div className="max-w-2xl">
+            <Eyebrow>what you get</Eyebrow>
+            <h2 className="mt-4 font-heading text-2xl font-bold text-concrete-100 sm:text-3xl">
+              A few pieces that help.
+            </h2>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {features.map((feature) => {
+              const Icon = feature.icon;
               return (
-                <Card
-                  key={wall.title}
-                  screws
-                  rivets
-                  className="group h-full border-panel-border hover:border-hazard-orange/50"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex items-start gap-4">
-                      <HexBadge color="orange">
-                        <Icon className="h-5 w-5" aria-hidden="true" />
-                      </HexBadge>
-                      <div>
-                        <p className="font-mono text-xs text-hazard-orange">
-                          {wall.code}
-                        </p>
-                        <h3 className="mt-1 font-heading text-lg font-bold uppercase tracking-tight text-concrete-100">
-                          {wall.title}
-                        </h3>
-                      </div>
-                    </div>
-                    <PilotLamp color="amber" className="shrink-0" />
+                <Card key={feature.title} screws className="h-full">
+                  <div className="flex items-start justify-between gap-3">
+                    <Icon className="h-5 w-5 text-aurum" aria-hidden="true" />
+                    <span className="font-mono text-xs uppercase tracking-wide text-brass">
+                      {feature.label}
+                    </span>
                   </div>
-                  <p className="mt-4 text-sm leading-relaxed text-concrete-400">
-                    {wall.description}
+                  <h3 className="mt-4 font-heading text-lg font-bold text-concrete-100">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-concrete-400">
+                    {feature.text}
                   </p>
                 </Card>
               );
@@ -340,194 +373,24 @@ export default function HomePage() {
         </Section>
       </section>
 
-      {/* Loop */}
-      <section className="relative border-y border-panel-border bg-panel-raised py-24">
-        <HazardStripe height="sm" />
-        <Section className="mt-12 flex flex-col gap-12">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-2 text-xs font-mono uppercase text-corpus-yellow">
-              <DroneIcon className="h-4 w-4" />
-              <span>opus.seq — 6 stages (+2 optional)</span>
-            </div>
-            <h2 className="mt-3 font-heading text-3xl font-bold uppercase tracking-tight text-concrete-100 sm:text-4xl">
-              The loop
-            </h2>
-            <p className="mt-4 text-concrete-400">
-              Pull → Spec → Task → Run → Review → Close. Each step produces a
-              file the next step can read. The agent does the work; the human
-              owns the gates.
-            </p>
-          </div>
-          <LoopDiagram />
-          <p className="text-sm text-concrete-400">
-            <Link
-              href="/the-loop/"
-              className="inline-flex items-center gap-1 text-corpus-yellow underline hover:no-underline focus-ring rounded-sm"
-            >
-              Walk the full loop, step by step
-              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-            </Link>
-          </p>
-        </Section>
-      </section>
-
-      {/* Example */}
-      <section className="py-24">
-        <Section className="flex flex-col gap-12">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-2 text-xs font-mono uppercase text-drone-green">
-              <CheckCircle className="h-4 w-4" aria-hidden="true" />
-              <span>assay.log — evidence required</span>
-            </div>
-            <h2 className="mt-3 font-heading text-3xl font-bold uppercase tracking-tight text-concrete-100 sm:text-4xl">
-              What a spec looks like
-            </h2>
-            <p className="mt-4 text-concrete-400">
-              A requirement is only as good as its verification method. The
-              review packet shows evidence per requirement.
-            </p>
-          </div>
-
-          <div className="reveal grid gap-6 lg:grid-cols-2">
-            <TerminalWindow title="specs/shell/spec.md">
-              <p className="text-concrete-500">
-                <span className="text-corpus-yellow">##</span> AC-003 — Global
-                shell includes nav and footer
-              </p>
-              <p className="mt-2 text-concrete-100">
-                A <span className="text-corpus-yellow">Shell</span> component
-                renders on every route via{" "}
-                <span className="text-corpus-yellow">app/layout.tsx</span>.
-              </p>
-              <ul className="mt-2 list-disc pl-4 text-concrete-100">
-                <li>Nav: logo, links, mobile hamburger below lg.</li>
-                <li>Footer: copyright, links, colophon line.</li>
-              </ul>
-              <p className="mt-3 text-concrete-500">
-                <span className="text-corpus-yellow">Verify with:</span> npm run
-                build passes; every generated page contains exactly one
-                &lt;nav&gt; and one &lt;footer&gt;; nav links are valid.
-              </p>
-            </TerminalWindow>
-
-            <TerminalWindow title="reviews/REVIEW-spec-shell.md">
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[320px] text-left text-sm">
-                  <thead className="border-b border-panel-border text-concrete-400">
-                    <tr>
-                      <th className="py-2 pr-4 font-heading font-bold uppercase tracking-wide">
-                        AC
-                      </th>
-                      <th className="py-2 pr-4 font-heading font-bold uppercase tracking-wide">
-                        Result
-                      </th>
-                      <th className="py-2 font-heading font-bold uppercase tracking-wide">
-                        Evidence
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-panel-border">
-                    <tr>
-                      <td className="py-3 pr-4 font-mono text-concrete-100">
-                        AC-003
-                      </td>
-                      <td className="py-3 pr-4">
-                        <span className="inline-flex items-center gap-2 text-drone-green">
-                          <span
-                            className="pilot-lamp pilot-lamp-green"
-                            aria-hidden="true"
-                          />{" "}
-                          Pass
-                        </span>
-                      </td>
-                      <td className="py-3 text-concrete-400">
-                        grep found 1 nav and 1 footer
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="py-3 pr-4 font-mono text-concrete-100">
-                        AC-009
-                      </td>
-                      <td className="py-3 pr-4">
-                        <span className="inline-flex items-center gap-2 text-concrete-400">
-                          <span
-                            className="pilot-lamp pilot-lamp-amber"
-                            aria-hidden="true"
-                          />{" "}
-                          Unverified
-                        </span>
-                      </td>
-                      <td className="py-3 text-concrete-400">
-                        manual resize pending
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </TerminalWindow>
-          </div>
-        </Section>
-      </section>
-
-      {/* Features */}
-      <section className="border-y border-panel-border bg-panel-raised py-24">
-        <Section className="flex flex-col gap-12">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-2 text-xs font-mono uppercase text-corpus-yellow">
-              <Shield className="h-4 w-4" aria-hidden="true" />
-              <span>apparatus — 4 parts</span>
-            </div>
-            <h2 className="mt-3 font-heading text-3xl font-bold uppercase tracking-tight text-concrete-100 sm:text-4xl">
-              Built for validation, not generation.
-            </h2>
-          </div>
-          <div className="reveal grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {features.map((feature) => (
-              <Card
-                key={feature.title}
-                screws
-                className="group h-full border-panel-border hover:border-corpus-yellow/50"
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <p className="font-mono text-xs text-brass">
-                    {feature.command}
-                  </p>
-                  <PilotLamp color="green" className="shrink-0" />
-                </div>
-                <h3 className="mt-2 font-heading text-lg font-bold uppercase tracking-tight text-concrete-100">
-                  {feature.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-concrete-400">
-                  {feature.description}
-                </p>
-              </Card>
-            ))}
-          </div>
-        </Section>
-      </section>
-
-      {/* FAQ */}
       <JsonLd data={faqJsonLd} />
-      <section className="py-24">
-        <Section className="flex flex-col gap-12">
+      <section className="py-20">
+        <Section className="flex flex-col gap-10">
           <div className="max-w-2xl">
-            <div className="flex items-center gap-2 text-xs font-mono uppercase text-corpus-yellow">
-              <DroneIcon className="h-4 w-4" aria-hidden="true" />
-              <span>faq.md — common questions</span>
-            </div>
-            <h2 className="mt-3 font-heading text-3xl font-bold uppercase tracking-tight text-concrete-100 sm:text-4xl">
-              Questions, answered straight
+            <Eyebrow>plain answers</Eyebrow>
+            <h2 className="mt-4 font-heading text-2xl font-bold text-concrete-100 sm:text-3xl">
+              What Corpus does and doesn&apos;t do.
             </h2>
           </div>
-          <div className="reveal flex flex-col gap-3">
+          <div className="grid gap-3">
             {faqs.map((faq) => (
               <details
                 key={faq.q}
-                className="faq-item group panel-raised overflow-hidden rounded-panel border border-panel-border"
+                className="group panel-raised overflow-hidden rounded-panel border border-panel-border"
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-heading text-base font-semibold text-concrete-100 focus-ring [&::-webkit-details-marker]:hidden">
                   <span>{faq.q}</span>
-                  <Plus
+                  <ListChecks
                     className="h-4 w-4 shrink-0 text-brass transition-transform duration-200 group-open:rotate-45"
                     aria-hidden="true"
                   />
@@ -541,31 +404,21 @@ export default function HomePage() {
         </Section>
       </section>
 
-      {/* Final CTA */}
-      <section className="relative py-24">
-        <HazardStripe height="sm" />
-        <Section className="py-16 text-center">
-          <Eyebrow
-            icon={
-              <Users className="h-4 w-4 text-drone-green" aria-hidden="true" />
-            }
-            className="mx-auto"
-          >
-            human approval required
-          </Eyebrow>
-          <h2 className="mt-6 font-heading text-3xl font-bold uppercase tracking-tight text-concrete-100 sm:text-4xl">
-            Stop shipping &quot;almost right&quot; code.
+      <section className="relative py-20">
+        <Section className="text-center">
+          <Eyebrow className="mx-auto">start / first pass</Eyebrow>
+          <h2 className="mt-6 font-heading text-2xl font-bold text-concrete-100 sm:text-3xl">
+            Start with one spec.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-concrete-400">
-            Corpus won't make you 10x, and it isn't trying to replace you — it
-            puts you back in charge of the firehose. Copy the starter kit, write
-            one spec, give your agents a contract they can read. You make the
-            calls; they finally know what you meant.
+            Copy the kit, write the contract, hand the agent a bounded task, and
+            review the evidence. The loop scales because the first pass is
+            small.
           </p>
-          <div className="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
+          <div className="mt-9 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
             <Button asChild className="w-full sm:w-auto">
               <Link href="/get-started/">
-                Get started{" "}
+                Start the loop{" "}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </Button>
@@ -575,29 +428,11 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Copy the starter kit
+                Copy the kit
               </Link>
             </Button>
           </div>
-          <p className="mt-6 text-sm text-concrete-400">
-            New here? Start with{" "}
-            <Link
-              href="/what-is-corpus/"
-              className="text-corpus-yellow underline hover:no-underline focus-ring rounded-sm"
-            >
-              what Corpus is
-            </Link>{" "}
-            or{" "}
-            <Link
-              href="/the-loop/"
-              className="text-corpus-yellow underline hover:no-underline focus-ring rounded-sm"
-            >
-              the loop
-            </Link>
-            .
-          </p>
         </Section>
-        <HazardStripe height="sm" />
       </section>
     </>
   );

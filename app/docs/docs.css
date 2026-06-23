@@ -1,4 +1,4 @@
-/* Docs styling — on the site's 70s-industrial design system (globals.css tokens). */
+/* Docs styling — canonical manual inside the control-surface shell. */
 
 .docs-layout {
   display: flex;
@@ -16,8 +16,7 @@
   top: 5rem;
   max-height: calc(100vh - 6rem);
   overflow-y: auto;
-  /* recessed instrument well — carry the metal chassis into the docs nav */
-  background: var(--color-panel-recessed);
+  background: var(--color-chassis);
   border: 1px solid var(--color-panel-border);
   border-radius: var(--radius-panel);
   box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.6);
@@ -271,7 +270,7 @@
   font-size: 2.1rem;
   font-weight: 600;
   margin: 0 0 0.5rem;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 .docs-prose h2 {
   font-size: 1.45rem;
@@ -279,6 +278,13 @@
   margin: 2.75rem 0 1rem;
   padding-bottom: 0.4rem;
   border-bottom: 1px solid var(--color-panel-border);
+}
+
+.docs-prose h2::before {
+  content: "§ ";
+  color: var(--color-brass);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8em;
 }
 .docs-prose h3 {
   font-size: 1.18rem;
@@ -300,6 +306,29 @@
   font-size: 0.8rem;
   color: var(--color-brass);
   letter-spacing: 0.02em;
+}
+
+.docs-source-note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 0.9rem;
+  margin-bottom: 1.25rem;
+  padding: 0.75rem 0.9rem;
+  color: var(--color-ink);
+  border: 1px solid rgba(184, 135, 58, 0.45);
+  border-radius: var(--radius-panel);
+  background:
+    linear-gradient(90deg, rgba(191, 179, 158, 0.24) 1px, transparent 1px),
+    linear-gradient(180deg, var(--color-paper), var(--color-paper-warm));
+  background-size:
+    40px 100%,
+    auto;
+  font-size: 0.82rem;
+}
+.docs-source-note a {
+  color: var(--color-ink);
+  text-decoration-color: rgba(8, 9, 11, 0.35);
 }
 
 .docs-prose p,
@@ -381,9 +410,9 @@
   margin: 1.25rem 0;
   padding: 0.6rem 1.1rem;
   border-left: 3px solid var(--color-corpus-yellow);
-  background: var(--color-panel-raised);
+  background: linear-gradient(180deg, var(--color-paper), var(--color-paper-warm));
   border-radius: 0 var(--radius-panel) var(--radius-panel) 0;
-  color: var(--color-concrete-300);
+  color: var(--color-ink);
 }
 .docs-prose blockquote p {
   margin: 0.35rem 0;

@@ -1,11 +1,11 @@
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <span
-      className={`inline-flex items-center gap-2.5 font-display text-base font-semibold uppercase ${className}`}
+      className={`inline-flex items-center gap-2.5 font-display text-base font-semibold lowercase ${className}`}
     >
       <svg
         viewBox="0 0 32 32"
-        className="h-[1.5em] w-[1.5em] shrink-0 [filter:drop-shadow(0_0_3px_rgba(201,162,74,0.35))]"
+        className="h-[1.55em] w-[1.55em] shrink-0"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
@@ -19,19 +19,19 @@ export function Logo({ className = "" }: { className?: string }) {
             y2="30"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#ebd08a" />
-            <stop offset="0.55" stopColor="#c9a24a" />
-            <stop offset="1" stopColor="#7e6224" />
+            <stop stopColor="#ead48c" />
+            <stop offset="0.55" stopColor="#d6b45a" />
+            <stop offset="1" stopColor="#b8873a" />
           </linearGradient>
-          <radialGradient id="corpus-core" cx="0.5" cy="0.4" r="0.6">
-            <stop stopColor="#fff3d4" />
-            <stop offset="0.5" stopColor="#ebd08a" />
-            <stop offset="1" stopColor="#c9a24a" />
-          </radialGradient>
         </defs>
-        {/* the seal — a fine gilt ring */}
-        <circle cx="16" cy="16" r="13.6" stroke="url(#corpus-gilt)" strokeWidth="1" opacity="0.9" />
-        {/* hexagram — fire △ and water ▽ joined: "as above, so below" */}
+        <circle
+          cx="16"
+          cy="16"
+          r="13.6"
+          stroke="url(#corpus-gilt)"
+          strokeWidth="1"
+          opacity="0.95"
+        />
         <path
           d="M16 4.5 L25.96 21.75 L6.04 21.75 Z"
           stroke="url(#corpus-gilt)"
@@ -44,10 +44,36 @@ export function Logo({ className = "" }: { className?: string }) {
           strokeWidth="1"
           strokeLinejoin="round"
         />
-        {/* the quintessence — a gilded point at the centre */}
-        <circle cx="16" cy="16" r="1.9" fill="url(#corpus-core)" />
+        {[4.5, 10.25, 21.75, 27.5].map((y, i) => {
+          const points =
+            i === 0
+              ? [[16, y]]
+              : i === 3
+                ? [[16, y]]
+                : i === 1
+                  ? [
+                      [6.04, y],
+                      [25.96, y],
+                    ]
+                  : [
+                      [6.04, y],
+                      [25.96, y],
+                    ];
+          return points.map(([x, py]) => (
+            <circle
+              key={`${x}-${py}`}
+              cx={x}
+              cy={py}
+              r="1.35"
+              fill="#050506"
+              stroke="url(#corpus-gilt)"
+              strokeWidth="0.9"
+            />
+          ));
+        })}
+        <circle cx="16" cy="16" r="1.55" fill="#d6b45a" />
       </svg>
-      <span className="tracking-[0.2em]">CORPUS</span>
+      <span className="tracking-[0.02em]">corpus</span>
     </span>
   );
 }

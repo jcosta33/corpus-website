@@ -1,9 +1,9 @@
-export interface HazardStripeProps {
+export interface GiltBandProps {
   className?: string;
   height?: "sm" | "md" | "lg";
 }
 
-export function HazardStripe({ className = "", height = "md" }: HazardStripeProps) {
+export function GiltBand({ className = "", height = "md" }: GiltBandProps) {
   const heights = {
     sm: "h-2",
     md: "h-5",
@@ -15,7 +15,7 @@ export function HazardStripe({ className = "", height = "md" }: HazardStripeProp
       role="presentation"
       className={`w-full border-y border-panel-border bg-panel-raised ${heights[height]} ${className}`}
     >
-      <div className="h-full w-full hazard-stripe" />
+      <div className="h-full w-full gilt-hatch" />
     </div>
   );
 }

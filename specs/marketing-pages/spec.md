@@ -8,6 +8,7 @@ sources:
   - intake/website.md
   - specs/design-system/spec.md
   - reviews/REVIEW-SPEC-marketing-pages.md
+  - decisions/0002-three-way-visual-language.md
 ---
 
 # SPEC-marketing-pages — Marketing content pages
@@ -20,7 +21,7 @@ must meet. Implementation is staged in `change-plans/website-launch.md`.
 
 ## Non-goals
 
-- No full documentation reader.
+- No replacement for the generated documentation reader.
 - No API reference.
 - No blog.
 
@@ -84,22 +85,27 @@ Plus a link to `docs/ADOPTING.md` in the `corpus` repo.
 
 Verify with: both links resolve; `npm run build` passes.
 
-### AC-006 — `/skills` and `/cli` are post-launch pages
+### AC-006 — `/skills`, `/agents`, and `/cli` are operational reference pages
 
-These pages are explicitly out of the launch wave. They are reserved routes with
-a placeholder card reading "Coming soon" and a link to the respective GitHub
-repos (`jcosta33/corpus-skills`, `jcosta33/corpus-cli`).
+These pages use the three-way visual language without overclaiming:
 
-Verify with: the routes exist and render; no over-promising copy; links are
-valid.
+- `/skills` reads as a tool index with compact cards, command snippets, and
+  compatibility notes.
+- `/agents` reads as a role catalog with cards, capability notes, and
+  evidence requirements.
+- `/cli` reads as a terminal reference with command groups, expected output, and
+  verification notes.
+
+Verify with: the routes exist and render; copy matches the sibling repo READMEs;
+no page claims the CLI or agent catalog decides whether code is done.
 
 ### AC-007 — 404 page uses the global shell
 
 The default Next.js not-found page is replaced with a Corpus-branded 404 that
-uses the global shell and links back to `/`.
+uses the global shell and links back to `/` without stale metaphor language.
 
 Verify with: visit a non-existent route; the 404 page renders with nav/footer
-and a "Back to hive" link.
+and a "Back to Corpus" link.
 
 ## Open questions
 
@@ -125,10 +131,10 @@ All marketing copy derives from the `corpus` framework repo
 - Homepage, `/what-is-corpus`: `docs/01-what-is-corpus.md`
 - `/the-loop`: `docs/02-basic-workflow.md`
 - `/get-started`: `docs/ADOPTING.md`
-- `/skills`, `/cli`: placeholder pages linking to their future repos.
+- `/skills`, `/agents`, `/cli`: operational reference pages linking to their
+  sibling repos.
 
 ## Dropped from sources
 
-- `/docs` subsite — docs live in the `corpus` repo; website links there.
 - `/pricing` — Corpus is free/open source.
 - Full customer case studies — none exist.

@@ -13,7 +13,6 @@ import {
   Rocket,
   Scale,
   ShieldCheck,
-  Sparkles,
   Swords,
   Target,
   Terminal,
@@ -27,6 +26,8 @@ import { DroneIcon } from "../components/DroneIcon";
 import { HexBadge } from "../components/HexBadge";
 import { PageHero } from "../components/PageHero";
 import { Heading } from "../components/Heading";
+import { Badge } from "../components/Badge";
+import { PaperArtifact } from "../components/PaperArtifact";
 
 export const metadata: Metadata = {
   title: "Skills — Corpus",
@@ -135,25 +136,35 @@ export default function SkillsPage() {
     <div className="flex flex-col gap-24 py-24">
       <Section>
         <PageHero
-          eyebrow="skills.catalog — 14 skills"
+          eyebrow="tool index / agent guides"
           title={
             <>
-              Corpus{" "}
-              <span className="text-corpus-yellow text-glow">skills</span>
+              Corpus <span className="text-corpus-yellow">skills</span>
             </>
           }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            Optional agent guides — conditioning stances and code-authoring
-            depth — in the open Agent Skills format. Install only what your work
-            calls for.
+            Optional agent guides: conditioning stances and code-authoring
+            depth, packaged in the open Agent Skills format.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
-            Skills are not shortcuts. They are discipline prompts that load when
-            the work matches and pull the agent back toward the discipline
-            before it drifts.
+            Install the guide that matches the work. Leave the rest unloaded.
           </p>
         </PageHero>
+      </Section>
+
+      <Section>
+        <PaperArtifact
+          label="index"
+          title="load when"
+          meta="skill description -> matching work"
+          className="mx-auto max-w-3xl"
+        >
+          <p>
+            A skill is not a runtime. It is a focused instruction file the agent
+            reads when the task calls for that discipline.
+          </p>
+        </PaperArtifact>
       </Section>
 
       <Section className="flex flex-col gap-8">
@@ -207,7 +218,7 @@ export default function SkillsPage() {
       <Section className="flex flex-col gap-12">
         <div className="max-w-2xl">
           <div className="flex items-center gap-2 text-xs font-mono uppercase text-corpus-yellow">
-            <Sparkles className="h-4 w-4" aria-hidden="true" />
+            <ShieldCheck className="h-4 w-4" aria-hidden="true" />
             <span>stances.conf — cognitive postures</span>
           </div>
           <Heading className="mt-3">Conditioning stances</Heading>
@@ -219,6 +230,10 @@ export default function SkillsPage() {
             research note, a doc) already ship folded into that work guide, so
             you get them by using the guide.
           </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <Badge variant="draft">markdown only</Badge>
+            <Badge variant="ready">on demand</Badge>
+          </div>
         </div>
         <ul className="reveal grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {stances.map((s) => {
@@ -262,7 +277,7 @@ export default function SkillsPage() {
 
       <Section className="flex flex-col gap-12">
         <div className="max-w-2xl">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase text-drone-green">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase text-phosphor">
             <Hammer className="h-4 w-4" aria-hidden="true" />
             <span>authoring.conf — change-shape guides</span>
           </div>
@@ -284,14 +299,14 @@ export default function SkillsPage() {
                   aria-label={`${s.skill} skill on GitHub (opens in new tab)`}
                   className="group block rounded-sm focus-ring"
                 >
-                  <Card className="h-full border-panel-border hover:border-drone-green/50">
+                  <Card className="h-full border-panel-border hover:border-phosphor/50">
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex items-start gap-4">
                         <HexBadge color="green">
                           <Icon className="h-5 w-5" aria-hidden="true" />
                         </HexBadge>
                         <div>
-                          <h3 className="font-mono text-sm font-semibold text-drone-green">
+                          <h3 className="font-mono text-sm font-semibold text-phosphor">
                             {s.skill}
                           </h3>
                           <p className="mt-1 text-sm leading-relaxed text-concrete-400">
