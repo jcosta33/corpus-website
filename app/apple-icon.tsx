@@ -29,7 +29,7 @@ export default function AppleIcon() {
           background: "transparent",
         }}
       >
-        <img src={MARK} width={172} height={172} alt="" />
+        <img src={MARK} width={180} height={180} alt="" />
       </div>
     ),
     { ...size }

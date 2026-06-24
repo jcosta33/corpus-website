@@ -25,7 +25,6 @@ export function generateImageMetadata() {
 export default async function Icon({ id }: { id: Promise<string> }) {
   const resolvedId = await id;
   const dim = resolvedId === "icon-192" ? 192 : 512;
-  const mark = Math.round(dim * 0.96);
   return new ImageResponse(
     (
       <div
@@ -38,7 +37,7 @@ export default async function Icon({ id }: { id: Promise<string> }) {
           background: "transparent",
         }}
       >
-        <img src={MARK} width={mark} height={mark} alt="" />
+        <img src={MARK} width={dim} height={dim} alt="" />
       </div>
     ),
     { width: dim, height: dim }

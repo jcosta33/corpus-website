@@ -235,7 +235,7 @@ export default function McpPage() {
                   {group.items.map((item) => (
                     <li
                       key={item}
-                      className="break-words font-mono text-sm text-concrete-300"
+                      className="whitespace-nowrap font-mono text-[0.8125rem] leading-6 text-concrete-300"
                     >
                       {item}
                     </li>
@@ -265,7 +265,7 @@ export default function McpPage() {
                 {resources.map((item) => (
                   <li
                     key={item}
-                    className="break-words font-mono text-sm text-concrete-300"
+                    className="whitespace-nowrap font-mono text-[0.8125rem] leading-6 text-concrete-300"
                   >
                     {item}
                   </li>
@@ -280,7 +280,7 @@ export default function McpPage() {
                 {prompts.map((item) => (
                   <li
                     key={item}
-                    className="break-words font-mono text-sm text-concrete-300"
+                    className="whitespace-nowrap font-mono text-[0.8125rem] leading-6 text-concrete-300"
                   >
                     {item}
                   </li>
