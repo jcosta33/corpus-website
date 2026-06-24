@@ -20,6 +20,7 @@ import { PageHero } from "../components/PageHero";
 import { Heading } from "../components/Heading";
 import { PaperArtifact } from "../components/PaperArtifact";
 import { LoopDiagram } from "../components/LoopDiagram";
+import { TextLink } from "../components/TextLink";
 
 const stepIcons = [Inbox, FileText, ListChecks, Terminal, ScanEye, GitMerge];
 
@@ -198,22 +199,50 @@ export default function TheLoopPage() {
           }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            Six steps. Six records. One reviewable trail.
+            Six steps for moving agent work from request to review.
           </p>
         </PageHero>
       </Section>
 
       <Section className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-        <PaperArtifact
-          label="note"
-          title="six points / six steps"
-          meta="Pull · Spec · Task · Run · Review · Close"
-        >
-          <p>
-            Each point creates or checks the record the next point needs.
-            Inventory and Change Plan appear for brownfield or structural work.
-          </p>
-        </PaperArtifact>
+        <div className="grid gap-4 lg:content-start">
+          <PaperArtifact
+            label="note"
+            title="six points / six steps"
+            meta="Pull · Spec · Task · Run · Review · Close"
+          >
+            <p>
+              Each point creates or checks the record the next point needs.
+              Inventory and Change Plan appear for brownfield or structural
+              work.
+            </p>
+          </PaperArtifact>
+          <Panel variant="inset" className="p-5">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-corpus-yellow">
+              prep records
+            </p>
+            <ul className="mt-4 divide-y divide-panel-border/70 text-sm text-concrete-400">
+              <li className="py-3 first:pt-0">
+                <span className="font-semibold text-concrete-100">
+                  Inventory
+                </span>{" "}
+                maps what already exists.
+              </li>
+              <li className="py-3">
+                <span className="font-semibold text-concrete-100">
+                  Change Plan
+                </span>{" "}
+                records what must survive.
+              </li>
+              <li className="py-3 last:pb-0">
+                <span className="font-semibold text-concrete-100">
+                  Finding
+                </span>{" "}
+                carries a reusable lesson forward.
+              </li>
+            </ul>
+          </Panel>
+        </div>
         <LoopDiagram />
       </Section>
 
@@ -287,6 +316,16 @@ export default function TheLoopPage() {
             <p className="mt-2 text-concrete-400">
               Copy the starter kit and write one spec. The same loop handles
               the next task.
+            </p>
+            <p className="mt-4 text-sm text-concrete-400">
+              Source:{" "}
+              <TextLink
+                href="/docs/02-basic-workflow/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                docs/02-basic-workflow.md
+              </TextLink>
             </p>
           </div>
           <Button asChild className="w-full md:w-auto">
