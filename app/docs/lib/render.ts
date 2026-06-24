@@ -306,6 +306,26 @@ const hastText = (nodes: ElementContent[]): string =>
     )
     .join("");
 
+const rehypeLabelFlowCodeBlocks: Plugin<[], HastRoot> = () => (tree) => {
+  visit(tree, "element", (node: HastElement) => {
+    if (node.tagName !== "pre") return;
+    const code = elementChildren(node).find((child) => child.tagName === "code");
+    if (!code) return;
+    const text = hastText(code.children).trim();
+    if (!text || text.includes("\n") || !/\s->\s/.test(text)) return;
+
+    node.properties = node.properties ?? {};
+    const value = node.properties.className;
+    const classes = Array.isArray(value)
+      ? value
+      : typeof value === "string"
+        ? value.split(/\s+/).filter(Boolean)
+        : [];
+    if (!classes.includes("docs-flow-pre")) classes.push("docs-flow-pre");
+    node.properties.className = classes;
+  });
+};
+
 // Collect h2/h3 with their (rehype-slug-assigned) ids — must run AFTER rehypeSlug so ids exist.
 const rehypeCollectHeadings =
   (out: DocHeading[]): Plugin<[], HastRoot> =>
@@ -338,6 +358,7 @@ export async function renderDoc(
     .use(rehypeSlug)
     .use(rehypeNormalizeDisplayHeadings)
     .use(rehypeCollectHeadings(headings))
+    .use(rehypeLabelFlowCodeBlocks)
     .use(rehypeLabelTaskCheckboxes)
     .use(rehypeLabelTableCells)
     .use(rehypeWrapTables)

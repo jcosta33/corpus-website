@@ -526,6 +526,22 @@
   font-size: inherit;
 }
 
+@media (max-width: 48rem) {
+  .docs-prose pre.docs-flow-pre {
+    overflow-x: visible;
+    white-space: normal;
+  }
+
+  .docs-prose pre.docs-flow-pre::after {
+    display: none;
+  }
+
+  .docs-prose pre.docs-flow-pre code {
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+}
+
 /* Blockquotes / callouts — corpus-yellow rail on a raised plate */
 .docs-prose blockquote {
   margin: 1.25rem 0;
