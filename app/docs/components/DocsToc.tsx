@@ -5,7 +5,8 @@ import type { DocHeading } from "../lib/render";
 
 // On-this-page rail with scroll-spy. An IntersectionObserver over the heading ids (the same ones the
 // anchors target) lights up the section currently near the top of the viewport — matching the
-// sidebar's "you are here" vocabulary. Rendered only for docs with >= 4 headings (the page guards).
+// sidebar's "you are here" vocabulary. The page renders it only once there are enough sections to
+// justify the extra rail.
 export function DocsToc({ headings }: { headings: DocHeading[] }) {
   const [activeId, setActiveId] = useState<string>("");
 

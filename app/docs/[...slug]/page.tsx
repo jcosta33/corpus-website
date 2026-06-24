@@ -236,7 +236,7 @@ export default async function DocPage({
         </div>
       </div>
 
-      {headings.length >= 4 && <DocsToc headings={headings} />}
+      {headings.length >= 3 && <DocsToc headings={headings} />}
     </>
   );
 }
