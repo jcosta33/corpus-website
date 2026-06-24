@@ -41,6 +41,7 @@
   cursor: pointer;
   list-style: none;
   display: flex;
+  min-height: 2rem;
   align-items: center;
   justify-content: space-between;
 }
@@ -61,7 +62,9 @@
   margin: 1px 0;
 }
 .docs-nav a {
-  display: block;
+  display: flex;
+  min-height: 2rem;
+  align-items: center;
   padding: 0.3rem 0.6rem;
   font-size: 0.875rem;
   line-height: 1.35;
@@ -178,7 +181,7 @@
 /* Pagefind ships its placeholder at opacity:0.2 (~1.8:1 — fails AA). Lift it to a legible cue. */
 .docs-search input::placeholder {
   opacity: 1;
-  color: var(--color-concrete-500);
+  color: var(--color-concrete-400);
 }
 
 /* ---------- On-this-page TOC rail (wide screens only — hidden where there isn't room) ---------- */
@@ -225,7 +228,9 @@
     padding-left: 0.85rem;
   }
   .docs-toc a {
-    display: block;
+    display: flex;
+    min-height: 2rem;
+    align-items: center;
     padding: 0.2rem 0.55rem;
     font-size: 0.82rem;
     line-height: 1.35;
@@ -348,6 +353,9 @@
   overflow-wrap: anywhere;
 }
 .docs-source-note a {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
   color: var(--color-ink);
   text-decoration-color: rgba(8, 9, 11, 0.35);
   overflow-wrap: anywhere;
@@ -355,27 +363,29 @@
 @media (max-width: 48rem) {
   .docs-source-note {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    align-items: center;
-    gap: 0.2rem 0.55rem;
-    padding: 0.45rem 0.55rem;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 0.18rem;
+    padding: 0.6rem 0.65rem;
     line-height: 1.35;
   }
 
   .docs-source-path {
-    grid-column: 1 / -1;
+    grid-column: 1;
     overflow: visible;
     text-overflow: clip;
     white-space: normal;
   }
 
   .docs-source-path a {
-    display: inline;
+    display: block;
+    min-height: 2rem;
+    margin-top: 0.05rem;
   }
 
   .docs-source-date {
-    grid-column: 2;
-    justify-self: end;
+    grid-column: 1;
+    justify-self: start;
     font-size: 0.7rem;
     color: rgba(8, 9, 11, 0.72);
   }
@@ -413,6 +423,12 @@
 }
 .docs-prose li::marker {
   color: var(--color-brass);
+}
+.docs-prose li a {
+  display: inline-flex;
+  min-height: 2rem;
+  min-width: 2rem;
+  align-items: center;
 }
 .docs-prose li > ul,
 .docs-prose li > ol {
@@ -545,6 +561,11 @@
   padding: 0.5rem 0.75rem;
   vertical-align: top;
 }
+.docs-prose td a {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
+}
 .docs-prose tbody tr:nth-child(even) {
   background: rgba(255, 255, 255, 0.018);
 }
@@ -634,9 +655,20 @@
 }
 
 .docs-index-list a {
-  display: inline-flex;
-  min-height: 1.75rem;
+  display: flex;
+  min-height: 2.25rem;
   align-items: center;
+  width: 100%;
+  border-radius: var(--radius-panel);
+  padding: 0.12rem 0.25rem;
+  transition:
+    background-color 0.12s,
+    color 0.12s,
+    text-decoration-color 0.12s;
+}
+
+.docs-index-list a:hover {
+  background: rgba(216, 138, 36, 0.1);
 }
 
 /* ---------- Per-page footer: prev/next pager + get-started bridge ---------- */
@@ -696,6 +728,9 @@
   margin: 0;
 }
 .docs-prose .docs-bridge a {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
   color: var(--color-corpus-yellow);
   text-decoration-color: rgba(216, 138, 36, 0.6);
 }
