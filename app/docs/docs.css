@@ -659,7 +659,7 @@
 
 .docs-index-list {
   display: grid;
-  gap: 0.2rem 0.8rem;
+  gap: 0.25rem 0.8rem;
   padding-left: 0 !important;
   list-style: none;
 }
@@ -674,21 +674,27 @@
   margin: 0;
 }
 
-.docs-index-list a {
+.docs-prose .docs-index-list a {
   display: flex;
-  min-height: 2.25rem;
+  min-height: 2.75rem;
   align-items: center;
   width: 100%;
   border-radius: var(--radius-panel);
-  padding: 0.12rem 0.25rem;
+  padding: 0.25rem 0.35rem;
   transition:
     background-color 0.12s,
     color 0.12s,
     text-decoration-color 0.12s;
 }
 
-.docs-index-list a:hover {
+.docs-prose .docs-index-list a:hover {
   background: rgba(216, 138, 36, 0.1);
+}
+
+.docs-prose .docs-index-section-compact p a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
 }
 
 /* ---------- Per-page footer: prev/next pager + get-started bridge ---------- */
