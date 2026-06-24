@@ -158,9 +158,9 @@ export function LoopDiagram() {
           <p className="font-mono text-xs uppercase tracking-[0.12em] text-brass">
             workflow / six steps
           </p>
-          <h3 className="mt-2 font-heading text-2xl font-bold text-concrete-100">
+          <h2 className="mt-2 font-heading text-2xl font-bold text-concrete-100">
             Six steps, one loop.
-          </h3>
+          </h2>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-concrete-400">
             The mark maps to the workflow: Pull, Spec, Task, Run, Review,
             Close. Each pass leaves a file the next step can use.

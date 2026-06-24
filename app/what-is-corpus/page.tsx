@@ -24,11 +24,11 @@ import {
 import { Button } from "../components/Button";
 
 export const metadata: Metadata = {
-  title: "What is Corpus — Corpus",
+  title: "What is Corpus? — Corpus",
   description:
     "Corpus is a markdown workflow for specs, tasks, reviews, findings, and evidence.",
   openGraph: {
-    title: "What is Corpus — Corpus",
+    title: "What is Corpus? — Corpus",
     description:
       "Corpus is a markdown workflow for specs, tasks, reviews, findings, and evidence.",
     type: "website",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         url: "/og-what-is-corpus.png",
         width: 1200,
         height: 630,
-        alt: "What is Corpus — a spec and review workflow",
+        alt: "What is Corpus? — a spec and review workflow",
       },
     ],
   },
@@ -148,14 +148,14 @@ const failureModes = [
 
 export default function WhatIsCorpusPage() {
   return (
-    <div className="flex flex-col gap-20 py-20 sm:gap-24 sm:py-24">
+    <div className="flex flex-col gap-16 py-16 sm:gap-20 sm:py-20">
       <Section className="ambient-header">
         <PageHero
           eyebrow="system overview"
           title={
             <>
               What is{" "}
-              <span className="text-corpus-yellow">Corpus</span>
+              <span className="text-corpus-yellow">Corpus?</span>
             </>
           }
         >
@@ -166,24 +166,24 @@ export default function WhatIsCorpusPage() {
       </Section>
 
       <Section className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
-        <Panel brushed className="mx-auto max-w-3xl p-2">
-          <TerminalWindow title="diagnostics" className="mx-auto max-w-3xl">
+        <Panel brushed className="mx-auto h-full max-w-3xl p-2">
+          <TerminalWindow title="diagnostics" className="mx-auto h-full max-w-3xl">
             <p className="text-concrete-400">
-              <span className="text-corpus-yellow">$</span> cat
+                <span className="text-corpus-yellow">$</span>{" "}cat
               what-is-corpus.md
             </p>
             <p className="mt-2 text-concrete-100">
               Corpus turns requests into specs, specs into tasks, and task
               output into review evidence.
             </p>
-            <p className="mt-2 text-phosphor">✓ agent does the typing</p>
-            <p className="text-phosphor">✓ human makes the call</p>
-            <p className="text-phosphor">✓ every claim needs evidence</p>
-            <p className="text-phosphor">
+            <p className="mt-2 text-olive">✓ agent does the typing</p>
+            <p className="text-olive">✓ human makes the call</p>
+            <p className="text-olive">✓ every claim needs evidence</p>
+            <p className="text-olive">
               ✓ plain markdown, any agent, no runtime
             </p>
             <p className="mt-2 text-concrete-400">
-              <span className="text-corpus-yellow">$</span> _
+                <span className="text-corpus-yellow">$</span>{" "}_
             </p>
           </TerminalWindow>
         </Panel>

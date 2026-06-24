@@ -103,7 +103,7 @@ function repoHref(agent: string) {
 
 export default function AgentsPage() {
   return (
-    <div className="flex flex-col gap-20 py-20 sm:gap-24 sm:py-24">
+    <div className="flex flex-col gap-16 py-16 sm:gap-20 sm:py-20">
       <Section>
         <PageHero
           eyebrow="worker files / agent roles"
@@ -122,17 +122,47 @@ export default function AgentsPage() {
         </PageHero>
       </Section>
 
-      <Section>
+      <Section className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-stretch">
         <PaperArtifact
           label="note"
           title="delegation record"
           meta="worker identity · inputs · tools · evidence"
-          className="mx-auto max-w-3xl"
+          className="h-full"
         >
-          <p>
-            A worker can return evidence. It cannot certify its own result.
-          </p>
+          <p>A worker can return evidence. It cannot certify its own result.</p>
         </PaperArtifact>
+        <Card screws className="h-full">
+          <div className="grid gap-4 sm:grid-cols-3">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-wide text-brass">
+                workers
+              </p>
+              <p className="mt-2 font-heading text-3xl font-bold text-concrete-100">
+                8
+              </p>
+            </div>
+            <div>
+              <p className="font-mono text-xs uppercase tracking-wide text-brass">
+                hooks
+              </p>
+              <p className="mt-2 font-heading text-3xl font-bold text-concrete-100">
+                2
+              </p>
+            </div>
+            <div>
+              <p className="font-mono text-xs uppercase tracking-wide text-brass">
+                home
+              </p>
+              <p className="mt-2 font-mono text-sm text-concrete-300">
+                .claude/agents
+              </p>
+            </div>
+          </div>
+          <p className="mt-5 text-sm leading-relaxed text-concrete-400">
+            This page is a roster. The repo holds the files; the docs explain
+            when to delegate.
+          </p>
+        </Card>
       </Section>
 
       <Section className="flex flex-col gap-8">
@@ -147,18 +177,18 @@ export default function AgentsPage() {
               .claude/agents/)
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span> mkdir -p
+              <span className="text-corpus-yellow">$</span>{" "}mkdir -p
               &lt;your-repo&gt;/.claude/agents
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span> cp
+              <span className="text-corpus-yellow">$</span>{" "}cp
               agents/corpus-reviewer.md &lt;your-repo&gt;/.claude/agents/
             </p>
             <p className="mt-2 text-concrete-500">
               # optional: the delegation-provenance hook + the read-only guard
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span> cp
+              <span className="text-corpus-yellow">$</span>{" "}cp
               hooks/delegations.sh hooks/readonly-guard.sh
               &lt;your-repo&gt;/.claude/hooks/
             </p>
@@ -236,7 +266,7 @@ export default function AgentsPage() {
 
       <Section className="flex flex-col gap-12">
         <div className="max-w-2xl">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase text-phosphor">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase text-olive">
             <Hammer className="h-4 w-4" aria-hidden="true" />
             <span>tier-2.conf — bounded authoring</span>
           </div>
@@ -262,14 +292,14 @@ export default function AgentsPage() {
                   aria-label={`${a.agent} definition on GitHub (opens in new tab)`}
                   className="group block rounded-sm focus-ring"
                 >
-                  <Card className="h-full border-panel-border hover:border-phosphor/50">
+                  <Card className="h-full border-panel-border hover:border-olive/60">
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex items-start gap-4">
-                        <HexBadge color="green">
+                        <HexBadge color="olive">
                           <Icon className="h-5 w-5" aria-hidden="true" />
                         </HexBadge>
                         <div>
-                          <h3 className="font-mono text-sm font-semibold text-phosphor">
+                          <h3 className="font-mono text-sm font-semibold text-olive">
                             {a.agent}
                           </h3>
                           <p className="mt-1 text-sm leading-relaxed text-concrete-400">

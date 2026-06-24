@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 
 function Section({ sec, intro }: { sec: NavSection; intro?: string }) {
   return (
-    <section>
+    <section className="docs-index-section">
       <h2>{sec.title}</h2>
       {intro ? <p>{intro}</p> : null}
-      <ul>
+      <ul className="docs-index-list">
         {sec.items.map((it) => (
           <li key={it.slug}>
             <Link href={`/docs/${it.slug}/`}>{it.label}</Link>
@@ -53,7 +53,7 @@ export default function DocsIndex() {
         />
       ) : null}
       {adrs && adrs.items.length > 0 ? (
-        <section>
+        <section className="docs-index-section docs-index-section-compact">
           <h2>ADRs</h2>
           <p>
             Decision records for the framework.{" "}

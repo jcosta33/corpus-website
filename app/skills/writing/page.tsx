@@ -81,7 +81,7 @@ const outOfScope = [
 
 export default function WritingSkillsPage() {
   return (
-    <div className="flex flex-col gap-20 py-20 sm:gap-24 sm:py-24">
+    <div className="flex flex-col gap-16 py-16 sm:gap-20 sm:py-20">
       <Section>
         <PageHero
           eyebrow="SKILL.md"
@@ -173,7 +173,7 @@ export default function WritingSkillsPage() {
 
       <Section className="flex flex-col gap-8">
         <div className="max-w-2xl">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase text-phosphor">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase text-olive">
             <BookOpen className="h-4 w-4" />
             <span>body</span>
           </div>
@@ -188,7 +188,7 @@ export default function WritingSkillsPage() {
             return (
               <li key={item.title}>
                 <Card screws className="h-full border-panel-border">
-                  <HexBadge color="green" className="mb-4">
+                  <HexBadge color="olive" className="mb-4">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </HexBadge>
                   <h3 className="font-heading text-sm font-bold uppercase tracking-wide text-concrete-100">

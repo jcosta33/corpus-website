@@ -133,7 +133,14 @@ export default async function DocPage({
   const md = readDoc(slugPath);
   if (md === null) notFound();
   const dir = path.posix.dirname(slugPath);
-  const { html, headings } = await renderDoc(md, dir === "." ? "" : dir);
+  const articleMarkdown = md
+    .replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, "")
+    .replace(/^\s*#\s+.+\r?\n+/, "");
+  const title = titleOf(md);
+  const { html, headings } = await renderDoc(
+    articleMarkdown,
+    dir === "." ? "" : dir,
+  );
   const dates = docDates(slugPath);
 
   // Prev/next within the reading order, so a deep-doc / search landing isn't a dead end. Use each
@@ -150,16 +157,17 @@ export default async function DocPage({
 
   return (
     <>
-      <JsonLd data={breadcrumbFor(slug, titleOf(md))} />
+      <JsonLd data={breadcrumbFor(slug, title)} />
       <JsonLd
         data={articleFor(
           slug,
-          titleOf(md),
+          title,
           descriptionOf(md),
           dates,
         )}
       />
       <div className="docs-prose" data-pagefind-body>
+        <h1 className="docs-article-title">{title}</h1>
         <div className="docs-source-note" data-pagefind-ignore>
           <span className="paper-stamp">source</span>
           <span>
@@ -174,7 +182,7 @@ export default async function DocPage({
           </span>
           {dates && <span>Modified: {dates.modified.slice(0, 10)}</span>}
         </div>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <div className="docs-article-html" dangerouslySetInnerHTML={{ __html: html }} />
 
         {(prev || next) && (
           <nav className="docs-pager" aria-label="Documentation pages">

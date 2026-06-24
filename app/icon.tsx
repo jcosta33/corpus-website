@@ -1,16 +1,14 @@
 import { ImageResponse } from "next/og";
 
-// Generated at build (works under output:export) — no logo asset needed. The six-node loop mark on
-// night black; a visual mark, no
-// brand text. Emits 192 + 512 (purpose any) — the pair Chrome requires for PWA installability, and
-// the favicon Next wires into <head>.
+// Generated at build (works under output:export) — no logo asset needed. The six-node loop mark
+// sits on a transparent canvas with minimal padding.
 export const dynamic = "force-static";
 
 const MARK =
   "data:image/svg+xml," +
   encodeURIComponent(
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">` +
-      `<circle cx="16" cy="16" r="13.6" stroke="#d88a24" stroke-width="1.4"/>` +
+      `<circle cx="16" cy="16" r="14.8" stroke="#d88a24" stroke-width="1.6"/>` +
       `<polygon points="16,4.5 25.96,10.25 25.96,21.75 16,27.5 6.04,21.75 6.04,10.25" stroke="#d88a24" stroke-width="1.4" stroke-linejoin="round"/>` +
       `<path d="M16 16 L16 4.5 M16 16 L25.96 10.25 M16 16 L25.96 21.75 M16 16 L16 27.5 M16 16 L6.04 21.75 M16 16 L6.04 10.25" stroke="#d88a24" stroke-width="0.9" opacity="0.75"/>` +
       `<circle cx="16" cy="16" r="2.2" fill="#f0b85c"/>` +
@@ -24,9 +22,10 @@ export function generateImageMetadata() {
   ];
 }
 
-export default function Icon({ id }: { id: string }) {
-  const dim = id === "icon-192" ? 192 : 512;
-  const mark = Math.round(dim * 0.66);
+export default async function Icon({ id }: { id: Promise<string> }) {
+  const resolvedId = await id;
+  const dim = resolvedId === "icon-192" ? 192 : 512;
+  const mark = Math.round(dim * 0.96);
   return new ImageResponse(
     (
       <div
@@ -36,7 +35,7 @@ export default function Icon({ id }: { id: string }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#080604",
+          background: "transparent",
         }}
       >
         <img src={MARK} width={mark} height={mark} alt="" />

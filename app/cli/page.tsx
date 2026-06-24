@@ -132,7 +132,7 @@ const principles = [
 
 export default function CliPage() {
   return (
-    <div className="flex flex-col gap-20 py-20 sm:gap-24 sm:py-24">
+    <div className="flex flex-col gap-16 py-16 sm:gap-20 sm:py-20">
       <Section className="ambient-header">
         <PageHero
           eyebrow="corpus-cli — reference implementation"
@@ -149,11 +149,9 @@ export default function CliPage() {
             It scaffolds files, runs checks, manages task worktrees, and prints
             the board.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
             <Badge variant="unverified">Command surface settling</Badge>
             <Badge variant="draft">No verdicts</Badge>
-            <Badge variant="default">Source install</Badge>
-            <Badge variant="default">Needs git</Badge>
           </div>
         </PageHero>
       </Section>
@@ -161,7 +159,7 @@ export default function CliPage() {
       <Section className="flex flex-col gap-8">
         <div className="flex items-center gap-2 text-xs font-mono uppercase text-corpus-yellow">
           <DroneIcon className="h-4 w-4" />
-          <span>install.sh</span>
+          <span>install</span>
         </div>
         <Panel brushed className="p-2">
           <TerminalWindow title="terminal" ariaLabel="install">
@@ -169,14 +167,14 @@ export default function CliPage() {
               # source install for now
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span> git clone
+              <span className="text-corpus-yellow">$</span>{" "}git clone
               https://github.com/jcosta33/corpus-cli.git &amp;&amp; cd
               corpus-cli &amp;&amp; npm install &amp;&amp; npm run build
               &amp;&amp; npm link
             </p>
             <p className="mt-2 text-concrete-500"># then run commands as</p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span> corpus --help
+              <span className="text-corpus-yellow">$</span>{" "}corpus --help
             </p>
           </TerminalWindow>
         </Panel>
@@ -193,27 +191,27 @@ export default function CliPage() {
               # scaffold a workspace first
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span> corpus check{" "}
+              <span className="text-corpus-yellow">$</span>{" "}corpus check{" "}
               <span className="text-concrete-500">
                 # lint a spec or the whole workspace; exit 0/1/2
               </span>
             </p>
             <p className="mt-1 text-concrete-100">
-              <span className="text-corpus-yellow">$</span> corpus worktree
+              <span className="text-corpus-yellow">$</span>{" "}corpus worktree
               create auth-refresh --task TASK-12{" "}
               <span className="text-concrete-500">
                 # isolate the task on its own branch
               </span>
             </p>
             <p className="mt-1 text-concrete-100">
-              <span className="text-corpus-yellow">$</span> corpus review
+              <span className="text-corpus-yellow">$</span>{" "}corpus review
               TASK-12{" "}
               <span className="text-concrete-500">
                 # reconcile the finished run — diff vs report vs spec
               </span>
             </p>
             <p className="mt-1 text-concrete-100">
-              <span className="text-corpus-yellow">$</span> corpus status -i{" "}
+              <span className="text-corpus-yellow">$</span>{" "}corpus status -i{" "}
               <span className="text-concrete-500">
                 # the board — specs, tasks, reviews, gaps
               </span>
@@ -224,7 +222,7 @@ export default function CliPage() {
 
       <Section className="flex flex-col gap-12">
         <div className="max-w-2xl">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase text-phosphor">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase text-olive">
             <Bug className="h-4 w-4" aria-hidden="true" />
             <span>commands.md — public surface</span>
           </div>
@@ -242,15 +240,15 @@ export default function CliPage() {
               <li key={c.cmd} className="min-w-0">
                 <Card
                   screws
-                  className="group h-full border-panel-border hover:border-phosphor/50"
+                  className="group h-full border-panel-border hover:border-olive/60"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex min-w-0 items-start gap-4">
-                      <HexBadge color="green">
+                      <HexBadge color="olive">
                         <Icon className="h-5 w-5" aria-hidden="true" />
                       </HexBadge>
                       <div className="min-w-0">
-                        <h3 className="font-mono text-sm font-semibold text-phosphor break-words">
+                        <h3 className="font-mono text-sm font-semibold text-olive break-words">
                           corpus {c.cmd}
                         </h3>
                         <p className="mt-1 text-sm leading-relaxed text-concrete-400">
@@ -317,7 +315,7 @@ export default function CliPage() {
               Use the starter kit and write a spec. Add the CLI later.
             </p>
           </div>
-          <Button asChild className="w-full md:w-auto">
+          <Button asChild className="w-full md:w-auto" variant="secondary">
             <Link href="/get-started/">
               Get started <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>

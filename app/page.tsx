@@ -172,7 +172,7 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={softwareApp} />
-      <section className="relative isolate overflow-hidden border-b border-panel-border py-20 sm:py-28">
+      <section className="relative isolate overflow-hidden border-b border-panel-border py-16 sm:py-20">
         <HeroHexGrid />
         <Section className="ambient-header relative z-10">
           <PageHero
@@ -186,7 +186,7 @@ export default function HomePage() {
             <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
               Plain markdown for coding-agent work.
             </p>
-            <div className="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
               <Button asChild className="w-full sm:w-auto">
                 <Link href="/get-started/">
                   Start the loop{" "}
@@ -199,7 +199,7 @@ export default function HomePage() {
             </div>
           </PageHero>
 
-          <Panel brushed screws className="mx-auto mt-12 max-w-6xl p-3">
+          <Panel brushed screws className="mx-auto mt-10 max-w-6xl p-3">
             <div className="grid min-w-0 gap-3 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
               <div className="min-w-0 rounded-panel border border-panel-border bg-panel p-4">
                 <div className="mb-4 flex flex-wrap items-center justify-between gap-3">

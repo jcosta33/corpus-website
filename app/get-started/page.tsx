@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight, FolderPlus, Rocket, Terminal, Wrench } from "lucide-react";
 import { Section } from "../components/Section";
 import { Card } from "../components/Card";
-import { Button } from "../components/Button";
 import { ActionLink } from "../components/ActionLink";
 import { Panel } from "../components/Panel";
 import { TerminalWindow } from "../components/TerminalWindow";
@@ -63,7 +62,7 @@ function ListDot() {
 
 export default function GetStartedPage() {
   return (
-    <div className="flex flex-col gap-20 py-20 sm:gap-24 sm:py-24">
+    <div className="flex flex-col gap-16 py-16 sm:gap-20 sm:py-20">
       <Section>
         <div className="max-w-3xl">
           <div className="flex items-center gap-2 text-xs font-mono uppercase text-brass">
@@ -91,16 +90,15 @@ export default function GetStartedPage() {
               templates, and guides in place.
             </p>
           </div>
-          <Button asChild className="mt-auto w-full sm:w-fit">
-            <Link
-              href="https://github.com/jcosta33/corpus-starter-kit"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Use the starter kit template{" "}
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-          </Button>
+          <ActionLink
+            href="https://github.com/jcosta33/corpus-starter-kit"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-auto w-full sm:w-fit"
+          >
+            Use the starter kit{" "}
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </ActionLink>
         </Card>
 
         <Card screws className="h-full" contentClassName="flex h-full flex-col gap-8">
@@ -119,7 +117,7 @@ export default function GetStartedPage() {
             rel="noopener noreferrer"
             className="mt-auto w-full sm:w-fit"
           >
-            Read ADOPTING.md{" "}
+            Read the adopting guide{" "}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </ActionLink>
         </Card>
@@ -142,7 +140,7 @@ export default function GetStartedPage() {
               # install the CLI from source
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span> git clone
+              <span className="text-corpus-yellow">$</span>{" "}git clone
               https://github.com/jcosta33/corpus-cli.git &amp;&amp; cd
               corpus-cli &amp;&amp; npm install &amp;&amp; npm run build
               &amp;&amp; npm link
@@ -151,13 +149,13 @@ export default function GetStartedPage() {
               # then, in a new or existing repo
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span> corpus init{" "}
+              <span className="text-corpus-yellow">$</span>{" "}corpus init{" "}
               <span className="text-concrete-500">
                 # scaffold the workspace, conflict-safe
               </span>
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span> corpus check{" "}
+              <span className="text-corpus-yellow">$</span>{" "}corpus check{" "}
               <span className="text-concrete-500">
                 # confirm it is well-formed; exit 0/1/2
               </span>

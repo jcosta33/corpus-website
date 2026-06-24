@@ -20,7 +20,7 @@ const sizes: Record<HeadingSize, string> = {
 export function Heading({ children, as: Tag = "h2", size = "2xl", className = "" }: HeadingProps) {
   return (
     <Tag
-      className={`font-heading ${sizes[size]} font-bold uppercase tracking-tight text-concrete-100 ${className}`}
+      className={`font-heading ${sizes[size]} font-bold tracking-[0] text-concrete-100 ${className}`}
     >
       {children}
     </Tag>

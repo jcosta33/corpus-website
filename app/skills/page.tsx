@@ -133,7 +133,7 @@ const authoring = [
 
 export default function SkillsPage() {
   return (
-    <div className="flex flex-col gap-20 py-20 sm:gap-24 sm:py-24">
+    <div className="flex flex-col gap-16 py-16 sm:gap-20 sm:py-20">
       <Section>
         <PageHero
           eyebrow="tool index / agent guides"
@@ -152,18 +152,50 @@ export default function SkillsPage() {
         </PageHero>
       </Section>
 
-      <Section>
+      <Section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
         <PaperArtifact
           label="index"
           title="load when"
           meta="skill description -> matching work"
-          className="mx-auto max-w-3xl"
+          className="h-full"
         >
           <p>
             A skill is a markdown instruction file. It loads when the task
             matches.
           </p>
         </PaperArtifact>
+        <Card screws className="h-full">
+          <div className="grid gap-4 sm:grid-cols-3">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-wide text-brass">
+                review
+              </p>
+              <p className="mt-2 font-heading text-3xl font-bold text-concrete-100">
+                4
+              </p>
+            </div>
+            <div>
+              <p className="font-mono text-xs uppercase tracking-wide text-brass">
+                change
+              </p>
+              <p className="mt-2 font-heading text-3xl font-bold text-concrete-100">
+                10
+              </p>
+            </div>
+            <div>
+              <p className="font-mono text-xs uppercase tracking-wide text-brass">
+                file
+              </p>
+              <p className="mt-2 font-mono text-sm text-concrete-300">
+                SKILL.md
+              </p>
+            </div>
+          </div>
+          <p className="mt-5 text-sm leading-relaxed text-concrete-400">
+            Install one guide at a time. The description is the trigger; the
+            body is the checklist.
+          </p>
+        </Card>
       </Section>
 
       <Section className="flex flex-col gap-8">
@@ -175,32 +207,32 @@ export default function SkillsPage() {
           <TerminalWindow title="terminal">
             <p className="text-concrete-500"># list what&apos;s available</p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span> npx skills add
+              <span className="text-corpus-yellow">$</span>{" "}npx skills add
               jcosta33/corpus-skills --list
             </p>
             <p className="mt-2 text-concrete-500">
               # install into the current repo
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span> npx skills add
+              <span className="text-corpus-yellow">$</span>{" "}npx skills add
               jcosta33/corpus-skills --skill persona-skeptic
             </p>
             <p className="mt-2 text-concrete-500">
               # or install globally / for one agent
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span> npx skills add
+              <span className="text-corpus-yellow">$</span>{" "}npx skills add
               jcosta33/corpus-skills --skill persona-skeptic -g
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span> npx skills add
+              <span className="text-corpus-yellow">$</span>{" "}npx skills add
               jcosta33/corpus-skills --skill persona-skeptic -a claude-code
             </p>
             <p className="mt-2 text-concrete-500">
               # no CLI? copy the folder into your agent&apos;s skills directory
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span> cp -R
+              <span className="text-corpus-yellow">$</span>{" "}cp -R
               skills/persona-skeptic &lt;your-repo&gt;/.agents/skills/
             </p>
           </TerminalWindow>
@@ -271,7 +303,7 @@ export default function SkillsPage() {
 
       <Section className="flex flex-col gap-12">
         <div className="max-w-2xl">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase text-phosphor">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase text-olive">
             <Hammer className="h-4 w-4" aria-hidden="true" />
             <span>change guides</span>
           </div>
@@ -293,14 +325,14 @@ export default function SkillsPage() {
                   aria-label={`${s.skill} skill on GitHub (opens in new tab)`}
                   className="group block rounded-sm focus-ring"
                 >
-                  <Card className="h-full border-panel-border hover:border-phosphor/50">
+                  <Card className="h-full border-panel-border hover:border-olive/60">
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex items-start gap-4">
-                        <HexBadge color="green">
+                        <HexBadge color="olive">
                           <Icon className="h-5 w-5" aria-hidden="true" />
                         </HexBadge>
                         <div>
-                          <h3 className="font-mono text-sm font-semibold text-phosphor">
+                          <h3 className="font-mono text-sm font-semibold text-olive">
                             {s.skill}
                           </h3>
                           <p className="mt-1 text-sm leading-relaxed text-concrete-400">

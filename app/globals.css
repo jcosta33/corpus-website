@@ -99,6 +99,11 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+:target {
+  scroll-margin-top: 5.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -177,6 +182,21 @@ body::after {
 .focus-ring:focus-visible {
   outline: 2px solid var(--color-gold);
   outline-offset: 2px;
+}
+
+.soft-link {
+  color: var(--color-corpus-yellow);
+  text-decoration: underline;
+  text-decoration-color: rgba(216, 138, 36, 0.48);
+  text-underline-offset: 3px;
+  transition:
+    color 140ms ease,
+    text-decoration-color 140ms ease;
+}
+
+.soft-link:hover {
+  color: var(--color-gold-bright);
+  text-decoration-color: var(--color-gold-bright);
 }
 
 /* Route header ruling — faint manuscript marks behind the hero title. */
@@ -403,12 +423,12 @@ body::after {
 
 .panel-raised:hover,
 .panel-raised:focus-within {
-  border-color: rgba(216, 138, 36, 0.52);
+  border-color: rgba(216, 138, 36, 0.38);
   box-shadow:
-    inset 0 1px 0 rgba(232, 222, 203, 0.11),
+    inset 0 1px 0 rgba(232, 222, 203, 0.09),
     inset 0 -1px 0 rgba(0, 0, 0, 0.55),
-    0 0 0 1px rgba(216, 138, 36, 0.08),
-    0 10px 24px rgba(0, 0, 0, 0.3);
+    0 0 0 1px rgba(216, 138, 36, 0.05),
+    0 8px 20px rgba(0, 0, 0, 0.24);
 }
 
 .panel-inset:hover,
@@ -647,12 +667,16 @@ body::after {
 
 .terminal-window:hover,
 .terminal-window:focus-within {
-  border-color: rgba(216, 138, 36, 0.52);
+  border-color: rgba(216, 138, 36, 0.42);
   box-shadow:
-    inset 0 1px 0 rgba(240, 226, 204, 0.11),
+    inset 0 1px 0 rgba(240, 226, 204, 0.09),
     inset 0 -2px 0 rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(216, 138, 36, 0.08),
-    0 14px 32px rgba(0, 0, 0, 0.34);
+    0 0 0 1px rgba(216, 138, 36, 0.05),
+    0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
+.terminal-content {
+  overflow-wrap: anywhere;
 }
 
 .terminal-title-caret {
@@ -711,7 +735,7 @@ body::after {
       transparent 31px,
       rgba(111, 119, 130, 0.22) 32px
     ),
-    linear-gradient(180deg, var(--color-paper), var(--color-paper-warm));
+    linear-gradient(180deg, #ead7b7, #d9c29d);
   background-size:
     40px 100%,
     100% 32px,
@@ -742,11 +766,11 @@ body::after {
 
 .paper-artifact:hover,
 .paper-artifact:focus-within {
-  border-color: rgba(184, 135, 58, 0.76);
+  border-color: rgba(184, 135, 58, 0.66);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.62),
     inset 0 -1px 0 rgba(8, 9, 11, 0.08),
-    0 16px 34px rgba(0, 0, 0, 0.3);
+    0 12px 28px rgba(0, 0, 0, 0.28);
 }
 
 .paper-stamp {

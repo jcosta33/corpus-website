@@ -117,7 +117,7 @@ const prompts = [
 
 export default function McpPage() {
   return (
-    <div className="flex flex-col gap-20 py-20 sm:gap-24 sm:py-24">
+    <div className="flex flex-col gap-16 py-16 sm:gap-20 sm:py-20">
       <Section className="ambient-header">
         <PageHero
           eyebrow="mcp server / read-only adapter"
@@ -128,17 +128,16 @@ export default function McpPage() {
           }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            A stdio MCP server for Corpus workspace facts.
+            A read-only MCP server for Corpus workspace facts.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
-            It gives clients read access to status, checks, artifacts, and
-            review data.
+            It runs over standard I/O and gives clients read access to status,
+            checks, artifacts, and review data.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
             <Badge variant="ready">v0 surface</Badge>
             <Badge variant="draft">read-only</Badge>
             <Badge variant="unverified">no verdict</Badge>
-            <Badge variant="default">stdio</Badge>
           </div>
         </PageHero>
       </Section>
@@ -168,11 +167,12 @@ export default function McpPage() {
         <PaperArtifact
           label="note"
           title="package boundary"
-          meta="mcp sdk here / cli stays small"
+          meta="adapter package / cli stays small"
         >
           <p>
-            corpus-mcp adapts the public <span className="font-semibold">--json</span>{" "}
-            contract. The MCP SDK lives in this package, not the CLI.
+            corpus-mcp adapts the CLI&apos;s public{" "}
+            <span className="font-semibold">--json</span> contract. The SDK
+            lives here so corpus-cli can stay small.
           </p>
         </PaperArtifact>
       </Section>
@@ -213,7 +213,7 @@ export default function McpPage() {
 
       <Section className="grid gap-6 lg:grid-cols-2">
         <Card screws className="border-panel-border">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase text-phosphor">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase text-olive">
             <Cable className="h-4 w-4" aria-hidden="true" />
             <span>tools / 10</span>
           </div>
@@ -316,14 +316,14 @@ export default function McpPage() {
               # until a published build is available
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span> git clone
+              <span className="text-corpus-yellow">$</span>{" "}git clone
               https://github.com/jcosta33/corpus-mcp.git
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span> cd corpus-mcp
+              <span className="text-corpus-yellow">$</span>{" "}cd corpus-mcp
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span> pnpm install
+              <span className="text-corpus-yellow">$</span>{" "}pnpm install
               &amp;&amp; pnpm build &amp;&amp; npm link
             </p>
           </TerminalWindow>
@@ -346,10 +346,10 @@ export default function McpPage() {
             </p>
           </div>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Button asChild className="w-full sm:w-auto">
-              <Link
-                href="https://github.com/jcosta33/corpus-mcp"
-                target="_blank"
+          <Button asChild className="w-full sm:w-auto" variant="secondary">
+            <Link
+              href="https://github.com/jcosta33/corpus-mcp"
+              target="_blank"
                 rel="noopener noreferrer"
               >
                 GitHub <ExternalLink className="h-4 w-4" aria-hidden="true" />

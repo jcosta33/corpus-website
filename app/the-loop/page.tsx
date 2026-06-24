@@ -19,6 +19,7 @@ import { HexBadge } from "../components/HexBadge";
 import { PageHero } from "../components/PageHero";
 import { Heading } from "../components/Heading";
 import { PaperArtifact } from "../components/PaperArtifact";
+import { LoopDiagram } from "../components/LoopDiagram";
 
 const stepIcons = [Inbox, FileText, ListChecks, Terminal, ScanEye, GitMerge];
 
@@ -186,10 +187,10 @@ const steps = [
 
 export default function TheLoopPage() {
   return (
-    <div className="flex flex-col gap-20 py-20 sm:gap-24 sm:py-24">
+    <div className="flex flex-col gap-16 py-16 sm:gap-20 sm:py-20">
       <Section className="ambient-header">
         <PageHero
-          eyebrow="workflow / 6 stages"
+          eyebrow="workflow / six steps"
           title={
             <>
               The <span className="text-corpus-yellow">loop</span>
@@ -202,23 +203,24 @@ export default function TheLoopPage() {
         </PageHero>
       </Section>
 
-      <GiltBand height="sm" />
-
-      <Section>
+      <Section className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
         <PaperArtifact
           label="note"
           title="six points / six steps"
           meta="Pull · Spec · Task · Run · Review · Close"
-          className="mx-auto max-w-3xl"
+          className="h-full"
         >
           <p>
             Each point creates or checks the record the next point needs.
             Inventory and Change Plan appear for brownfield or structural work.
           </p>
         </PaperArtifact>
+        <LoopDiagram />
       </Section>
 
-      <Section className="flex flex-col gap-16">
+      <GiltBand height="sm" />
+
+      <Section className="flex flex-col gap-14">
         {steps.map((step, index) => {
           const Icon = stepIcons[index];
           return (

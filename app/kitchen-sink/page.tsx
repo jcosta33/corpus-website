@@ -147,7 +147,7 @@ export default function KitchenSinkPage() {
         <TerminalWindow title="terminal">
           <p className="text-concrete-500"># CRT monitor panel</p>
           <p className="text-concrete-100">
-            <span className="text-corpus-yellow">$</span> corpus status
+              <span className="text-corpus-yellow">$</span>{" "}corpus status
           </p>
           <p className="mt-1 text-phosphor">✓ all systems nominal</p>
         </TerminalWindow>
