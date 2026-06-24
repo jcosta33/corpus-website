@@ -4,8 +4,8 @@ import { Panel } from "../components/Panel";
 import { TerminalWindow } from "../components/TerminalWindow";
 
 export const metadata: Metadata = {
-  title: "Colophon — corpus",
-  description: "How the corpus website is built and by whom.",
+  title: "Colophon — Corpus",
+  description: "How the Corpus website is built.",
   robots: "noindex",
   alternates: {
     canonical: "/colophon/",
@@ -31,8 +31,8 @@ export default function ColophonPage() {
                 Colophon
               </h1>
               <p className="mt-2 text-concrete-400">
-                Built with corpus: drafted by agents, reviewed by a session that didn&apos;t write it,
-                merged by a human.
+                Built with Corpus. Drafted, reviewed, and merged through the
+                same workflow.
               </p>
             </div>
             <dl className="grid gap-3 sm:grid-cols-[auto_1fr]">

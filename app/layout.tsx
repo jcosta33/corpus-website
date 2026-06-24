@@ -20,14 +20,15 @@ const siteGraph = {
     {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
-      name: "corpus",
+      name: "Corpus",
       url: SITE_URL,
       description:
-        "corpus is a lightweight spec-and-review workflow for teams shipping code with coding agents.",
+        "Corpus is a markdown workflow for coding-agent work.",
       sameAs: [
         "https://github.com/jcosta33/corpus",
         "https://github.com/jcosta33/corpus-starter-kit",
         "https://github.com/jcosta33/corpus-skills",
+        "https://github.com/jcosta33/corpus-agents",
         "https://github.com/jcosta33/corpus-cli",
         "https://github.com/jcosta33/corpus-mcp",
       ],
@@ -35,7 +36,7 @@ const siteGraph = {
     {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
-      name: "corpus",
+      name: "Corpus",
       url: SITE_URL,
       publisher: { "@id": `${SITE_URL}/#organization` },
       potentialAction: {
@@ -75,7 +76,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 // Old-style serif for the title-page voice — the hero headings and the wordmark
-// carry the "corpus Hermeticum" book character; the rest of the UI stays in the
+// carry the "Corpus Hermeticum" book character; the rest of the UI stays in the
 // geometric sans for the straight, scientific read. This is the hero's LCP font,
 // so it preloads (default).
 const ebGaramond = EB_Garamond({
@@ -88,19 +89,19 @@ const ebGaramond = EB_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://corpusframework.dev"),
-  title: "corpus — A spec-and-review workflow for coding agents",
+  title: "Corpus — Spec and review workflow",
   description:
-    "corpus is a lightweight framework that helps teams ship better code with agents: specs, tasks, reviews, findings, and change plans.",
+    "Corpus is a markdown workflow for specs, tasks, reviews, findings, and evidence.",
   openGraph: {
     type: "website",
-    siteName: "corpus",
+    siteName: "Corpus",
     locale: "en_US",
     images: [
       {
         url: "/og-home.png",
         width: 1200,
         height: 630,
-        alt: "corpus — a spec-and-review workflow for coding agents",
+        alt: "Corpus — spec and review workflow",
       },
     ],
   },

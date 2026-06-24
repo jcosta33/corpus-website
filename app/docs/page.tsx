@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { buildNav, canonAvailable, type NavSection } from "./lib/canon";
 
 export const metadata: Metadata = {
-  title: "Documentation · corpus",
-  description: "A spec and review workflow for teams using coding agents — the full corpus documentation.",
+  title: "Documentation · Corpus",
+  description: "The Corpus documentation.",
   alternates: { canonical: "/docs/" },
 };
 
@@ -26,7 +26,7 @@ function Section({ sec, intro }: { sec: NavSection; intro?: string }) {
 
 export default function DocsIndex() {
   if (!canonAvailable()) {
-    return <p>The docs source was not available at build time (see canon.ts — W3 deploy wiring).</p>;
+    return <p>The docs source was not available at build time.</p>;
   }
   const nav = buildNav();
   const find = (title: string) => nav.find((s) => s.title === title);
@@ -38,11 +38,10 @@ export default function DocsIndex() {
 
   return (
     <div className="docs-prose" data-pagefind-body>
-      <h1>corpus documentation</h1>
+      <h1>Corpus documentation</h1>
       <p>
-        A spec and review workflow for teams using coding agents. New to it?{" "}
-        <Link href="/docs/tutorial/README/">Walk the loop once</Link> — a guided build. Then keep the
-        numbered path open as you go.
+        Start with the numbered pages. Use the tutorial when you want to walk
+        the loop once.
       </p>
       {startHere ? <Section sec={startHere} /> : null}
       {tutorial ? <Section sec={tutorial} /> : null}
@@ -50,16 +49,15 @@ export default function DocsIndex() {
       {reference ? (
         <Section
           sec={reference}
-          intro="The deep layer — structured requirements, the checks contract, step bars, artifact formats, and the glossary. Reach for these when you need the precise rule, not the happy path."
+          intro="Detailed rules, formats, checks, and glossary."
         />
       ) : null}
       {adrs && adrs.items.length > 0 ? (
         <section>
-          <h2>Decision ledger</h2>
+          <h2>ADRs</h2>
           <p>
-            The architecture decisions behind every format and vocabulary rule — an internal record
-            kept for traceability, not a starting point.{" "}
-            <Link href="/docs/adrs/README/">Browse the {adrs.items.length} ADRs →</Link>
+            Decision records for the framework.{" "}
+            <Link href="/docs/adrs/README/">Browse {adrs.items.length} ADRs</Link>
           </p>
         </section>
       ) : null}

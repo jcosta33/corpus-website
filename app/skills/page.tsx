@@ -30,23 +30,23 @@ import { Badge } from "../components/Badge";
 import { PaperArtifact } from "../components/PaperArtifact";
 
 export const metadata: Metadata = {
-  title: "Skills — corpus",
+  title: "Skills — Corpus",
   description:
-    "Optional agent guides for corpus workflows: conditioning stances and code-authoring depth. Not shortcuts — discipline prompts that load when the work matches.",
+    "Optional agent guides for Corpus review, writing, testing, and docs work.",
   openGraph: {
-    title: "Skills — corpus",
+    title: "Skills — Corpus",
     description:
-      "An optional catalog of agent guides for corpus workflows: conditioning stances and code-authoring depth, installable into any agent CLI.",
+      "Optional agent guides for Corpus review, writing, testing, and docs work.",
     type: "website",
     url: "/skills/",
-    siteName: "corpus",
+    siteName: "Corpus",
     locale: "en_US",
     images: [
       {
         url: "/og-skills.png",
         width: 1200,
         height: 630,
-        alt: "corpus skills — conditioning stances and code-authoring depth guides",
+        alt: "Corpus skills",
       },
     ],
   },
@@ -59,22 +59,22 @@ const stances = [
   {
     skill: "persona-skeptic",
     icon: Scale,
-    use: "judging another agent's work, deepening an audit, or root-causing — refute by default; the lever is the checks you re-run yourself",
+    use: "review another agent's work",
   },
   {
     skill: "persona-challenger",
     icon: Swords,
-    use: "pressure-testing a live proposal before it's built — surface assumptions, steelman the alternative, ground every challenge externally",
+    use: "pressure-test a proposal before build work starts",
   },
   {
     skill: "persona-surveyor",
     icon: FolderSearch,
-    use: "breadth research across patterns or products — three named instances per claimed pattern",
+    use: "survey patterns across examples",
   },
   {
     skill: "empirical-proof",
     icon: ShieldCheck,
-    use: "any completion claim — bind it to pasted output or it reads unverified",
+    use: "back completion claims with pasted output",
   },
 ];
 
@@ -82,52 +82,52 @@ const authoring = [
   {
     skill: "implement-task",
     icon: Terminal,
-    use: "the full corpus task-packet frame, long form",
+    use: "implement a Corpus task packet",
   },
   {
     skill: "write-feature",
     icon: Rocket,
-    use: "net-new behavior behind a defined surface",
+    use: "add new behavior",
   },
   {
     skill: "write-fix",
     icon: Bug,
-    use: "a reproduced defect with a root cause",
+    use: "fix a reproduced defect",
   },
   {
     skill: "write-refactor",
     icon: Layers,
-    use: "restructuring with behavior pinned by tests",
+    use: "restructure without changing behavior",
   },
   {
     skill: "write-rewrite",
     icon: FileCode,
-    use: "re-implementing code whose behavior changes on purpose",
+    use: "rewrite with a recorded behavior change",
   },
   {
     skill: "write-migration",
     icon: Files,
-    use: "moving from API A to API B, green after every wave",
+    use: "move from one API to another",
   },
   {
     skill: "write-performance",
     icon: Zap,
-    use: "a measured bottleneck with a target and baseline",
+    use: "improve a measured bottleneck",
   },
   {
     skill: "write-testing",
     icon: Target,
-    use: "adding the tests an area should already have",
+    use: "add focused tests",
   },
   {
     skill: "write-documentation",
     icon: Glasses,
-    use: "human-facing docs for a reader who hasn't read the code",
+    use: "write human-facing docs",
   },
   {
     skill: "fix-flaky-test",
     icon: Puzzle,
-    use: "a test that fails intermittently — diagnose, don't retry-loop",
+    use: "stabilize an intermittent test",
   },
 ];
 
@@ -139,16 +139,15 @@ export default function SkillsPage() {
           eyebrow="tool index / agent guides"
           title={
             <>
-              corpus <span className="text-corpus-yellow">skills</span>
+              Corpus <span className="text-corpus-yellow">skills</span>
             </>
           }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            Optional agent guides: conditioning stances and code-authoring
-            depth, packaged in the open Agent Skills format.
+            Optional agent guides for review, implementation, testing, and docs.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
-            Install the guide that matches the work. Leave the rest unloaded.
+            Install only the guide that matches the task.
           </p>
         </PageHero>
       </Section>
@@ -161,8 +160,8 @@ export default function SkillsPage() {
           className="mx-auto max-w-3xl"
         >
           <p>
-            A skill is not a runtime. It is a focused instruction file the agent
-            reads when the task calls for that discipline.
+            A skill is a markdown instruction file. It loads when the task
+            matches.
           </p>
         </PaperArtifact>
       </Section>
@@ -211,7 +210,7 @@ export default function SkillsPage() {
           <code className="text-corpus-yellow">cmdTest</code> and{" "}
           <code className="text-corpus-yellow">cmdLint</code>; your repo&apos;s{" "}
           <code className="text-corpus-yellow">AGENTS.md</code> supplies the
-          real commands. That is what makes them portable across stacks.
+          real commands.
         </p>
       </Section>
 
@@ -219,16 +218,11 @@ export default function SkillsPage() {
         <div className="max-w-2xl">
           <div className="flex items-center gap-2 text-xs font-mono uppercase text-corpus-yellow">
             <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-            <span>stances.conf — cognitive postures</span>
+            <span>review guides</span>
           </div>
-          <Heading className="mt-3">Conditioning stances</Heading>
+          <Heading className="mt-3">Review guides</Heading>
           <p className="mt-4 text-concrete-400">
-            Cross-cutting cognitive postures that tilt what the agent looks for
-            and refuses — load one alongside a task guide when the work needs a
-            particular lens. These are the stances that apply across several
-            guides; the ones tied to a single kind of work (a spec, an audit, a
-            research note, a doc) already ship folded into that work guide, so
-            you get them by using the guide.
+            Use these when the task is about judgment, evidence, or research.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             <Badge variant="draft">markdown only</Badge>
@@ -279,12 +273,12 @@ export default function SkillsPage() {
         <div className="max-w-2xl">
           <div className="flex items-center gap-2 text-xs font-mono uppercase text-phosphor">
             <Hammer className="h-4 w-4" aria-hidden="true" />
-            <span>authoring.conf — change-shape guides</span>
+            <span>change guides</span>
           </div>
-          <Heading className="mt-3">Code-authoring depth</Heading>
+          <Heading className="mt-3">Change guides</Heading>
           <p className="mt-4 text-concrete-400">
-            Guides for specific change shapes. Pick the one that matches the
-            task so the agent does not treat every problem like a feature.
+            Pick the guide that matches the work: feature, fix, refactor,
+            rewrite, migration, performance, testing, or docs.
           </p>
         </div>
         <ul className="reveal grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -336,11 +330,10 @@ export default function SkillsPage() {
             <Terminal className="h-4 w-4" aria-hidden="true" />
             <span>authoring.guide — write your own</span>
           </div>
-          <Heading className="mt-3">How to write a corpus skill</Heading>
+          <Heading className="mt-3">How to write a Corpus skill</Heading>
           <p className="mt-4 text-concrete-400">
-            Skills are plain markdown, but their structure is evidence-backed:
-            directive descriptions, self-contained bodies, forced visible
-            output, and the AGENTS.md contract.
+            Use a clear description, a self-contained body, visible output, and
+            the AGENTS.md command contract.
           </p>
           <p className="mt-6">
             <Link
@@ -362,16 +355,15 @@ export default function SkillsPage() {
           <Heading className="mt-3">Why there is no runtime</Heading>
           <p className="mt-4 text-concrete-400">
             A skill is a markdown guide your agent reads when the work matches.
-            You can read it first, pin to a commit, and audit what your agent
-            was told to do. If you want command-line scaffolding or automated
-            checks, that is{" "}
+            Read it before installing and pin to a commit. For scaffolding and
+            checks, use{" "}
             <Link
               href="/cli/"
               className="text-corpus-yellow underline hover:no-underline focus-ring rounded-sm"
             >
               corpus-cli
             </Link>
-            . It is real, but the command surface is still settling.
+            .
           </p>
           <p className="mt-6">
             <Link

@@ -4,8 +4,8 @@ import { Section } from "./components/Section";
 import { Button } from "./components/Button";
 
 export const metadata = {
-  title: "Page not found — corpus",
-  description: "The requested page could not be found on the corpus website.",
+  title: "Page not found — Corpus",
+  description: "The requested page was not found.",
   robots: "noindex",
 };
 
@@ -19,13 +19,12 @@ export default function NotFoundPage() {
         Page not found.
       </p>
       <p className="mt-2 max-w-md text-concrete-400">
-        The page you are looking for does not exist. Check the URL or head back
-        home.
+        Check the URL or go back home.
       </p>
       <div className="mt-8">
         <Button asChild>
           <Link href="/">
-            <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back to corpus
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back to Corpus
           </Link>
         </Button>
       </div>

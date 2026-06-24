@@ -102,7 +102,7 @@ export const humanizeSegment = (seg: string): string => {
   return words
     .map((word, index) => {
       const lower = word.toLowerCase();
-      if (lower === "corpus") return "corpus";
+      if (lower === "corpus") return "Corpus";
       if (acronyms.has(lower)) return acronyms.get(lower);
       if (index === 0) return lower.charAt(0).toUpperCase() + lower.slice(1);
       return lower;

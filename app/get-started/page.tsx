@@ -11,23 +11,23 @@ import { Heading } from "../components/Heading";
 import { PaperArtifact } from "../components/PaperArtifact";
 
 export const metadata: Metadata = {
-  title: "Get started — corpus",
+  title: "Get started — Corpus",
   description:
-    "Adopt corpus in a new repo or an existing project. Start writing specs and keeping humans in the loop in plain markdown.",
+    "Set up Corpus in a new repo or an existing project.",
   openGraph: {
-    title: "Get started — corpus",
+    title: "Get started — Corpus",
     description:
-      "Adopt corpus in a new repo or an existing project. Start writing specs and keeping humans in the loop in plain markdown.",
+      "Set up Corpus in a new repo or an existing project.",
     type: "website",
     url: "/get-started/",
-    siteName: "corpus",
+    siteName: "Corpus",
     locale: "en_US",
     images: [
       {
         url: "/og-get-started.png",
         width: 1200,
         height: 630,
-        alt: "Get started with corpus — a new repo or an existing project",
+        alt: "Get started with Corpus — a new repo or an existing project",
       },
     ],
   },
@@ -73,8 +73,8 @@ export default function GetStartedPage() {
             Get started
           </h1>
           <p className="mt-6 text-xl leading-relaxed text-concrete-400">
-            Pick a path. Either way you write specs and tasks in plain markdown
-            — the agent gets a clear brief, and the review gets evidence.
+            Start with the starter kit. Use the CLI when you want scaffolding
+            and checks.
           </p>
         </div>
       </Section>
@@ -87,9 +87,8 @@ export default function GetStartedPage() {
           <div>
             <Heading>New repo</Heading>
             <p className="mt-2 text-concrete-400">
-              Use the GitHub template to create a fresh corpus workspace with
-              the folder structure, templates, and agent guides already in
-              place.
+              Use the GitHub template for a fresh workspace with folders,
+              templates, and guides in place.
             </p>
           </div>
           <Button asChild className="mt-auto w-full sm:w-fit">
@@ -111,9 +110,7 @@ export default function GetStartedPage() {
           <div>
             <Heading>Existing project</Heading>
             <p className="mt-2 text-concrete-400">
-              Copy the starter kit into a workspace folder inside your existing
-              repo. Add specs and tasks alongside your code without changing the
-              project structure.
+              Copy the kit into your repo. Add specs and tasks beside the code.
             </p>
           </div>
           <ActionLink
@@ -136,15 +133,13 @@ export default function GetStartedPage() {
         <Heading>Prefer the command line?</Heading>
         <p className="max-w-2xl text-concrete-400">
           <code className="text-corpus-yellow">corpus init</code> scaffolds the
-          same workspace into a new or existing repo — conflict-safe, so it
-          never clobbers files you already have. The CLI is not on npm under
-          that name yet (the name is taken), so install it from source.
+          same workspace into a new or existing repo. It refuses to overwrite
+          existing files. Install it from source for now.
         </p>
         <Panel brushed className="p-2">
           <TerminalWindow title="terminal">
             <p className="text-concrete-500">
-              # install the CLI from source — the binary it provides is called
-              corpus
+              # install the CLI from source
             </p>
             <p className="text-concrete-100">
               <span className="text-corpus-yellow">$</span> git clone
@@ -170,7 +165,7 @@ export default function GetStartedPage() {
           </TerminalWindow>
         </Panel>
         <p className="text-concrete-400">
-          What the CLI does (and deliberately does not):{" "}
+          CLI details:{" "}
           <Link
             href="/cli/"
             className="text-corpus-yellow underline hover:no-underline focus-ring rounded-sm"
@@ -182,7 +177,7 @@ export default function GetStartedPage() {
       </Section>
 
       <Section className="flex flex-col gap-8">
-        <Heading>What the starter kit gives you</Heading>
+        <Heading>Starter kit contents</Heading>
         <PaperArtifact
           label="note"
           title="starter kit contents"
@@ -191,7 +186,7 @@ export default function GetStartedPage() {
         >
           <p>
             AGENTS.md sets the local contract. Templates shape the records.
-            Status and findings keep the work legible after the session ends.
+            status.md tracks the work.
           </p>
         </PaperArtifact>
         <ul className="reveal grid gap-4 sm:grid-cols-2">
@@ -199,45 +194,43 @@ export default function GetStartedPage() {
             <ListDot />
             <span>
               <strong className="text-concrete-100">AGENTS.md</strong> — the
-              bootloader your agent reads on every task.
+              file your agent reads before work starts.
             </span>
           </li>
           <li className="flex items-start gap-3 text-concrete-400">
             <ListDot />
             <span>
               <strong className="text-concrete-100">Core guides</strong> —
-              write-spec, implement-task, review-output, save-findings, and
-              more.
+              write specs, run tasks, review output, save findings.
             </span>
           </li>
           <li className="flex items-start gap-3 text-concrete-400">
             <ListDot />
             <span>
               <strong className="text-concrete-100">Eight templates</strong> —
-              spec, task, review, finding, status, intake, inventory,
-              change-plan.
+              intake, spec, task, review, finding, status, inventory,
+              change plan.
             </span>
           </li>
           <li className="flex items-start gap-3 text-concrete-400">
             <ListDot />
             <span>
               <strong className="text-concrete-100">Flow folders</strong> —
-              specs/, tasks/, reviews/, findings/, and the rest, each with a
-              one-line README.
+              specs/, tasks/, reviews/, findings/, and related folders.
             </span>
           </li>
           <li className="flex items-start gap-3 text-concrete-400">
             <ListDot />
             <span>
               <strong className="text-concrete-100">status.md</strong> — a
-              hand-edited workboard for tracking what is in flight.
+              small workboard for active items.
             </span>
           </li>
           <li className="flex items-start gap-3 text-concrete-400">
             <ListDot />
             <span>
               <strong className="text-concrete-100">decisions/</strong> — an ADR
-              ledger, seeded with why you adopted corpus.
+              records for local decisions.
             </span>
           </li>
         </ul>
@@ -255,8 +248,7 @@ export default function GetStartedPage() {
             <div>
               <Heading>Need more depth?</Heading>
               <p className="mt-2 text-concrete-400">
-                Install optional skills for specific stances and change shapes —
-                persona-skeptic, write-feature, write-fix, and others.
+                Install optional skills for review, fixes, features, and docs.
               </p>
             </div>
           </div>
@@ -278,9 +270,7 @@ export default function GetStartedPage() {
             <div>
               <Heading>On Claude Code?</Heading>
               <p className="mt-2 text-concrete-400">
-                Copy a worker definition — an independent reviewer, a read-only
-                explorer, a bounded spec author — each running a role in a
-                fresh, isolated context.
+                Copy a worker definition for review, exploration, or authoring.
               </p>
             </div>
           </div>
@@ -292,7 +282,7 @@ export default function GetStartedPage() {
 
       <Section>
         <p className="text-concrete-400">
-          Not sure which path fits? Read{" "}
+          More setup notes:{" "}
           <Link
             href="/docs/ADOPTING/"
             target="_blank"
@@ -301,7 +291,7 @@ export default function GetStartedPage() {
           >
             docs/ADOPTING.md
           </Link>{" "}
-          for a decision checklist.
+          .
         </p>
       </Section>
     </div>

@@ -2,14 +2,14 @@ import type { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
 
-// Web app manifest — makes the site installable + gives Android/Chrome a themed icon. Brand "corpus"
+// Web app manifest — makes the site installable + gives Android/Chrome a themed icon. Brand "Corpus"
 // matches the current chrome; the icon paths are the build-generated app/icon + app/apple-icon.
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "corpus — a spec-and-review workflow for coding agents",
-    short_name: "corpus",
+    name: "Corpus — spec and review workflow",
+    short_name: "Corpus",
     description:
-      "A lightweight spec-and-review workflow that keeps humans in charge of code written by AI agents. Plain markdown, any agent, no runtime.",
+      "A markdown workflow for specs, tasks, reviews, findings, and evidence.",
     start_url: "/",
     display: "standalone",
     background_color: "#080604",

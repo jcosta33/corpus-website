@@ -24,23 +24,23 @@ import {
 import { Button } from "../components/Button";
 
 export const metadata: Metadata = {
-  title: "What is corpus — corpus",
+  title: "What is Corpus — Corpus",
   description:
-    "corpus is a lightweight spec-and-review workflow for teams using coding agents. Plain markdown; no runtime required.",
+    "Corpus is a markdown workflow for specs, tasks, reviews, findings, and evidence.",
   openGraph: {
-    title: "What is corpus — corpus",
+    title: "What is Corpus — Corpus",
     description:
-      "corpus is a lightweight spec and review workflow for teams using coding agents. Plain markdown; no runtime required.",
+      "Corpus is a markdown workflow for specs, tasks, reviews, findings, and evidence.",
     type: "website",
     url: "/what-is-corpus/",
-    siteName: "corpus",
+    siteName: "Corpus",
     locale: "en_US",
     images: [
       {
         url: "/og-what-is-corpus.png",
         width: 1200,
         height: 630,
-        alt: "What is corpus — a spec-and-review discipline for coding agents",
+        alt: "What is Corpus — a spec and review workflow",
       },
     ],
   },
@@ -50,34 +50,28 @@ export const metadata: Metadata = {
 };
 
 const isList = [
-  { text: "a spec format humans write and agents work from", icon: FileText },
-  { text: "a task-packet format that bounds agent work", icon: LayoutList },
+  { text: "specs humans write and agents work from", icon: FileText },
+  { text: "task packets with scope and checks", icon: LayoutList },
   {
-    text: "a review-packet format that shows where human attention goes",
+    text: "review packets with evidence per requirement",
     icon: NotebookPen,
   },
   {
-    text: "a findings convention so lessons survive the session",
+    text: "findings that carry lessons forward",
     icon: CheckCircle,
   },
-  { text: "a starter kit of markdown templates", icon: Layers },
-  { text: "a workspace convention", icon: Workflow },
+  { text: "markdown templates", icon: Layers },
+  { text: "workspace conventions", icon: Workflow },
 ];
 
 const isNotList = [
   "an agent or agent runtime",
-  "a compiler",
-  "a programming language",
   "a Jira/Linear replacement",
   "a code generator",
   "a replacement for PRs and CI",
-  "a docs portal",
-  "a complete SDLC platform",
   "a formal verification system",
-  "a guarantee that agent output is correct",
+  "a guarantee that code is correct",
   "permission to skip review",
-  "a way to treat plausible output as proof",
-  "a way to remove humans from decisions",
 ];
 
 const adjacent = [
@@ -85,43 +79,37 @@ const adjacent = [
     product: "Coding agents",
     examples: "Claude Code, Cursor, Copilot, …",
     does: "write the code",
-    relation:
-      "corpus ships no agent. It shapes the inputs any agent works from and the output you review. Bring whichever agent you have.",
+    relation: "Corpus gives them scoped tasks and review records.",
   },
   {
     product: "Spec-driven workflows",
     examples: "",
     does: "turn a written spec into an implementation",
-    relation:
-      "Same family, different job. They help author the spec and generate code; corpus focuses on the review side — every requirement carries a verification method, and the packet shows the evidence per requirement.",
+    relation: "Corpus keeps requirements tied to checks and evidence.",
   },
   {
     product: "Issue trackers",
     examples: "Jira, Linear, GitHub Issues",
     does: "hold the backlog and the conversation",
-    relation:
-      "The ticket stays where it is. corpus snapshots it into an intake file and interprets it into a spec an agent can act on.",
+    relation: "Tickets stay there. Corpus snapshots the work into files.",
   },
   {
     product: "Docs portals",
     examples: "wikis, Notion, docs sites",
     does: "describe the system after the fact",
-    relation:
-      "A corpus spec is a working document — acceptance criteria, verification methods, open questions. It drives the change rather than documenting it later.",
+    relation: "A Corpus spec drives a change before it ships.",
   },
   {
     product: "Review tooling",
     examples: "PRs, CI, review bots",
     does: "check the merge",
-    relation:
-      "corpus does not replace the PR. The review packet rides alongside it and tells the reviewer where to look; CI output is the evidence the packet cites.",
+    relation: "The review packet tells reviewers where to look.",
   },
   {
     product: "Refactoring tooling",
     examples: "codemods, OpenRewrite, …",
     does: "execute mechanical change",
-    relation:
-      "corpus's change plan states what must survive the change and how to check it; a codemod is one way a task executes a step of that plan.",
+    relation: "A change plan states what must survive and how to check it.",
   },
 ];
 
@@ -129,37 +117,32 @@ const failureModes = [
   {
     mode: "Drift",
     looksLike: "the agent solves a problem, not the problem",
-    answer: "the task packet: an explicit scope and a 'Do not change' list",
+    answer: "write scope and a Do not change list",
   },
   {
     mode: "Ambiguous input",
-    looksLike:
-      "ambiguity degrades generated code, and models do not reliably flag it",
-    answer:
-      "requirements written one per ID, each with its own verification method",
+    looksLike: "the request hides missing requirements",
+    answer: "write one requirement per ID, with a check",
   },
   {
     mode: "Lost handoff",
-    looksLike:
-      "the plan-to-implementation handoff is a leading failure surface (on preliminary evidence)",
-    answer:
-      "the handoff is a written, bounded task packet — not a chat message",
+    looksLike: "the plan lives only in chat",
+    answer: "handoff through a bounded task packet",
   },
   {
     mode: "Hallucinated completion",
     looksLike: "'done,' but nothing was checked",
-    answer:
-      "a Pass needs pasted output, a CI link, or a named human's recorded observation",
+    answer: "a Pass needs evidence",
   },
   {
     mode: "No resumable trail",
     looksLike: "the session ends mid-stride; the next one starts from zero",
-    answer: "work externalized to files — intake, spec, task, review",
+    answer: "write intake, spec, task, and review files",
   },
   {
     mode: "Repeated mistakes",
     looksLike: "the same class of bug returns every few sessions",
-    answer: "findings saved at Close, kept where the next task will look",
+    answer: "save findings at Close",
   },
 ];
 
@@ -172,14 +155,12 @@ export default function WhatIsCorpusPage() {
           title={
             <>
               What is{" "}
-              <span className="text-corpus-yellow">corpus</span>
+              <span className="text-corpus-yellow">Corpus</span>
             </>
           }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            A lightweight spec-and-review workflow for teams using coding
-            agents. corpus turns intent into files an agent can run and a human
-            can verify.
+            A markdown workflow for coding-agent work.
           </p>
         </PageHero>
       </Section>
@@ -192,9 +173,8 @@ export default function WhatIsCorpusPage() {
               what-is-corpus.md
             </p>
             <p className="mt-2 text-concrete-100">
-              corpus is a spec-and-review workflow for teams using coding
-              agents. Turn tickets into clear specs, specs into agent-ready
-              tasks, and agent output into evidence a human can review.
+              Corpus turns requests into specs, specs into tasks, and task
+              output into review evidence.
             </p>
             <p className="mt-2 text-phosphor">✓ agent does the typing</p>
             <p className="text-phosphor">✓ human makes the call</p>
@@ -226,7 +206,7 @@ export default function WhatIsCorpusPage() {
             <CheckCircle className="h-4 w-4" aria-hidden="true" />
             <span>what it is</span>
           </div>
-          <Heading className="mt-3">What corpus is</Heading>
+          <Heading className="mt-3">What Corpus is</Heading>
           <ul className="mt-6 space-y-4">
             {isList.map((item) => {
               const Icon = item.icon;
@@ -250,7 +230,7 @@ export default function WhatIsCorpusPage() {
             <XCircle className="h-4 w-4" aria-hidden="true" />
             <span>what it is not</span>
           </div>
-          <Heading className="mt-3">What corpus is not</Heading>
+          <Heading className="mt-3">What Corpus is not</Heading>
           <ul className="mt-6 space-y-3">
             {isNotList.map((item) => (
               <li
@@ -274,7 +254,7 @@ export default function WhatIsCorpusPage() {
             <DroneIcon className="h-4 w-4" />
             <span>nearby tools</span>
           </div>
-          <Heading className="mt-3">Where corpus sits</Heading>
+          <Heading className="mt-3">Where Corpus sits</Heading>
         </div>
         <ul className="reveal grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {adjacent.map((row) => (
@@ -351,7 +331,7 @@ export default function WhatIsCorpusPage() {
             <Heading>See how it actually runs</Heading>
             <p className="mt-2 text-concrete-400">
               Six steps, each producing a file the next one reads. That is the
-              whole framework: no runtime, no automatic decision.
+              framework: no runtime, no automatic decision.
             </p>
           </div>
           <Button asChild className="w-full md:w-auto">

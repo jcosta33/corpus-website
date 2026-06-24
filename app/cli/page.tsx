@@ -24,23 +24,23 @@ import { Badge } from "../components/Badge";
 import { PilotLamp } from "../components/PilotLamp";
 
 export const metadata: Metadata = {
-  title: "CLI — corpus",
+  title: "CLI — Corpus",
   description:
-    "corpus-cli is optional command-line help for the corpus workflow: it checks your specs, sets up one git worktree per task, and prints the board. It does not decide whether code is done.",
+    "corpus-cli scaffolds workspaces, runs checks, manages task worktrees, and prints the board.",
   openGraph: {
-    title: "CLI — corpus",
+    title: "CLI — Corpus",
     description:
-      "corpus-cli is the optional reference companion for the corpus framework: check specs, scaffold the workspace, isolate tasks in worktrees, print the board. A helper, not an orchestrator.",
+      "corpus-cli scaffolds workspaces, runs checks, manages task worktrees, and prints the board.",
     type: "website",
     url: "/cli/",
-    siteName: "corpus",
+    siteName: "Corpus",
     locale: "en_US",
     images: [
       {
         url: "/og-cli.png",
         width: 1200,
         height: 630,
-        alt: "corpus-cli — the optional reference companion for the corpus workflow",
+        alt: "corpus-cli command reference",
       },
     ],
   },
@@ -52,62 +52,62 @@ export const metadata: Metadata = {
 const commands = [
   {
     cmd: "init [dir]",
-    what: "Scaffold the workspace into a new or existing repo, conflict-safe — walked through on Get started.",
+    what: "Scaffold a Corpus workspace without overwriting existing files.",
     icon: Blocks,
   },
   {
     cmd: "update [--check|--write]",
-    what: "--check tells you whether your workspace drifted behind the latest starter kit (read-only). --write refreshes the kit-owned guidance — templates, skill guides, hooks — conflict-safe (a customized file is backed up, never lost). Your specs, tasks, reviews, board, and AGENTS.md are yours; --write never touches them.",
+    what: "Check or refresh kit-owned files. Project work stays untouched.",
     icon: ShieldCheck,
   },
   {
     cmd: "check [file]",
-    what: "Lint a spec, or print the whole-workspace check summary. Exit 0 clean / 1 warnings / 2 blocking — so it drops straight into pre-commit and CI.",
+    what: "Check one file or the workspace. Exit codes fit CI.",
     icon: ShieldCheck,
   },
   {
     cmd: "worktree",
-    what: "Create / list / remove / prune isolated git worktrees — one per task on corpus/<slug>, so parallel agents never trample each other.",
+    what: "Create, list, remove, or prune task worktrees.",
     icon: GitBranch,
   },
   {
     cmd: "status",
-    what: "Print the workspace board — specs, tasks, reviews, and the gaps between them. --json for scripts, -i for an interactive board.",
+    what: "Print specs, tasks, reviews, and gaps. Use --json for scripts.",
     icon: LayoutDashboard,
   },
   {
     cmd: "review <task>",
-    what: "Reconcile a finished run — the agent's self-report against the actual git diff against the spec. Surfaces omitted edits, out-of-scope changes, and unbacked claims.",
+    what: "Compare the task, run report, and git diff.",
     icon: ScanEye,
   },
   {
     cmd: "new <task|spec>",
-    what: "Cut a task packet from a spec (scope never invented), or scaffold a fresh spec from the template.",
+    what: "Create a spec or cut a task packet from a spec.",
     icon: Plus,
   },
   {
     cmd: "pull <ref>",
-    what: "Snapshot an external ticket into intake/ — verbatim, never a spec or the board. Turning a ticket into requirements is your call, not transcription.",
+    what: "Snapshot an external ticket into intake/.",
     icon: ArrowRight,
   },
   {
     cmd: "promote <task>",
-    what: "Scaffold a candidate finding from a finished task, source pre-filled. It asserts no lesson — you decide what was learned.",
+    what: "Draft a finding from a finished task.",
     icon: Plus,
   },
   {
     cmd: "run <task> --agent <name>",
-    what: "Launch a prepared task on your own coding agent in its worktree and record the launch. It runs the agent; it never becomes one — no model loop, no edits of its own.",
+    what: "Launch a prepared task with your configured agent.",
     icon: Terminal,
   },
   {
     cmd: "show <task|spec|review|checks>",
-    what: "Project a parsed artifact as JSON. It is how editors, CI, and corpus-mcp read your workspace.",
+    what: "Print parsed artifacts as JSON.",
     icon: Blocks,
   },
   {
     cmd: "agents emit --codex",
-    what: "Generate Codex .codex/agents/*.toml from your Claude Code agent definitions — one source, generated for a second runner. Only the prose discipline ports; tool-scoping and hooks are Claude-Code-only, and every emitted file says so.",
+    what: "Generate Codex agent files from Claude Code agent definitions.",
     icon: Terminal,
   },
 ];
@@ -116,17 +116,17 @@ const principles = [
   {
     title: "One worktree per task",
     icon: GitBranch,
-    text: "No more agents rewriting your main checkout while you are halfway through something else.",
+    text: "Keep parallel runs out of the main checkout.",
   },
   {
     title: "Markdown is the source of truth",
     icon: Terminal,
-    text: "The spec, the task, the evidence, the review — plain files you can read, diff, and grep. The CLI reads them; it does not replace them.",
+    text: "The CLI reads the files. It does not replace them.",
   },
   {
     title: "It reports checks, not decisions",
     icon: ShieldCheck,
-    text: "corpus check tells you what is malformed or unverified. Whether the code is done is still a review decision.",
+    text: "Checks report facts. Review decides.",
   },
 ];
 
@@ -143,21 +143,16 @@ export default function CliPage() {
           }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            Optional command-line help for the corpus workflow. The framework is
-            just markdown and conventions; the CLI does the chores — checks your
-            specs, isolates each task in its own git worktree, reconciles a
-            finished run against the diff, and prints the board.
+            Optional command-line help for the Corpus workflow.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
-            It handles the chores around the work, not the judgment. Skip it
-            entirely if you would rather drive by hand.
+            It scaffolds files, runs checks, manages task worktrees, and prints
+            the board.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Badge variant="unverified">Command surface still settling</Badge>
-            <Badge variant="draft">Review stays human</Badge>
-            <Badge variant="default">
-              Node &gt;= 18.18 · &gt;= 22.6 from source
-            </Badge>
+            <Badge variant="unverified">Command surface settling</Badge>
+            <Badge variant="draft">No verdicts</Badge>
+            <Badge variant="default">Source install</Badge>
             <Badge variant="default">Needs git</Badge>
           </div>
         </PageHero>
@@ -171,8 +166,7 @@ export default function CliPage() {
         <Panel brushed className="p-2">
           <TerminalWindow title="terminal" ariaLabel="install">
             <p className="text-concrete-500">
-              # not on npm yet — clone, build, and link from source; the binary
-              it provides is called corpus
+              # source install for now
             </p>
             <p className="text-concrete-100">
               <span className="text-corpus-yellow">$</span> git clone
@@ -196,7 +190,7 @@ export default function CliPage() {
         <Panel brushed className="p-2">
           <TerminalWindow title="terminal" ariaLabel="example session">
             <p className="text-concrete-500">
-              # scaffold a workspace first — see Get started
+              # scaffold a workspace first
             </p>
             <p className="text-concrete-100">
               <span className="text-corpus-yellow">$</span> corpus check{" "}
@@ -232,19 +226,13 @@ export default function CliPage() {
         <div className="max-w-2xl">
           <div className="flex items-center gap-2 text-xs font-mono uppercase text-phosphor">
             <Bug className="h-4 w-4" aria-hidden="true" />
-            <span>commands.md — kept in sync, checked by test</span>
+            <span>commands.md — public surface</span>
           </div>
-          <Heading className="mt-3">Commands that already dispatch</Heading>
+          <Heading className="mt-3">Commands</Heading>
           <p className="mt-4 text-concrete-400">
-            Every command that ships, listed below. In the CLI,
-            &ldquo;advertised equals dispatchable&rdquo; is a tested invariant —
-            what the help prints, the binary runs. The two worth knowing first:{" "}
-            <code className="text-corpus-yellow">corpus check</code> drops into
-            pre-commit and CI on its exit code, and{" "}
-            <code className="text-corpus-yellow">corpus review</code> reconciles
-            a finished run — the agent&apos;s self-report against the real diff
-            against the spec — and routes the mismatches to a human, without
-            deciding whether the change is done.
+            Start with <code className="text-corpus-yellow">corpus check</code>
+            and <code className="text-corpus-yellow">corpus review</code>. Use
+            the rest when the workspace needs them.
           </p>
         </div>
         <ul className="grid gap-4 sm:grid-cols-2">
@@ -286,16 +274,11 @@ export default function CliPage() {
             <span>design.md — why a CLI?</span>
           </div>
           <Heading className="mt-3">
-            Why a CLI if corpus is markdown-only?
+            Why a CLI?
           </Heading>
           <p className="mt-4 text-concrete-400">
-            The workflow itself is just conventions and files — you can run all
-            of corpus with a text editor. The CLI is
-            optional: it scaffolds the workspace, runs the checks in CI, and
-            keeps one worktree per task so parallel agents do not trample each
-            other. It is a helper, not an orchestrator. Use it for less typing;
-            ignore it if you would rather
-            orchestrate by hand.
+            Corpus is plain files. The CLI handles repeatable chores around
+            those files.
           </p>
         </div>
         <ul className="grid gap-4 sm:grid-cols-3">
@@ -331,9 +314,7 @@ export default function CliPage() {
           <div>
             <Heading>Don&apos;t need the CLI yet?</Heading>
             <p className="mt-2 text-concrete-400">
-              The whole workflow runs in plain markdown. Copy the starter kit
-              and write a spec — add the CLI later, if and when the typing
-              starts to annoy you.
+              Use the starter kit and write a spec. Add the CLI later.
             </p>
           </div>
           <Button asChild className="w-full md:w-auto">
@@ -348,8 +329,7 @@ export default function CliPage() {
         <Card screws className="max-w-2xl border-panel-border">
           <Heading>Reference repository</Heading>
           <p className="mt-4 text-concrete-400">
-            The CLI is developed in the open. Issues, feature requests, and
-            adversarial review are all welcome.
+            Source, issues, and release notes live on GitHub.
           </p>
           <p className="mt-6">
             <Link
@@ -358,18 +338,18 @@ export default function CliPage() {
               rel="noopener noreferrer"
               className="text-corpus-yellow underline hover:no-underline focus-ring rounded-sm"
             >
-              Read the full reference on GitHub →
+              Open corpus-cli on GitHub →
             </Link>
           </p>
           <p className="mt-4 text-concrete-400">
-            Using an MCP-capable client?{" "}
+            Using an MCP client?{" "}
             <Link
               href="/mcp/"
               className="text-corpus-yellow underline hover:no-underline focus-ring rounded-sm"
             >
-              corpus-mcp exposes the same read and reconcile facts
+              corpus-mcp exposes the same read-only facts
             </Link>{" "}
-            without adding verdict authority.
+            .
           </p>
         </Card>
       </Section>

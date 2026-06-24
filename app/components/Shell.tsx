@@ -8,7 +8,7 @@ import { Logo } from "./Logo";
 import { Section } from "./Section";
 
 const navLinks = [
-  { label: "What is corpus", href: "/what-is-corpus" },
+  { label: "What is Corpus", href: "/what-is-corpus" },
   { label: "Loop", href: "/the-loop" },
   { label: "Skills", href: "/skills" },
   { label: "Agents", href: "/agents" },
@@ -170,7 +170,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
           <Link
             href="/"
             className="focus-ring rounded-sm"
-            aria-label="corpus home"
+            aria-label="Corpus home"
           >
             <Logo className="text-lg text-concrete-100" />
           </Link>
@@ -270,13 +270,13 @@ export function Shell({ children }: { children: React.ReactNode }) {
           <div className="flex flex-col gap-2">
             <Link
               href="/"
-              aria-label="corpus home"
+              aria-label="Corpus home"
               className="focus-ring rounded-sm w-fit"
             >
               <Logo className="text-base text-concrete-100" />
             </Link>
             <p className="text-sm text-concrete-400">
-              Built with corpus. Keep the evidence; make the call yourself.
+              Built with Corpus. Keep the evidence; make the call yourself.
             </p>
           </div>
 
@@ -299,7 +299,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
           </nav>
 
           <p className="text-sm text-concrete-400">
-            © {new Date().getFullYear()} corpus contributors.
+            © {new Date().getFullYear()} Corpus contributors.
           </p>
         </Section>
       </div>

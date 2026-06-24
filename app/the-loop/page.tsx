@@ -23,23 +23,23 @@ import { PaperArtifact } from "../components/PaperArtifact";
 const stepIcons = [Inbox, FileText, ListChecks, Terminal, ScanEye, GitMerge];
 
 export const metadata: Metadata = {
-  title: "The loop — corpus",
+  title: "The loop — Corpus",
   description:
-    "Pull → Spec → Task → Run → Review → Close. The six-step workflow for turning agent work into reviewable files.",
+    "Pull, Spec, Task, Run, Review, Close: the Corpus workflow.",
   openGraph: {
-    title: "The loop — corpus",
+    title: "The loop — Corpus",
     description:
-      "Pull → Spec → Task → Run → Review → Close. A plain workflow for scoping agent work and reviewing the result.",
+      "Pull, Spec, Task, Run, Review, Close: the Corpus workflow.",
     type: "website",
     url: "/the-loop/",
-    siteName: "corpus",
+    siteName: "Corpus",
     locale: "en_US",
     images: [
       {
         url: "/og-the-loop.png",
         width: 1200,
         height: 630,
-        alt: "The corpus loop — Pull, Spec, Task, Run, Review, Close",
+        alt: "The Corpus loop — Pull, Spec, Task, Run, Review, Close",
       },
     ],
   },
@@ -52,7 +52,7 @@ const steps = [
   {
     number: "01",
     name: "Pull",
-    body: "Copy the ticket into an intake file verbatim — unedited, uninterpreted. The spec is where you interpret; the intake just preserves what was actually asked, so it still anchors you after the upstream ticket changes or disappears.",
+    body: "Copy the request into an intake file. Preserve what was asked before you interpret it.",
     example: {
       title: "intake/INTAKE-42.md",
       lines: [
@@ -74,7 +74,7 @@ const steps = [
   {
     number: "02",
     name: "Spec",
-    body: "Write requirements one per ID, each with a verification method. If you cannot check it, keep editing.",
+    body: "Write requirements one per ID. Add the check for each one.",
     example: {
       title: "specs/shell/spec.md",
       lines: [
@@ -105,7 +105,7 @@ const steps = [
   {
     number: "03",
     name: "Task",
-    body: "Hand the agent a bounded packet: what to change, what not to change, and how to verify.",
+    body: "Give the agent scope, limits, and Verify commands.",
     example: {
       title: "tasks/TASK-shell.md",
       lines: [
@@ -122,7 +122,7 @@ const steps = [
   {
     number: "04",
     name: "Run",
-    body: "The agent implements and pastes real evidence — command output, screenshots, links — next to each requirement.",
+    body: "Implement the task and paste real evidence next to the requirement.",
     example: {
       title: "tasks/TASK-shell.md",
       lines: [
@@ -138,7 +138,7 @@ const steps = [
   {
     number: "05",
     name: "Review",
-    body: "Check evidence per requirement. Human attention goes only where the evidence is missing or ambiguous.",
+    body: "Check evidence per requirement. Escalate missing or unclear evidence.",
     example: {
       title: "reviews/REVIEW-shell.md",
       lines: [
@@ -164,7 +164,7 @@ const steps = [
   {
     number: "06",
     name: "Close",
-    body: "Merge the change, save findings so the next session can use them, and update the board.",
+    body: "Merge, save useful findings, and update the board.",
     example: {
       title: "findings/FINDING-tailwind-v4-syntax.md",
       lines: [
@@ -197,8 +197,7 @@ export default function TheLoopPage() {
           }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            Pull → Spec → Task → Run → Review → Close. Six steps, six files to
-            inspect, and a clearer handoff between agent work and review.
+            Six steps. Six records. One reviewable trail.
           </p>
         </PageHero>
       </Section>
@@ -213,9 +212,8 @@ export default function TheLoopPage() {
           className="mx-auto max-w-3xl"
         >
           <p>
-            The mark follows the process: each point creates or checks the
-            record the next point needs. Inventory and Change Plan appear when
-            the work is brownfield or structural.
+            Each point creates or checks the record the next point needs.
+            Inventory and Change Plan appear for brownfield or structural work.
           </p>
         </PaperArtifact>
       </Section>
@@ -286,9 +284,8 @@ export default function TheLoopPage() {
           <div>
             <Heading>Ready to run it?</Heading>
             <p className="mt-2 text-concrete-400">
-              Copy the starter kit and write your first spec. The loop is the
-              same on day one as on day one hundred. Findings make the next
-              pass a little less annoying.
+              Copy the starter kit and write one spec. The same loop handles
+              the next task.
             </p>
           </div>
           <Button asChild className="w-full md:w-auto">

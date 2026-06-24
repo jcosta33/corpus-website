@@ -26,23 +26,23 @@ import { Section } from "../components/Section";
 import { TerminalWindow } from "../components/TerminalWindow";
 
 export const metadata: Metadata = {
-  title: "corpus-mcp — corpus",
+  title: "corpus-mcp — Corpus",
   description:
-    "corpus-mcp is a read-only MCP stdio server for corpus workspaces: status, checks, parsed artifacts, and reconcile facts with no verdict.",
+    "corpus-mcp exposes Corpus workspace facts through a read-only MCP server.",
   openGraph: {
-    title: "corpus-mcp — corpus",
+    title: "corpus-mcp — Corpus",
     description:
-      "A thin MCP adapter over corpus-cli's --json contract: tools, resources, and prompts for read-only reconcile facts in agent clients.",
+      "A read-only MCP server for Corpus status, checks, artifacts, and review facts.",
     type: "website",
     url: "/mcp/",
-    siteName: "corpus",
+    siteName: "Corpus",
     locale: "en_US",
     images: [
       {
         url: "/og-home.png",
         width: 1200,
         height: 630,
-        alt: "corpus-mcp — a read-only MCP bridge for corpus workspaces",
+        alt: "corpus-mcp — a read-only MCP bridge for Corpus workspaces",
       },
     ],
   },
@@ -54,22 +54,22 @@ export const metadata: Metadata = {
 const guardrails = [
   {
     title: "Read-only",
-    text: "The server exposes facts from the workspace. It does not write durable artifacts.",
+    text: "It reads workspace facts. It does not write artifacts.",
     icon: ShieldCheck,
   },
   {
     title: "No verdict",
-    text: "Tool results carry noVerdictIssued. A human or independent reviewer still owns Pass, Fail, Unverified, or Blocked.",
+    text: "It reports facts. Review owns Pass, Fail, Unverified, or Blocked.",
     icon: MessagesSquare,
   },
   {
     title: "Root-confined",
-    text: "Client inputs are validated before subprocess calls; paths must resolve inside the configured workspace root.",
+    text: "Paths stay inside the configured workspace root.",
     icon: FolderLock,
   },
   {
     title: "CLI contract only",
-    text: "It shells out to corpus status, check, review, and show with --json. It does not import CLI internals.",
+    text: "It calls the CLI JSON surface.",
     icon: Braces,
   },
 ];
@@ -128,18 +128,17 @@ export default function McpPage() {
           }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            A stdio MCP server that lets agent clients ask a corpus workspace
-            for scope, checks, parsed artifacts, and reconcile facts.
+            A stdio MCP server for Corpus workspace facts.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
-            It is an adapter, not a judge. It gives the agent better context;
-            it does not approve the work.
+            It gives clients read access to status, checks, artifacts, and
+            review data.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Badge variant="ready">v0 surface</Badge>
             <Badge variant="draft">read-only</Badge>
             <Badge variant="unverified">no verdict</Badge>
-            <Badge variant="default">Node &gt;= 18.18</Badge>
+            <Badge variant="default">stdio</Badge>
           </div>
         </PageHero>
       </Section>
@@ -168,17 +167,12 @@ export default function McpPage() {
 
         <PaperArtifact
           label="note"
-          title="why a separate package?"
-          meta="mcp sdk lives here / cli stays small"
+          title="package boundary"
+          meta="mcp sdk here / cli stays small"
         >
           <p>
             corpus-mcp adapts the public <span className="font-semibold">--json</span>{" "}
-            contract. The CLI keeps its small footprint; the MCP server carries
-            the SDK dependency and process model separately.
-          </p>
-          <p className="mt-4 text-pencil">
-            This is the &ldquo;many libraries, not a framework&rdquo; shape:
-            useful pieces, coupled by public interfaces.
+            contract. The MCP SDK lives in this package, not the CLI.
           </p>
         </PaperArtifact>
       </Section>
@@ -191,9 +185,8 @@ export default function McpPage() {
           </div>
           <Heading className="mt-3">What it refuses to be</Heading>
           <p className="mt-4 text-concrete-400">
-            The server gives an MCP-capable client a clean way to read the
-            workspace. It does not run an agent loop, write reviews, or decide
-            whether the code is done.
+            It does not run an agent loop, write reviews, or decide whether code
+            is done.
           </p>
         </div>
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -226,8 +219,8 @@ export default function McpPage() {
           </div>
           <Heading className="mt-3">MCP tools</Heading>
           <p className="mt-4 text-concrete-400">
-            Reconcile/check calls plus parsed-artifact loaders. Every tool maps
-            to a fixed corpus CLI invocation with <code>--json</code>.
+            Check and reconcile calls, plus artifact loaders. Each maps to a
+            CLI JSON command.
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {tools.map((group) => (
@@ -261,7 +254,7 @@ export default function McpPage() {
           <Heading className="mt-3">Context the client can ask for</Heading>
           <p className="mt-4 text-concrete-400">
             Resources expose the board, checks, and selected artifacts. Prompts
-            steer agents toward scope, evidence, and independent review.
+            give clients a Corpus-shaped starting point.
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             <div className="rounded-panel border border-panel-border bg-panel p-4">
@@ -311,9 +304,9 @@ export default function McpPage() {
               href="/cli/"
               className="text-corpus-yellow underline hover:no-underline focus-ring rounded-sm"
             >
-              corpus CLI
+              Corpus CLI
             </Link>{" "}
-            on PATH, unless you point <code>CORPUS_BIN</code> or{" "}
+            on PATH. Use <code>CORPUS_BIN</code> or{" "}
             <code>--corpus-bin</code> at a specific binary.
           </p>
         </div>
@@ -349,8 +342,7 @@ export default function McpPage() {
             </div>
             <Heading className="mt-3">Read the adapter code</Heading>
             <p className="mt-2 max-w-2xl text-concrete-400">
-              The repo is small: config, root guards, CLI invocation, tools,
-              resources, prompts, and tests.
+              Source, issues, and tests live on GitHub.
             </p>
           </div>
           <div className="flex flex-col gap-4 sm:flex-row">

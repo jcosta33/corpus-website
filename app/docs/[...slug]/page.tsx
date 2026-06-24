@@ -78,7 +78,7 @@ function articleFor(
     author: {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
-      name: "corpus",
+      name: "Corpus",
     },
     url,
     mainEntityOfPage: url,
@@ -104,9 +104,9 @@ export async function generateMetadata({
   const { slug } = await params;
   const md = readDoc(slug.join("/"));
   const canonical = `/docs/${slug.join("/")}/`;
-  if (!md) return { title: "corpus docs", alternates: { canonical } };
+  if (!md) return { title: "Corpus docs", alternates: { canonical } };
   return {
-    title: `${titleOf(md)} · corpus`,
+    title: `${titleOf(md)} · Corpus`,
     description: descriptionOf(md),
     alternates: { canonical }, // self-canonical (was inheriting the home page's "/")
     openGraph: {
@@ -114,7 +114,7 @@ export async function generateMetadata({
       // image come from the layout default but openGraph is replaced wholesale, so restate them.
       type: "article",
       url: canonical,
-      siteName: "corpus",
+      siteName: "Corpus",
       locale: "en_US",
       images: [
         { url: "/og-home.png", width: 1200, height: 630, alt: titleOf(md) },
@@ -211,9 +211,7 @@ export default async function DocPage({
 
         <div className="docs-bridge">
           <p>
-            Ready to run the loop on your own repo?{" "}
-            <Link href="/get-started/">Get started</Link> — copy the kit and
-            write your first spec.
+            Next: <Link href="/get-started/">set up a workspace</Link>.
           </p>
         </div>
       </div>

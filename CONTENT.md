@@ -1,28 +1,43 @@
 # Content sources and review cadence
 
-This file tracks where the corpus website's marketing copy comes from and when it
-was last checked against the canonical framework docs.
+This file tracks where website copy comes from and when it was last checked.
+
+Copy rules:
+
+- Be direct.
+- Keep paragraphs short.
+- Link to detail instead of repeating it.
+- Do not make research claims without a source.
+- Keep install instructions in one canonical place when possible.
 
 ## Canonical sources
 
-The framework's canonical docs live in the `corpus` repo:
+The framework docs are rendered from the sibling `corpus` repo at build time.
+Marketing and ecosystem pages also draw from the separate Corpus repos:
 
 - <https://github.com/jcosta33/corpus/blob/main/docs/01-what-is-corpus.md>
-- <https://github.com/jcosta33/corpus/blob/main/docs/ADOPTING.md>
+- <https://github.com/jcosta33/corpus/blob/main/docs/02-basic-workflow.md>
 - <https://github.com/jcosta33/corpus/blob/main/README.md>
+- <https://github.com/jcosta33/corpus-starter-kit>
+- <https://github.com/jcosta33/corpus-cli>
+- <https://github.com/jcosta33/corpus-mcp>
+- <https://github.com/jcosta33/corpus-agents>
+- <https://github.com/jcosta33/corpus-skills>
 
 ## Page source map
 
-| Page              | Source files in `corpus` repo                                                                        |
+| Page              | Source files                                                                                         |
 | ----------------- | ---------------------------------------------------------------------------------------------------- |
-| `/` (homepage)    | `docs/01-what-is-corpus.md` (problem statement, feature list), `README.md` (tagline)                 |
-| `/what-is-corpus` | `docs/01-what-is-corpus.md` (definition, is/is-not lists, adjacent-tools table, failure-modes table) |
-| `/the-loop`       | `docs/02-basic-workflow.md`, `specs/design-system/spec.md` (loop diagram)                            |
-| `/get-started`    | `docs/ADOPTING.md` (adoption paths)                                                                  |
-| `/skills`         | `corpus-skills` repo (future work)                                                                   |
-| `/agents`         | `corpus-agents` repo (Claude-Code-first worker definitions; ADR-0092)                                |
-| `/cli`            | `corpus-cli` repo (future work)                                                                      |
-| `/mcp`            | `corpus-mcp` repo, `corpus` ADR-0085                                                                 |
+| `/`               | `corpus/docs/01-what-is-corpus.md`, `corpus/README.md`                                               |
+| `/what-is-corpus` | `corpus/docs/01-what-is-corpus.md`                                                                   |
+| `/the-loop`       | `corpus/docs/02-basic-workflow.md`                                                                   |
+| `/get-started`    | `corpus-starter-kit`, `corpus-cli`, `corpus/docs/tutorial/README.md`                                 |
+| `/docs`           | generated from `corpus/docs/**`                                                                      |
+| `/skills`         | `corpus-skills`                                                                                      |
+| `/skills/writing` | `corpus-skills/docs`, `corpus-skills/skills/**/SKILL.md`                                             |
+| `/agents`         | `corpus-agents`, `corpus/docs/adrs/0092-corpus-agents-member.md`                                     |
+| `/cli`            | `corpus-cli`, `corpus/docs/adrs/0077-corpus-cli-reconcile-only-harness.md`                           |
+| `/mcp`            | `corpus-mcp`, `corpus/docs/adrs/0085-corpus-mcp-adapts-the-json-contract.md`                         |
 
 ## Quarterly review
 
@@ -31,7 +46,7 @@ result in `findings/content-drift-YYYY-MM.md`.
 
 ## Content workflow
 
-For new copy or updates, follow the corpus loop:
+For new copy or updates, follow the Corpus loop:
 
 1. Intake item in `intake/`.
 2. Spec in `specs/` referencing the framework ADR or doc.
@@ -41,4 +56,4 @@ For new copy or updates, follow the corpus loop:
 
 ## Last reviewed
 
-2026-06-13 — initial launch build.
+2026-06-24 — shortened after the Corpus docs rewrite.
