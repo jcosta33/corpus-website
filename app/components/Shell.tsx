@@ -288,7 +288,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
                   key={link.label}
                   link={link}
                   isActive={active}
-                  className={`min-h-11 px-1 text-sm font-medium transition-[color] focus-ring rounded-sm ${
+                  className={`min-h-11 min-w-8 justify-center px-1 text-sm font-medium transition-[color] focus-ring rounded-sm ${
                     active
                       ? "text-corpus-yellow"
                       : "text-concrete-400 hover:text-corpus-yellow"

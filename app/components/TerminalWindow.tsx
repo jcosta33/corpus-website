@@ -4,6 +4,7 @@ import { PilotLamp } from "./PilotLamp";
 export interface TerminalWindowProps {
   children: ReactNode;
   className?: string;
+  contentClassName?: string;
   title?: string;
   ariaLabel?: string;
 }
@@ -11,6 +12,7 @@ export interface TerminalWindowProps {
 export function TerminalWindow({
   children,
   className = "",
+  contentClassName = "",
   title = "Corpus",
   ariaLabel,
 }: TerminalWindowProps) {
@@ -32,7 +34,9 @@ export function TerminalWindow({
           <span className="terminal-title-caret shrink-0" aria-hidden="true" />
         </span>
       </div>
-      <div className="crt-screen terminal-content relative max-h-[24rem] overflow-auto break-words p-4 font-mono text-sm leading-relaxed text-concrete-100 sm:p-5">
+      <div
+        className={`crt-screen terminal-content relative max-h-[24rem] overflow-auto break-words p-4 font-mono text-sm leading-relaxed text-concrete-100 sm:p-5 ${contentClassName}`}
+      >
         <div className="pointer-events-none absolute inset-0 z-[3] animate-scanline bg-gradient-to-b from-transparent via-aurum/5 to-transparent opacity-20" />
         {children}
       </div>

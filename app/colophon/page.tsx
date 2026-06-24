@@ -24,9 +24,12 @@ const facts = [
 
 export default function ColophonPage() {
   return (
-    <Section className="grid gap-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch">
-      <Panel brushed className="h-full p-2">
-        <TerminalWindow title="build.manifest">
+    <Section className="grid gap-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+      <Panel brushed className="p-2">
+        <TerminalWindow
+          title="build.manifest"
+          contentClassName="max-h-none overflow-visible"
+        >
           <div className="space-y-6">
             <div>
               <h1 className="font-heading text-3xl font-bold tracking-[0] text-concrete-100 sm:text-4xl">
@@ -54,7 +57,6 @@ export default function ColophonPage() {
         label="source"
         title="site record"
         meta="built with the same corpus workflow"
-        className="h-full"
       >
         <p>
           The website is a Next.js export. Specs, tasks, review notes, and
@@ -65,7 +67,7 @@ export default function ColophonPage() {
             href="https://github.com/jcosta33/corpus-website"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-ink underline decoration-ink/40 underline-offset-4 hover:decoration-ink focus-ring rounded-sm"
+            className="focus-ring inline-flex min-h-11 items-center rounded-sm px-1 font-semibold text-ink underline decoration-ink/40 underline-offset-4 hover:decoration-ink"
           >
             Open the website repo
           </Link>
