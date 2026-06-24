@@ -30,13 +30,13 @@ import { PaperArtifact } from "../components/PaperArtifact";
 import { TextLink } from "../components/TextLink";
 
 export const metadata: Metadata = {
-  title: "Skills — Corpus",
+  title: "corpus-skills — Corpus",
   description:
-    "Optional agent guides for Corpus review, writing, testing, and docs work.",
+    "Agent guide files for Corpus review, writing, testing, and docs work.",
   openGraph: {
-    title: "Skills — Corpus",
+    title: "corpus-skills — Corpus",
     description:
-      "Optional agent guides for Corpus review, writing, testing, and docs work.",
+      "Agent guide files for Corpus review, writing, testing, and docs work.",
     type: "website",
     url: "/skills/",
     siteName: "Corpus",
@@ -137,11 +137,7 @@ export default function SkillsPage() {
       <Section>
         <PageHero
           eyebrow="tool index / agent guides"
-          title={
-            <>
-              corpus<span className="text-corpus-yellow">-skills</span>
-            </>
-          }
+          title="corpus-skills"
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
             Optional agent guides for review, implementation, testing, and docs.
@@ -152,7 +148,7 @@ export default function SkillsPage() {
         </PageHero>
       </Section>
 
-      <Section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+      <Section className="grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-stretch">
         <PaperArtifact
           label="index"
           title="load when"

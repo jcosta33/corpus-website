@@ -26,13 +26,13 @@ import { PaperArtifact } from "../components/PaperArtifact";
 import { TextLink } from "../components/TextLink";
 
 export const metadata: Metadata = {
-  title: "Agents — Corpus",
+  title: "corpus-agents — Corpus",
   description:
-    "Claude Code worker definitions for Corpus review, exploration, evidence checks, and authoring.",
+    "Claude Code worker files for Corpus review, exploration, evidence checks, and authoring.",
   openGraph: {
-    title: "Agents — Corpus",
+    title: "corpus-agents — Corpus",
     description:
-      "Copy-based Claude Code agent definitions for Corpus roles.",
+      "Copy-based Claude Code worker files for Corpus roles.",
     type: "website",
     url: "/agents/",
     siteName: "Corpus",
@@ -107,14 +107,10 @@ export default function AgentsPage() {
       <Section>
         <PageHero
           eyebrow="worker files / agent roles"
-          title={
-            <>
-              corpus<span className="text-corpus-yellow">-agents</span>
-            </>
-          }
+          title="corpus-agents"
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            Claude Code worker definitions for Corpus roles.
+            Claude Code worker files for Corpus roles.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
             Copy one into a repo when you want a role with its own context.
@@ -122,7 +118,7 @@ export default function AgentsPage() {
         </PageHero>
       </Section>
 
-      <Section className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-stretch">
+      <Section className="grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-stretch">
         <PaperArtifact
           label="note"
           title="delegation record"

@@ -167,13 +167,14 @@ export function LoopDiagram() {
           </p>
         </div>
       </div>
-      <ol className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6">
+      <ol className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
         {steps.map((step, index) => {
           const Icon = step.icon;
+          const showConnector = index < steps.length - 1 && index % 3 !== 2;
           return (
             <li
               key={step.label}
-              className="group relative flex flex-col gap-3 p-4 panel-raised rivet-row transition-all duration-150 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.2),inset_0_-2px_0_rgba(0,0,0,0.5)]"
+              className="group relative flex min-h-[13rem] flex-col gap-3 p-4 panel-raised rivet-row transition-all duration-150 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.2),inset_0_-2px_0_rgba(0,0,0,0.5)]"
             >
               <div className="flex items-center justify-between">
                 <span className="font-mono text-xs font-medium text-brass">
@@ -193,9 +194,9 @@ export function LoopDiagram() {
               <p className="text-sm leading-relaxed text-concrete-400">
                 {step.description}
               </p>
-              {index < steps.length - 1 && (
+              {showConnector && (
                 <div
-                  className="absolute -right-4 top-1/2 hidden h-1 w-8 -translate-y-1/2 border-y border-panel-border bg-panel-edge 2xl:block"
+                  className="absolute -right-3 top-1/2 hidden h-1 w-6 -translate-y-1/2 border-y border-panel-border bg-panel-edge xl:block"
                   aria-hidden="true"
                 />
               )}
