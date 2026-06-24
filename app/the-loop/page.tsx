@@ -208,7 +208,6 @@ export default function TheLoopPage() {
           label="note"
           title="six points / six steps"
           meta="Pull · Spec · Task · Run · Review · Close"
-          className="h-full"
         >
           <p>
             Each point creates or checks the record the next point needs.
