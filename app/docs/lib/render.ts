@@ -275,6 +275,19 @@ const rehypeFocusableScrollables: Plugin<[], HastRoot> = () => (tree) => {
   });
 };
 
+const normalizeDisplayTitle = (title: string): string =>
+  title === "The corpus CLI" ? "The Corpus CLI" : title;
+
+const rehypeNormalizeDisplayHeadings: Plugin<[], HastRoot> = () => (tree) => {
+  visit(tree, "element", (node: HastElement) => {
+    if (node.tagName !== "h1") return;
+    const text = hastText(node.children).trim();
+    const normalized = normalizeDisplayTitle(text);
+    if (normalized === text) return;
+    node.children = [{ type: "text", value: normalized }];
+  });
+};
+
 function hasClass(node: HastElement, className: string): boolean {
   const value = node.properties?.className;
   const classes = Array.isArray(value)
@@ -323,6 +336,7 @@ export async function renderDoc(
     .use(rehypeRaw)
     .use(rehypeExternalLinks)
     .use(rehypeSlug)
+    .use(rehypeNormalizeDisplayHeadings)
     .use(rehypeCollectHeadings(headings))
     .use(rehypeLabelTaskCheckboxes)
     .use(rehypeLabelTableCells)
@@ -339,11 +353,12 @@ export async function renderDoc(
 export function titleOf(markdown: string): string {
   const m = markdown.match(/^#\s+(.+)$/m);
   if (!m) return "Corpus docs";
-  return m[1]
+  const title = m[1]
     .replace(/`/g, "")
     .replace(/(^|\s)#{1,6}\s+/g, "$1")
     .replace(/\s+/g, " ")
     .trim();
+  return normalizeDisplayTitle(title);
 }
 
 // First real prose paragraph as the meta description (brand-neutral — the doc's own content).
