@@ -10,11 +10,11 @@ const points = [
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <span
-      className={`inline-flex items-center gap-2.5 align-middle font-heading text-base font-bold leading-none ${className}`}
+      className={`inline-flex items-center gap-2.5 align-middle font-heading text-[1.05rem] font-bold leading-none ${className}`}
     >
       <svg
         viewBox="0 0 32 32"
-        className="h-[1.45em] w-[1.45em] shrink-0 translate-y-[-0.02em]"
+        className="h-[1.42em] w-[1.42em] shrink-0"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
@@ -72,7 +72,9 @@ export function Logo({ className = "" }: { className?: string }) {
         ))}
         <circle cx="16" cy="16" r="1.55" fill="#d88a24" />
       </svg>
-      <span className="leading-none tracking-[0]">Corpus</span>
+      <span className="translate-y-[0.01em] leading-none tracking-[0]">
+        Corpus
+      </span>
     </span>
   );
 }

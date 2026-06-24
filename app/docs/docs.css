@@ -282,6 +282,13 @@
   overflow-wrap: anywhere;
   text-wrap: pretty;
 }
+.docs-prose h1.docs-article-title-long {
+  font-size: clamp(1.75rem, 3.35vw, 2.35rem);
+}
+.docs-prose h1.docs-article-title-xlong {
+  font-size: clamp(1.6rem, 3vw, 2.08rem);
+  line-height: 1.18;
+}
 .docs-prose h2 {
   font-size: 1.45rem;
   font-weight: 600;
@@ -338,10 +345,12 @@
 }
 .docs-source-path {
   min-width: 0;
+  overflow-wrap: anywhere;
 }
 .docs-source-note a {
   color: var(--color-ink);
   text-decoration-color: rgba(8, 9, 11, 0.35);
+  overflow-wrap: anywhere;
 }
 @media (max-width: 48rem) {
   .docs-source-note {
@@ -354,9 +363,10 @@
   }
 
   .docs-source-path {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    grid-column: 1 / -1;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
   }
 
   .docs-source-path a {
@@ -365,6 +375,7 @@
 
   .docs-source-date {
     grid-column: 2;
+    justify-self: end;
     font-size: 0.7rem;
     color: rgba(8, 9, 11, 0.72);
   }
@@ -692,6 +703,14 @@
   .docs-prose h1 {
     font-size: clamp(1.65rem, 8vw, 1.95rem);
     line-height: 1.12;
+  }
+  .docs-prose h1.docs-article-title-long {
+    font-size: clamp(1.3rem, 5.7vw, 1.58rem);
+    line-height: 1.08;
+  }
+  .docs-prose h1.docs-article-title-xlong {
+    font-size: clamp(1.16rem, 5.1vw, 1.42rem);
+    line-height: 1.08;
   }
 
   .docs-prose .docs-pager {

@@ -142,6 +142,13 @@ export default async function DocPage({
     dir === "." ? "" : dir,
   );
   const dates = docDates(slugPath);
+  const titleClassName = [
+    "docs-article-title",
+    title.length > 56 ? "docs-article-title-long" : "",
+    title.length > 108 ? "docs-article-title-xlong" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   // Prev/next within the reading order, so a deep-doc / search landing isn't a dead end. Use each
   // doc's real title (not the short nav label) so a section-index page reads as e.g. "Worked
@@ -167,7 +174,7 @@ export default async function DocPage({
         )}
       />
       <div className="docs-prose" data-pagefind-body>
-        <h1 className="docs-article-title">{title}</h1>
+        <h1 className={titleClassName}>{title}</h1>
         <div className="docs-source-note" data-pagefind-ignore>
           <span className="paper-stamp">source</span>
           <span className="docs-source-path">

@@ -169,7 +169,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
         <Section as="div" className="flex h-16 items-center justify-between">
           <Link
             href="/"
-            className="focus-ring rounded-sm"
+            className="focus-ring inline-flex min-h-11 items-center rounded-sm"
             aria-label="Corpus home"
           >
             <Logo className="text-lg text-concrete-100" />
@@ -187,7 +187,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
                   link={link}
                   isActive={active}
                   showIndicator
-                  className={`text-sm font-medium transition-[color] focus-ring rounded-sm ${
+                  className={`min-h-11 px-2 text-sm font-medium transition-[color] focus-ring rounded-sm ${
                     active
                       ? "text-corpus-yellow"
                       : "text-concrete-400 hover:text-corpus-yellow"
@@ -271,7 +271,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
             <Link
               href="/"
               aria-label="Corpus home"
-              className="focus-ring rounded-sm w-fit"
+              className="focus-ring inline-flex min-h-11 w-fit items-center rounded-sm"
             >
               <Logo className="text-base text-concrete-100" />
             </Link>
@@ -288,7 +288,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
                   key={link.label}
                   link={link}
                   isActive={active}
-                  className={`min-h-11 text-sm font-medium transition-[color] focus-ring rounded-sm ${
+                  className={`min-h-11 px-1 text-sm font-medium transition-[color] focus-ring rounded-sm ${
                     active
                       ? "text-corpus-yellow"
                       : "text-concrete-400 hover:text-corpus-yellow"
