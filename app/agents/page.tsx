@@ -198,12 +198,7 @@ export default function AgentsPage() {
           These are Claude Code agents in{" "}
           <code className="text-corpus-yellow">.claude/agents/</code>.{" "}
           <code className="text-corpus-yellow">npx skills</code> installs the{" "}
-          <TextLink
-            href="/skills/"
-          >
-            skills catalog
-          </TextLink>
-          , not these.
+          <TextLink href="/skills/">skills catalog</TextLink>, not these.
         </p>
       </Section>
 
@@ -374,13 +369,13 @@ export default function AgentsPage() {
           <Heading className="mt-3">Claude Code first</Heading>
           <p className="mt-4 text-concrete-400">
             <code className="text-corpus-yellow">
-              Corpus agents emit --codex
+              corpus agents emit --codex
             </code>{" "}
-            can generate Codex agent files from the same definitions.
+            generates Codex agent files from the same definitions.
           </p>
           <p className="mt-4 text-concrete-400">
-            Tool scoping and hooks are Claude-Code-specific. Other runners need
-            their own controls.
+            Tool scoping and hooks are specific to Claude Code. Other runners
+            need their own controls.
           </p>
         </Card>
       </Section>
