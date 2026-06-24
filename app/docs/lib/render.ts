@@ -341,6 +341,9 @@ const rehypeLabelWrappedTextCodeBlocks: Plugin<[], HastRoot> = () => (tree) => {
     const isTextLike =
       hasClass(code, "language-text") ||
       hasClass(code, "language-markdown") ||
+      hasClass(code, "language-bash") ||
+      hasClass(code, "language-yaml") ||
+      hasClass(code, "language-sol") ||
       !hasLanguageClass;
     if (!isTextLike) return;
 
