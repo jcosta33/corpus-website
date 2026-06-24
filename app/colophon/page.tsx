@@ -24,15 +24,15 @@ const facts = [
 
 export default function ColophonPage() {
   return (
-    <Section className="grid gap-6 py-20 md:min-h-[calc(100svh-16rem)] lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-      <Panel brushed className="p-2">
+    <Section className="colophon-section grid gap-5 py-16 sm:gap-6 sm:py-20 md:min-h-[calc(100svh-16rem)] lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <Panel brushed className="colophon-terminal-shell p-1.5 sm:p-2">
         <TerminalWindow
           title="build.manifest"
-          contentClassName="max-h-none overflow-visible"
+          contentClassName="colophon-terminal-content max-h-none overflow-visible"
         >
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-5">
             <div>
-              <h1 className="font-heading text-3xl font-bold tracking-[0] text-concrete-100 sm:text-4xl">
+              <h1 className="font-heading text-3xl font-bold tracking-[0] text-concrete-100">
                 Colophon
               </h1>
               <p className="mt-2 text-concrete-400">
@@ -40,13 +40,18 @@ export default function ColophonPage() {
                 same workflow.
               </p>
             </div>
-            <dl className="grid gap-3 sm:grid-cols-[auto_1fr]">
+            <dl className="grid gap-3">
               {facts.map((fact) => (
-                <div key={fact.label} className="contents">
+                <div
+                  key={fact.label}
+                  className="colophon-fact-row grid grid-cols-[minmax(5.75rem,7rem)_1fr] gap-3 border-t border-concrete-100/10 pt-3 first:border-t-0 first:pt-0"
+                >
                   <dt className="font-mono text-xs uppercase tracking-wide text-brass">
                     {fact.label}
                   </dt>
-                  <dd className="text-concrete-100">{fact.value}</dd>
+                  <dd className="leading-relaxed text-concrete-100">
+                    {fact.value}
+                  </dd>
                 </div>
               ))}
             </dl>
@@ -57,6 +62,7 @@ export default function ColophonPage() {
         label="source"
         title="site record"
         meta="built with the same corpus workflow"
+        className="colophon-paper"
       >
         <p>
           The website is a Next.js export. Specs, tasks, review notes, and
