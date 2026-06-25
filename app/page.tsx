@@ -66,6 +66,21 @@ export const metadata: Metadata = {
 
 const loopSteps = ["Pull", "Spec", "Task", "Run", "Review", "Close"];
 
+const heroProofs = [
+  {
+    label: "Plain markdown",
+    text: "Readable in any repo.",
+  },
+  {
+    label: "Any agent",
+    text: "Bring the tool you already use.",
+  },
+  {
+    label: "Human review",
+    text: "Checks provide evidence, not verdicts.",
+  },
+];
+
 const failureModes = [
   {
     code: "INTAKE",
@@ -169,6 +184,29 @@ function StepRail() {
   );
 }
 
+function HeroProofStrip() {
+  return (
+    <dl className="mx-auto mt-6 grid max-w-3xl gap-2 text-left sm:grid-cols-3">
+      {heroProofs.map((proof) => (
+        <div
+          key={proof.label}
+          className="group flex min-w-0 items-start gap-3 rounded-panel border border-panel-border bg-panel/80 px-3 py-3 shadow-[inset_0_1px_0_rgba(240,226,204,0.04)] transition-colors duration-150 hover:border-brass/45"
+        >
+          <PilotLamp color="amber" className="mt-0.5 scale-75" />
+          <div className="min-w-0">
+            <dt className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.12em] text-brass">
+              {proof.label}
+            </dt>
+            <dd className="mt-1 text-sm leading-snug text-concrete-400">
+              {proof.text}
+            </dd>
+          </div>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
 export default function HomePage() {
   return (
     <>
@@ -182,10 +220,10 @@ export default function HomePage() {
             title="Corpus"
           >
             <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-100">
-              Specs, tasks, reviews, findings.
+              Structured agent work, checked at every step.
             </p>
             <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
-              Plain markdown for coding-agent work.
+              Define the work, run agents, verify outputs, keep the evidence.
             </p>
             <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
               <Button asChild className="w-full sm:w-auto">
@@ -205,6 +243,7 @@ export default function HomePage() {
                 <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
               </ActionLink>
             </div>
+            <HeroProofStrip />
           </PageHero>
 
           <Panel brushed screws className="mx-auto mt-10 max-w-6xl p-3">
