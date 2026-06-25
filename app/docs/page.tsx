@@ -55,6 +55,7 @@ export default function DocsIndex() {
   const examples = find("Examples");
   const reference = find("Reference");
   const adrs = find("ADRs");
+  const balancedGrid = Boolean(tutorial && examples);
 
   return (
     <div className="docs-prose" data-pagefind-body>
@@ -63,25 +64,27 @@ export default function DocsIndex() {
         Start with the numbered pages. Use the tutorial when you want to walk
         the loop once.
       </p>
-      <div className="docs-index-grid">
+      <div
+        className={`docs-index-grid ${balancedGrid ? "docs-index-grid-balanced" : ""}`}
+      >
         {startHere ? (
           <Section sec={startHere} className="docs-index-section-primary" />
         ) : null}
-        {tutorial || examples ? (
-          <div className="docs-index-stack">
-            {tutorial ? <Section sec={tutorial} /> : null}
-            {examples ? <Section sec={examples} /> : null}
-          </div>
+        {tutorial ? (
+          <Section sec={tutorial} className="docs-index-section-tutorial" />
+        ) : null}
+        {examples ? (
+          <Section sec={examples} className="docs-index-section-examples" />
         ) : null}
         {reference ? (
           <Section
             sec={reference}
             intro="Detailed rules, formats, checks, and glossary."
-            className="docs-index-section-wide"
+            className="docs-index-section-wide docs-index-section-reference"
           />
         ) : null}
         {adrs && adrs.items.length > 0 ? (
-          <section className="docs-index-section docs-index-section-compact docs-index-section-wide">
+          <section className="docs-index-section docs-index-section-compact docs-index-section-wide docs-index-section-adrs">
             <div className="docs-index-section-heading">
               <h2>ADRs</h2>
               <span>{adrs.items.length}</span>

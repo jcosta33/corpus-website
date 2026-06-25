@@ -924,23 +924,43 @@
   z-index: 1;
 }
 
-.docs-index-stack {
-  display: grid;
-  gap: 1rem;
-}
-
 @media (min-width: 46rem) {
   .docs-index-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: stretch;
   }
 
+  .docs-index-grid-balanced {
+    grid-template-areas:
+      "start tutorial"
+      "start examples"
+      "reference reference"
+      "adrs adrs";
+  }
+
   .docs-index-section-primary {
-    min-height: 100%;
+    grid-area: start;
+    height: 100%;
   }
 
   .docs-index-section-wide {
     grid-column: 1 / -1;
+  }
+
+  .docs-index-grid-balanced .docs-index-section-tutorial {
+    grid-area: tutorial;
+  }
+
+  .docs-index-grid-balanced .docs-index-section-examples {
+    grid-area: examples;
+  }
+
+  .docs-index-grid-balanced .docs-index-section-reference {
+    grid-area: reference;
+  }
+
+  .docs-index-grid-balanced .docs-index-section-adrs {
+    grid-area: adrs;
   }
 }
 
