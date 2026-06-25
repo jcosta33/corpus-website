@@ -123,7 +123,7 @@ export default function WritingSkillsPage() {
 
       <Section>
         <Panel brushed screws className="p-0">
-          <ol className="grid gap-px bg-panel-border sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="process-strip grid gap-px bg-panel-border sm:grid-cols-2 lg:grid-cols-4">
             {skillAnatomy.map((item, index) => (
               <li key={item.label} className="bg-panel-raised/95 p-5 sm:p-6">
                 <p className="font-mono text-xs font-semibold uppercase tracking-wide text-corpus-yellow">

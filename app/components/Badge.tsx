@@ -29,13 +29,15 @@ export function Badge({ children, variant = "default" }: BadgeProps) {
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-sm border px-2.5 py-0.5 font-mono text-xs font-semibold uppercase tracking-wide ${styles[variant]}`}
+      className={`inline-flex max-w-full min-w-0 items-center justify-center gap-1.5 rounded-sm border px-2.5 py-0.5 text-center font-mono text-xs font-semibold uppercase leading-snug tracking-wide ${styles[variant]}`}
     >
       <span
         className="h-1.5 w-1.5 rounded-full bg-current"
         aria-hidden="true"
       />
-      {children}
+      <span className="min-w-0 break-words [overflow-wrap:anywhere]">
+        {children}
+      </span>
     </span>
   );
 }

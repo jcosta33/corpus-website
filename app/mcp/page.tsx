@@ -176,7 +176,7 @@ export default function McpPage() {
       <Section>
         <Panel brushed screws className="p-0">
           <ol
-            className="grid gap-px bg-panel-border sm:grid-cols-2 lg:grid-cols-5"
+            className="process-strip grid gap-px bg-panel-border sm:grid-cols-2 lg:grid-cols-5"
             aria-label="corpus-mcp request path"
           >
             {bridgeFlow.map((item, index) => {

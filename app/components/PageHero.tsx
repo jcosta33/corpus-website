@@ -23,10 +23,10 @@ export function PageHero({
   children,
 }: PageHeroProps) {
   return (
-    <div className="motion-surface mx-auto max-w-4xl text-center">
+    <div className="motion-surface mx-auto w-full min-w-0 max-w-4xl text-center">
       <Eyebrow className="mb-6">{eyebrow}</Eyebrow>
       <h1
-        className={`font-heading text-4xl font-bold tracking-[0] text-concrete-100 ${TITLE_SIZES[titleSize]}`}
+        className={`max-w-full break-words font-heading text-4xl font-bold tracking-[0] text-concrete-100 ${TITLE_SIZES[titleSize]}`}
       >
         {title}
         {cursor && <TerminalCursor className="ml-2 align-middle" />}

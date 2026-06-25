@@ -610,6 +610,73 @@ body::after {
   );
 }
 
+/* Process strips — linked operating surfaces used for command families and setup paths. */
+.process-strip > :is(li, a, div) {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.process-strip > :is(li, a, div)::before,
+.process-strip > :is(li, a, div)::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.process-strip > :is(li, a, div)::before {
+  inset: 0;
+  opacity: 0;
+  transform: translateX(-0.75rem);
+  background:
+    linear-gradient(
+      112deg,
+      transparent 0%,
+      rgba(216, 138, 36, 0.035) 42%,
+      rgba(240, 184, 92, 0.105) 50%,
+      rgba(216, 138, 36, 0.035) 58%,
+      transparent 100%
+    ),
+    radial-gradient(
+      75% 70% at 18% 0%,
+      rgba(240, 226, 204, 0.055),
+      transparent 62%
+    );
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.process-strip > :is(li, a, div)::after {
+  left: 1rem;
+  right: 1rem;
+  top: 0;
+  height: 1px;
+  opacity: 0.46;
+  background: linear-gradient(
+    90deg,
+    rgba(216, 138, 36, 0.7),
+    rgba(216, 138, 36, 0.12),
+    transparent
+  );
+}
+
+.process-strip > :is(li, a, div) > * {
+  position: relative;
+  z-index: 1;
+}
+
+.process-strip > :is(li:hover, li:focus-within, a:hover, a:focus-visible, div:hover)::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.process-strip :is(a:hover, a:focus-visible) .lucide-arrow-right {
+  color: var(--color-corpus-yellow);
+  transform: translateX(0.2rem);
+}
+
 @keyframes pulse-slow {
   0%,
   100% {

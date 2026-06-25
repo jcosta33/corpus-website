@@ -226,7 +226,7 @@ export default function SkillsPage() {
       <Section>
         <Panel brushed screws className="p-0">
           <nav
-            className="grid gap-px bg-panel-border md:grid-cols-3"
+            className="process-strip grid gap-px bg-panel-border md:grid-cols-3"
             aria-label="Skill catalog sections"
           >
             {skillRoutes.map((route, index) => {
