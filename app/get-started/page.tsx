@@ -104,21 +104,25 @@ const setupPath = [
     label: "Choose",
     text: "Start fresh or adopt an existing repo.",
     icon: Rocket,
+    href: "#choose",
   },
   {
     label: "Copy",
     text: "Add the starter kit files once.",
     icon: FolderPlus,
+    href: "#copy",
   },
   {
     label: "Check",
     text: "Run the CLI check when you want a gate.",
     icon: Terminal,
+    href: "#check",
   },
   {
     label: "Work",
     text: "Write a spec, cut a task, keep evidence.",
     icon: ClipboardList,
+    href: "#work",
   },
 ];
 
@@ -143,23 +147,33 @@ export default function GetStartedPage() {
             {setupPath.map((step, index) => {
               const Icon = step.icon;
               return (
-                <li key={step.label} className="bg-panel-raised/95 p-5 sm:p-6">
-                  <div className="flex items-center gap-3">
-                    <KitIcon>
-                      <Icon className="h-5 w-5" aria-hidden="true" />
-                    </KitIcon>
-                    <div>
-                      <p className="font-mono text-xs font-semibold uppercase tracking-wide text-corpus-yellow">
-                        {String(index + 1).padStart(2, "0")}
-                      </p>
-                      <h2 className="font-heading text-lg font-bold text-concrete-100">
-                        {step.label}
-                      </h2>
+                <li key={step.label} className="bg-panel-raised/95">
+                  <a
+                    href={step.href}
+                    className="focus-ring group block h-full p-5 transition-colors duration-150 hover:bg-panel/80 sm:p-6"
+                    aria-label={`Jump to ${step.label.toLowerCase()} setup step`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <KitIcon>
+                        <Icon className="h-5 w-5" aria-hidden="true" />
+                      </KitIcon>
+                      <div className="min-w-0">
+                        <p className="font-mono text-xs font-semibold uppercase tracking-wide text-corpus-yellow">
+                          {String(index + 1).padStart(2, "0")}
+                        </p>
+                        <h2 className="font-heading text-lg font-bold text-concrete-100">
+                          {step.label}
+                        </h2>
+                      </div>
+                      <ArrowRight
+                        className="ml-auto h-4 w-4 shrink-0 text-brass/70 transition-transform duration-150 group-hover:translate-x-0.5"
+                        aria-hidden="true"
+                      />
                     </div>
-                  </div>
-                  <p className="mt-3 text-sm leading-relaxed text-concrete-400">
-                    {step.text}
-                  </p>
+                    <p className="mt-3 text-sm leading-relaxed text-concrete-400">
+                      {step.text}
+                    </p>
+                  </a>
                 </li>
               );
             })}
@@ -167,7 +181,10 @@ export default function GetStartedPage() {
         </Panel>
       </Section>
 
-      <Section className="reveal grid gap-6 md:grid-cols-2">
+      <Section
+        id="choose"
+        className="reveal grid scroll-mt-28 gap-6 md:grid-cols-2"
+      >
         <Card screws className="h-full" contentClassName="flex h-full flex-col gap-5">
           <KitIcon>
             <Rocket className="h-6 w-6" aria-hidden="true" />
@@ -212,7 +229,61 @@ export default function GetStartedPage() {
         </Card>
       </Section>
 
-      <Section className="flex flex-col gap-6">
+      <Section
+        id="copy"
+        className="grid scroll-mt-28 gap-6 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-start"
+      >
+        <div className="flex flex-col gap-5">
+          <Heading>Starter kit contents</Heading>
+          <PaperArtifact
+            label="note"
+            title="starter kit contents"
+            meta="workspace / committed artifacts"
+          >
+            <p>
+              Copy the kit once. It gives the repo a shared map: local rules,
+              record templates, flow folders, and a small board.
+            </p>
+          </PaperArtifact>
+          <p className="text-concrete-400">
+            More setup notes:{" "}
+            <TextLink
+              href="/docs/ADOPTING/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              docs/ADOPTING.md
+            </TextLink>
+          </p>
+        </div>
+
+        <Card screws className="h-full" contentClassName="space-y-5">
+          <div className="section-kicker section-kicker-brass">
+            <FolderTree className="h-4 w-4" aria-hidden="true" />
+            <span>manifest — copied files</span>
+          </div>
+          <ul className="kit-ledger">
+            {kitContents.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <li key={item.name} className="kit-ledger-item">
+                  <div className="kit-ledger-index" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+                  <Icon className="kit-ledger-icon h-4 w-4" aria-hidden="true" />
+                  <div className="min-w-0">
+                    <h3 className="kit-ledger-title">{item.name}</h3>
+                    <p className="kit-ledger-role">{item.role}</p>
+                    <p className="kit-ledger-copy">{item.text}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </Card>
+      </Section>
+
+      <Section id="check" className="flex scroll-mt-28 flex-col gap-6">
         <div className="section-kicker section-kicker-gold">
           <Terminal className="h-4 w-4" aria-hidden="true" />
           <span>or scaffold it with the cli</span>
@@ -275,58 +346,7 @@ export default function GetStartedPage() {
         </p>
       </Section>
 
-      <Section className="grid gap-6 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-start">
-        <div className="flex flex-col gap-5">
-          <Heading>Starter kit contents</Heading>
-          <PaperArtifact
-            label="note"
-            title="starter kit contents"
-            meta="workspace / committed artifacts"
-          >
-            <p>
-              Copy the kit once. It gives the repo a shared map: local rules,
-              record templates, flow folders, and a small board.
-            </p>
-          </PaperArtifact>
-          <p className="text-concrete-400">
-            More setup notes:{" "}
-            <TextLink
-              href="/docs/ADOPTING/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              docs/ADOPTING.md
-            </TextLink>
-          </p>
-        </div>
-
-        <Card screws className="h-full" contentClassName="space-y-5">
-          <div className="section-kicker section-kicker-brass">
-            <FolderTree className="h-4 w-4" aria-hidden="true" />
-            <span>manifest — copied files</span>
-          </div>
-          <ul className="kit-ledger">
-            {kitContents.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <li key={item.name} className="kit-ledger-item">
-                  <div className="kit-ledger-index" aria-hidden="true">
-                    {String(index + 1).padStart(2, "0")}
-                  </div>
-                  <Icon className="kit-ledger-icon h-4 w-4" aria-hidden="true" />
-                  <div className="min-w-0">
-                    <h3 className="kit-ledger-title">{item.name}</h3>
-                    <p className="kit-ledger-role">{item.role}</p>
-                    <p className="kit-ledger-copy">{item.text}</p>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        </Card>
-      </Section>
-
-      <Section className="grid gap-6 md:grid-cols-2">
+      <Section id="work" className="grid scroll-mt-28 gap-6 md:grid-cols-2">
         <Card
           screws
           className="h-full"
