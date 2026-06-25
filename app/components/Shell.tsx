@@ -202,7 +202,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
                   link={link}
                   isActive={active}
                   showIndicator
-                  className={`min-h-11 px-2 text-sm font-medium transition-[color] focus-ring rounded-sm ${
+                  className={`site-nav-link min-h-11 px-2 text-sm font-medium transition-[color] focus-ring rounded-sm ${
                     active
                       ? "text-corpus-yellow"
                       : "text-concrete-400 hover:text-corpus-yellow"
