@@ -113,6 +113,34 @@ const prompts = [
   "corpus_finding_candidate",
 ];
 
+const bridgeFlow = [
+  {
+    label: "Client",
+    detail: "Claude Desktop, Cursor, or another MCP host.",
+    icon: MessagesSquare,
+  },
+  {
+    label: "stdio",
+    detail: "A local process pipe, not a hosted service.",
+    icon: Cable,
+  },
+  {
+    label: "corpus-mcp",
+    detail: "Read-only adapter around the workspace.",
+    icon: Boxes,
+  },
+  {
+    label: "CLI JSON",
+    detail: "Commands return structured facts.",
+    icon: Terminal,
+  },
+  {
+    label: "Workspace",
+    detail: "Markdown artifacts stay the source of truth.",
+    icon: FileJson,
+  },
+];
+
 export default function McpPage() {
   return (
     <div className="flex flex-col gap-12 py-14 sm:gap-16 sm:py-16">
@@ -138,6 +166,48 @@ export default function McpPage() {
             <Badge variant="unverified">no verdict</Badge>
           </div>
         </PageHero>
+      </Section>
+
+      <Section>
+        <Panel brushed screws className="p-0">
+          <ol
+            className="grid gap-px bg-panel-border sm:grid-cols-2 lg:grid-cols-5"
+            aria-label="corpus-mcp request path"
+          >
+            {bridgeFlow.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <li
+                  key={item.label}
+                  className="relative bg-panel-raised/95 p-5 sm:p-6"
+                >
+                  <div className="flex items-center gap-3">
+                    <HexBadge color="yellow" className="h-10 w-10 shrink-0">
+                      <Icon className="h-4 w-4" aria-hidden="true" />
+                    </HexBadge>
+                    <div>
+                      <p className="font-mono text-xs font-semibold uppercase tracking-wide text-corpus-yellow">
+                        {String(index + 1).padStart(2, "0")}
+                      </p>
+                      <h2 className="font-heading text-lg font-bold text-concrete-100">
+                        {item.label}
+                      </h2>
+                    </div>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-concrete-400">
+                    {item.detail}
+                  </p>
+                  {index < bridgeFlow.length - 1 ? (
+                    <ArrowRight
+                      className="absolute right-4 top-1/2 hidden h-4 w-4 -translate-y-1/2 text-brass lg:block"
+                      aria-hidden="true"
+                    />
+                  ) : null}
+                </li>
+              );
+            })}
+          </ol>
+        </Panel>
       </Section>
 
       <Section className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
