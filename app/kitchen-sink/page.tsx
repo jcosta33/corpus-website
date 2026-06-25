@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Button } from "../components/Button";
 import { Card } from "../components/Card";
 import { Badge } from "../components/Badge";
@@ -19,19 +20,121 @@ export const metadata = {
   robots: "noindex, nofollow",
 };
 
+const specimenRegister = [
+  {
+    label: "Surfaces",
+    note: "Panels, cards, paper, terminal, and chassis wells.",
+    links: [
+      { label: "Panels", href: "#panels" },
+      { label: "Cards", href: "#cards" },
+      { label: "Paper", href: "#paper-artifact" },
+      { label: "Code", href: "#code-block" },
+      { label: "Terminal", href: "#terminal-window" },
+    ],
+  },
+  {
+    label: "State",
+    note: "Actions, badges, lamps, toggles, and verified output color.",
+    links: [
+      { label: "Buttons", href: "#buttons" },
+      { label: "Badges", href: "#badges" },
+      { label: "Pilot lamps", href: "#pilot-lamps" },
+      { label: "Toggle", href: "#toggle-switch" },
+    ],
+  },
+  {
+    label: "Texture",
+    note: "Hardware, dividers, icons, type, and small ornamental rules.",
+    links: [
+      { label: "Rack row", href: "#rack-row" },
+      { label: "Gilt divider", href: "#gilt-divider" },
+      { label: "Icons", href: "#icons" },
+      { label: "Typography", href: "#typography" },
+    ],
+  },
+];
+
+function PreviewSection({
+  id,
+  title,
+  children,
+}: {
+  id: string;
+  title: string;
+  children: ReactNode;
+}) {
+  return (
+    <Section id={id} className="flex scroll-mt-28 flex-col gap-6">
+      <Heading>{title}</Heading>
+      {children}
+    </Section>
+  );
+}
+
 export default function KitchenSinkPage() {
   return (
     <div className="flex flex-col gap-14 py-14 sm:gap-16 sm:py-16">
       <Section className="ambient-header">
         <PageHero eyebrow="component preview" title="Kitchen sink">
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-concrete-400">
-            Internal component preview. Not linked from production navigation.
+            Internal preview for checking surfaces, state, and artifact
+            treatments before they move into public pages.
           </p>
         </PageHero>
       </Section>
 
-      <Section className="flex flex-col gap-6">
-        <Heading>Panels</Heading>
+      <Section>
+        <nav aria-label="Kitchen sink specimen register">
+          <Panel brushed screws className="p-0">
+            <div className="grid md:grid-cols-[0.85fr_2fr]">
+              <div className="border-b border-panel-border p-5 sm:p-6 md:border-b-0 md:border-r">
+                <p className="font-mono text-xs font-semibold uppercase tracking-wide text-brass">
+                  Specimen register
+                </p>
+                <h2 className="mt-3 font-heading text-2xl font-bold text-concrete-100">
+                  Quick checks, grouped by job.
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-concrete-400">
+                  A small map for catching drift in the design system without
+                  turning this page into product theater.
+                </p>
+              </div>
+              <div className="grid gap-px bg-panel-border sm:grid-cols-3">
+                {specimenRegister.map((group, index) => (
+                  <div
+                    key={group.label}
+                    className="bg-panel-raised/95 p-5 sm:p-6"
+                  >
+                    <p className="font-mono text-xs font-semibold uppercase tracking-wide text-corpus-yellow">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <h3 className="mt-3 font-heading text-xl font-bold text-concrete-100">
+                      {group.label}
+                    </h3>
+                    <p className="mt-2 min-h-[3.75rem] text-sm leading-relaxed text-concrete-400">
+                      {group.note}
+                    </p>
+                    <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-1 sm:gap-y-2">
+                      {group.links.map((link) => (
+                        <li key={link.href}>
+                          <a
+                            href={link.href}
+                            className="focus-ring inline-flex min-h-11 items-center rounded-sm text-sm font-medium text-corpus-yellow underline decoration-corpus-yellow/40 underline-offset-4 transition-[color,text-decoration-color] hover:text-amber hover:decoration-amber"
+                          >
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Panel>
+        </nav>
+      </Section>
+
+      <PreviewSection id="panels" title="Panels">
         <div className="grid gap-6 md:grid-cols-2">
           <Panel className="p-5 sm:p-6">
             <h3 className="font-heading text-lg font-bold">Raised panel</h3>
@@ -56,20 +159,18 @@ export default function KitchenSinkPage() {
             <p className="mt-2 text-concrete-400">Thin gold rule for state changes.</p>
           </Panel>
         </div>
-      </Section>
+      </PreviewSection>
 
-      <Section className="flex flex-col gap-6">
-        <Heading>Buttons</Heading>
+      <PreviewSection id="buttons" title="Buttons">
         <div className="flex flex-wrap gap-4 sm:gap-5">
           <Button>Primary action</Button>
           <Button variant="secondary">Secondary action</Button>
           <Button variant="secondary">Outline action</Button>
           <Button disabled>Disabled</Button>
         </div>
-      </Section>
+      </PreviewSection>
 
-      <Section className="flex flex-col gap-6">
-        <Heading>Cards</Heading>
+      <PreviewSection id="cards" title="Cards">
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
             <h3 className="font-heading text-lg font-bold">Default card</h3>
@@ -82,10 +183,9 @@ export default function KitchenSinkPage() {
             <p className="mt-2 text-concrete-400">Visible screws and rivets.</p>
           </Card>
         </div>
-      </Section>
+      </PreviewSection>
 
-      <Section className="flex flex-col gap-6">
-        <Heading>Badges</Heading>
+      <PreviewSection id="badges" title="Badges">
         <div className="flex flex-wrap gap-3">
           <Badge>default</Badge>
           <Badge variant="ready">ready</Badge>
@@ -95,10 +195,9 @@ export default function KitchenSinkPage() {
           <Badge variant="draft">draft</Badge>
           <Badge variant="archived">archived</Badge>
         </div>
-      </Section>
+      </PreviewSection>
 
-      <Section className="flex flex-col gap-6">
-        <Heading>Paper artifact</Heading>
+      <PreviewSection id="paper-artifact" title="Paper artifact">
         <PaperArtifact
           label="review"
           title="REVIEW-example"
@@ -110,44 +209,39 @@ export default function KitchenSinkPage() {
           <p className="mt-3">AC-002 — Unverified</p>
           <p className="text-pencil">Evidence missing; route to human attention.</p>
         </PaperArtifact>
-      </Section>
+      </PreviewSection>
 
-      <Section className="flex flex-col gap-6">
-        <Heading>Pilot lamps</Heading>
+      <PreviewSection id="pilot-lamps" title="Pilot lamps">
         <div className="flex flex-wrap items-center gap-6">
           <PilotLamp color="amber" pulse label="active" />
           <PilotLamp color="green" label="ok" />
           <PilotLamp color="red" label="fault" />
           <PilotLamp color="off" label="idle" />
         </div>
-      </Section>
+      </PreviewSection>
 
-      <Section className="flex flex-col gap-6">
-        <Heading>Toggle switch</Heading>
+      <PreviewSection id="toggle-switch" title="Toggle switch">
         <ToggleButton label="Enable override" />
-      </Section>
+      </PreviewSection>
 
-      <Section className="flex flex-col gap-6">
-        <Heading>Rack row</Heading>
+      <PreviewSection id="rack-row" title="Rack row">
         <RackRow>
           <Card screws>Module A</Card>
           <Card screws>Module B</Card>
           <Card screws>Module C</Card>
         </RackRow>
-      </Section>
+      </PreviewSection>
 
-      <Section className="flex flex-col gap-6">
-        <Heading>Code block</Heading>
+      <PreviewSection id="code-block" title="Code block">
         <CodeBlock>{`loop:
   spec
   -> task
   -> run
   -> review
   -> close`}</CodeBlock>
-      </Section>
+      </PreviewSection>
 
-      <Section className="flex flex-col gap-6">
-        <Heading>Terminal window</Heading>
+      <PreviewSection id="terminal-window" title="Terminal window">
         <TerminalWindow title="terminal">
           <p className="text-concrete-500"># CRT monitor panel</p>
           <p className="text-concrete-100">
@@ -155,24 +249,21 @@ export default function KitchenSinkPage() {
           </p>
           <p className="mt-1 text-phosphor">✓ all systems nominal</p>
         </TerminalWindow>
-      </Section>
+      </PreviewSection>
 
-      <Section className="flex flex-col gap-6">
-        <Heading>Gilt divider</Heading>
+      <PreviewSection id="gilt-divider" title="Gilt divider">
         <GiltBand height="md" />
-      </Section>
+      </PreviewSection>
 
-      <Section className="flex flex-col gap-6">
-        <Heading>Icons</Heading>
+      <PreviewSection id="icons" title="Icons">
         <div className="flex gap-4 text-corpus-yellow">
           <AlertTriangle aria-label="Warning" />
           <CheckCircle aria-label="Success" />
           <Wrench aria-label="Tools" />
         </div>
-      </Section>
+      </PreviewSection>
 
-      <Section className="flex flex-col gap-6">
-        <Heading>Typography</Heading>
+      <PreviewSection id="typography" title="Typography">
         <div className="space-y-4">
           <p className="text-concrete-100">
             Primary text on chassis background.
@@ -189,7 +280,7 @@ export default function KitchenSinkPage() {
           <p className="text-aluminium">Aluminium label accent.</p>
           <p className="text-phosphor">Phosphor for verified output.</p>
         </div>
-      </Section>
+      </PreviewSection>
     </div>
   );
 }
