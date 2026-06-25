@@ -50,7 +50,7 @@ const steps = [
   },
 ];
 
-export function LoopDiagram() {
+export function LoopDiagram({ linkSteps = false }: { linkSteps?: boolean }) {
   const sealPoints = steps.map((step, index) => {
     const angle = -90 + index * 60;
     const rad = (angle * Math.PI) / 180;
@@ -171,11 +171,10 @@ export function LoopDiagram() {
         {steps.map((step, index) => {
           const Icon = step.icon;
           const showConnector = index < steps.length - 1 && index % 3 !== 2;
-          return (
-            <li
-              key={step.label}
-              className="group relative flex min-h-[13rem] flex-col gap-3 p-4 panel-raised rivet-row transition-all duration-150 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.2),inset_0_-2px_0_rgba(0,0,0,0.5)]"
-            >
+          const cardClassName =
+            "focus-ring group relative flex min-h-[13rem] flex-col gap-3 p-4 panel-raised rivet-row transition-all duration-150 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.2),inset_0_-2px_0_rgba(0,0,0,0.5)]";
+          const content = (
+            <>
               <div className="flex items-center justify-between">
                 <span className="font-mono text-xs font-medium text-brass">
                   {step.number}
@@ -199,6 +198,22 @@ export function LoopDiagram() {
                   className="absolute -right-3 top-1/2 hidden h-1 w-6 -translate-y-1/2 border-y border-panel-border bg-panel-edge xl:block"
                   aria-hidden="true"
                 />
+              )}
+            </>
+          );
+
+          return (
+            <li key={step.label}>
+              {linkSteps ? (
+                <a
+                  href={`#${step.label.toLowerCase()}`}
+                  aria-label={`Jump to ${step.label} example`}
+                  className={cardClassName}
+                >
+                  {content}
+                </a>
+              ) : (
+                <div className={cardClassName}>{content}</div>
               )}
             </li>
           );
