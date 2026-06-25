@@ -298,6 +298,15 @@
     max-height: none;
     flex: none;
     overflow: visible;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .docs-search {
+    min-height: 0;
+    margin-bottom: 0.75rem;
   }
 
   .docs-prose {
