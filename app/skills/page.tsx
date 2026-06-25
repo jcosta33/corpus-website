@@ -131,6 +131,27 @@ const authoring = [
   },
 ];
 
+const skillRoutes = [
+  {
+    label: "Review",
+    href: "#review-guides",
+    count: "4",
+    text: "Judgment, evidence, research, and challenge stances.",
+  },
+  {
+    label: "Change",
+    href: "#change-guides",
+    count: "10",
+    text: "Feature, fix, refactor, rewrite, migration, performance, tests, docs.",
+  },
+  {
+    label: "Write",
+    href: "#write-skill",
+    count: "1",
+    text: "The shape for adding a new guide without making it vague.",
+  },
+];
+
 export default function SkillsPage() {
   return (
     <div className="flex flex-col gap-12 py-14 sm:gap-16 sm:py-16">
@@ -198,6 +219,45 @@ export default function SkillsPage() {
         </Card>
       </Section>
 
+      <Section>
+        <Panel brushed screws className="p-0">
+          <nav
+            className="grid gap-px bg-panel-border md:grid-cols-3"
+            aria-label="Skill catalog sections"
+          >
+            {skillRoutes.map((route) => (
+              <a
+                key={route.href}
+                href={route.href}
+                className="focus-ring group block bg-panel-raised/95 p-5 transition-colors duration-150 hover:bg-panel sm:p-6"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-brass">
+                    {route.label}
+                  </p>
+                  <span className="font-mono text-xs font-semibold text-corpus-yellow">
+                    {route.count}
+                  </span>
+                </div>
+                <h2 className="mt-3 font-heading text-xl font-bold text-concrete-100">
+                  {route.label} guides
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-concrete-400">
+                  {route.text}
+                </p>
+                <span className="mt-4 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-corpus-yellow">
+                  Open section
+                  <ExternalLink
+                    className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-0.5"
+                    aria-hidden="true"
+                  />
+                </span>
+              </a>
+            ))}
+          </nav>
+        </Panel>
+      </Section>
+
       <Section className="flex flex-col gap-8">
         <div className="section-kicker section-kicker-gold">
           <DroneIcon className="h-4 w-4" />
@@ -250,7 +310,7 @@ export default function SkillsPage() {
         </p>
       </Section>
 
-      <Section className="flex flex-col gap-12">
+      <Section id="review-guides" className="flex scroll-mt-28 flex-col gap-12">
         <div className="max-w-2xl">
           <div className="section-kicker section-kicker-gold">
             <ShieldCheck className="h-4 w-4" aria-hidden="true" />
@@ -305,7 +365,7 @@ export default function SkillsPage() {
         </ul>
       </Section>
 
-      <Section className="flex flex-col gap-12">
+      <Section id="change-guides" className="flex scroll-mt-28 flex-col gap-12">
         <div className="max-w-2xl">
           <div className="section-kicker section-kicker-olive">
             <Hammer className="h-4 w-4" aria-hidden="true" />
@@ -357,7 +417,7 @@ export default function SkillsPage() {
         </ul>
       </Section>
 
-      <Section className="grid gap-6 lg:grid-cols-2">
+      <Section id="write-skill" className="grid scroll-mt-28 gap-6 lg:grid-cols-2">
         <Card
           screws
           className="h-full border-panel-border hover:border-brass/50"
