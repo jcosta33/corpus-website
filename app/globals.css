@@ -246,6 +246,7 @@ body::after {
 .section-kicker {
   --section-kicker-color: var(--color-corpus-yellow);
   --section-kicker-rule: rgba(216, 138, 36, 0.32);
+  position: relative;
   display: inline-flex;
   width: fit-content;
   max-width: 100%;
@@ -261,6 +262,16 @@ body::after {
   letter-spacing: 0.12em;
   line-height: 1.35;
   text-transform: uppercase;
+}
+
+.section-kicker::after {
+  content: "";
+  width: clamp(1.25rem, 7vw, 4.25rem);
+  height: 1px;
+  flex: 0 1 clamp(1.25rem, 7vw, 4.25rem);
+  align-self: flex-end;
+  margin-bottom: 0.12rem;
+  background: linear-gradient(90deg, var(--section-kicker-rule), transparent);
 }
 
 .section-kicker > svg {
