@@ -177,20 +177,28 @@ export default function AgentsPage() {
               .claude/agents/)
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span>{" "}mkdir -p
-              &lt;your-repo&gt;/.claude/agents
+              <span className="text-corpus-yellow">$</span>{" "}REPO=&lt;your-repo&gt;
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span>{" "}cp
-              agents/corpus-reviewer.md &lt;your-repo&gt;/.claude/agents/
+              <span className="text-corpus-yellow">$</span>{" "}AGENTS=&quot;$REPO&quot;/.claude/agents
+            </p>
+            <p className="text-concrete-100">
+              <span className="text-corpus-yellow">$</span>{" "}HOOKS=&quot;$REPO&quot;/.claude/hooks
+            </p>
+            <p className="text-concrete-100">
+              <span className="text-corpus-yellow">$</span>{" "}mkdir -p &quot;$AGENTS&quot; &quot;$HOOKS&quot;
+            </p>
+            <p className="text-concrete-100">
+              <span className="text-corpus-yellow">$</span>{" "}cp agents/corpus-reviewer.md &quot;$AGENTS&quot;/
             </p>
             <p className="mt-2 text-concrete-500">
               # optional: the delegation-provenance hook + the read-only guard
             </p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span>{" "}cp
-              hooks/delegations.sh hooks/readonly-guard.sh
-              &lt;your-repo&gt;/.claude/hooks/
+              <span className="text-corpus-yellow">$</span>{" "}cp hooks/delegations.sh &quot;$HOOKS&quot;/
+            </p>
+            <p className="text-concrete-100">
+              <span className="text-corpus-yellow">$</span>{" "}cp hooks/readonly-guard.sh &quot;$HOOKS&quot;/
             </p>
           </TerminalWindow>
         </Panel>
