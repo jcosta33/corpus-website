@@ -185,7 +185,15 @@ export default function GetStartedPage() {
         id="choose"
         className="reveal grid scroll-mt-28 gap-6 md:grid-cols-2"
       >
-        <Card screws className="h-full" contentClassName="flex h-full flex-col gap-5">
+        <Card
+          href="https://github.com/jcosta33/corpus-starter-kit"
+          target="_blank"
+          rel="noopener noreferrer"
+          ariaLabel="Use the starter kit on GitHub"
+          screws
+          className="h-full"
+          contentClassName="flex h-full flex-col gap-5"
+        >
           <KitIcon>
             <Rocket className="h-6 w-6" aria-hidden="true" />
           </KitIcon>
@@ -196,18 +204,24 @@ export default function GetStartedPage() {
               templates, and guides in place.
             </p>
           </div>
-          <ActionLink
-            href="https://github.com/jcosta33/corpus-starter-kit"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-1 w-fit justify-start"
-          >
+          <span className="mt-1 inline-flex min-h-11 w-fit items-center gap-2 text-sm font-semibold text-concrete-100 underline decoration-brass/60 underline-offset-4 transition-colors group-hover:text-corpus-yellow group-hover:decoration-corpus-yellow">
             Use the starter kit{" "}
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </ActionLink>
+            <ArrowRight
+              className="h-4 w-4 transition-transform duration-150 group-hover:translate-x-0.5"
+              aria-hidden="true"
+            />
+          </span>
         </Card>
 
-        <Card screws className="h-full" contentClassName="flex h-full flex-col gap-5">
+        <Card
+          href="/docs/ADOPTING/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ariaLabel="Read the adopting guide"
+          screws
+          className="h-full"
+          contentClassName="flex h-full flex-col gap-5"
+        >
           <KitIcon>
             <FolderPlus className="h-6 w-6" aria-hidden="true" />
           </KitIcon>
@@ -217,15 +231,13 @@ export default function GetStartedPage() {
               Copy the kit into your repo. Add specs and tasks beside the code.
             </p>
           </div>
-          <ActionLink
-            href="/docs/ADOPTING/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-1 w-fit justify-start"
-          >
+          <span className="mt-1 inline-flex min-h-11 w-fit items-center gap-2 text-sm font-semibold text-concrete-100 underline decoration-brass/60 underline-offset-4 transition-colors group-hover:text-corpus-yellow group-hover:decoration-corpus-yellow">
             Read the adopting guide{" "}
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </ActionLink>
+            <ArrowRight
+              className="h-4 w-4 transition-transform duration-150 group-hover:translate-x-0.5"
+              aria-hidden="true"
+            />
+          </span>
         </Card>
       </Section>
 
