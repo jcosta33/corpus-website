@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { Section } from "../components/Section";
 import { Card } from "../components/Card";
 import { Panel } from "../components/Panel";
@@ -28,16 +29,23 @@ const trace = [
     label: "WORKFLOW",
     title: "Same loop",
     text: "Design decisions, specs, tasks, reviews, and findings live in this repo.",
+    href: "/the-loop/",
+    cta: "Follow the loop",
   },
   {
     label: "OUTPUT",
     title: "Static export",
     text: "The deployed site is generated at build time and served as static files.",
+    href: "https://github.com/jcosta33/corpus-website",
+    cta: "Open source",
+    external: true,
   },
   {
     label: "CONTENT",
     title: "Docs source",
     text: "Canonical framework docs are pulled from the sibling Corpus repository.",
+    href: "/docs/",
+    cta: "Read the docs",
   },
 ];
 
@@ -103,9 +111,13 @@ export default function ColophonPage() {
         {trace.map((item) => (
           <Card
             key={item.title}
+            href={item.href}
+            target={item.external ? "_blank" : undefined}
+            rel={item.external ? "noopener noreferrer" : undefined}
+            ariaLabel={`${item.cta}${item.external ? " (opens in new tab)" : ""}`}
             screws
             className="h-full border-panel-border"
-            contentClassName="space-y-3"
+            contentClassName="flex h-full flex-col space-y-3"
           >
             <p className="font-mono text-xs font-semibold uppercase tracking-wide text-brass">
               {item.label}
@@ -116,6 +128,17 @@ export default function ColophonPage() {
             <p className="text-sm leading-relaxed text-concrete-400">
               {item.text}
             </p>
+            <span className="mt-auto inline-flex min-h-9 w-fit items-center gap-2 pt-2 font-mono text-xs font-semibold uppercase tracking-wide text-corpus-yellow">
+              {item.cta}
+              {item.external ? (
+                <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+              ) : (
+                <ArrowRight
+                  className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                />
+              )}
+            </span>
           </Card>
         ))}
       </div>

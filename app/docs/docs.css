@@ -1005,6 +1005,7 @@
       "start examples"
       "reference reference"
       "adrs adrs";
+    row-gap: 1.25rem;
   }
 
   .docs-index-section-primary {
@@ -1012,6 +1013,12 @@
     display: flex;
     flex-direction: column;
     align-self: stretch;
+    min-height: 100%;
+  }
+
+  .docs-index-section-primary .docs-index-list {
+    flex: 1;
+    align-content: space-between;
   }
 
   .docs-index-section-wide {
@@ -1028,6 +1035,7 @@
 
   .docs-index-grid-balanced .docs-index-section-reference {
     grid-area: reference;
+    margin-top: 0.25rem;
   }
 
   .docs-index-grid-balanced .docs-index-section-adrs {
