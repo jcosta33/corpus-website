@@ -239,7 +239,7 @@ export default function CliPage() {
         </PageHero>
       </Section>
 
-      <Section>
+      <Section register="01 / command families" registerTone="reference">
         <Panel brushed screws className="cli-surface-panel p-0">
           <div className="cli-surface-header">
             <p>Command families</p>
@@ -297,7 +297,11 @@ export default function CliPage() {
         </Panel>
       </Section>
 
-      <Section className="flex flex-col gap-8">
+      <Section
+        register="02 / install"
+        registerTone="core"
+        className="flex flex-col gap-8"
+      >
         <div className="section-kicker section-kicker-core">
           <DroneIcon className="h-4 w-4" />
           <span>install</span>
@@ -343,7 +347,11 @@ export default function CliPage() {
         </Panel>
       </Section>
 
-      <Section className="flex flex-col gap-8">
+      <Section
+        register="03 / run the loop"
+        registerTone="core"
+        className="flex flex-col gap-8"
+      >
         <div className="section-kicker section-kicker-core">
           <DroneIcon className="h-4 w-4" />
           <span>the-loop.sh — a task, end to end</span>
@@ -387,7 +395,11 @@ export default function CliPage() {
         </Panel>
       </Section>
 
-      <Section className="flex flex-col gap-12">
+      <Section
+        register="04 / command reference"
+        registerTone="reference"
+        className="flex flex-col gap-12"
+      >
         <div className="max-w-2xl">
           <div className="section-kicker section-kicker-reference">
             <Bug className="h-4 w-4" aria-hidden="true" />
@@ -468,7 +480,11 @@ export default function CliPage() {
         </div>
       </Section>
 
-      <Section className="flex flex-col gap-12">
+      <Section
+        register="05 / design notes"
+        registerTone="muted"
+        className="flex flex-col gap-12"
+      >
         <div className="max-w-2xl">
           <div className="section-kicker section-kicker-muted">
             <DroneIcon className="h-4 w-4" />
@@ -512,7 +528,11 @@ export default function CliPage() {
         </ul>
       </Section>
 
-      <Section className="grid gap-6 lg:grid-cols-2">
+      <Section
+        register="06 / source"
+        registerTone="reference"
+        className="grid gap-6 lg:grid-cols-2"
+      >
         <Card
           screws
           className="h-full"

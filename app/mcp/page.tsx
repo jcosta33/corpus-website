@@ -215,7 +215,7 @@ export default function McpPage() {
         </PageHero>
       </Section>
 
-      <Section>
+      <Section register="01 / bridge" registerTone="reference">
         <Panel brushed screws className="mcp-adapter-panel p-0">
           <div className="mcp-adapter-header">
             <p>Request path</p>
@@ -275,6 +275,8 @@ export default function McpPage() {
 
       <Section
         id="mcp-config"
+        register="02 / config"
+        registerTone="reference"
         className="grid scroll-mt-28 gap-6 lg:grid-cols-[1.05fr_0.95fr]"
       >
         <Panel brushed className="p-2">
@@ -315,7 +317,12 @@ export default function McpPage() {
         </PaperArtifact>
       </Section>
 
-      <Section id="guardrails" className="flex scroll-mt-28 flex-col gap-12">
+      <Section
+        id="guardrails"
+        register="03 / limits"
+        registerTone="change"
+        className="flex scroll-mt-28 flex-col gap-12"
+      >
         <div className="max-w-2xl">
           <div className={`section-kicker ${signalRoles.change.sectionKicker}`}>
             <DroneIcon className="h-4 w-4" />
@@ -352,7 +359,12 @@ export default function McpPage() {
         </ul>
       </Section>
 
-      <Section id="mcp-tools" className="grid scroll-mt-28 gap-6 lg:grid-cols-2">
+      <Section
+        id="mcp-tools"
+        register="04 / tools"
+        registerTone="reference"
+        className="grid scroll-mt-28 gap-6 lg:grid-cols-2"
+      >
         <Card screws className="border-panel-border">
           <div className={`section-kicker ${signalRoles.reference.sectionKicker}`}>
             <Cable className="h-4 w-4" aria-hidden="true" />
@@ -436,6 +448,8 @@ export default function McpPage() {
 
       <Section
         id="install"
+        register="05 / install"
+        registerTone="reference"
         className="grid scroll-mt-28 gap-6 lg:grid-cols-[0.9fr_1.1fr]"
       >
         <div>
@@ -492,7 +506,12 @@ export default function McpPage() {
         </Panel>
       </Section>
 
-      <Section id="source" className="scroll-mt-28">
+      <Section
+        id="source"
+        register="06 / source"
+        registerTone="reference"
+        className="scroll-mt-28"
+      >
         <Card
           screws
           contentClassName="flex flex-col gap-8 md:flex-row md:items-center md:justify-between"

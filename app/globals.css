@@ -526,6 +526,112 @@ body::after {
   --section-kicker-rule: rgba(var(--signal-brownfield-rgb), 0.3);
 }
 
+.section-register {
+  --section-register-signal: var(--signal-muted);
+  --section-register-rgb: var(--signal-muted-rgb);
+  position: relative;
+}
+
+.section-register::before {
+  content: attr(data-register);
+  position: absolute;
+  z-index: 2;
+  top: -1.28rem;
+  left: 1.5rem;
+  display: inline-flex;
+  min-height: 1.35rem;
+  align-items: center;
+  max-width: min(28rem, calc(100% - 3rem));
+  overflow: hidden;
+  border: 1px solid rgba(var(--section-register-rgb), 0.36);
+  border-left-color: rgba(var(--section-register-rgb), 0.72);
+  border-radius: calc(var(--radius-control) - 4px);
+  background:
+    linear-gradient(90deg, rgba(var(--section-register-rgb), 0.12), transparent 62%),
+    var(--color-background);
+  color: var(--section-register-signal);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  font-weight: 750;
+  line-height: 1;
+  padding: 0.2rem 0.48rem;
+  pointer-events: none;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow:
+    inset 0 1px 0 rgba(240, 226, 204, 0.05),
+    0 0 0 1px rgba(var(--section-register-rgb), 0.035);
+}
+
+.section-register::after {
+  content: "";
+  position: absolute;
+  top: -0.64rem;
+  right: 1.5rem;
+  left: 1.5rem;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--section-register-rgb), 0.44),
+    rgba(var(--section-register-rgb), 0.12) 38%,
+    transparent 78%
+  );
+  opacity: 0.78;
+}
+
+.section-register-core {
+  --section-register-signal: var(--signal-core);
+  --section-register-rgb: var(--signal-core-rgb);
+}
+
+.section-register-evidence {
+  --section-register-signal: var(--signal-evidence);
+  --section-register-rgb: var(--signal-evidence-rgb);
+}
+
+.section-register-greenfield {
+  --section-register-signal: var(--signal-greenfield);
+  --section-register-rgb: var(--signal-greenfield-rgb);
+}
+
+.section-register-brownfield {
+  --section-register-signal: var(--signal-brownfield);
+  --section-register-rgb: var(--signal-brownfield-rgb);
+}
+
+.section-register-change {
+  --section-register-signal: var(--signal-change);
+  --section-register-rgb: var(--signal-change-rgb);
+}
+
+.section-register-reference {
+  --section-register-signal: var(--signal-reference);
+  --section-register-rgb: var(--signal-reference-rgb);
+}
+
+.section-register-muted {
+  --section-register-signal: var(--color-concrete-400);
+  --section-register-rgb: var(--signal-muted-rgb);
+}
+
+@media (max-width: 40rem) {
+  .section-register::before {
+    top: -1.08rem;
+    left: 1rem;
+    max-width: calc(100% - 2rem);
+    font-size: 0.62rem;
+    padding-inline: 0.4rem;
+  }
+
+  .section-register::after {
+    top: -0.52rem;
+    right: 1rem;
+    left: 1rem;
+  }
+}
+
 .site-header[data-nav-state="transparent"] {
   background-color: transparent;
 }

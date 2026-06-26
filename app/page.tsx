@@ -336,7 +336,11 @@ export default function HomePage() {
       </section>
 
       <section className="py-16 sm:py-20">
-        <Section className="flex flex-col gap-10">
+        <Section
+          register="01 / review signals"
+          registerTone="change"
+          className="flex flex-col gap-10"
+        >
           <div className="max-w-2xl">
             <Eyebrow icon={<Terminal className="h-4 w-4" aria-hidden="true" />}>
               common failure modes
@@ -375,7 +379,11 @@ export default function HomePage() {
       </section>
 
       <section className="border-y border-panel-border bg-section-band py-16 sm:py-20">
-        <Section className="flex flex-col gap-10">
+        <Section
+          register="02 / loop"
+          registerTone="core"
+          className="flex flex-col gap-10"
+        >
           <div className="max-w-2xl">
             <Eyebrow>workflow / six steps</Eyebrow>
             <h2 className="mt-4 font-heading text-2xl font-bold text-concrete-100 sm:text-3xl">
@@ -391,7 +399,11 @@ export default function HomePage() {
       </section>
 
       <section className="py-16 sm:py-20">
-        <Section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <Section
+          register="03 / evidence"
+          registerTone="evidence"
+          className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]"
+        >
           <div>
             <Eyebrow icon={<CheckCircle className="h-4 w-4" aria-hidden="true" />}>
               review packet / example
@@ -423,7 +435,11 @@ export default function HomePage() {
       </section>
 
       <section className="border-y border-panel-border bg-section-band py-16 sm:py-20">
-        <Section className="flex flex-col gap-10">
+        <Section
+          register="04 / pieces"
+          registerTone="reference"
+          className="flex flex-col gap-10"
+        >
           <div className="max-w-2xl">
             <Eyebrow>what you get</Eyebrow>
             <h2 className="mt-4 font-heading text-2xl font-bold text-concrete-100 sm:text-3xl">
@@ -463,7 +479,11 @@ export default function HomePage() {
 
       <JsonLd data={faqJsonLd} />
       <section className="py-16 sm:py-20">
-        <Section className="flex flex-col gap-10">
+        <Section
+          register="05 / answers"
+          registerTone="reference"
+          className="flex flex-col gap-10"
+        >
           <div className="max-w-2xl">
             <Eyebrow>plain answers</Eyebrow>
             <h2 className="mt-4 font-heading text-2xl font-bold text-concrete-100 sm:text-3xl">
@@ -493,7 +513,7 @@ export default function HomePage() {
       </section>
 
       <section className="relative py-16 sm:py-20">
-        <Section className="text-center">
+        <Section register="06 / start" registerTone="core" className="text-center">
           <Eyebrow className="mx-auto">start / first pass</Eyebrow>
           <h2 className="mt-6 font-heading text-2xl font-bold text-concrete-100 sm:text-3xl">
             Start with one spec.

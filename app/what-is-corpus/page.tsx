@@ -221,7 +221,11 @@ export default function WhatIsCorpusPage() {
         </PageHero>
       </Section>
 
-      <Section className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+      <Section
+        register="01 / summary"
+        registerTone="evidence"
+        className="grid gap-6 lg:grid-cols-[1fr_0.9fr]"
+      >
         <Panel brushed className="mx-auto h-full max-w-3xl p-2">
           <TerminalWindow title="diagnostics" className="mx-auto h-full max-w-3xl">
             <p className="text-concrete-400">
@@ -260,7 +264,11 @@ export default function WhatIsCorpusPage() {
         </PaperArtifact>
       </Section>
 
-      <Section className="reveal grid gap-12 lg:grid-cols-2">
+      <Section
+        register="02 / boundaries"
+        registerTone="muted"
+        className="reveal grid gap-12 lg:grid-cols-2"
+      >
         <Panel variant="inset" className="h-full p-5 sm:p-6">
           <div className={`section-kicker ${signalRoles.evidence.sectionKicker}`}>
             <CheckCircle className="h-4 w-4" aria-hidden="true" />
@@ -308,7 +316,11 @@ export default function WhatIsCorpusPage() {
         </Panel>
       </Section>
 
-      <Section className="flex flex-col gap-12">
+      <Section
+        register="03 / nearby tools"
+        registerTone="reference"
+        className="flex flex-col gap-12"
+      >
         <div className="max-w-2xl">
           <div className={`section-kicker ${signalRoles.reference.sectionKicker}`}>
             <DroneIcon className="h-4 w-4" />
@@ -355,7 +367,11 @@ export default function WhatIsCorpusPage() {
         </ul>
       </Section>
 
-      <Section className="flex flex-col gap-12">
+      <Section
+        register="04 / failure modes"
+        registerTone="change"
+        className="flex flex-col gap-12"
+      >
         <div className="max-w-2xl">
           <div className={`section-kicker ${signalRoles.change.sectionKicker}`}>
             <ShieldAlert className="h-4 w-4" aria-hidden="true" />
@@ -392,7 +408,7 @@ export default function WhatIsCorpusPage() {
         </ul>
       </Section>
 
-      <Section>
+      <Section register="05 / next step" registerTone="core">
         <Card
           screws
           contentClassName="flex flex-col gap-8 md:flex-row md:items-center md:justify-between"

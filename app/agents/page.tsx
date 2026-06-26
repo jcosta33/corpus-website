@@ -215,7 +215,11 @@ export default function AgentsPage() {
         </PageHero>
       </Section>
 
-      <Section className="grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-stretch">
+      <Section
+        register="01 / roster brief"
+        registerTone="reference"
+        className="grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-stretch"
+      >
         <PaperArtifact
           label="note"
           title="delegation record"
@@ -242,7 +246,11 @@ export default function AgentsPage() {
         </Card>
       </Section>
 
-      <Section className="agent-roster-grid grid gap-4 lg:grid-cols-2">
+      <Section
+        register="02 / worker lanes"
+        registerTone="muted"
+        className="agent-roster-grid grid gap-4 lg:grid-cols-2"
+      >
         {rosterGroups.map((group, groupIndex) => (
           <Panel
             key={group.title}
@@ -320,7 +328,11 @@ export default function AgentsPage() {
         ))}
       </Section>
 
-      <Section className="flex flex-col gap-8">
+      <Section
+        register="03 / install"
+        registerTone="reference"
+        className="flex flex-col gap-8"
+      >
         <div className={`section-kicker ${signalRoles.reference.sectionKicker}`}>
           <DroneIcon className="h-4 w-4" />
           <span>install.sh — copy one worker</span>
@@ -367,7 +379,11 @@ export default function AgentsPage() {
         </p>
       </Section>
 
-      <Section className="flex flex-col gap-12">
+      <Section
+        register="04 / read-only"
+        registerTone="evidence"
+        className="flex flex-col gap-12"
+      >
         <div className="max-w-2xl">
           <div className={`section-kicker ${signalRoles.evidence.sectionKicker}`}>
             <ShieldCheck className="h-4 w-4" aria-hidden="true" />
@@ -427,7 +443,11 @@ export default function AgentsPage() {
         </ul>
       </Section>
 
-      <Section className="flex flex-col gap-12">
+      <Section
+        register="05 / bounded authoring"
+        registerTone="change"
+        className="flex flex-col gap-12"
+      >
         <div className="max-w-2xl">
           <div className={`section-kicker ${signalRoles.change.sectionKicker}`}>
             <Hammer className="h-4 w-4" aria-hidden="true" />
@@ -487,7 +507,11 @@ export default function AgentsPage() {
         </ul>
       </Section>
 
-      <Section className="grid gap-6 lg:grid-cols-2">
+      <Section
+        register="06 / limits"
+        registerTone="muted"
+        className="grid gap-6 lg:grid-cols-2"
+      >
         <Card screws className="border-panel-border">
           <div className="section-kicker section-kicker-muted">
             <ShieldCheck className="h-4 w-4" />
@@ -533,7 +557,11 @@ export default function AgentsPage() {
         </Card>
       </Section>
 
-      <Section className="grid gap-6 lg:grid-cols-2">
+      <Section
+        register="07 / portability"
+        registerTone="reference"
+        className="grid gap-6 lg:grid-cols-2"
+      >
         <Card screws className="h-full border-panel-border">
           <div className="section-kicker section-kicker-muted">
             <Terminal className="h-4 w-4" aria-hidden="true" />

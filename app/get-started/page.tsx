@@ -174,7 +174,7 @@ export default function GetStartedPage() {
         </PageHero>
       </Section>
 
-      <Section>
+      <Section register="01 / setup path" registerTone="core">
         <Panel brushed screws className="p-0">
           <ol
             className="process-strip process-strip-signal-core grid gap-px bg-panel-border sm:grid-cols-2 lg:grid-cols-4"
@@ -224,6 +224,8 @@ export default function GetStartedPage() {
 
       <Section
         id="choose"
+        register="02 / new or existing"
+        registerTone="muted"
         className="reveal grid scroll-mt-28 gap-6 md:grid-cols-2"
       >
         <div className="md:col-span-2">
@@ -337,6 +339,8 @@ export default function GetStartedPage() {
 
       <Section
         id="copy"
+        register="03 / kit contents"
+        registerTone="reference"
         className="grid scroll-mt-28 gap-6 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-start"
       >
         <div className="flex flex-col gap-5">
@@ -389,7 +393,12 @@ export default function GetStartedPage() {
         </Card>
       </Section>
 
-      <Section id="check" className="flex scroll-mt-28 flex-col gap-6">
+      <Section
+        id="check"
+        register="04 / cli option"
+        registerTone="core"
+        className="flex scroll-mt-28 flex-col gap-6"
+      >
         <div className="section-kicker section-kicker-core">
           <Terminal className="h-4 w-4" aria-hidden="true" />
           <span>or scaffold it with the cli</span>
@@ -452,7 +461,12 @@ export default function GetStartedPage() {
         </p>
       </Section>
 
-      <Section id="work" className="grid scroll-mt-28 gap-6 md:grid-cols-2">
+      <Section
+        id="work"
+        register="05 / next"
+        registerTone="reference"
+        className="grid scroll-mt-28 gap-6 md:grid-cols-2"
+      >
         <Card
           screws
           className="h-full"

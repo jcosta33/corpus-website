@@ -202,7 +202,11 @@ export default function TheLoopPage() {
         </PageHero>
       </Section>
 
-      <Section className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+      <Section
+        register="01 / seal map"
+        registerTone="core"
+        className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start"
+      >
         <div className="grid gap-4 lg:content-start">
           <PaperArtifact
             label="note"
@@ -246,7 +250,11 @@ export default function TheLoopPage() {
 
       <GiltBand height="sm" />
 
-      <Section className="flex flex-col gap-14">
+      <Section
+        register="02 / operating steps"
+        registerTone="core"
+        className="flex flex-col gap-14"
+      >
         {steps.map((step, index) => {
           const Icon = stepIcons[index];
           return (
@@ -308,7 +316,7 @@ export default function TheLoopPage() {
         })}
       </Section>
 
-      <Section>
+      <Section register="03 / start" registerTone="core">
         <Card
           screws
           contentClassName="flex flex-col gap-8 md:flex-row md:items-center md:justify-between"

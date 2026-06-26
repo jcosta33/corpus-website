@@ -194,7 +194,11 @@ export default function SkillsPage() {
         </PageHero>
       </Section>
 
-      <Section className="grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-stretch">
+      <Section
+        register="01 / index"
+        registerTone="reference"
+        className="grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-stretch"
+      >
         <PaperArtifact
           label="index"
           title="load when"
@@ -224,7 +228,7 @@ export default function SkillsPage() {
         </Card>
       </Section>
 
-      <Section>
+      <Section register="02 / categories" registerTone="muted">
         <Panel brushed screws className="p-0">
           <nav
             className="process-strip process-strip-signal-reference grid gap-px bg-panel-border md:grid-cols-3"
@@ -268,7 +272,11 @@ export default function SkillsPage() {
         </Panel>
       </Section>
 
-      <Section className="flex flex-col gap-8">
+      <Section
+        register="03 / install"
+        registerTone="reference"
+        className="flex flex-col gap-8"
+      >
         <div className={`section-kicker ${signalRoles.reference.sectionKicker}`}>
           <DroneIcon className="h-4 w-4" />
           <span>install.sh — add one skill</span>
@@ -320,7 +328,12 @@ export default function SkillsPage() {
         </p>
       </Section>
 
-      <Section id="review-guides" className="flex scroll-mt-28 flex-col gap-12">
+      <Section
+        id="review-guides"
+        register="04 / review guides"
+        registerTone="evidence"
+        className="flex scroll-mt-28 flex-col gap-12"
+      >
         <div className="max-w-2xl">
           <div className="section-kicker section-kicker-evidence">
             <ShieldCheck className="h-4 w-4" aria-hidden="true" />
@@ -379,7 +392,12 @@ export default function SkillsPage() {
         </ul>
       </Section>
 
-      <Section id="change-guides" className="flex scroll-mt-28 flex-col gap-12">
+      <Section
+        id="change-guides"
+        register="05 / change guides"
+        registerTone="change"
+        className="flex scroll-mt-28 flex-col gap-12"
+      >
         <div className="max-w-2xl">
           <div className="section-kicker section-kicker-change">
             <Hammer className="h-4 w-4" aria-hidden="true" />
@@ -435,7 +453,12 @@ export default function SkillsPage() {
         </ul>
       </Section>
 
-      <Section id="write-skill" className="grid scroll-mt-28 gap-6 lg:grid-cols-2">
+      <Section
+        id="write-skill"
+        register="06 / authoring"
+        registerTone="reference"
+        className="grid scroll-mt-28 gap-6 lg:grid-cols-2"
+      >
         <Card
           screws
           className="h-full border-panel-border hover-border-signal-reference"
