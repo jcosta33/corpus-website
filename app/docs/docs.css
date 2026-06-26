@@ -456,7 +456,34 @@
 }
 
 .docs-article-html {
+  position: relative;
   counter-reset: docs-section;
+}
+
+@media (min-width: 58rem) {
+  .docs-article-html::before {
+    content: "";
+    position: absolute;
+    top: 1.1rem;
+    bottom: 2rem;
+    left: -1.15rem;
+    width: 1px;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        180deg,
+        transparent,
+        rgba(var(--signal-reference-rgb), 0.34) 8%,
+        rgba(var(--signal-reference-rgb), 0.14) 92%,
+        transparent
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent 0 1.35rem,
+        rgba(var(--signal-core-rgb), 0.22) 1.35rem calc(1.35rem + 1px)
+      );
+    opacity: 0.72;
+  }
 }
 
 .docs-article-html h2 {
@@ -481,6 +508,19 @@
     inset 0 1px 0 rgba(240, 226, 204, 0.045),
     inset 0 -1px 0 rgba(0, 0, 0, 0.42);
   counter-increment: docs-section;
+  text-wrap: balance;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    transform 150ms ease;
+}
+
+.docs-article-html h2:hover {
+  border-color: rgba(var(--docs-section-rgb), 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(240, 226, 204, 0.06),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(var(--docs-section-rgb), 0.06);
 }
 
 .docs-article-html h2::before {
@@ -498,6 +538,59 @@
   color: var(--docs-section-signal);
   font-size: 0.68rem;
   transform: none;
+}
+
+.docs-article-html h2::after {
+  content: "";
+  height: 1px;
+  min-width: 2.25rem;
+  flex: 1 1 auto;
+  align-self: center;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--docs-section-rgb), 0.42),
+    transparent
+  );
+  opacity: 0.58;
+}
+
+.docs-article-html h3 {
+  position: relative;
+  padding-left: 0.9rem;
+  text-wrap: balance;
+}
+
+.docs-article-html h3::before {
+  content: "";
+  position: absolute;
+  top: 0.18rem;
+  bottom: 0.18rem;
+  left: 0;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(var(--signal-reference-rgb), 0.68),
+    transparent
+  );
+}
+
+.docs-article-html h4 {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.docs-article-html h4::before {
+  content: "";
+  width: 0.36rem;
+  height: 0.36rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--signal-muted);
+  box-shadow: 0 0 10px rgba(var(--signal-muted-rgb), 0.28);
 }
 
 .docs-article-html :is(h2, h3, h4)[id]:target {
@@ -541,6 +634,14 @@
     margin-top: 2.45rem;
     padding: 0.62rem 0.7rem;
     font-size: 1.2rem;
+  }
+
+  .docs-article-html h2::after {
+    display: none;
+  }
+
+  .docs-article-html h3 {
+    padding-left: 0.72rem;
   }
 }
 
@@ -708,6 +809,12 @@
   line-height: 1.55;
   color: var(--color-concrete-200);
   background: var(--color-panel-recessed);
+  background-image:
+    linear-gradient(rgba(var(--signal-reference-rgb), 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--signal-reference-rgb), 0.035) 1px, transparent 1px);
+  background-size:
+    100% 1.55em,
+    2.4rem 100%;
   border: 1px solid var(--color-panel-border);
   border-radius: var(--radius-panel);
   padding: 1rem 1.1rem;
@@ -721,6 +828,17 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.05),
     inset 0 2px 6px rgba(0, 0, 0, 0.55);
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+.docs-prose pre:hover,
+.docs-prose pre:focus-within {
+  border-color: rgba(var(--signal-reference-rgb), 0.38);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 2px 6px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(var(--signal-reference-rgb), 0.06);
 }
 .docs-prose pre::-webkit-scrollbar,
 .docs-table-scroll::-webkit-scrollbar {
@@ -789,6 +907,7 @@
 
 /* Blockquotes / callouts — a dark raised plate, not a paper artifact. */
 .docs-prose blockquote {
+  position: relative;
   margin: 1.25rem 0;
   padding: 0.85rem 1.1rem;
   border: 1px solid rgba(216, 138, 36, 0.24);
@@ -805,6 +924,25 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.035),
     inset 0 -1px 0 rgba(0, 0, 0, 0.42);
   color: var(--color-concrete-200);
+}
+.docs-prose blockquote::before {
+  content: "note";
+  display: inline-flex;
+  width: fit-content;
+  min-height: 1.35rem;
+  align-items: center;
+  margin: 0 0 0.45rem;
+  border: 1px solid rgba(var(--signal-core-rgb), 0.34);
+  border-radius: calc(var(--radius-control) - 3px);
+  padding: 0 0.42rem;
+  color: var(--signal-core);
+  background: rgba(var(--signal-core-rgb), 0.08);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 .docs-prose blockquote p {
   margin: 0.35rem 0;
@@ -1249,6 +1387,10 @@
     linear-gradient(90deg, rgba(var(--docs-index-rgb), 0.06), transparent 42%),
     rgba(26, 21, 16, 0.58);
   box-shadow: inset 0 1px 0 rgba(240, 226, 204, 0.05);
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
 }
 
 .docs-index-section::before {
@@ -1322,6 +1464,14 @@
 .docs-index-section:focus-within::after {
   opacity: 0.64;
   transform: translateX(0.35rem);
+}
+
+.docs-index-section:hover,
+.docs-index-section:focus-within {
+  border-color: rgba(var(--docs-index-rgb), 0.44);
+  box-shadow:
+    inset 0 1px 0 rgba(240, 226, 204, 0.065),
+    0 0 0 1px rgba(var(--docs-index-rgb), 0.055);
 }
 
 .docs-index-section > * {
@@ -1407,6 +1557,7 @@
 }
 
 .docs-prose .docs-index-list a {
+  position: relative;
   display: flex;
   min-height: 2.75rem;
   align-items: center;
@@ -1421,7 +1572,8 @@
   transition:
     background-color 0.12s,
     color 0.12s,
-    text-decoration-color 0.12s;
+    text-decoration-color 0.12s,
+    transform 0.12s;
 }
 
 .docs-index-item-number {
@@ -1446,6 +1598,7 @@
 .docs-prose .docs-index-list a:focus-visible {
   background: rgba(var(--docs-index-rgb), 0.1);
   color: var(--docs-index-signal);
+  transform: translateX(0.12rem);
 }
 
 .docs-prose .docs-index-list a:hover .docs-index-item-number,
@@ -1457,6 +1610,16 @@
 .docs-prose .docs-index-list a:hover .docs-index-item-label,
 .docs-prose .docs-index-list a:focus-visible .docs-index-item-label {
   text-decoration-color: var(--docs-index-signal);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .docs-article-html h2,
+  .docs-index-section,
+  .docs-index-section::after,
+  .docs-prose .docs-index-list a {
+    transition-duration: 0.01ms !important;
+    transform: none !important;
+  }
 }
 
 .docs-prose .docs-index-section-compact p a {
