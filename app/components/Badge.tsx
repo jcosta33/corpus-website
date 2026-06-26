@@ -18,7 +18,7 @@ export function Badge({ children, variant = "default" }: BadgeProps) {
     default:
       "border-panel-border bg-panel-raised text-concrete-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]",
     success:
-      "border-phosphor/60 bg-panel-raised text-phosphor shadow-[inset_0_0_8px_rgba(114,179,90,0.16)]",
+      "border-phosphor/60 bg-panel-raised text-phosphor shadow-[inset_0_0_8px_rgba(112,178,117,0.16)]",
     ready: "border-aurum/70 bg-panel-raised text-concrete-100",
     pass: "border-phosphor/60 bg-panel-raised text-phosphor",
     unverified: "border-amber/70 bg-panel-raised text-amber",

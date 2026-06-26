@@ -10,6 +10,7 @@ import { PageHero } from "../components/PageHero";
 import { Heading } from "../components/Heading";
 import { PilotLamp } from "../components/PilotLamp";
 import { TextLink } from "../components/TextLink";
+import { signalRoles } from "../components/signalStyles";
 import {
   ArrowRight,
   CheckCircle,
@@ -226,10 +227,14 @@ export default function WhatIsCorpusPage() {
               Corpus turns requests into specs, specs into tasks, and task
               output into review evidence.
             </p>
-            <p className="mt-2 text-phosphor">✓ agent does the typing</p>
-            <p className="text-phosphor">✓ human makes the call</p>
-            <p className="text-phosphor">✓ every claim needs evidence</p>
-            <p className="text-phosphor">
+            <p className={`mt-2 ${signalRoles.evidence.text}`}>
+              ✓ agent does the typing
+            </p>
+            <p className={signalRoles.evidence.text}>✓ human makes the call</p>
+            <p className={signalRoles.evidence.text}>
+              ✓ every claim needs evidence
+            </p>
+            <p className={signalRoles.evidence.text}>
               ✓ plain markdown, any agent, no runtime
             </p>
             <p className="mt-2 text-concrete-400">
@@ -252,7 +257,7 @@ export default function WhatIsCorpusPage() {
 
       <Section className="reveal grid gap-12 lg:grid-cols-2">
         <Panel variant="inset" className="h-full p-5 sm:p-6">
-          <div className="section-kicker section-kicker-phosphor">
+          <div className={`section-kicker ${signalRoles.evidence.sectionKicker}`}>
             <CheckCircle className="h-4 w-4" aria-hidden="true" />
             <span>what it is</span>
           </div>
@@ -265,7 +270,7 @@ export default function WhatIsCorpusPage() {
                   key={item.text}
                   className="flex items-start gap-4 text-concrete-100"
                 >
-                  <HexBadge color="yellow">
+                  <HexBadge color="evidence">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </HexBadge>
                   <span className="pt-3">{item.text}</span>
@@ -288,7 +293,7 @@ export default function WhatIsCorpusPage() {
                 className="flex items-start gap-3 py-3 text-concrete-400 first:pt-0 last:pb-0"
               >
                 <XCircle
-                  className="mt-0.5 h-4 w-4 shrink-0 text-rubedo/80"
+                  className="mt-0.5 h-4 w-4 shrink-0 text-signal-change"
                   aria-hidden="true"
                 />
                 <span>{item}</span>
@@ -310,7 +315,9 @@ export default function WhatIsCorpusPage() {
         <ul className="reveal grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {adjacent.map((row, index) => (
             <li key={row.product}>
-              <Card className="relation-card group h-full border-panel-border hover:border-brass/50">
+                <Card
+                  className={`relation-card group h-full border-panel-border ${signalRoles.reference.hoverBorder}`}
+                >
                 <div className="relation-card-head">
                   <div>
                     <p className="relation-card-index">
@@ -358,10 +365,10 @@ export default function WhatIsCorpusPage() {
             <li key={fm.mode}>
               <Card
                 screws
-                className="group h-full border-panel-border hover:border-rubedo/50"
+                className={`group h-full border-panel-border ${signalRoles.change.hoverBorder}`}
               >
                 <div className="flex items-start gap-3">
-                  <HexBadge color="orange">
+                  <HexBadge color="change">
                     <ShieldAlert className="h-5 w-5" aria-hidden="true" />
                   </HexBadge>
                   <div>

@@ -208,7 +208,7 @@ export default function WritingSkillsPage() {
           <ul className="grid gap-3 sm:grid-cols-2">
             {descriptionRules.map((rule) => (
               <li key={rule} className="flex items-start gap-3 text-concrete-400">
-                <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-phosphor" />
+                <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-signal-evidence" />
                 <span>{rule}</span>
               </li>
             ))}
@@ -245,7 +245,7 @@ export default function WritingSkillsPage() {
             return (
               <li key={item.title}>
                 <Card screws className="h-full border-panel-border">
-                  <HexBadge color="olive" className="mb-4">
+                  <HexBadge color="reference" className="mb-4">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </HexBadge>
                   <h3 className="font-heading text-sm font-bold uppercase tracking-wide text-concrete-100">

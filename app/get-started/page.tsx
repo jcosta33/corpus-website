@@ -21,6 +21,7 @@ import { Heading } from "../components/Heading";
 import { PaperArtifact } from "../components/PaperArtifact";
 import { TextLink } from "../components/TextLink";
 import { PageHero } from "../components/PageHero";
+import { signalRoles, type SignalRole } from "../components/signalStyles";
 
 export const metadata: Metadata = {
   title: "Get started — Corpus",
@@ -61,9 +62,17 @@ const cliInitCommands = [
   "corpus check",
 ].join("\n");
 
-function KitIcon({ children }: { children: React.ReactNode }) {
+function KitIcon({
+  children,
+  signal = "core",
+}: {
+  children: React.ReactNode;
+  signal?: SignalRole;
+}) {
   return (
-    <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-panel border border-panel-border bg-panel-raised text-corpus-yellow shadow-[inset_0_1px_0_rgba(255,255,255,0.1),inset_0_-1px_0_rgba(0,0,0,0.45)]">
+    <div
+      className={`kit-icon kit-icon-${signal} relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-panel border bg-panel-raised shadow-[inset_0_1px_0_rgba(255,255,255,0.1),inset_0_-1px_0_rgba(0,0,0,0.45)]`}
+    >
       <div
         className="brushed-metal absolute inset-0 pointer-events-none z-0"
         aria-hidden="true"
@@ -203,7 +212,7 @@ export default function GetStartedPage() {
         className="reveal grid scroll-mt-28 gap-6 md:grid-cols-2"
       >
         <div className="md:col-span-2">
-          <div className="section-kicker section-kicker-gold">
+          <div className={`section-kicker ${signalRoles.core.sectionKicker}`}>
             <Rocket className="h-4 w-4" aria-hidden="true" />
             <span>choose a path</span>
           </div>
@@ -219,16 +228,18 @@ export default function GetStartedPage() {
           rel="noopener noreferrer"
           ariaLabel="Use the starter kit on GitHub"
           screws
-          className="setup-choice-card setup-choice-card-fresh h-full"
+          className="setup-choice-card setup-choice-card-greenfield h-full"
           contentClassName="flex h-full flex-col gap-5"
         >
           <div className="setup-choice-head flex items-start justify-between gap-4">
             <div className="flex min-w-0 items-start gap-4">
-              <KitIcon>
+              <KitIcon signal="greenfield">
                 <Rocket className="h-6 w-6" aria-hidden="true" />
               </KitIcon>
               <div className="min-w-0">
-                <p className="font-mono text-xs font-semibold uppercase tracking-wide text-brass">
+                <p
+                  className={`font-mono text-xs font-semibold uppercase tracking-wide ${signalRoles.greenfield.text}`}
+                >
                   starter kit
                 </p>
                 <Heading className="mt-2">New repo</Heading>
@@ -266,16 +277,18 @@ export default function GetStartedPage() {
           rel="noopener noreferrer"
           ariaLabel="Read the adopting guide"
           screws
-          className="setup-choice-card setup-choice-card-adopt h-full"
+          className="setup-choice-card setup-choice-card-brownfield h-full"
           contentClassName="flex h-full flex-col gap-5"
         >
           <div className="setup-choice-head flex items-start justify-between gap-4">
             <div className="flex min-w-0 items-start gap-4">
-              <KitIcon>
+              <KitIcon signal="brownfield">
                 <FolderPlus className="h-6 w-6" aria-hidden="true" />
               </KitIcon>
               <div className="min-w-0">
-                <p className="font-mono text-xs font-semibold uppercase tracking-wide text-brass">
+                <p
+                  className={`font-mono text-xs font-semibold uppercase tracking-wide ${signalRoles.brownfield.text}`}
+                >
                   adopting guide
                 </p>
                 <Heading className="mt-2">Existing project</Heading>
@@ -431,7 +444,7 @@ export default function GetStartedPage() {
           contentClassName="flex h-full flex-col gap-6"
         >
           <div className="flex items-start gap-4">
-            <KitIcon>
+            <KitIcon signal="reference">
               <Wrench className="h-6 w-6" aria-hidden="true" />
             </KitIcon>
             <div>
@@ -452,7 +465,7 @@ export default function GetStartedPage() {
           contentClassName="flex h-full flex-col gap-6"
         >
           <div className="flex items-start gap-4">
-            <KitIcon>
+            <KitIcon signal="reference">
               <Terminal className="h-6 w-6" aria-hidden="true" />
             </KitIcon>
             <div>

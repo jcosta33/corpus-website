@@ -29,6 +29,7 @@ import { Heading } from "../components/Heading";
 import { Badge } from "../components/Badge";
 import { PaperArtifact } from "../components/PaperArtifact";
 import { TextLink } from "../components/TextLink";
+import { signalRoles } from "../components/signalStyles";
 
 export const metadata: Metadata = {
   title: "corpus-skills — Corpus",
@@ -250,15 +251,17 @@ export default function SkillsPage() {
                 <a
                   key={route.href}
                   href={route.href}
-                  className={`process-item-signal-${route.signal} focus-ring group block bg-panel-raised/95 p-5 transition-colors duration-150 hover:bg-panel sm:p-6`}
+                  className={`${signalRoles[route.signal].processItem} focus-ring group block bg-panel-raised/95 p-5 transition-colors duration-150 hover:bg-panel sm:p-6`}
                   aria-label={`Jump to ${route.label.toLowerCase()} guides`}
                 >
                   <div className="flex items-center gap-3">
-                    <HexBadge color="yellow" className="h-10 w-10 shrink-0">
+                    <HexBadge color={route.signal} className="h-10 w-10 shrink-0">
                       <Icon className="h-4 w-4" aria-hidden="true" />
                     </HexBadge>
                     <div className="min-w-0">
-                      <p className="font-mono text-xs font-semibold uppercase tracking-wide text-corpus-yellow">
+                      <p
+                        className={`font-mono text-xs font-semibold uppercase tracking-wide ${signalRoles[route.signal].text}`}
+                      >
                         {String(index + 1).padStart(2, "0")} / {route.count}
                       </p>
                       <h2 className="font-heading text-lg font-bold text-concrete-100">
@@ -281,7 +284,7 @@ export default function SkillsPage() {
       </Section>
 
       <Section className="flex flex-col gap-8">
-        <div className="section-kicker section-kicker-phosphor">
+        <div className={`section-kicker ${signalRoles.reference.sectionKicker}`}>
           <DroneIcon className="h-4 w-4" />
           <span>install.sh — add one skill</span>
         </div>
@@ -359,14 +362,18 @@ export default function SkillsPage() {
                   aria-label={`${s.skill} skill on GitHub (opens in new tab)`}
                   className="group block rounded-sm focus-ring"
                 >
-                  <Card className="h-full border-panel-border hover:border-phosphor/50">
+                  <Card
+                    className={`h-full border-panel-border ${signalRoles.evidence.hoverBorder}`}
+                  >
                     <div className="catalog-row catalog-row-evidence flex items-start justify-between gap-4">
                       <div className="flex items-start gap-4">
-                        <HexBadge color="green" className="catalog-row-badge">
+                        <HexBadge color="evidence" className="catalog-row-badge">
                           <Icon className="h-5 w-5" aria-hidden="true" />
                         </HexBadge>
                         <div>
-                          <h3 className="catalog-row-title font-mono text-sm font-semibold text-phosphor">
+                          <h3
+                            className={`catalog-row-title font-mono text-sm font-semibold ${signalRoles.evidence.text}`}
+                          >
                             {s.skill}
                           </h3>
                           <p className="catalog-row-copy mt-1 text-sm leading-relaxed text-concrete-400">
@@ -411,14 +418,18 @@ export default function SkillsPage() {
                   aria-label={`${s.skill} skill on GitHub (opens in new tab)`}
                   className="group block rounded-sm focus-ring"
                 >
-                  <Card className="h-full border-panel-border hover:border-rubedo/60">
+                  <Card
+                    className={`h-full border-panel-border ${signalRoles.change.hoverBorder}`}
+                  >
                     <div className="catalog-row catalog-row-change flex items-start justify-between gap-4">
                       <div className="flex items-start gap-4">
-                        <HexBadge color="orange" className="catalog-row-badge">
+                        <HexBadge color="change" className="catalog-row-badge">
                           <Icon className="h-5 w-5" aria-hidden="true" />
                         </HexBadge>
                         <div>
-                          <h3 className="catalog-row-title font-mono text-sm font-semibold text-rubedo">
+                          <h3
+                            className={`catalog-row-title font-mono text-sm font-semibold ${signalRoles.change.text}`}
+                          >
                             {s.skill}
                           </h3>
                           <p className="catalog-row-copy mt-1 text-sm leading-relaxed text-concrete-400">

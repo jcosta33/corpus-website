@@ -258,7 +258,7 @@ export default function KitchenSinkPage() {
           <p className="text-concrete-100">
               <span className="text-corpus-yellow">$</span>{" "}corpus status
           </p>
-          <p className="mt-1 text-phosphor">✓ all systems nominal</p>
+          <p className="mt-1 text-signal-evidence">✓ all systems nominal</p>
         </TerminalWindow>
       </PreviewSection>
 
@@ -282,15 +282,25 @@ export default function KitchenSinkPage() {
           <p className="text-concrete-400">
             Secondary text for captions and metadata.
           </p>
-          <p className="text-corpus-yellow">
-            Aurum for the main loop and primary actions.
+          <p className="text-signal-core">
+            Core gold for the loop and primary actions.
           </p>
-          <p className="text-phosphor">Phosphor for verified evidence.</p>
-          <p className="text-greenfield">Greenfield for fresh starts.</p>
-          <p className="text-brownfield">Brownfield for adoption paths.</p>
-          <p className="text-rubedo">Rubedo for change and blocked states.</p>
+          <p className="text-signal-evidence">
+            Evidence green for verified proof and review states.
+          </p>
+          <p className="text-signal-greenfield">
+            Greenfield for fresh-start paths only.
+          </p>
+          <p className="text-signal-brownfield">
+            Brownfield for existing-project adoption.
+          </p>
+          <p className="text-signal-change">
+            Change clay for edits, fixes, and attention states.
+          </p>
           <p className="text-brass">Brass hardware accent.</p>
-          <p className="text-olive">Olive for reference and ledgers.</p>
+          <p className="text-signal-reference">
+            Reference olive for docs, catalogs, and ledgers.
+          </p>
           <p className="text-aluminium">Aluminium label accent.</p>
         </div>
       </PreviewSection>

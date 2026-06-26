@@ -2,10 +2,12 @@
 
 @theme inline {
   /* corpus — warm control surface + alchemical signal + manuscript archive.
-     Primary gold #D88A24 is HSL(34 71% 49%); its exact complement is #2472D8
-     at HSL(214 71% 49%). Blue stays diagnostic-only. Visible color follows
-     semantic roles: gold for workflow, green for proof/fresh starts, clay for
-     change, brownfield for adoption, olive for reference. */
+     Palette math starts at primary gold #D88A24, HSL(34 71% 49%). Its exact
+     complement is #2472D8, HSL(214 71% 49%), reserved for diagnostics only so
+     the public site stays warm. Visible roles are patterned: gold = the loop,
+     evidence green = verified proof/review, greenfield = fresh starts,
+     brownfield = existing-project adoption, red clay = change/attention,
+     olive = reference/catalog/manual surfaces. */
   --color-night: #110e0c;
   --color-chassis: #16100c;
   --color-section-band: #0e0c08;
@@ -31,27 +33,27 @@
   --color-brass: #bf7927;
   --color-amber: #f0a33a;
   --color-complement: #2472d8;
-  --color-phosphor: #72b35a;
-  --color-greenfield: #6fbf87;
-  --color-brownfield: #c17e4e;
+  --color-phosphor: #70b275;
+  --color-greenfield: #61b892;
+  --color-brownfield: #be7c50;
   --color-verdigris: #8a7a38;
-  --color-rubedo: #c97952;
-  --color-olive: #a8933a;
+  --color-rubedo: #cf715a;
+  --color-olive: #a79339;
   --color-black-text: #100b07;
 
   /* Semantic signal roles. Use these by meaning, not by list position. */
   --signal-core: var(--color-aurum);
   --signal-core-rgb: 216, 138, 36;
   --signal-evidence: var(--color-phosphor);
-  --signal-evidence-rgb: 114, 179, 90;
+  --signal-evidence-rgb: 112, 178, 117;
   --signal-greenfield: var(--color-greenfield);
-  --signal-greenfield-rgb: 111, 191, 135;
+  --signal-greenfield-rgb: 97, 184, 146;
   --signal-brownfield: var(--color-brownfield);
-  --signal-brownfield-rgb: 193, 126, 78;
+  --signal-brownfield-rgb: 190, 124, 80;
   --signal-change: var(--color-rubedo);
-  --signal-change-rgb: 201, 121, 82;
+  --signal-change-rgb: 207, 113, 90;
   --signal-reference: var(--color-olive);
-  --signal-reference-rgb: 168, 147, 58;
+  --signal-reference-rgb: 167, 147, 57;
   --signal-muted: var(--color-brass);
   --signal-muted-rgb: 191, 121, 39;
 
@@ -110,24 +112,24 @@
   --c-brass: #bf7927;
   --c-amber: #f0a33a;
   --c-complement: #2472d8;
-  --c-phosphor: #72b35a;
-  --c-greenfield: #6fbf87;
-  --c-brownfield: #c17e4e;
+  --c-phosphor: #70b275;
+  --c-greenfield: #61b892;
+  --c-brownfield: #be7c50;
   --c-verdigris: #8a7a38;
-  --c-rubedo: #c97952;
-  --c-olive: #a8933a;
+  --c-rubedo: #cf715a;
+  --c-olive: #a79339;
   --signal-core: var(--color-aurum);
   --signal-core-rgb: 216, 138, 36;
   --signal-evidence: var(--color-phosphor);
-  --signal-evidence-rgb: 114, 179, 90;
+  --signal-evidence-rgb: 112, 178, 117;
   --signal-greenfield: var(--color-greenfield);
-  --signal-greenfield-rgb: 111, 191, 135;
+  --signal-greenfield-rgb: 97, 184, 146;
   --signal-brownfield: var(--color-brownfield);
-  --signal-brownfield-rgb: 193, 126, 78;
+  --signal-brownfield-rgb: 190, 124, 80;
   --signal-change: var(--color-rubedo);
-  --signal-change-rgb: 201, 121, 82;
+  --signal-change-rgb: 207, 113, 90;
   --signal-reference: var(--color-olive);
-  --signal-reference-rgb: 168, 147, 58;
+  --signal-reference-rgb: 167, 147, 57;
   --signal-muted: var(--color-brass);
   --signal-muted-rgb: 191, 121, 39;
   --c-paper: #f0e2cc;
@@ -341,6 +343,69 @@ body::after {
 .section-kicker > span {
   min-width: 0;
   overflow-wrap: anywhere;
+}
+
+.text-signal-core {
+  color: var(--signal-core);
+}
+
+.text-signal-evidence {
+  color: var(--signal-evidence);
+}
+
+.text-signal-greenfield {
+  color: var(--signal-greenfield);
+}
+
+.text-signal-brownfield {
+  color: var(--signal-brownfield);
+}
+
+.text-signal-change {
+  color: var(--signal-change);
+}
+
+.text-signal-reference {
+  color: var(--signal-reference);
+}
+
+.text-signal-muted {
+  color: var(--signal-muted);
+}
+
+.hover-border-signal-core:hover,
+.hover-border-signal-core:focus-within {
+  border-color: rgba(var(--signal-core-rgb), 0.52);
+}
+
+.hover-border-signal-evidence:hover,
+.hover-border-signal-evidence:focus-within {
+  border-color: rgba(var(--signal-evidence-rgb), 0.52);
+}
+
+.hover-border-signal-greenfield:hover,
+.hover-border-signal-greenfield:focus-within {
+  border-color: rgba(var(--signal-greenfield-rgb), 0.52);
+}
+
+.hover-border-signal-brownfield:hover,
+.hover-border-signal-brownfield:focus-within {
+  border-color: rgba(var(--signal-brownfield-rgb), 0.52);
+}
+
+.hover-border-signal-change:hover,
+.hover-border-signal-change:focus-within {
+  border-color: rgba(var(--signal-change-rgb), 0.52);
+}
+
+.hover-border-signal-reference:hover,
+.hover-border-signal-reference:focus-within {
+  border-color: rgba(var(--signal-reference-rgb), 0.52);
+}
+
+.hover-border-signal-muted:hover,
+.hover-border-signal-muted:focus-within {
+  border-color: rgba(var(--signal-muted-rgb), 0.46);
 }
 
 .section-kicker-core,
@@ -935,6 +1000,11 @@ body::after {
 .process-strip > .process-item-signal-reference {
   --process-signal: var(--signal-reference);
   --process-rgb: var(--signal-reference-rgb);
+}
+
+.process-strip > .process-item-signal-muted {
+  --process-signal: var(--signal-muted);
+  --process-rgb: var(--signal-muted-rgb);
 }
 
 .process-strip > :is(li, a, div) {
@@ -1692,6 +1762,16 @@ body::after {
   --accent-rgb: var(--signal-evidence-rgb);
 }
 
+.accent-card-greenfield {
+  --accent-signal: var(--signal-greenfield);
+  --accent-rgb: var(--signal-greenfield-rgb);
+}
+
+.accent-card-brownfield {
+  --accent-signal: var(--signal-brownfield);
+  --accent-rgb: var(--signal-brownfield-rgb);
+}
+
 .accent-card-change,
 .accent-card-rubedo {
   --accent-signal: var(--signal-change);
@@ -1702,6 +1782,11 @@ body::after {
 .accent-card-olive {
   --accent-signal: var(--signal-reference);
   --accent-rgb: var(--signal-reference-rgb);
+}
+
+.accent-card-muted {
+  --accent-signal: var(--signal-muted);
+  --accent-rgb: var(--signal-muted-rgb);
 }
 
 .accent-card:hover,
@@ -1721,10 +1806,27 @@ body::after {
 
 /* Agent roster — first-pass worker file map, denser than generic cards. */
 .agent-roster-panel {
-  border-color: rgba(216, 138, 36, 0.3);
+  --roster-signal: var(--signal-core);
+  --roster-rgb: var(--signal-core-rgb);
+  border-color: rgba(var(--roster-rgb), 0.3);
   background:
-    linear-gradient(90deg, rgba(216, 138, 36, 0.08), transparent 35%),
+    linear-gradient(90deg, rgba(var(--roster-rgb), 0.08), transparent 35%),
     var(--color-panel-raised);
+}
+
+.agent-roster-panel-evidence {
+  --roster-signal: var(--signal-evidence);
+  --roster-rgb: var(--signal-evidence-rgb);
+}
+
+.agent-roster-panel-change {
+  --roster-signal: var(--signal-change);
+  --roster-rgb: var(--signal-change-rgb);
+}
+
+.agent-roster-panel-reference {
+  --roster-signal: var(--signal-reference);
+  --roster-rgb: var(--signal-reference-rgb);
 }
 
 .agent-roster-header {
@@ -1737,7 +1839,7 @@ body::after {
   background:
     radial-gradient(
       70% 80% at 12% 0%,
-      rgba(240, 184, 92, 0.055),
+      rgba(var(--roster-rgb), 0.055),
       transparent 64%
     ),
     rgba(36, 29, 21, 0.78);
@@ -1750,7 +1852,7 @@ body::after {
   justify-items: end;
   gap: 0.18rem;
   padding-top: 0.1rem;
-  color: var(--color-brass);
+  color: var(--roster-signal);
   font-family: var(--font-mono), ui-monospace, monospace;
   line-height: 1;
   text-transform: uppercase;
@@ -1771,7 +1873,7 @@ body::after {
 
 .agent-roster-cells {
   background:
-    linear-gradient(90deg, rgba(216, 138, 36, 0.16), transparent 24%),
+    linear-gradient(90deg, rgba(var(--roster-rgb), 0.16), transparent 24%),
     var(--color-panel-border);
 }
 
@@ -1788,7 +1890,7 @@ body::after {
     ),
     radial-gradient(
       70% 64% at 20% 0%,
-      rgba(240, 184, 92, 0.06),
+      rgba(var(--roster-rgb), 0.06),
       transparent 64%
     );
 }
@@ -1801,7 +1903,7 @@ body::after {
   background: linear-gradient(
     180deg,
     transparent,
-    rgba(216, 138, 36, 0.76),
+    rgba(var(--roster-rgb), 0.76),
     transparent
   );
   opacity: 0;
@@ -1870,12 +1972,71 @@ body::after {
     );
 }
 
+.kit-icon {
+  --kit-signal: var(--signal-core);
+  --kit-rgb: var(--signal-core-rgb);
+  color: var(--kit-signal);
+  border-color: rgba(var(--kit-rgb), 0.34);
+  background:
+    radial-gradient(
+      80% 80% at 50% 0%,
+      rgba(var(--kit-rgb), 0.18),
+      transparent 58%
+    ),
+    var(--color-panel-raised);
+}
+
+.kit-icon-core {
+  --kit-signal: var(--signal-core);
+  --kit-rgb: var(--signal-core-rgb);
+}
+
+.kit-icon-evidence {
+  --kit-signal: var(--signal-evidence);
+  --kit-rgb: var(--signal-evidence-rgb);
+}
+
+.kit-icon-greenfield {
+  --kit-signal: var(--signal-greenfield);
+  --kit-rgb: var(--signal-greenfield-rgb);
+}
+
+.kit-icon-brownfield {
+  --kit-signal: var(--signal-brownfield);
+  --kit-rgb: var(--signal-brownfield-rgb);
+}
+
+.kit-icon-change {
+  --kit-signal: var(--signal-change);
+  --kit-rgb: var(--signal-change-rgb);
+}
+
+.kit-icon-reference {
+  --kit-signal: var(--signal-reference);
+  --kit-rgb: var(--signal-reference-rgb);
+}
+
+.kit-icon-muted {
+  --kit-signal: var(--signal-muted);
+  --kit-rgb: var(--signal-muted-rgb);
+}
+
 .setup-choice-card-fresh {
   --choice-signal: var(--signal-greenfield);
   --choice-rgb: var(--signal-greenfield-rgb);
 }
 
+.setup-choice-card-greenfield {
+  --choice-signal: var(--signal-greenfield);
+  --choice-rgb: var(--signal-greenfield-rgb);
+}
+
 .setup-choice-card-adopt {
+  --choice-signal: var(--signal-brownfield);
+  --choice-rgb: var(--signal-brownfield-rgb);
+}
+
+.setup-choice-card-brownfield {
   --choice-signal: var(--signal-brownfield);
   --choice-rgb: var(--signal-brownfield-rgb);
 }

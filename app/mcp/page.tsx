@@ -22,6 +22,7 @@ import { PaperArtifact } from "../components/PaperArtifact";
 import { Section } from "../components/Section";
 import { TerminalWindow } from "../components/TerminalWindow";
 import { TextLink } from "../components/TextLink";
+import { signalRoles } from "../components/signalStyles";
 
 export const metadata: Metadata = {
   title: "corpus-mcp — Corpus",
@@ -217,11 +218,13 @@ export default function McpPage() {
                     aria-label={`Jump to ${item.label} details`}
                   >
                     <div className="flex items-center gap-3">
-                      <HexBadge color="yellow" className="h-10 w-10 shrink-0">
+                      <HexBadge color="evidence" className="h-10 w-10 shrink-0">
                         <Icon className="h-4 w-4" aria-hidden="true" />
                       </HexBadge>
                       <div className="min-w-0">
-                        <p className="font-mono text-xs font-semibold uppercase tracking-wide text-corpus-yellow">
+                        <p
+                          className={`font-mono text-xs font-semibold uppercase tracking-wide ${signalRoles.evidence.text}`}
+                        >
                           {String(index + 1).padStart(2, "0")}
                         </p>
                         <h2 className="font-heading text-lg font-bold text-concrete-100">
@@ -309,8 +312,11 @@ export default function McpPage() {
             const Icon = item.icon;
             return (
               <li key={item.title}>
-                <Card screws className="h-full border-panel-border hover:border-rubedo/50">
-                  <HexBadge color="orange" className="mb-4">
+                <Card
+                  screws
+                  className={`h-full border-panel-border ${signalRoles.change.hoverBorder}`}
+                >
+                  <HexBadge color="change" className="mb-4">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </HexBadge>
                   <h3 className="font-heading text-sm font-bold uppercase tracking-wide text-concrete-100">
@@ -328,7 +334,7 @@ export default function McpPage() {
 
       <Section id="mcp-tools" className="grid scroll-mt-28 gap-6 lg:grid-cols-2">
         <Card screws className="border-panel-border">
-          <div className="section-kicker section-kicker-olive">
+          <div className={`section-kicker ${signalRoles.reference.sectionKicker}`}>
             <Cable className="h-4 w-4" aria-hidden="true" />
             <span>tools / 10</span>
           </div>
@@ -411,7 +417,7 @@ export default function McpPage() {
         className="grid scroll-mt-28 gap-6 lg:grid-cols-[0.9fr_1.1fr]"
       >
         <div>
-          <div className="section-kicker section-kicker-phosphor">
+          <div className={`section-kicker ${signalRoles.reference.sectionKicker}`}>
             <Terminal className="h-4 w-4" aria-hidden="true" />
             <span>install.sh</span>
           </div>

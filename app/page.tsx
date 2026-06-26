@@ -279,7 +279,7 @@ export default function HomePage() {
                     <span className="text-aurum">$</span> corpus review
                     <wbr /> TASK-auth-refresh
                   </p>
-                  <p className="mt-2 text-phosphor">
+                  <p className="mt-2 text-signal-evidence">
                     PASS AC-001 — output pasted
                   </p>
                   <p className="text-amber">

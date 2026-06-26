@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ComponentType } from "react";
 import {
   Compass,
   ExternalLink,
@@ -24,6 +25,7 @@ import { Heading } from "../components/Heading";
 import { Badge } from "../components/Badge";
 import { PaperArtifact } from "../components/PaperArtifact";
 import { TextLink } from "../components/TextLink";
+import { signalRoles, type SignalRole } from "../components/signalStyles";
 
 export const metadata: Metadata = {
   title: "corpus-agents — Corpus",
@@ -113,6 +115,7 @@ const rosterGroups = [
     title: "Read-only lane",
     note: "Review, inspect, verify, or challenge without writing artifacts.",
     tone: "read-only",
+    signal: "evidence",
     items: [
       {
         label: "Review",
@@ -144,6 +147,7 @@ const rosterGroups = [
     title: "Bounded-authoring lane",
     note: "Draft one named artifact. Review still decides what it means.",
     tone: "write one artifact",
+    signal: "change",
     items: [
       {
         label: "Spec",
@@ -171,7 +175,18 @@ const rosterGroups = [
       },
     ],
   },
-];
+] satisfies Array<{
+  title: string;
+  note: string;
+  tone: string;
+  signal: SignalRole;
+  items: Array<{
+    label: string;
+    file: string;
+    icon: ComponentType<{ className?: string; "aria-hidden"?: boolean }>;
+    use: string;
+  }>;
+}>;
 
 function repoHref(agent: string) {
   return `https://github.com/jcosta33/corpus-agents/blob/main/agents/${agent}.md`;
@@ -244,10 +259,16 @@ export default function AgentsPage() {
 
       <Section className="agent-roster-grid grid gap-4 lg:grid-cols-2">
         {rosterGroups.map((group, groupIndex) => (
-          <Panel key={group.title} brushed className="agent-roster-panel p-0">
+          <Panel
+            key={group.title}
+            brushed
+            className={`agent-roster-panel agent-roster-panel-${group.signal} p-0`}
+          >
             <div className="agent-roster-header flex min-h-[8.25rem] items-start justify-between gap-5 border-b border-panel-border bg-panel-raised/95 p-5 sm:p-6">
               <div className="min-w-0">
-                <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-brass">
+                <p
+                  className={`font-mono text-xs font-semibold uppercase tracking-[0.12em] ${signalRoles[group.signal].text}`}
+                >
                   lane {String(groupIndex + 1).padStart(2, "0")} — {group.tone}
                 </p>
                 <h2 className="mt-2 font-heading text-xl font-bold text-concrete-100">
@@ -258,7 +279,7 @@ export default function AgentsPage() {
                 </p>
               </div>
               <div
-                className="agent-roster-manifest grid min-w-16 justify-items-end gap-1 font-mono uppercase leading-none text-brass"
+                className={`agent-roster-manifest grid min-w-16 justify-items-end gap-1 font-mono uppercase leading-none ${signalRoles[group.signal].text}`}
                 aria-hidden="true"
               >
                 <span>{group.items.length}</span>
@@ -277,14 +298,16 @@ export default function AgentsPage() {
                 >
                   <div className="flex items-start gap-4">
                     <HexBadge
-                      color={groupIndex === 0 ? "yellow" : "olive"}
+                      color={group.signal}
                       className="agent-roster-icon h-10 w-10"
                     >
                       <item.icon className="h-4 w-4" aria-hidden="true" />
                     </HexBadge>
                     <div className="min-w-0 flex-1">
                   <div className="flex items-start justify-between gap-4">
-                    <p className="font-mono text-xs font-semibold uppercase tracking-wide text-corpus-yellow">
+                    <p
+                      className={`font-mono text-xs font-semibold uppercase tracking-wide ${signalRoles[group.signal].text}`}
+                    >
                       {String(groupIndex * 4 + index + 1).padStart(2, "0")}
                     </p>
                     <ExternalLink
@@ -295,7 +318,9 @@ export default function AgentsPage() {
                       <h3 className="mt-3 font-heading text-xl font-bold text-concrete-100">
                         {item.label}
                       </h3>
-                      <p className="mt-2 break-words font-mono text-xs leading-relaxed text-brass">
+                      <p
+                        className={`mt-2 break-words font-mono text-xs leading-relaxed ${signalRoles[group.signal].text}`}
+                      >
                         {item.file}
                       </p>
                       <p className="mt-3 text-sm leading-relaxed text-concrete-400">
@@ -311,7 +336,7 @@ export default function AgentsPage() {
       </Section>
 
       <Section className="flex flex-col gap-8">
-        <div className="section-kicker section-kicker-phosphor">
+        <div className={`section-kicker ${signalRoles.reference.sectionKicker}`}>
           <DroneIcon className="h-4 w-4" />
           <span>install.sh — copy one worker</span>
         </div>
@@ -359,7 +384,7 @@ export default function AgentsPage() {
 
       <Section className="flex flex-col gap-12">
         <div className="max-w-2xl">
-          <div className="section-kicker section-kicker-gold">
+          <div className={`section-kicker ${signalRoles.evidence.sectionKicker}`}>
             <ShieldCheck className="h-4 w-4" aria-hidden="true" />
             <span>tier-1.conf — read-only workers</span>
           </div>
@@ -385,14 +410,18 @@ export default function AgentsPage() {
                   aria-label={`${a.agent} definition on GitHub (opens in new tab)`}
                   className="group block rounded-sm focus-ring"
                 >
-                  <Card className="h-full border-panel-border hover:border-brass/50">
-                    <div className="catalog-row flex items-start justify-between gap-4">
+                  <Card
+                    className={`h-full border-panel-border ${signalRoles.evidence.hoverBorder}`}
+                  >
+                    <div className="catalog-row catalog-row-evidence flex items-start justify-between gap-4">
                       <div className="flex items-start gap-4">
-                        <HexBadge color="yellow" className="catalog-row-badge">
+                        <HexBadge color="evidence" className="catalog-row-badge">
                           <Icon className="h-5 w-5" aria-hidden="true" />
                         </HexBadge>
                         <div>
-                          <h3 className="catalog-row-title font-mono text-sm font-semibold text-brass">
+                          <h3
+                            className={`catalog-row-title font-mono text-sm font-semibold ${signalRoles.evidence.text}`}
+                          >
                             {a.agent}
                           </h3>
                           <p className="catalog-row-copy mt-1 text-sm leading-relaxed text-concrete-400">
@@ -415,7 +444,7 @@ export default function AgentsPage() {
 
       <Section className="flex flex-col gap-12">
         <div className="max-w-2xl">
-          <div className="section-kicker section-kicker-olive">
+          <div className={`section-kicker ${signalRoles.change.sectionKicker}`}>
             <Hammer className="h-4 w-4" aria-hidden="true" />
             <span>tier-2.conf — bounded authoring</span>
           </div>
@@ -441,14 +470,18 @@ export default function AgentsPage() {
                   aria-label={`${a.agent} definition on GitHub (opens in new tab)`}
                   className="group block rounded-sm focus-ring"
                 >
-                  <Card className="h-full border-panel-border hover:border-olive/60">
-                    <div className="catalog-row catalog-row-olive flex items-start justify-between gap-4">
+                  <Card
+                    className={`h-full border-panel-border ${signalRoles.change.hoverBorder}`}
+                  >
+                    <div className="catalog-row catalog-row-change flex items-start justify-between gap-4">
                       <div className="flex items-start gap-4">
-                        <HexBadge color="olive" className="catalog-row-badge">
+                        <HexBadge color="change" className="catalog-row-badge">
                           <Icon className="h-5 w-5" aria-hidden="true" />
                         </HexBadge>
                         <div>
-                          <h3 className="catalog-row-title font-mono text-sm font-semibold text-olive">
+                          <h3
+                            className={`catalog-row-title font-mono text-sm font-semibold ${signalRoles.change.text}`}
+                          >
                             {a.agent}
                           </h3>
                           <p className="catalog-row-copy mt-1 text-sm leading-relaxed text-concrete-400">

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Eyebrow } from "./Eyebrow";
 import { TerminalCursor } from "./TerminalCursor";
+import type { SignalRole } from "./signalStyles";
 
 const TITLE_SIZES = {
   default: "sm:text-5xl lg:text-6xl", // the inner-page heroes
@@ -12,14 +13,7 @@ export interface PageHeroProps {
   title: ReactNode;
   cursor?: boolean;
   titleSize?: keyof typeof TITLE_SIZES;
-  tone?:
-    | "core"
-    | "evidence"
-    | "greenfield"
-    | "brownfield"
-    | "change"
-    | "reference"
-    | "muted";
+  tone?: SignalRole;
   children?: ReactNode;
 }
 

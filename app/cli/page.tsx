@@ -248,11 +248,11 @@ export default function CliPage() {
                     aria-label={`Jump to ${family.label.toLowerCase()} commands`}
                   >
                     <div className="flex items-center gap-3">
-                      <HexBadge color="olive" className="h-10 w-10 shrink-0">
+                      <HexBadge color="reference" className="h-10 w-10 shrink-0">
                         <Icon className="h-4 w-4" aria-hidden="true" />
                       </HexBadge>
                       <div className="min-w-0">
-                        <p className="font-mono text-xs font-semibold uppercase tracking-wide text-olive">
+                        <p className="font-mono text-xs font-semibold uppercase tracking-wide text-signal-reference">
                           {String(index + 1).padStart(2, "0")}
                         </p>
                         <h2 className="font-heading text-lg font-bold text-concrete-100">
@@ -264,7 +264,7 @@ export default function CliPage() {
                         aria-hidden="true"
                       />
                     </div>
-                    <p className="mt-3 font-mono text-xs leading-relaxed text-olive">
+                    <p className="mt-3 font-mono text-xs leading-relaxed text-signal-reference">
                       {family.commands}
                     </p>
                     <p className="mt-2 text-sm leading-relaxed text-concrete-400">
@@ -395,7 +395,7 @@ export default function CliPage() {
               >
                 <div className="mb-4 flex flex-wrap items-end justify-between gap-3 border-b border-panel-border pb-3">
                   <div>
-                    <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-olive">
+                    <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-signal-reference">
                       {family.commands}
                     </p>
                     <h3
@@ -417,15 +417,15 @@ export default function CliPage() {
                       <li key={c.cmd} className="min-w-0">
                         <Card
                           screws
-                          className="group h-full border-panel-border hover:border-olive/60"
+                          className="group h-full border-panel-border hover-border-signal-reference"
                         >
                           <div className="catalog-row catalog-row-olive relative pr-8">
                             <div className="flex min-w-0 items-start gap-4">
-                              <HexBadge color="olive" className="catalog-row-badge">
+                              <HexBadge color="reference" className="catalog-row-badge">
                                 <Icon className="h-5 w-5" aria-hidden="true" />
                               </HexBadge>
                               <div className="min-w-0">
-                                <h4 className="catalog-row-title font-mono text-[13px] leading-snug font-semibold text-olive break-words sm:text-sm">
+                                <h4 className="catalog-row-title font-mono text-[13px] leading-snug font-semibold text-signal-reference break-words sm:text-sm">
                                   corpus {c.cmd}
                                 </h4>
                                 <p className="catalog-row-copy mt-1 text-sm leading-relaxed text-concrete-400">
