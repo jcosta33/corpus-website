@@ -37,9 +37,9 @@ export function Button({
 
   const styles = {
     primary: [
-      "border border-gold-deep bg-corpus-yellow text-night",
-      "shadow-[inset_0_1px_0_rgba(255,224,176,0.55),inset_0_-2px_0_rgba(0,0,0,0.35)]",
-      "hover:bg-gold-bright",
+      "btn-primary relative overflow-hidden border border-gold-deep text-night",
+      "shadow-[inset_0_1px_0_rgba(255,238,190,0.66),inset_0_-2px_0_rgba(0,0,0,0.36),0_0_0_1px_rgba(240,184,92,0.18)]",
+      "hover:border-gold-bright",
       "active:translate-y-px active:shadow-[inset_0_2px_5px_rgba(0,0,0,0.45)] motion-reduce:active:translate-y-0",
       "disabled:border-panel-border disabled:bg-panel disabled:text-concrete-400 disabled:shadow-none",
     ].join(" "),

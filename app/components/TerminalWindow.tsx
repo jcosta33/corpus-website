@@ -1,9 +1,12 @@
 import type { ReactNode } from "react";
+import { CopyButton } from "./CopyButton";
 import { PilotLamp } from "./PilotLamp";
 
 export interface TerminalWindowProps {
   children: ReactNode;
   className?: string;
+  copyLabel?: string;
+  copyText?: string;
   contentClassName?: string;
   title?: string;
   ariaLabel?: string;
@@ -12,6 +15,8 @@ export interface TerminalWindowProps {
 export function TerminalWindow({
   children,
   className = "",
+  copyLabel,
+  copyText,
   contentClassName = "",
   title = "Corpus",
   ariaLabel,
@@ -29,10 +34,13 @@ export function TerminalWindow({
           <PilotLamp color="amber" pulse label="check" />
           <PilotLamp color="green" label="evidence" />
         </div>
-        <span className="hidden min-w-0 items-center gap-2 text-xs font-mono font-medium uppercase tracking-widest engraved sm:flex">
-          <span className="min-w-0 break-words">{title}</span>
-          <span className="terminal-title-caret shrink-0" aria-hidden="true" />
-        </span>
+        <div className="flex min-w-0 items-center gap-2">
+          <span className="hidden min-w-0 items-center gap-2 text-xs font-mono font-medium uppercase tracking-widest engraved sm:flex">
+            <span className="min-w-0 break-words">{title}</span>
+            <span className="terminal-title-caret shrink-0" aria-hidden="true" />
+          </span>
+          {copyText && <CopyButton text={copyText} label={copyLabel} />}
+        </div>
       </div>
       <div
         className={`crt-screen terminal-content relative max-h-[24rem] overflow-auto p-4 font-mono text-sm leading-relaxed text-concrete-100 sm:p-5 ${contentClassName}`}

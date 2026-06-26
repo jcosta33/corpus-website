@@ -206,25 +206,12 @@ body::after {
 }
 
 .link-motion::before {
-  content: "";
-  position: absolute;
-  inset: 0.18rem -0.28rem;
-  z-index: -1;
-  border-radius: inherit;
-  background:
-    linear-gradient(90deg, rgba(216, 138, 36, 0.1), rgba(216, 138, 36, 0.035));
-  opacity: 0;
-  transform: scaleX(0.94);
-  transform-origin: left center;
-  transition:
-    opacity 150ms ease,
-    transform 150ms ease;
+  content: none;
 }
 
 .link-motion:hover::before,
 .link-motion:focus-visible::before {
-  opacity: 1;
-  transform: scaleX(1);
+  content: none;
 }
 
 .link-motion > svg {
@@ -378,9 +365,67 @@ body::after {
 }
 
 .site-nav-link:hover::before,
-.site-nav-link:focus-visible::before {
+.site-nav-link:focus-visible::before,
+.site-nav-link[aria-current="page"]::before {
   opacity: 1;
   transform: scaleX(1);
+}
+
+.btn-primary {
+  background:
+    linear-gradient(90deg, rgba(114, 179, 90, 0.22), transparent 18%),
+    linear-gradient(180deg, #f0b85c 0%, #e19a33 48%, #bf7927 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 238, 190, 0.66),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.36),
+    0 0 0 1px rgba(240, 184, 92, 0.18),
+    0 12px 28px rgba(216, 138, 36, 0.14);
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: calc(var(--radius-control) - 2px);
+  border: 1px solid rgba(24, 17, 11, 0.18);
+  background:
+    linear-gradient(120deg, rgba(255, 241, 202, 0.24), transparent 36%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(24, 17, 11, 0.09) 0 1px,
+      transparent 1px 9px
+    );
+  opacity: 0.56;
+  pointer-events: none;
+}
+
+.btn-primary:hover {
+  background:
+    linear-gradient(90deg, rgba(114, 179, 90, 0.28), transparent 20%),
+    linear-gradient(180deg, #ffcb70 0%, #eba140 50%, #ca812b 100%);
+}
+
+.btn-primary:disabled {
+  background: var(--color-panel);
+  box-shadow: none;
+}
+
+.btn-primary:disabled::before {
+  content: none;
+}
+
+.copy-button {
+  box-shadow:
+    inset 0 1px 0 rgba(240, 226, 204, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.36);
+}
+
+.copy-button:hover {
+  background:
+    linear-gradient(180deg, rgba(21, 32, 18, 0.92), rgba(13, 19, 12, 0.94));
+  box-shadow:
+    inset 0 1px 0 rgba(173, 214, 152, 0.14),
+    0 0 0 1px rgba(114, 179, 90, 0.08);
 }
 
 .site-main-frame {
@@ -1068,6 +1113,25 @@ body::after {
 /* Hexagonal clip — the seal cell */
 .clip-hex {
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hex-badge-rail {
+  position: absolute;
+  top: 28%;
+  bottom: 28%;
+  width: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+  opacity: 0.78;
+}
+
+.hex-badge-rail-left {
+  left: 2px;
+}
+
+.hex-badge-rail-right {
+  right: 2px;
 }
 
 /* Raised plate — a thin-lined engraved card, lifted just off the night */

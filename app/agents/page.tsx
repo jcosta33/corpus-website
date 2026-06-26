@@ -51,6 +51,17 @@ export const metadata: Metadata = {
   },
 };
 
+const agentInstallCommands = [
+  "REPO=<your-repo>",
+  "AGENT=corpus-reviewer.md",
+  'DEST="$REPO"/.claude/agents',
+  'mkdir -p "$DEST"',
+  'cp agents/"$AGENT" "$DEST"/',
+  'DEST="$REPO"/.claude/hooks',
+  'mkdir -p "$DEST"',
+  'cp hooks/*.sh "$DEST"/',
+].join("\n");
+
 const readOnly = [
   {
     agent: "corpus-reviewer",
@@ -266,7 +277,7 @@ export default function AgentsPage() {
                   <div className="flex items-start gap-4">
                     <HexBadge
                       color={groupIndex === 0 ? "yellow" : "olive"}
-                      className="agent-roster-icon h-10 w-10 border"
+                      className="agent-roster-icon h-10 w-10"
                     >
                       <item.icon className="h-4 w-4" aria-hidden="true" />
                     </HexBadge>
@@ -299,12 +310,12 @@ export default function AgentsPage() {
       </Section>
 
       <Section className="flex flex-col gap-8">
-        <div className="section-kicker section-kicker-gold">
+        <div className="section-kicker section-kicker-phosphor">
           <DroneIcon className="h-4 w-4" />
           <span>install.sh — copy one worker</span>
         </div>
         <Panel brushed className="p-2">
-          <TerminalWindow title="terminal">
+          <TerminalWindow title="terminal" copyText={agentInstallCommands}>
             <p className="text-concrete-500">
               # copy one worker
             </p>

@@ -48,6 +48,25 @@ export const metadata: Metadata = {
   },
 };
 
+const cliInstallCommands = [
+  "HOST=github.com/jcosta33",
+  "PKG=corpus-cli",
+  "SRC=$HOST/$PKG.git",
+  "git clone https://$SRC",
+  'cd "$PKG"',
+  "npm install",
+  "npm run build",
+  "npm link",
+  "corpus --help",
+].join("\n");
+
+const cliExampleCommands = [
+  "corpus check",
+  "corpus worktree create auth-refresh --task TASK-12",
+  "corpus review TASK-12",
+  "corpus status -i",
+].join("\n");
+
 const commands = [
   {
     cmd: "init [dir]",
@@ -264,7 +283,11 @@ export default function CliPage() {
           <span>install</span>
         </div>
         <Panel brushed className="p-2">
-          <TerminalWindow title="terminal" ariaLabel="install">
+          <TerminalWindow
+            title="terminal"
+            ariaLabel="install"
+            copyText={cliInstallCommands}
+          >
             <p className="text-concrete-500">
               # source install for now
             </p>
@@ -306,7 +329,11 @@ export default function CliPage() {
           <span>the-loop.sh — a task, end to end</span>
         </div>
         <Panel brushed className="p-2">
-          <TerminalWindow title="terminal" ariaLabel="example session">
+          <TerminalWindow
+            title="terminal"
+            ariaLabel="example session"
+            copyText={cliExampleCommands}
+          >
             <p className="text-concrete-500">
               # scaffold a workspace first
             </p>
@@ -342,7 +369,7 @@ export default function CliPage() {
 
       <Section className="flex flex-col gap-12">
         <div className="max-w-2xl">
-          <div className="section-kicker section-kicker-olive">
+          <div className="section-kicker section-kicker-phosphor">
             <Bug className="h-4 w-4" aria-hidden="true" />
             <span>commands.md — public surface</span>
           </div>

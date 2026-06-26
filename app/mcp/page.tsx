@@ -49,6 +49,26 @@ export const metadata: Metadata = {
   },
 };
 
+const mcpConfigSnippet = `{
+  "mcpServers": {
+    "corpus": {
+      "command": "corpus-mcp",
+      "args": ["--workspace", "/path/to/workspace"]
+    }
+  }
+}`;
+
+const mcpInstallCommands = [
+  "HOST=github.com/jcosta33",
+  "PKG=corpus-mcp",
+  "SRC=$HOST/$PKG.git",
+  "git clone https://$SRC",
+  'cd "$PKG"',
+  "pnpm install",
+  "pnpm build",
+  "npm link",
+].join("\n");
+
 const guardrails = [
   {
     title: "Read-only",
@@ -234,7 +254,11 @@ export default function McpPage() {
         className="grid scroll-mt-28 gap-6 lg:grid-cols-[1.05fr_0.95fr]"
       >
         <Panel brushed className="p-2">
-          <TerminalWindow title="mcp.json" ariaLabel="corpus-mcp config">
+          <TerminalWindow
+            title="mcp.json"
+            ariaLabel="corpus-mcp config"
+            copyText={mcpConfigSnippet}
+          >
             <p className="text-concrete-500">
               {"// Claude Desktop / Cursor MCP config"}
             </p>
@@ -386,7 +410,7 @@ export default function McpPage() {
         className="grid scroll-mt-28 gap-6 lg:grid-cols-[0.9fr_1.1fr]"
       >
         <div>
-          <div className="section-kicker section-kicker-muted">
+          <div className="section-kicker section-kicker-phosphor">
             <Terminal className="h-4 w-4" aria-hidden="true" />
             <span>install.sh</span>
           </div>
@@ -403,7 +427,11 @@ export default function McpPage() {
           </p>
         </div>
         <Panel brushed className="p-2">
-          <TerminalWindow title="terminal" ariaLabel="install corpus-mcp">
+          <TerminalWindow
+            title="terminal"
+            ariaLabel="install corpus-mcp"
+            copyText={mcpInstallCommands}
+          >
             <p className="text-concrete-500">
               # until a published build is available
             </p>

@@ -48,6 +48,19 @@ export const metadata: Metadata = {
   },
 };
 
+const cliInitCommands = [
+  "HOST=github.com/jcosta33",
+  "PKG=corpus-cli",
+  "SRC=$HOST/$PKG.git",
+  "git clone https://$SRC",
+  'cd "$PKG"',
+  "npm install",
+  "npm run build",
+  "npm link",
+  "corpus init",
+  "corpus check",
+].join("\n");
+
 function KitIcon({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-panel border border-panel-border bg-panel-raised text-corpus-yellow shadow-[inset_0_1px_0_rgba(255,255,255,0.1),inset_0_-1px_0_rgba(0,0,0,0.45)]">
@@ -356,7 +369,7 @@ export default function GetStartedPage() {
           existing files. Install it from source for now.
         </p>
         <Panel brushed className="p-2">
-          <TerminalWindow title="terminal">
+          <TerminalWindow title="terminal" copyText={cliInitCommands}>
             <p className="text-concrete-500">
               # install the CLI from source
             </p>

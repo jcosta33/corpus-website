@@ -56,6 +56,17 @@ export const metadata: Metadata = {
   },
 };
 
+const skillInstallCommands = [
+  'CMD="npx skills add"',
+  "CAT=jcosta33/corpus-skills",
+  "SK=persona-skeptic",
+  '$CMD "$CAT" --list',
+  '$CMD "$CAT" --skill "$SK"',
+  "REPO=<your-repo>",
+  'DEST="$REPO"/.agents/skills',
+  'cp -R skills/"$SK" "$DEST"/',
+].join("\n");
+
 const stances = [
   {
     skill: "persona-skeptic",
@@ -266,12 +277,12 @@ export default function SkillsPage() {
       </Section>
 
       <Section className="flex flex-col gap-8">
-        <div className="section-kicker section-kicker-gold">
+        <div className="section-kicker section-kicker-phosphor">
           <DroneIcon className="h-4 w-4" />
           <span>install.sh — add one skill</span>
         </div>
         <Panel brushed className="p-2">
-          <TerminalWindow title="terminal">
+          <TerminalWindow title="terminal" copyText={skillInstallCommands}>
             <p className="text-concrete-500"># choose a catalog + skill</p>
             <p className="text-concrete-100">
               <span className="text-corpus-yellow">$</span>{" "}CMD=&quot;npx skills add&quot;

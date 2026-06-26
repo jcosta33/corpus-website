@@ -284,6 +284,9 @@ export default function TheLoopPage() {
                 <TerminalWindow
                   title={step.example.title}
                   ariaLabel={`${step.name} — ${step.example.title}`}
+                  copyText={step.example.lines
+                    .map((line) => `${line.prompt ? "$ " : ""}${line.text}`)
+                    .join("\n")}
                 >
                   {step.example.lines.map((line, i) => (
                     <p
