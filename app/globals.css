@@ -2716,11 +2716,22 @@ body::after {
   }
 
   .repo-manifest-grid {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
   }
 
   .repo-manifest-grid .signal-stat {
-    min-height: 5rem;
+    min-height: 4.35rem;
+    padding: 0.65rem 0.72rem 0.72rem;
+  }
+
+  .repo-manifest-grid .signal-stat:nth-child(3) {
+    grid-column: 1 / -1;
+    min-height: 4.5rem;
+  }
+
+  .repo-manifest-grid .signal-stat p:last-child {
+    margin-top: 0.42rem;
   }
 
   .repo-manifest-note {
