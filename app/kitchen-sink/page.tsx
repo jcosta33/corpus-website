@@ -98,14 +98,14 @@ export default function KitchenSinkPage() {
         <nav aria-label="Kitchen sink specimen register">
           <Panel brushed screws className="p-0">
             <div className="grid md:grid-cols-[0.85fr_2fr]">
-              <div className="border-b border-panel-border p-5 sm:p-6 md:border-b-0 md:border-r">
+              <div className="border-b border-panel-border p-4 sm:p-6 md:border-b-0 md:border-r">
                 <p className="font-mono text-xs font-semibold uppercase tracking-wide text-brass">
                   Specimen register
                 </p>
-                <h2 className="mt-3 font-heading text-2xl font-bold text-concrete-100">
+                <h2 className="mt-2 font-heading text-xl font-bold text-concrete-100 sm:mt-3 sm:text-2xl">
                   Quick checks, grouped by job.
                 </h2>
-                <p className="mt-3 text-sm leading-relaxed text-concrete-400">
+                <p className="mt-2 text-sm leading-relaxed text-concrete-400 sm:mt-3">
                   A small map for catching drift in the design system without
                   turning this page into product theater.
                 </p>
@@ -114,23 +114,23 @@ export default function KitchenSinkPage() {
                 {specimenRegister.map((group, index) => (
                   <div
                     key={group.label}
-                    className="bg-panel-raised/95 p-5 sm:p-6"
+                    className="bg-panel-raised/95 p-4 sm:p-6"
                   >
                     <p className="font-mono text-xs font-semibold uppercase tracking-wide text-corpus-yellow">
                       {String(index + 1).padStart(2, "0")}
                     </p>
-                    <h3 className="mt-3 font-heading text-xl font-bold text-concrete-100">
+                    <h3 className="mt-2 font-heading text-lg font-bold text-concrete-100 sm:mt-3 sm:text-xl">
                       {group.label}
                     </h3>
-                    <p className="mt-2 min-h-[3.75rem] text-sm leading-relaxed text-concrete-400">
+                    <p className="mt-1 text-sm leading-relaxed text-concrete-400 sm:mt-2 md:min-h-[3.75rem]">
                       {group.note}
                     </p>
-                    <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-1 sm:gap-y-2">
+                    <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-0.5 sm:mt-4 sm:grid-cols-1 sm:gap-y-2">
                       {group.links.map((link) => (
                         <li key={link.href}>
                           <a
                             href={link.href}
-                            className="focus-ring inline-flex min-h-11 items-center rounded-sm text-sm font-medium text-corpus-yellow underline decoration-corpus-yellow/40 underline-offset-4 transition-[color,text-decoration-color] hover:text-amber hover:decoration-amber"
+                            className="focus-ring inline-flex min-h-9 items-center rounded-sm text-sm font-medium text-corpus-yellow underline decoration-corpus-yellow/40 underline-offset-4 transition-[color,text-decoration-color] hover:text-amber hover:decoration-amber sm:min-h-11"
                           >
                             {link.label}
                           </a>
