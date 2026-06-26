@@ -459,7 +459,15 @@ body::after {
 }
 
 .site-header[data-nav-state="opaque"] {
-  background-color: var(--c-chassis);
+  background-color: var(--color-footer);
+  background-image:
+    linear-gradient(rgba(70, 57, 44, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(70, 57, 44, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(240, 226, 204, 0.025), transparent 70%);
+  background-size:
+    48px 48px,
+    48px 48px,
+    auto;
 }
 
 .site-nav-link {
