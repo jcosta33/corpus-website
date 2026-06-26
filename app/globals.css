@@ -685,9 +685,26 @@ body::after {
 
 /* Process strips — linked operating surfaces used for command families and setup paths. */
 .process-strip > :is(li, a, div) {
+  --process-signal: var(--color-aurum);
+  --process-rgb: 216, 138, 36;
   position: relative;
   isolation: isolate;
   overflow: hidden;
+}
+
+.process-strip > :is(li, a, div):nth-child(4n + 2) {
+  --process-signal: var(--color-phosphor);
+  --process-rgb: 114, 179, 90;
+}
+
+.process-strip > :is(li, a, div):nth-child(4n + 3) {
+  --process-signal: var(--color-rubedo);
+  --process-rgb: 201, 121, 82;
+}
+
+.process-strip > :is(li, a, div):nth-child(4n + 4) {
+  --process-signal: var(--color-olive);
+  --process-rgb: 168, 147, 58;
 }
 
 .process-strip > :is(li, a, div)::before,
@@ -706,9 +723,9 @@ body::after {
     linear-gradient(
       112deg,
       transparent 0%,
-      rgba(216, 138, 36, 0.035) 42%,
-      rgba(240, 184, 92, 0.105) 50%,
-      rgba(216, 138, 36, 0.035) 58%,
+      rgba(var(--process-rgb), 0.035) 42%,
+      rgba(var(--process-rgb), 0.13) 50%,
+      rgba(var(--process-rgb), 0.035) 58%,
       transparent 100%
     ),
     radial-gradient(
@@ -729,8 +746,8 @@ body::after {
   opacity: 0.46;
   background: linear-gradient(
     90deg,
-    rgba(216, 138, 36, 0.7),
-    rgba(216, 138, 36, 0.12),
+    rgba(var(--process-rgb), 0.8),
+    rgba(var(--process-rgb), 0.14),
     transparent
   );
 }
@@ -738,6 +755,12 @@ body::after {
 .process-strip > :is(li, a, div) > * {
   position: relative;
   z-index: 1;
+}
+
+.process-strip
+  > :is(li, a, div)
+  :is(.text-corpus-yellow, .text-olive, .text-brass, .clip-hex, .motion-nudge-x, .motion-nudge-x-centered) {
+  color: var(--process-signal);
 }
 
 .process-strip > :is(li:hover, li:focus-within, a:hover, a:focus-visible, div:hover)::before {
@@ -749,7 +772,7 @@ body::after {
   .process-strip
     :is(a:hover, a:focus-visible)
     .lucide-arrow-right:not(.motion-nudge-x):not(.motion-nudge-x-centered) {
-    color: var(--color-corpus-yellow);
+    color: var(--process-signal);
     transform: translateX(0.2rem);
   }
 }
@@ -1377,6 +1400,58 @@ body::after {
   transform: translateY(-1px);
 }
 
+.accent-card {
+  --accent-signal: var(--color-aurum);
+  --accent-rgb: 216, 138, 36;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(var(--accent-rgb), 0.22) 0,
+      rgba(var(--accent-rgb), 0.22) 2px,
+      transparent 2px
+    ),
+    radial-gradient(
+      72% 70% at 12% 0%,
+      rgba(var(--accent-rgb), 0.105),
+      transparent 62%
+    );
+}
+
+.accent-card-aurum {
+  --accent-signal: var(--color-aurum);
+  --accent-rgb: 216, 138, 36;
+}
+
+.accent-card-phosphor {
+  --accent-signal: var(--color-phosphor);
+  --accent-rgb: 114, 179, 90;
+}
+
+.accent-card-rubedo {
+  --accent-signal: var(--color-rubedo);
+  --accent-rgb: 201, 121, 82;
+}
+
+.accent-card-olive {
+  --accent-signal: var(--color-olive);
+  --accent-rgb: 168, 147, 58;
+}
+
+.accent-card:hover,
+.accent-card:focus-within {
+  border-color: rgba(var(--accent-rgb), 0.48);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(240, 226, 204, 0.08),
+    0 0 0 1px rgba(var(--accent-rgb), 0.08);
+}
+
+.accent-card-kicker,
+.feature-accent-icon,
+.feature-accent-label {
+  color: var(--accent-signal);
+}
+
 /* Agent roster — first-pass worker file map, denser than generic cards. */
 .agent-roster-panel {
   border-color: rgba(216, 138, 36, 0.3);
@@ -1500,16 +1575,18 @@ body::after {
 }
 
 .setup-choice-card {
+  --choice-signal: var(--color-aurum);
+  --choice-rgb: 216, 138, 36;
   background-image:
     linear-gradient(
       90deg,
-      rgba(216, 138, 36, 0.28) 0,
-      rgba(216, 138, 36, 0.28) 2px,
+      rgba(var(--choice-rgb), 0.34) 0,
+      rgba(var(--choice-rgb), 0.34) 2px,
       transparent 2px
     ),
     radial-gradient(
       78% 68% at 12% 0%,
-      rgba(240, 184, 92, 0.08),
+      rgba(var(--choice-rgb), 0.11),
       transparent 62%
     ),
     radial-gradient(
@@ -1524,11 +1601,20 @@ body::after {
     );
 }
 
+.setup-choice-card-adopt {
+  --choice-signal: var(--color-phosphor);
+  --choice-rgb: 114, 179, 90;
+}
+
+.setup-choice-card :is(.text-corpus-yellow, .text-brass) {
+  color: var(--choice-signal);
+}
+
 .setup-choice-index {
   display: inline-flex;
   min-height: 1.8rem;
   align-items: center;
-  border: 1px solid rgba(216, 138, 36, 0.36);
+  border: 1px solid rgba(var(--choice-rgb), 0.4);
   border-radius: var(--radius-control);
   padding: 0 0.55rem;
   font-family: var(--font-mono), ui-monospace, monospace;
@@ -1536,8 +1622,10 @@ body::after {
   font-weight: 700;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--color-brass);
-  background: rgba(14, 11, 8, 0.5);
+  color: var(--choice-signal);
+  background:
+    linear-gradient(180deg, rgba(var(--choice-rgb), 0.08), transparent),
+    rgba(14, 11, 8, 0.5);
 }
 
 .setup-choice-head {
@@ -1551,12 +1639,12 @@ body::after {
   width: 100%;
   min-width: 0;
   overflow: hidden;
-  border: 1px solid rgba(216, 138, 36, 0.26);
+  border: 1px solid rgba(var(--choice-rgb), 0.3);
   border-radius: var(--radius-control);
   padding: 0.72rem 0.78rem;
   color: var(--color-concrete-200);
   background:
-    linear-gradient(90deg, rgba(216, 138, 36, 0.1), transparent 36%),
+    linear-gradient(90deg, rgba(var(--choice-rgb), 0.12), transparent 36%),
     rgba(10, 7, 5, 0.42);
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.78rem;
@@ -1586,7 +1674,7 @@ body::after {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-brass);
+  color: var(--choice-signal);
 }
 
 .setup-choice-facts dd {

@@ -86,23 +86,31 @@ const failureModes = [
     code: "INTAKE",
     title: "Vague tickets",
     text: "Keep the request. Turn it into checkable requirements.",
+    accent: "rubedo",
+    lamp: "red",
   },
   {
     code: "SCOPE",
     title: "Agent drift",
     text: "Name the files, limits, and checks before the run starts.",
+    accent: "phosphor",
+    lamp: "green",
   },
   {
     code: "EVIDENCE",
     title: "Unbacked completion",
     text: "A Pass needs output, a CI link, or a named observation.",
+    accent: "aurum",
+    lamp: "amber",
   },
   {
     code: "LEDGER",
     title: "Lost findings",
     text: "Save useful lessons so later tasks can reuse them.",
+    accent: "olive",
+    lamp: "olive",
   },
-];
+] as const;
 
 const features = [
   {
@@ -110,26 +118,30 @@ const features = [
     title: "Spec-first",
     label: "spec",
     text: "Write the contract. Hand the agent a bounded task.",
+    accent: "aurum",
   },
   {
     icon: ScanEye,
     title: "Review by exception",
     label: "review",
     text: "Show evidence per requirement. Escalate the gaps.",
+    accent: "phosphor",
   },
   {
     icon: GitBranch,
     title: "Worktree discipline",
     label: "branch",
     text: "One task, one branch, one diff to inspect.",
+    accent: "rubedo",
   },
   {
     icon: Shield,
     title: "Honesty framework",
     label: "limits",
     text: "Mark what is convention, checklist, toolable, or enforced.",
+    accent: "olive",
   },
-];
+] as const;
 
 const faqs = [
   {
@@ -321,12 +333,16 @@ export default function HomePage() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {failureModes.map((mode) => (
-              <Card key={mode.title} screws className="h-full">
+              <Card
+                key={mode.title}
+                screws
+                className={`accent-card accent-card-${mode.accent} h-full`}
+              >
                 <div className="flex items-start justify-between gap-3">
-                  <p className="font-mono text-xs uppercase tracking-wide text-rubedo">
+                  <p className="accent-card-kicker font-mono text-xs uppercase tracking-wide">
                     {mode.code}
                   </p>
-                  <PilotLamp color="red" />
+                  <PilotLamp color={mode.lamp} />
                 </div>
                 <h3 className="mt-3 font-heading text-lg font-bold text-concrete-100">
                   {mode.title}
@@ -400,10 +416,17 @@ export default function HomePage() {
             {features.map((feature) => {
               const Icon = feature.icon;
               return (
-                <Card key={feature.title} screws className="h-full">
+                <Card
+                  key={feature.title}
+                  screws
+                  className={`accent-card accent-card-${feature.accent} h-full`}
+                >
                   <div className="flex items-start justify-between gap-3">
-                    <Icon className="h-5 w-5 text-aurum" aria-hidden="true" />
-                    <span className="font-mono text-xs uppercase tracking-wide text-brass">
+                    <Icon
+                      className="feature-accent-icon h-5 w-5"
+                      aria-hidden="true"
+                    />
+                    <span className="feature-accent-label font-mono text-xs uppercase tracking-wide">
                       {feature.label}
                     </span>
                   </div>

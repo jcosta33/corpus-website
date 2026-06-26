@@ -215,7 +215,7 @@ export default function GetStartedPage() {
           rel="noopener noreferrer"
           ariaLabel="Use the starter kit on GitHub"
           screws
-          className="setup-choice-card h-full"
+          className="setup-choice-card setup-choice-card-fresh h-full"
           contentClassName="flex h-full flex-col gap-5"
         >
           <div className="setup-choice-head flex items-start justify-between gap-4">
@@ -262,7 +262,7 @@ export default function GetStartedPage() {
           rel="noopener noreferrer"
           ariaLabel="Read the adopting guide"
           screws
-          className="setup-choice-card h-full"
+          className="setup-choice-card setup-choice-card-adopt h-full"
           contentClassName="flex h-full flex-col gap-5"
         >
           <div className="setup-choice-head flex items-start justify-between gap-4">
