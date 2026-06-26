@@ -74,30 +74,35 @@ const guardrails = [
   {
     title: "Read-only",
     text: "It reads workspace facts. It does not write artifacts.",
+    stamp: "read",
     icon: ShieldCheck,
     signal: "reference",
   },
   {
     title: "No verdict",
     text: "It reports facts. Review owns Pass, Fail, Unverified, or Blocked.",
+    stamp: "defer",
     icon: MessagesSquare,
     signal: "change",
   },
   {
     title: "Root-confined",
     text: "Paths stay inside the configured workspace root.",
+    stamp: "bound",
     icon: FolderLock,
     signal: "muted",
   },
   {
     title: "CLI contract only",
     text: "It calls the CLI JSON surface.",
+    stamp: "json",
     icon: Braces,
     signal: "reference",
   },
 ] as const satisfies Array<{
   title: string;
   text: string;
+  stamp: string;
   icon: typeof ShieldCheck;
   signal: SignalRole;
 }>;
@@ -344,21 +349,23 @@ export default function McpPage() {
             is done.
           </p>
         </div>
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mcp-guardrail-grid grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {guardrails.map((item) => {
             const Icon = item.icon;
             return (
               <li key={item.title}>
                 <Card
                   screws
-                  className={`h-full border-panel-border ${signalRoles[item.signal].hoverBorder}`}
+                  className={`mcp-guardrail-card mcp-guardrail-card-${item.signal} h-full border-panel-border ${signalRoles[item.signal].hoverBorder}`}
+                  contentClassName="flex h-full flex-col"
                 >
-                  <HexBadge color={item.signal} className="mb-4">
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                  </HexBadge>
-                  <h3 className="font-heading text-sm font-bold uppercase tracking-wide text-concrete-100">
-                    {item.title}
-                  </h3>
+                  <div className="mb-4 flex items-start justify-between gap-4">
+                    <HexBadge color={item.signal}>
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </HexBadge>
+                    <span className="mcp-guardrail-stamp">{item.stamp}</span>
+                  </div>
+                  <h3 className="mcp-guardrail-title">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-concrete-400">
                     {item.text}
                   </p>
@@ -375,7 +382,7 @@ export default function McpPage() {
         registerTone="reference"
         className="grid scroll-mt-28 gap-6 lg:grid-cols-2"
       >
-        <Card screws className="border-panel-border">
+        <Card screws className="mcp-fact-card border-panel-border">
           <div className={`section-kicker ${signalRoles.reference.sectionKicker}`}>
             <Cable className="h-4 w-4" aria-hidden="true" />
             <span>tools / 10</span>
@@ -389,7 +396,7 @@ export default function McpPage() {
             {tools.map((group) => (
               <div
                 key={group.group}
-                className={`tool-list-card tool-list-card-${group.signal} rounded-panel border bg-panel p-4`}
+                className={`mcp-fact-list tool-list-card tool-list-card-${group.signal} rounded-panel border bg-panel p-4`}
               >
                 <p
                   className={`font-mono text-xs uppercase tracking-wide ${signalRoles[group.signal].text}`}
@@ -411,7 +418,7 @@ export default function McpPage() {
           </div>
         </Card>
 
-        <Card screws className="border-panel-border">
+        <Card screws className="mcp-fact-card border-panel-border">
           <div className={`section-kicker ${signalRoles.reference.sectionKicker}`}>
             <FileJson className="h-4 w-4" aria-hidden="true" />
             <span>resources + prompts</span>
@@ -422,7 +429,7 @@ export default function McpPage() {
             give clients a Corpus-shaped starting point.
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            <div className="tool-list-card tool-list-card-reference rounded-panel border bg-panel p-4">
+            <div className="mcp-fact-list tool-list-card tool-list-card-reference rounded-panel border bg-panel p-4">
               <p className="font-mono text-xs uppercase tracking-wide text-signal-reference">
                 resources
               </p>
@@ -437,7 +444,7 @@ export default function McpPage() {
                 ))}
               </ul>
             </div>
-            <div className="tool-list-card tool-list-card-core rounded-panel border bg-panel p-4">
+            <div className="mcp-fact-list tool-list-card tool-list-card-core rounded-panel border bg-panel p-4">
               <p className="font-mono text-xs uppercase tracking-wide text-signal-core">
                 prompts
               </p>

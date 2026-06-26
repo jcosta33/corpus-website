@@ -1590,6 +1590,64 @@ body::after {
   text-transform: uppercase;
 }
 
+.mcp-adapter-header::after {
+  content: "";
+  position: absolute;
+  right: 1.25rem;
+  bottom: -1px;
+  left: 1.25rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--signal-muted-rgb), 0.2),
+    rgba(var(--signal-reference-rgb), 0.72) 44%,
+    rgba(var(--signal-core-rgb), 0.66),
+    rgba(var(--signal-reference-rgb), 0.2)
+  );
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mcp-adapter-header::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 1.25rem;
+    z-index: 3;
+    width: 0.34rem;
+    height: 0.34rem;
+    border-radius: 999px;
+    background: var(--signal-reference);
+    box-shadow:
+      0 0 0 3px rgba(var(--signal-reference-rgb), 0.08),
+      0 0 18px rgba(var(--signal-reference-rgb), 0.42);
+    animation: mcp-packet-trace 7s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+    pointer-events: none;
+  }
+}
+
+@keyframes mcp-packet-trace {
+  0%,
+  12% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  18% {
+    opacity: 0.94;
+  }
+
+  74% {
+    opacity: 0.94;
+  }
+
+  88%,
+  100% {
+    opacity: 0;
+    transform: translateX(calc(min(100vw, 80rem) - 3rem));
+  }
+}
+
 .mcp-adapter-header p {
   color: var(--signal-core);
 }
@@ -1690,6 +1748,11 @@ body::after {
     padding: 0.75rem 1rem;
   }
 
+  .mcp-adapter-header::after,
+  .mcp-adapter-header::before {
+    display: none;
+  }
+
   .mcp-adapter-header span {
     justify-self: start;
   }
@@ -1701,6 +1764,101 @@ body::after {
   .mcp-adapter-step-link {
     min-height: 8.6rem;
   }
+}
+
+.mcp-guardrail-card {
+  --guardrail-signal: var(--signal-reference);
+  --guardrail-rgb: var(--signal-reference-rgb);
+  --plate-signal: var(--guardrail-signal);
+  --plate-rgb: var(--guardrail-rgb);
+  border-color: rgba(var(--guardrail-rgb), 0.3);
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(var(--guardrail-rgb), 0.12) 0,
+      rgba(var(--guardrail-rgb), 0.12) 2px,
+      transparent 2px
+    ),
+    repeating-linear-gradient(
+      135deg,
+      rgba(var(--guardrail-rgb), 0.03) 0 1px,
+      transparent 1px 14px
+    ),
+    radial-gradient(
+      74% 68% at 16% 0%,
+      rgba(var(--guardrail-rgb), 0.12),
+      transparent 66%
+    );
+}
+
+.mcp-guardrail-card-reference {
+  --guardrail-signal: var(--signal-reference);
+  --guardrail-rgb: var(--signal-reference-rgb);
+}
+
+.mcp-guardrail-card-change {
+  --guardrail-signal: var(--signal-change);
+  --guardrail-rgb: var(--signal-change-rgb);
+}
+
+.mcp-guardrail-card-muted {
+  --guardrail-signal: var(--signal-muted);
+  --guardrail-rgb: var(--signal-muted-rgb);
+}
+
+.mcp-guardrail-title {
+  color: var(--color-concrete-100);
+  font-family: var(--font-heading), var(--font-sans), sans-serif;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.mcp-guardrail-stamp {
+  display: inline-flex;
+  min-height: 1.75rem;
+  align-items: center;
+  border: 1px solid rgba(var(--guardrail-rgb), 0.36);
+  border-radius: calc(var(--radius-control) - 3px);
+  background:
+    linear-gradient(180deg, rgba(var(--guardrail-rgb), 0.1), transparent 72%),
+    rgba(10, 7, 5, 0.42);
+  color: var(--guardrail-signal);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.64rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  padding: 0.1rem 0.52rem;
+  text-transform: uppercase;
+}
+
+.mcp-fact-card {
+  --plate-signal: var(--signal-reference);
+  --plate-rgb: var(--signal-reference-rgb);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(var(--signal-reference-rgb), 0.025) 0 1px,
+      transparent 1px 15px
+    ),
+    radial-gradient(
+      84% 72% at 16% 0%,
+      rgba(var(--signal-reference-rgb), 0.08),
+      transparent 64%
+    );
+}
+
+.mcp-fact-list {
+  min-width: 0;
+  background-image:
+    linear-gradient(90deg, rgba(var(--tool-rgb), 0.1), transparent 44%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(var(--tool-rgb), 0.028) 0 1px,
+      transparent 1px 1.1rem
+    );
 }
 
 /* CLI command rail — command families as a compact operating surface. */
