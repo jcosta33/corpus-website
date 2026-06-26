@@ -221,6 +221,14 @@ export default function KitchenSinkPage() {
             first; the same role should drive the text, lamp, border, rail, and
             hover state.
           </p>
+          <div className="palette-grammar-note">
+            <span>Rule</span>
+            <p>
+              Greenfield is only new setup. Brownfield is only existing-project
+              adoption. Evidence is proof, not generic success. Reference is
+              manuals and command catalogs.
+            </p>
+          </div>
           <div className="palette-specimen-grid">
             {paletteRoles.map((role) => (
               <article
@@ -261,6 +269,14 @@ export default function KitchenSinkPage() {
                     </dt>
                     <dd className="mt-1 text-concrete-300">
                       {signalRoleMeta[role].surface}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-concrete-500">
+                      Pattern
+                    </dt>
+                    <dd className="mt-1 text-concrete-300">
+                      {signalRoleMeta[role].pattern}
                     </dd>
                   </div>
                   <div>

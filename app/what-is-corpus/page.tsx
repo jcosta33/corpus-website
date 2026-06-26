@@ -118,19 +118,22 @@ const boundarySteps = [
     label: "01",
     title: "Tickets stay put",
     text: "Backlog and conversation remain in Jira, Linear, or GitHub Issues.",
-    signal: "reference",
+    signal: "muted",
+    icon: LayoutList,
   },
   {
     label: "02",
     title: "Corpus records the run",
     text: "Spec, task, review, and finding files keep the work inspectable.",
     signal: "core",
+    icon: NotebookPen,
   },
   {
     label: "03",
     title: "Tools keep their jobs",
     text: "Agents write code. PRs, CI, and reviewers decide what ships.",
-    signal: "reference",
+    signal: "muted",
+    icon: Workflow,
   },
 ] as const;
 
@@ -169,28 +172,30 @@ const failureModes = [
 
 function BoundaryMap() {
   return (
-    <ol className="reveal grid gap-3 md:grid-cols-3">
+    <ol className="boundary-map reveal grid gap-3 md:grid-cols-3">
       {boundarySteps.map((step, index) => (
-        <li key={step.title} className="relative min-w-0">
-          <div className="panel-raised h-full p-4">
-            <div className="flex items-start justify-between gap-4">
-              <span
-                className={`font-mono text-xs font-medium ${signalRoles[step.signal].text}`}
-              >
-                {step.label}
-              </span>
-              <PilotLamp color={step.signal} />
+        <li
+          key={step.title}
+          className={`boundary-step boundary-step-${step.signal} relative min-w-0`}
+        >
+          <div className="boundary-step-card panel-raised h-full">
+            <div className="boundary-step-head">
+              <HexBadge color={step.signal} className="boundary-step-icon">
+                <step.icon className="h-4 w-4" aria-hidden="true" />
+              </HexBadge>
+              <div className="min-w-0">
+                <span className="boundary-step-index">{step.label}</span>
+                <h3 className="boundary-step-title">{step.title}</h3>
+              </div>
+              <PilotLamp color={step.signal} className="boundary-step-lamp" />
             </div>
-            <h3 className="mt-4 font-heading text-lg font-bold text-concrete-100">
-              {step.title}
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-concrete-400">
+            <p className="boundary-step-copy">
               {step.text}
             </p>
           </div>
           {index < boundarySteps.length - 1 ? (
             <ArrowRight
-              className="text-signal-reference absolute -right-5 top-1/2 z-20 hidden h-5 w-5 -translate-y-1/2 opacity-70 md:block"
+              className="text-signal-muted absolute -right-5 top-1/2 z-20 hidden h-5 w-5 -translate-y-1/2 opacity-70 md:block"
               aria-hidden="true"
             />
           ) : null}
@@ -333,7 +338,7 @@ export default function WhatIsCorpusPage() {
           {adjacent.map((row, index) => (
             <li key={row.product}>
                 <Card
-                  className={`relation-card group h-full border-panel-border ${signalRoles.reference.hoverBorder}`}
+                  className={`relation-card group h-full border-panel-border ${signalRoles.muted.hoverBorder}`}
                 >
                 <div className="relation-card-head">
                   <div>
@@ -349,7 +354,7 @@ export default function WhatIsCorpusPage() {
                       </p>
                     )}
                   </div>
-                      <PilotLamp color="reference" className="shrink-0" />
+                      <PilotLamp color="muted" className="shrink-0" />
                 </div>
                 <dl className="relation-card-body">
                   <div>

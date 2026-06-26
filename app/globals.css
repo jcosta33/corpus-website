@@ -1234,6 +1234,11 @@ body::after {
   --proof-rgb: var(--signal-reference-rgb);
 }
 
+.home-hero-proof-muted {
+  --proof-signal: var(--signal-muted);
+  --proof-rgb: var(--signal-muted-rgb);
+}
+
 .home-hero-proof:hover,
 .home-hero-proof:focus-within {
   border-color: rgba(var(--proof-rgb), 0.42);
@@ -2568,6 +2573,38 @@ body::after {
   gap: 1rem;
 }
 
+.palette-grammar-note {
+  display: grid;
+  gap: 0.45rem;
+  max-width: 52rem;
+  border: 1px solid rgba(var(--signal-reference-rgb), 0.24);
+  border-left-color: rgba(var(--signal-reference-rgb), 0.66);
+  border-radius: var(--radius-panel);
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(var(--signal-reference-rgb), 0.035) 0 1px,
+      transparent 1px 14px
+    ),
+    rgba(10, 7, 5, 0.34);
+  padding: 0.9rem 1rem;
+}
+
+.palette-grammar-note span {
+  color: var(--signal-reference);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.palette-grammar-note p {
+  color: var(--color-concrete-300);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
 .palette-specimen {
   position: relative;
   --palette-pattern: var(--accent-pattern);
@@ -2966,6 +3003,7 @@ body::after {
 .setup-choice-card {
   --choice-signal: var(--signal-core);
   --choice-rgb: var(--signal-core-rgb);
+  --choice-pattern: linear-gradient(180deg, rgba(var(--choice-rgb), 0.035), transparent 42%);
   --plate-signal: var(--choice-signal);
   --plate-rgb: var(--choice-rgb);
   border-color: rgba(var(--choice-rgb), 0.44);
@@ -2976,6 +3014,7 @@ body::after {
       rgba(var(--choice-rgb), 0.5) 3px,
       transparent 3px
     ),
+    var(--choice-pattern),
     radial-gradient(
       78% 68% at 10% 0%,
       rgba(var(--choice-rgb), 0.13),
@@ -3051,6 +3090,11 @@ body::after {
 .setup-choice-card-greenfield {
   --choice-signal: var(--signal-greenfield);
   --choice-rgb: var(--signal-greenfield-rgb);
+  --choice-pattern: repeating-linear-gradient(
+    90deg,
+    rgba(var(--choice-rgb), 0.055) 0 1px,
+    transparent 1px 16px
+  );
 }
 
 .setup-choice-card-greenfield .kit-icon {
@@ -3078,6 +3122,11 @@ body::after {
 .setup-choice-card-brownfield {
   --choice-signal: var(--signal-brownfield);
   --choice-rgb: var(--signal-brownfield-rgb);
+  --choice-pattern: repeating-linear-gradient(
+    -24deg,
+    rgba(var(--choice-rgb), 0.052) 0 1px,
+    transparent 1px 13px
+  );
 }
 
 .setup-choice-card-brownfield .kit-icon {
@@ -3132,6 +3181,7 @@ body::after {
   display: inline-flex;
   min-height: 1.8rem;
   align-items: center;
+  gap: 0.35rem;
   border: 1px solid rgba(var(--choice-rgb), 0.4);
   border-radius: var(--radius-control);
   padding: 0 0.55rem;
@@ -3302,8 +3352,130 @@ body::after {
   color: var(--color-concrete-300);
 }
 
+.boundary-map {
+  counter-reset: boundary-step;
+}
+
+.boundary-step {
+  --boundary-signal: var(--signal-reference);
+  --boundary-rgb: var(--signal-reference-rgb);
+}
+
+.boundary-step-core {
+  --boundary-signal: var(--signal-core);
+  --boundary-rgb: var(--signal-core-rgb);
+}
+
+.boundary-step-reference {
+  --boundary-signal: var(--signal-reference);
+  --boundary-rgb: var(--signal-reference-rgb);
+}
+
+.boundary-step-muted {
+  --boundary-signal: var(--signal-muted);
+  --boundary-rgb: var(--signal-muted-rgb);
+}
+
+.boundary-step-card {
+  --plate-signal: var(--boundary-signal);
+  --plate-rgb: var(--boundary-rgb);
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(var(--boundary-rgb), 0.32);
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(var(--boundary-rgb), 0.18) 0,
+      rgba(var(--boundary-rgb), 0.18) 2px,
+      transparent 2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(var(--boundary-rgb), 0.035) 0 1px,
+      transparent 1px 1.15rem
+    ),
+    radial-gradient(
+      80% 74% at 16% 0%,
+      rgba(var(--boundary-rgb), 0.1),
+      transparent 64%
+    );
+  padding: 1rem;
+}
+
+.boundary-step-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(240, 226, 204, 0.035), transparent 42%),
+    radial-gradient(
+      72% 80% at 100% 100%,
+      rgba(0, 0, 0, 0.2),
+      transparent 64%
+    );
+}
+
+.boundary-step-head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.boundary-step-icon {
+  width: 2.7rem;
+  height: 2.7rem;
+}
+
+.boundary-step-index {
+  display: block;
+  color: var(--boundary-signal);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+}
+
+.boundary-step-title {
+  margin-top: 0.18rem;
+  color: var(--color-concrete-100);
+  font-family: var(--font-heading), var(--font-sans), sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.boundary-step-lamp {
+  margin-left: auto;
+}
+
+.boundary-step-copy {
+  position: relative;
+  z-index: 1;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(var(--boundary-rgb), 0.24);
+  padding-top: 0.9rem;
+  color: var(--color-concrete-300);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 40rem) {
+  .boundary-step-card {
+    padding: 1rem;
+  }
+
+  .boundary-step-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}
+
 .relation-card {
-  --relation-signal: var(--signal-reference);
+  --relation-signal: var(--signal-muted);
+  --relation-rgb: var(--signal-muted-rgb);
 }
 
 .relation-card::before {
@@ -3385,6 +3557,18 @@ body::after {
 }
 
 .relation-card-body div:first-child dd {
+  color: var(--color-concrete-400);
+}
+
+.relation-card-body div:nth-child(2) {
+  border-top-color: rgba(var(--signal-core-rgb), 0.22);
+}
+
+.relation-card-body div:nth-child(2) dt {
+  color: var(--signal-core);
+}
+
+.relation-card-body div:nth-child(2) dd {
   color: var(--color-concrete-100);
   font-weight: 650;
 }

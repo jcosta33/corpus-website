@@ -21,6 +21,7 @@ import { Heading } from "../components/Heading";
 import { PaperArtifact } from "../components/PaperArtifact";
 import { TextLink } from "../components/TextLink";
 import { PageHero } from "../components/PageHero";
+import { PilotLamp } from "../components/PilotLamp";
 import { signalRoles, type SignalRole } from "../components/signalStyles";
 
 export const metadata: Metadata = {
@@ -262,7 +263,10 @@ export default function GetStartedPage() {
                 <Heading className="mt-2">New repo</Heading>
               </div>
             </div>
-            <span className="setup-choice-index">Path 01</span>
+            <span className="setup-choice-index">
+              <PilotLamp color="greenfield" className="scale-75" />
+              Path 01
+            </span>
           </div>
           <p className="text-concrete-400">
             Use the GitHub template for a fresh workspace with folders,
@@ -311,7 +315,10 @@ export default function GetStartedPage() {
                 <Heading className="mt-2">Existing project</Heading>
               </div>
             </div>
-            <span className="setup-choice-index">Path 02</span>
+            <span className="setup-choice-index">
+              <PilotLamp color="brownfield" className="scale-75" />
+              Path 02
+            </span>
           </div>
           <p className="text-concrete-400">
             Copy the kit into your repo. Add specs and tasks beside the code.
