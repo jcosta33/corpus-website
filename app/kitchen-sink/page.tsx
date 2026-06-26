@@ -224,9 +224,10 @@ export default function KitchenSinkPage() {
           <div className="palette-grammar-note">
             <span>Rule</span>
             <p>
-              Greenfield is only new setup. Brownfield is only existing-project
-              adoption. Evidence is proof, not generic success. Reference is
-              manuals and command catalogs.
+              Assign the role from the object or action, then let that role
+              drive the color, rail, pattern, lamp, and hover state. Greenfield
+              is new setup; brownfield is existing-project adoption. Evidence
+              is proof, not generic success.
             </p>
           </div>
           <div className="palette-specimen-grid">
@@ -247,6 +248,9 @@ export default function KitchenSinkPage() {
                     </h3>
                     <p className="palette-specimen-relationship">
                       {signalRoleMeta[role].relationship}
+                    </p>
+                    <p className="palette-specimen-family">
+                      {signalRoleMeta[role].family}
                     </p>
                   </div>
                   <span className="palette-specimen-swatch" aria-hidden="true" />

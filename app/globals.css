@@ -4,12 +4,12 @@
   /* corpus — warm control surface + alchemical signal + manuscript archive.
      Palette math starts at primary gold #D88A24, HSL(34 71% 49%). Its exact
      complement is #2472D8, HSL(214 71% 49%), reserved for diagnostics only so
-     the public site stays warm. The public counterpoint is verdigris #76B8A9,
-     HSL(166 32% 59%), used only for reference/manual surfaces. Other accents
-     keep named jobs: proof green #8ABF6B, greenfield #65C37F, brownfield
-     #B2815C, red clay #CA7059. Color is semantic signage:
-     repeated surfaces should share the same role across text, lamp, border,
-     card rail, and hover state. No orphan accent colors. */
+     the public site stays warm. Public accents form a semantic routing table,
+     not a decorative rainbow: warm earth/clay handle existing work and change,
+     field/proof greens handle new setup and verified evidence, and verdigris is
+     the restrained public complement for manuals, ledgers, and catalogs. The
+     same role must drive text, lamp, border, rail, pattern, and hover state.
+     No orphan accent colors. */
   --color-night: #110e0c;
   --color-chassis: #16100c;
   --color-section-band: #0e0c08;
@@ -66,11 +66,13 @@
   --color-pencil: #5f554a;
 
   /* Palette grammar:
-     - core: corpus identity, primary loop, CTAs, active nav, current step
+     - core: Corpus identity, primary loop, CTAs, active nav, current step
      - evidence: verified output, review/pass states, proof-oriented sections
-     - greenfield/brownfield: fresh workspace vs existing-project adoption only
+     - greenfield: fresh workspace / first-run setup only
+     - brownfield: existing-project adoption only
      - change: edits, fixes, run work, blocked/attention states
-     - reference: docs, ledgers, command catalogs */
+     - reference: docs, ledgers, command catalogs
+     - muted: hardware, counters, neutral trim */
   /* Compatibility aliases for older component classes while the site migrates. */
   --color-night-raised: var(--color-panel-raised);
   --color-night-well: var(--color-panel-recessed);
@@ -3059,6 +3061,27 @@ body::after {
   text-transform: uppercase;
 }
 
+.palette-specimen-family {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 1.55rem;
+  align-items: center;
+  margin-top: 0.45rem;
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
+  border-radius: calc(var(--radius-control) - 3px);
+  background:
+    linear-gradient(90deg, rgba(var(--accent-rgb), 0.09), transparent 64%),
+    rgba(10, 7, 5, 0.3);
+  color: var(--accent-signal);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.58rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  line-height: 1;
+  padding: 0.1rem 0.42rem;
+  text-transform: uppercase;
+}
+
 .palette-specimen-hex {
   display: inline-flex;
   width: fit-content;
@@ -3400,7 +3423,11 @@ body::after {
 .setup-choice-card {
   --choice-signal: var(--signal-core);
   --choice-rgb: var(--signal-core-rgb);
-  --choice-pattern: linear-gradient(180deg, rgba(var(--choice-rgb), 0.035), transparent 42%);
+  --choice-pattern: linear-gradient(
+    180deg,
+    rgba(var(--choice-rgb), 0.035),
+    transparent 42%
+  );
   --plate-signal: var(--choice-signal);
   --plate-rgb: var(--choice-rgb);
   border-color: rgba(var(--choice-rgb), 0.44);
@@ -3489,9 +3516,42 @@ body::after {
   --choice-rgb: var(--signal-greenfield-rgb);
   --choice-pattern: repeating-linear-gradient(
     90deg,
-    rgba(var(--choice-rgb), 0.055) 0 1px,
+    rgba(var(--choice-rgb), 0.07) 0 1px,
     transparent 1px 16px
   );
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(var(--choice-rgb), 0.5) 0,
+      rgba(var(--choice-rgb), 0.5) 3px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 2.1rem 2.1rem,
+      rgba(var(--choice-rgb), 0.48) 0 1.8px,
+      transparent 2.4px
+    ),
+    radial-gradient(
+      circle at calc(100% - 2.1rem) calc(100% - 2.1rem),
+      rgba(var(--choice-rgb), 0.32) 0 1.6px,
+      transparent 2.3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(var(--choice-rgb), 0.075) 0 1px,
+      transparent 1px 16px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 23px,
+      rgba(var(--choice-rgb), 0.032) 23px 24px
+    ),
+    radial-gradient(
+      78% 68% at 10% 0%,
+      rgba(var(--choice-rgb), 0.16),
+      transparent 62%
+    ),
+    linear-gradient(180deg, rgba(232, 222, 203, 0.045) 0%, transparent 38%);
 }
 
 .setup-choice-card-greenfield .kit-icon {
@@ -3521,9 +3581,38 @@ body::after {
   --choice-rgb: var(--signal-brownfield-rgb);
   --choice-pattern: repeating-linear-gradient(
     -24deg,
-    rgba(var(--choice-rgb), 0.052) 0 1px,
+    rgba(var(--choice-rgb), 0.07) 0 1px,
     transparent 1px 13px
   );
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(var(--choice-rgb), 0.5) 0,
+      rgba(var(--choice-rgb), 0.5) 3px,
+      transparent 3px
+    ),
+    linear-gradient(
+      135deg,
+      transparent 0 calc(100% - 2.1rem),
+      rgba(var(--choice-rgb), 0.16) calc(100% - 2.1rem) calc(100% - 2rem),
+      transparent calc(100% - 2rem)
+    ),
+    repeating-linear-gradient(
+      -24deg,
+      rgba(var(--choice-rgb), 0.07) 0 1px,
+      transparent 1px 13px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 27px,
+      rgba(var(--choice-rgb), 0.026) 27px 28px
+    ),
+    radial-gradient(
+      78% 68% at 10% 0%,
+      rgba(var(--choice-rgb), 0.15),
+      transparent 62%
+    ),
+    linear-gradient(180deg, rgba(232, 222, 203, 0.045) 0%, transparent 38%);
 }
 
 .setup-choice-card-brownfield .kit-icon {
@@ -3566,6 +3655,27 @@ body::after {
 .setup-choice-action {
   color: var(--color-concrete-100);
   text-decoration-color: rgba(var(--choice-rgb), 0.5);
+}
+
+.setup-choice-title {
+  position: relative;
+  display: inline-block;
+}
+
+.setup-choice-title::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -0.18rem;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--choice-rgb), 0.76),
+    rgba(var(--choice-rgb), 0.16),
+    transparent
+  );
+  opacity: 0.84;
 }
 
 .setup-choice-card:hover .setup-choice-action,

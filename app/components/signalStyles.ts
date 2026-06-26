@@ -10,6 +10,7 @@
 export const signalRoleMeta = {
   core: {
     label: "core",
+    family: "identity / action",
     hex: "#D88A24",
     relationship: "base hue: HSL(34 71% 49%)",
     tone: "orangy gold",
@@ -21,6 +22,7 @@ export const signalRoleMeta = {
   },
   evidence: {
     label: "evidence",
+    family: "review / proof",
     hex: "#8ABF6B",
     relationship: "warm proof green: HSL(98 40% 58%)",
     tone: "proof green",
@@ -32,6 +34,7 @@ export const signalRoleMeta = {
   },
   greenfield: {
     label: "greenfield",
+    family: "setup path",
     hex: "#65C37F",
     relationship: "field green: HSL(137 44% 58%)",
     tone: "fresh field green",
@@ -43,6 +46,7 @@ export const signalRoleMeta = {
   },
   brownfield: {
     label: "brownfield",
+    family: "setup path",
     hex: "#B2815C",
     relationship: "earth analogue: HSL(26 36% 53%)",
     tone: "brownfield earth",
@@ -54,6 +58,7 @@ export const signalRoleMeta = {
   },
   change: {
     label: "change",
+    family: "work / attention",
     hex: "#CA7059",
     relationship: "red-clay analogue: HSL(12 52% 57%)",
     tone: "red clay",
@@ -65,6 +70,7 @@ export const signalRoleMeta = {
   },
   reference: {
     label: "reference",
+    family: "manual / catalog",
     hex: "#76B8A9",
     relationship: "tempered complement: HSL(166 32% 59%)",
     tone: "verdigris ledger",
@@ -76,6 +82,7 @@ export const signalRoleMeta = {
   },
   muted: {
     label: "muted",
+    family: "hardware / neutral",
     hex: "#BF7927",
     relationship: "aged brass analogue: HSL(32 66% 45%)",
     tone: "aged brass",

@@ -260,7 +260,7 @@ export default function GetStartedPage() {
                 >
                   greenfield / starter kit
                 </p>
-                <Heading className="mt-2">New repo</Heading>
+                <Heading className="setup-choice-title mt-2">New repo</Heading>
               </div>
             </div>
             <span className="setup-choice-index">
@@ -312,7 +312,9 @@ export default function GetStartedPage() {
                 >
                   brownfield / adoption
                 </p>
-                <Heading className="mt-2">Existing project</Heading>
+                <Heading className="setup-choice-title mt-2">
+                  Existing project
+                </Heading>
               </div>
             </div>
             <span className="setup-choice-index">

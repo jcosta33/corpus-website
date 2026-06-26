@@ -70,6 +70,18 @@ the reader is actually comparing categories.
 | Red clay | Change or attention | edits, fixes, run work, blocked/unverified states, failure modes |
 | Brass | Hardware chrome and neutral detail | screws, rails, counters, low-emphasis labels |
 
+Each role also has a surface pattern so the color is not doing the whole job:
+
+| Role | Surface pattern |
+|---|---|
+| Core gold | gilt rail, seal line, soft center glow |
+| Reference verdigris | horizontal ledger rules |
+| Evidence green | small checkpoint ticks and proof marks |
+| Greenfield green | upright field rows and clean-start marks |
+| Brownfield copper | diagonal survey hatching and adoption plates |
+| Red clay | angled change hatching |
+| Brass | quiet ruler marks and hardware bosses |
+
 Do not use evidence green for a problem merely because the word "evidence"
 appears in the copy. Missing evidence is an attention/change state. Do not use
 greenfield green for any "good" or "fresh-looking" surface unless the user is
