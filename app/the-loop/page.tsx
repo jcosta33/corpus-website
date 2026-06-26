@@ -263,7 +263,7 @@ export default function TheLoopPage() {
                   />
                 )}
                 <div className="flex items-start gap-4">
-                  <HexBadge color="yellow">
+                  <HexBadge color="core">
                     <span className="font-mono text-xs font-bold text-corpus-yellow">
                       {step.number}
                     </span>

@@ -13,6 +13,11 @@ import { TerminalWindow } from "../components/TerminalWindow";
 import { Heading } from "../components/Heading";
 import { PaperArtifact } from "../components/PaperArtifact";
 import { PageHero } from "../components/PageHero";
+import {
+  signalRoleMeta,
+  signalRoles,
+  type SignalRole,
+} from "../components/signalStyles";
 import { AlertTriangle, CheckCircle, Wrench } from "lucide-react";
 
 export const metadata = {
@@ -52,6 +57,16 @@ const specimenRegister = [
       { label: "Typography", href: "#typography" },
     ],
   },
+];
+
+const paletteRoles: SignalRole[] = [
+  "core",
+  "evidence",
+  "greenfield",
+  "brownfield",
+  "change",
+  "reference",
+  "muted",
 ];
 
 function PreviewSection({
@@ -282,26 +297,14 @@ export default function KitchenSinkPage() {
           <p className="text-concrete-400">
             Secondary text for captions and metadata.
           </p>
-          <p className="text-signal-core">
-            Core gold for the loop and primary actions.
-          </p>
-          <p className="text-signal-evidence">
-            Evidence green for verified proof and review states.
-          </p>
-          <p className="text-signal-greenfield">
-            Greenfield for fresh-start paths only.
-          </p>
-          <p className="text-signal-brownfield">
-            Brownfield for existing-project adoption.
-          </p>
-          <p className="text-signal-change">
-            Change clay for edits, fixes, and attention states.
-          </p>
-          <p className="text-brass">Brass hardware accent.</p>
-          <p className="text-signal-reference">
-            Reference olive for docs, catalogs, and ledgers.
-          </p>
-          <p className="text-aluminium">Aluminium label accent.</p>
+          {paletteRoles.map((role) => (
+            <p key={role} className={signalRoles[role].text}>
+              <span className="font-mono text-xs font-semibold uppercase tracking-wide">
+                {signalRoleMeta[role].label}
+              </span>{" "}
+              — {signalRoleMeta[role].use}
+            </p>
+          ))}
         </div>
       </PreviewSection>
     </div>

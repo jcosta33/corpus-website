@@ -155,7 +155,7 @@ export default function GetStartedPage() {
         <PageHero
           eyebrow="setup / first workspace"
           title="Get started"
-          tone="greenfield"
+          tone="core"
         >
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-concrete-400 sm:text-xl">
             Start with the starter kit. Use the CLI when you want scaffolding

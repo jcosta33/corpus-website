@@ -14,7 +14,7 @@ export interface HexBadgeProps {
 export function HexBadge({
   children,
   className = "",
-  color = "yellow",
+  color = "core",
 }: HexBadgeProps) {
   const role = normalizeSignalRole(color);
 

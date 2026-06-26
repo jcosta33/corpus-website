@@ -118,18 +118,21 @@ const boundarySteps = [
     label: "01",
     title: "Tickets stay put",
     text: "Backlog and conversation remain in Jira, Linear, or GitHub Issues.",
+    signal: "reference",
   },
   {
     label: "02",
     title: "Corpus records the run",
     text: "Spec, task, review, and finding files keep the work inspectable.",
+    signal: "core",
   },
   {
     label: "03",
     title: "Tools keep their jobs",
     text: "Agents write code. PRs, CI, and reviewers decide what ships.",
+    signal: "reference",
   },
-];
+] as const;
 
 const failureModes = [
   {
@@ -174,7 +177,7 @@ function BoundaryMap() {
               <span className="font-mono text-xs font-medium text-brass">
                 {step.label}
               </span>
-              <PilotLamp color={index === 1 ? "green" : "amber"} />
+              <PilotLamp color={step.signal} />
             </div>
             <h3 className="mt-4 font-heading text-lg font-bold text-concrete-100">
               {step.title}

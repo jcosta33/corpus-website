@@ -4,11 +4,10 @@
   /* corpus — warm control surface + alchemical signal + manuscript archive.
      Palette math starts at primary gold #D88A24, HSL(34 71% 49%). Its exact
      complement is #2472D8, HSL(214 71% 49%), reserved for diagnostics only so
-     the public site stays warm. Public color is semantic, not decorative:
-     core gold = corpus identity and primary flow, proof green = review/evidence,
-     field green = new/greenfield setup, umber = existing/brownfield adoption,
-     red clay = change/attention, olive = docs/reference/catalogs.
-     Never add an accent because a section "needs color"; choose the role first. */
+     the public site stays warm. Public accents use a low-saturation earth range:
+     proof green #8ABF6B, greenfield #5FBD8B, brownfield #B9784E, red clay
+     #CA7059, olive ledger #A6913D. Color is semantic signage, not decoration:
+     choose the role first, then apply the matching token, lamp, card, and rail. */
   --color-night: #110e0c;
   --color-chassis: #16100c;
   --color-section-band: #0e0c08;
@@ -34,8 +33,8 @@
   --color-brass: #bf7927;
   --color-amber: #f0a33a;
   --color-complement: #2472d8;
-  --color-phosphor: #83b86d;
-  --color-greenfield: #5fb989;
+  --color-phosphor: #8abf6b;
+  --color-greenfield: #5fbd8b;
   --color-brownfield: #b9784e;
   --color-verdigris: #8a7a38;
   --color-rubedo: #ca7059;
@@ -46,9 +45,9 @@
   --signal-core: var(--color-aurum);
   --signal-core-rgb: 216, 138, 36;
   --signal-evidence: var(--color-phosphor);
-  --signal-evidence-rgb: 131, 184, 109;
+  --signal-evidence-rgb: 138, 191, 107;
   --signal-greenfield: var(--color-greenfield);
-  --signal-greenfield-rgb: 95, 185, 137;
+  --signal-greenfield-rgb: 95, 189, 139;
   --signal-brownfield: var(--color-brownfield);
   --signal-brownfield-rgb: 185, 120, 78;
   --signal-change: var(--color-rubedo);
@@ -65,7 +64,7 @@
   --color-pencil: #5f554a;
 
   /* Palette grammar:
-     - core: primary loop, CTAs, active nav, current step
+     - core: corpus identity, primary loop, CTAs, active nav, current step
      - evidence: verified output, review/pass states, proof-oriented sections
      - greenfield/brownfield: fresh workspace vs existing-project adoption only
      - change: edits, fixes, blocked/attention states
@@ -113,8 +112,8 @@
   --c-brass: #bf7927;
   --c-amber: #f0a33a;
   --c-complement: #2472d8;
-  --c-phosphor: #83b86d;
-  --c-greenfield: #5fb989;
+  --c-phosphor: #8abf6b;
+  --c-greenfield: #5fbd8b;
   --c-brownfield: #b9784e;
   --c-verdigris: #8a7a38;
   --c-rubedo: #ca7059;
@@ -122,9 +121,9 @@
   --signal-core: var(--color-aurum);
   --signal-core-rgb: 216, 138, 36;
   --signal-evidence: var(--color-phosphor);
-  --signal-evidence-rgb: 131, 184, 109;
+  --signal-evidence-rgb: 138, 191, 107;
   --signal-greenfield: var(--color-greenfield);
-  --signal-greenfield-rgb: 95, 185, 137;
+  --signal-greenfield-rgb: 95, 189, 139;
   --signal-brownfield: var(--color-brownfield);
   --signal-brownfield-rgb: 185, 120, 78;
   --signal-change: var(--color-rubedo);

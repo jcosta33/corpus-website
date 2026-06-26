@@ -1,7 +1,43 @@
 // Palette grammar:
-// core = loop/action, evidence = review/proof, greenfield = new workspaces,
-// brownfield = existing codebases, change = edits/attention, reference = docs/catalogs.
+// core = corpus identity / loop / primary action
+// evidence = review proof / verified output / pass states
+// greenfield = new workspace or starter-kit paths only
+// brownfield = existing-project adoption paths only
+// change = edits / fixes / blocked or attention states
+// reference = docs / manuals / command catalogs / ledgers
+// muted = hardware, chrome, and non-semantic labels
 // Prefer these role names over raw color aliases in new component code.
+export const signalRoleMeta = {
+  core: {
+    label: "core",
+    use: "Corpus identity, primary actions, active navigation, and current loop state.",
+  },
+  evidence: {
+    label: "evidence",
+    use: "Review proof, verified output, pass states, and evidence-oriented sections.",
+  },
+  greenfield: {
+    label: "greenfield",
+    use: "Fresh workspace setup paths only.",
+  },
+  brownfield: {
+    label: "brownfield",
+    use: "Existing-project adoption paths only.",
+  },
+  change: {
+    label: "change",
+    use: "Edits, fixes, blocked states, and attention markers.",
+  },
+  reference: {
+    label: "reference",
+    use: "Docs, manuals, command catalogs, ledgers, and index surfaces.",
+  },
+  muted: {
+    label: "muted",
+    use: "Hardware chrome, low-emphasis labels, and neutral UI detail.",
+  },
+} as const;
+
 export const signalRoles = {
   core: {
     text: "text-signal-core",

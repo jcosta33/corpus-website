@@ -87,28 +87,28 @@ const failureModes = [
     title: "Vague tickets",
     text: "Keep the request. Turn it into checkable requirements.",
     accent: "change",
-    lamp: "red",
+    lamp: "change",
   },
   {
     code: "SCOPE",
     title: "Agent drift",
     text: "Name the files, limits, and checks before the run starts.",
     accent: "core",
-    lamp: "amber",
+    lamp: "core",
   },
   {
     code: "EVIDENCE",
     title: "Unbacked completion",
     text: "A Pass needs output, a CI link, or a named observation.",
     accent: "evidence",
-    lamp: "green",
+    lamp: "evidence",
   },
   {
     code: "LEDGER",
     title: "Lost findings",
     text: "Save useful lessons so later tasks can reuse them.",
     accent: "reference",
-    lamp: "olive",
+    lamp: "reference",
   },
 ] as const;
 

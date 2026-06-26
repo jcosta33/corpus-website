@@ -147,14 +147,14 @@ const bridgeFlow = [
     detail: "A local process pipe, not a hosted service.",
     icon: Cable,
     href: "#install",
-    signal: "core",
+    signal: "muted",
   },
   {
     label: "corpus-mcp",
     detail: "Read-only adapter around the workspace.",
     icon: Boxes,
     href: "#guardrails",
-    signal: "evidence",
+    signal: "core",
   },
   {
     label: "CLI JSON",
@@ -178,7 +178,7 @@ export default function McpPage() {
       <Section className="ambient-header">
         <PageHero
           eyebrow="mcp server / read-only adapter"
-          tone="evidence"
+          tone="reference"
           title={
             <>
               corpus<span className="text-corpus-yellow">-mcp</span>
