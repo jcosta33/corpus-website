@@ -50,7 +50,8 @@ export function CopyButton({
   return (
     <button
       type="button"
-      className={`copy-button focus-ring inline-flex min-h-8 items-center gap-1.5 rounded-[var(--radius-control)] border border-panel-border bg-panel-recessed/80 px-2.5 py-1 font-mono text-[0.68rem] font-bold uppercase tracking-[0.08em] text-concrete-300 transition-[background-color,border-color,color,box-shadow] hover:border-phosphor/60 hover:text-phosphor ${className}`}
+      data-copied={copied ? "true" : "false"}
+      className={`copy-button focus-ring inline-flex min-h-8 items-center gap-1.5 rounded-[var(--radius-control)] border border-panel-border bg-panel-recessed/80 px-2.5 py-1 font-mono text-[0.68rem] font-bold uppercase tracking-[0.08em] text-concrete-300 transition-[background-color,border-color,color,box-shadow] ${className}`}
       aria-label={copied ? "Copied" : label}
       onClick={handleCopy}
     >

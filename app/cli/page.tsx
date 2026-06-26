@@ -21,7 +21,7 @@ import { Heading } from "../components/Heading";
 import { Badge } from "../components/Badge";
 import { PilotLamp } from "../components/PilotLamp";
 import { TextLink } from "../components/TextLink";
-import { signalRoles } from "../components/signalStyles";
+import { signalRoles, type SignalRole } from "../components/signalStyles";
 
 export const metadata: Metadata = {
   title: "CLI — Corpus",
@@ -148,18 +148,26 @@ const principles = [
     title: "One worktree per task",
     icon: GitBranch,
     text: "Keep parallel runs out of the main checkout.",
+    signal: "core",
   },
   {
     title: "Markdown is the source of truth",
     icon: Terminal,
     text: "The CLI reads the files. It does not replace them.",
+    signal: "reference",
   },
   {
     title: "It reports checks, not decisions",
     icon: ShieldCheck,
     text: "Checks report facts. Review decides.",
+    signal: "evidence",
   },
-];
+] as const satisfies Array<{
+  title: string;
+  icon: typeof GitBranch;
+  text: string;
+  signal: SignalRole;
+}>;
 
 const commandFamilies = [
   {
@@ -481,11 +489,11 @@ export default function CliPage() {
               <li key={p.title}>
                 <Card
                   screws
-                  className="group h-full border-panel-border hover:border-brass/50"
+                  className={`group h-full border-panel-border ${signalRoles[p.signal].hoverBorder}`}
                 >
-                    <div className="catalog-row catalog-row-change">
+                    <div className={`catalog-row catalog-row-${p.signal}`}>
                       <HexBadge
-                        color="change"
+                        color={p.signal}
                         className="catalog-row-badge mb-4"
                       >
                       <Icon className="h-5 w-5" aria-hidden="true" />

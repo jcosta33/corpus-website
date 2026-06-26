@@ -25,6 +25,7 @@ import { PaperArtifact } from "./components/PaperArtifact";
 import { PilotLamp } from "./components/PilotLamp";
 import { Section } from "./components/Section";
 import { TerminalWindow } from "./components/TerminalWindow";
+import { signalRoles, type SignalRole } from "./components/signalStyles";
 
 const softwareApp = {
   "@context": "https://schema.org",
@@ -64,22 +65,36 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-const loopSteps = ["Pull", "Spec", "Task", "Run", "Review", "Close"];
+const loopSteps = [
+  { label: "Pull", signal: "reference" },
+  { label: "Spec", signal: "core" },
+  { label: "Task", signal: "change" },
+  { label: "Run", signal: "core" },
+  { label: "Review", signal: "evidence" },
+  { label: "Close", signal: "reference" },
+] as const satisfies Array<{ label: string; signal: SignalRole }>;
 
 const heroProofs = [
   {
     label: "Plain markdown",
     text: "Readable in any repo.",
+    signal: "reference",
   },
   {
     label: "Any agent",
     text: "Bring the tool you already use.",
+    signal: "core",
   },
   {
     label: "Human review",
     text: "Checks provide evidence, not verdicts.",
+    signal: "evidence",
   },
-];
+] as const satisfies Array<{
+  label: string;
+  text: string;
+  signal: SignalRole;
+}>;
 
 const failureModes = [
   {
@@ -177,19 +192,18 @@ function StepRail() {
     <ol className="grid min-w-0 gap-2 sm:grid-cols-3">
       {loopSteps.map((step, index) => (
         <li
-          key={step}
-          className="flex min-w-0 items-center justify-between gap-3 rounded-panel border border-panel-border bg-panel px-3 py-2"
+          key={step.label}
+          className={`home-step-rail-item home-step-rail-item-${step.signal} flex min-w-0 items-center justify-between gap-3 rounded-panel border bg-panel px-3 py-2`}
         >
-          <span className="font-mono text-xs text-brass">
+          <span
+            className={`font-mono text-xs ${signalRoles[step.signal].text}`}
+          >
             {String(index + 1).padStart(2, "0")}
           </span>
           <span className="min-w-0 break-words font-heading text-sm font-bold text-concrete-100">
-            {step}
+            {step.label}
           </span>
-          <PilotLamp
-            color={index < 5 ? "amber" : "green"}
-            className="scale-75"
-          />
+          <PilotLamp color={step.signal} className="scale-75" />
         </li>
       ))}
     </ol>
@@ -203,11 +217,14 @@ function HeroProofStrip() {
         <li
           key={proof.label}
           aria-label={`${proof.label}: ${proof.text}`}
-          className="home-hero-proof group flex min-w-0 items-start gap-3 rounded-panel border border-panel-border bg-panel/80 px-3 py-3 shadow-[inset_0_1px_0_rgba(240,226,204,0.04)] transition-colors duration-150 hover:border-brass/45"
+          className={`home-hero-proof home-hero-proof-${proof.signal} group flex min-w-0 items-start gap-3 rounded-panel border bg-panel/80 px-3 py-3 shadow-[inset_0_1px_0_rgba(240,226,204,0.04)] transition-colors duration-150`}
         >
-          <PilotLamp color="core" className="home-hero-proof-lamp mt-0.5 scale-75" />
+          <PilotLamp
+            color={proof.signal}
+            className="home-hero-proof-lamp mt-0.5 scale-75"
+          />
           <div className="min-w-0">
-            <p className="home-hero-proof-label font-mono text-[0.68rem] font-medium uppercase tracking-[0.12em] text-brass">
+            <p className="home-hero-proof-label font-mono text-[0.68rem] font-medium uppercase tracking-[0.12em]">
               {proof.label}
             </p>
             <p className="home-hero-proof-body mt-1 text-sm leading-snug text-concrete-400">

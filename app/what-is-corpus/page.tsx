@@ -174,7 +174,9 @@ function BoundaryMap() {
         <li key={step.title} className="relative min-w-0">
           <div className="panel-raised h-full p-4">
             <div className="flex items-start justify-between gap-4">
-              <span className="font-mono text-xs font-medium text-brass">
+              <span
+                className={`font-mono text-xs font-medium ${signalRoles[step.signal].text}`}
+              >
                 {step.label}
               </span>
               <PilotLamp color={step.signal} />
@@ -188,7 +190,7 @@ function BoundaryMap() {
           </div>
           {index < boundarySteps.length - 1 ? (
             <ArrowRight
-              className="absolute -right-5 top-1/2 z-20 hidden h-5 w-5 -translate-y-1/2 text-brass/70 md:block"
+              className="absolute -right-5 top-1/2 z-20 hidden h-5 w-5 -translate-y-1/2 text-signal-reference/70 md:block"
               aria-hidden="true"
             />
           ) : null}
@@ -284,7 +286,7 @@ export default function WhatIsCorpusPage() {
         </Panel>
 
         <Panel variant="inset" className="h-full p-5 sm:p-6">
-          <div className="section-kicker section-kicker-rubedo">
+          <div className={`section-kicker ${signalRoles.change.sectionKicker}`}>
             <XCircle className="h-4 w-4" aria-hidden="true" />
             <span>what it is not</span>
           </div>
@@ -308,7 +310,7 @@ export default function WhatIsCorpusPage() {
 
       <Section className="flex flex-col gap-12">
         <div className="max-w-2xl">
-          <div className="section-kicker section-kicker-gold">
+          <div className={`section-kicker ${signalRoles.reference.sectionKicker}`}>
             <DroneIcon className="h-4 w-4" />
             <span>nearby tools</span>
           </div>
@@ -335,7 +337,7 @@ export default function WhatIsCorpusPage() {
                       </p>
                     )}
                   </div>
-                      <PilotLamp color="core" className="shrink-0" />
+                      <PilotLamp color="reference" className="shrink-0" />
                 </div>
                 <dl className="relation-card-body">
                   <div>
@@ -355,7 +357,7 @@ export default function WhatIsCorpusPage() {
 
       <Section className="flex flex-col gap-12">
         <div className="max-w-2xl">
-          <div className="section-kicker section-kicker-rubedo">
+          <div className={`section-kicker ${signalRoles.change.sectionKicker}`}>
             <ShieldAlert className="h-4 w-4" aria-hidden="true" />
             <span>common failure modes</span>
           </div>
@@ -382,7 +384,7 @@ export default function WhatIsCorpusPage() {
                 </div>
                 <p className="mt-4 text-sm text-concrete-400">{fm.looksLike}</p>
                 <p className="mt-3 text-sm text-concrete-100">
-                  <span className="text-corpus-yellow">&gt;</span> {fm.answer}
+                  <span className="text-signal-change">&gt;</span> {fm.answer}
                 </p>
               </Card>
             </li>

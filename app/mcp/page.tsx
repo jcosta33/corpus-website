@@ -22,7 +22,7 @@ import { PaperArtifact } from "../components/PaperArtifact";
 import { Section } from "../components/Section";
 import { TerminalWindow } from "../components/TerminalWindow";
 import { TextLink } from "../components/TextLink";
-import { signalRoles } from "../components/signalStyles";
+import { signalRoles, type SignalRole } from "../components/signalStyles";
 
 export const metadata: Metadata = {
   title: "corpus-mcp — Corpus",
@@ -75,27 +75,37 @@ const guardrails = [
     title: "Read-only",
     text: "It reads workspace facts. It does not write artifacts.",
     icon: ShieldCheck,
+    signal: "evidence",
   },
   {
     title: "No verdict",
     text: "It reports facts. Review owns Pass, Fail, Unverified, or Blocked.",
     icon: MessagesSquare,
+    signal: "change",
   },
   {
     title: "Root-confined",
     text: "Paths stay inside the configured workspace root.",
     icon: FolderLock,
+    signal: "muted",
   },
   {
     title: "CLI contract only",
     text: "It calls the CLI JSON surface.",
     icon: Braces,
+    signal: "reference",
   },
-];
+] as const satisfies Array<{
+  title: string;
+  text: string;
+  icon: typeof ShieldCheck;
+  signal: SignalRole;
+}>;
 
 const tools = [
   {
     group: "reconcile",
+    signal: "evidence",
     items: [
       "corpus_get_status",
       "corpus_check_workspace",
@@ -107,6 +117,7 @@ const tools = [
   },
   {
     group: "loaders",
+    signal: "reference",
     items: [
       "corpus_get_task",
       "corpus_get_spec",
@@ -114,7 +125,11 @@ const tools = [
       "corpus_get_checks",
     ],
   },
-];
+] as const satisfies Array<{
+  group: string;
+  signal: SignalRole;
+  items: readonly string[];
+}>;
 
 const resources = [
   "corpus://workspace",
@@ -302,7 +317,7 @@ export default function McpPage() {
 
       <Section id="guardrails" className="flex scroll-mt-28 flex-col gap-12">
         <div className="max-w-2xl">
-          <div className="section-kicker section-kicker-change">
+          <div className={`section-kicker ${signalRoles.change.sectionKicker}`}>
             <DroneIcon className="h-4 w-4" />
             <span>guardrails.ts</span>
           </div>
@@ -319,9 +334,9 @@ export default function McpPage() {
               <li key={item.title}>
                 <Card
                   screws
-                  className={`h-full border-panel-border ${signalRoles.change.hoverBorder}`}
+                  className={`h-full border-panel-border ${signalRoles[item.signal].hoverBorder}`}
                 >
-                  <HexBadge color="change" className="mb-4">
+                  <HexBadge color={item.signal} className="mb-4">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </HexBadge>
                   <h3 className="font-heading text-sm font-bold uppercase tracking-wide text-concrete-100">
@@ -352,9 +367,11 @@ export default function McpPage() {
             {tools.map((group) => (
               <div
                 key={group.group}
-                className="rounded-panel border border-panel-border bg-panel p-4"
+                className={`tool-list-card tool-list-card-${group.signal} rounded-panel border bg-panel p-4`}
               >
-                <p className="font-mono text-xs uppercase tracking-wide text-amber">
+                <p
+                  className={`font-mono text-xs uppercase tracking-wide ${signalRoles[group.signal].text}`}
+                >
                   {group.group}
                 </p>
                 <ul className="mt-3 space-y-2">
@@ -373,7 +390,7 @@ export default function McpPage() {
         </Card>
 
         <Card screws className="border-panel-border">
-          <div className="section-kicker section-kicker-gold">
+          <div className={`section-kicker ${signalRoles.reference.sectionKicker}`}>
             <FileJson className="h-4 w-4" aria-hidden="true" />
             <span>resources + prompts</span>
           </div>
@@ -383,8 +400,8 @@ export default function McpPage() {
             give clients a Corpus-shaped starting point.
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-panel border border-panel-border bg-panel p-4">
-              <p className="font-mono text-xs uppercase tracking-wide text-amber">
+            <div className="tool-list-card tool-list-card-reference rounded-panel border bg-panel p-4">
+              <p className="font-mono text-xs uppercase tracking-wide text-signal-reference">
                 resources
               </p>
               <ul className="mt-3 space-y-2">
@@ -398,8 +415,8 @@ export default function McpPage() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-panel border border-panel-border bg-panel p-4">
-              <p className="font-mono text-xs uppercase tracking-wide text-amber">
+            <div className="tool-list-card tool-list-card-core rounded-panel border bg-panel p-4">
+              <p className="font-mono text-xs uppercase tracking-wide text-signal-core">
                 prompts
               </p>
               <ul className="mt-3 space-y-2">
@@ -481,7 +498,7 @@ export default function McpPage() {
           contentClassName="flex flex-col gap-8 md:flex-row md:items-center md:justify-between"
         >
           <div>
-            <div className="section-kicker section-kicker-brass">
+            <div className={`section-kicker ${signalRoles.reference.sectionKicker}`}>
               <Boxes className="h-4 w-4" aria-hidden="true" />
               <span>source</span>
             </div>

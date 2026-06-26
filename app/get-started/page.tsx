@@ -127,26 +127,36 @@ const setupPath = [
     text: "Start fresh or adopt an existing repo.",
     icon: Rocket,
     href: "#choose",
+    signal: "core",
   },
   {
     label: "Copy",
     text: "Add the starter kit files once.",
     icon: FolderPlus,
     href: "#copy",
+    signal: "reference",
   },
   {
     label: "Check",
     text: "Run the CLI check when you want a gate.",
     icon: Terminal,
     href: "#check",
+    signal: "evidence",
   },
   {
     label: "Work",
     text: "Write a spec, cut a task, keep evidence.",
     icon: ClipboardList,
     href: "#work",
+    signal: "change",
   },
-];
+] as const satisfies Array<{
+  label: string;
+  text: string;
+  icon: typeof Rocket;
+  href: string;
+  signal: SignalRole;
+}>;
 
 export default function GetStartedPage() {
   return (
@@ -173,18 +183,23 @@ export default function GetStartedPage() {
             {setupPath.map((step, index) => {
               const Icon = step.icon;
               return (
-                <li key={step.label} className="bg-panel-raised/95">
+                <li
+                  key={step.label}
+                  className={`${signalRoles[step.signal].processItem} bg-panel-raised/95`}
+                >
                   <a
                     href={step.href}
                     className="focus-ring group block h-full p-5 transition-colors duration-150 hover:bg-panel/80 sm:p-6"
                     aria-label={`Jump to ${step.label.toLowerCase()} setup step`}
                   >
                     <div className="flex items-center gap-3">
-                      <KitIcon>
+                      <KitIcon signal={step.signal}>
                         <Icon className="h-5 w-5" aria-hidden="true" />
                       </KitIcon>
                       <div className="min-w-0">
-                        <p className="font-mono text-xs font-semibold uppercase tracking-wide text-corpus-yellow">
+                        <p
+                          className={`font-mono text-xs font-semibold uppercase tracking-wide ${signalRoles[step.signal].text}`}
+                        >
                           {String(index + 1).padStart(2, "0")}
                         </p>
                         <h2 className="font-heading text-lg font-bold text-concrete-100">

@@ -6,9 +6,9 @@
      complement is #2472D8, HSL(214 71% 49%), reserved for diagnostics only so
      the public site stays warm. Public accents stay in a low-saturation earth
      range with named jobs: proof green #8ABF6B, greenfield #5FBD8B, brownfield
-     #B9784E, red clay #CA7059, olive ledger #A6913D. Color is semantic signage,
-     not decoration: choose the role first, then apply the matching token, lamp,
-     card, rail, and copy label. */
+     #B9784E, red clay #CA7059, olive ledger #A6913D. Color is semantic signage:
+     repeated surfaces should share the same role across text, lamp, border,
+     card rail, and hover state. No orphan accent colors. */
   --color-night: #110e0c;
   --color-chassis: #16100c;
   --color-section-band: #0e0c08;
@@ -587,11 +587,31 @@ body::after {
 }
 
 .copy-button:hover {
+  color: var(--signal-reference);
+  border-color: rgba(var(--signal-reference-rgb), 0.58);
   background:
-    linear-gradient(180deg, rgba(21, 32, 18, 0.92), rgba(13, 19, 12, 0.94));
+    linear-gradient(
+      180deg,
+      rgba(var(--signal-reference-rgb), 0.12),
+      rgba(13, 11, 8, 0.94)
+    );
   box-shadow:
-    inset 0 1px 0 rgba(173, 214, 152, 0.14),
-    0 0 0 1px rgba(114, 179, 90, 0.08);
+    inset 0 1px 0 rgba(240, 226, 204, 0.08),
+    0 0 0 1px rgba(var(--signal-reference-rgb), 0.06);
+}
+
+.copy-button[data-copied="true"] {
+  color: var(--signal-evidence);
+  border-color: rgba(var(--signal-evidence-rgb), 0.62);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(var(--signal-evidence-rgb), 0.15),
+      rgba(13, 18, 11, 0.94)
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(173, 214, 152, 0.16),
+    0 0 0 1px rgba(var(--signal-evidence-rgb), 0.07);
 }
 
 .site-main-frame {
@@ -1024,6 +1044,68 @@ body::after {
   }
 }
 
+.home-hero-proof {
+  --proof-signal: var(--signal-core);
+  --proof-rgb: var(--signal-core-rgb);
+  border-color: rgba(var(--proof-rgb), 0.24);
+  background:
+    linear-gradient(90deg, rgba(var(--proof-rgb), 0.07), transparent 56%),
+    rgba(26, 21, 16, 0.78);
+}
+
+.home-hero-proof-core {
+  --proof-signal: var(--signal-core);
+  --proof-rgb: var(--signal-core-rgb);
+}
+
+.home-hero-proof-evidence {
+  --proof-signal: var(--signal-evidence);
+  --proof-rgb: var(--signal-evidence-rgb);
+}
+
+.home-hero-proof-reference {
+  --proof-signal: var(--signal-reference);
+  --proof-rgb: var(--signal-reference-rgb);
+}
+
+.home-hero-proof:hover,
+.home-hero-proof:focus-within {
+  border-color: rgba(var(--proof-rgb), 0.42);
+}
+
+.home-hero-proof-label {
+  color: var(--proof-signal);
+}
+
+.home-step-rail-item {
+  --step-signal: var(--signal-core);
+  --step-rgb: var(--signal-core-rgb);
+  border-color: rgba(var(--step-rgb), 0.24);
+  background-image:
+    linear-gradient(90deg, rgba(var(--step-rgb), 0.06), transparent 52%),
+    linear-gradient(180deg, rgba(240, 226, 204, 0.02), transparent 44%);
+}
+
+.home-step-rail-item-core {
+  --step-signal: var(--signal-core);
+  --step-rgb: var(--signal-core-rgb);
+}
+
+.home-step-rail-item-evidence {
+  --step-signal: var(--signal-evidence);
+  --step-rgb: var(--signal-evidence-rgb);
+}
+
+.home-step-rail-item-change {
+  --step-signal: var(--signal-change);
+  --step-rgb: var(--signal-change-rgb);
+}
+
+.home-step-rail-item-reference {
+  --step-signal: var(--signal-reference);
+  --step-rgb: var(--signal-reference-rgb);
+}
+
 /* Homepage mobile rhythm — keep the proof points visible without delaying the working preview. */
 @media (max-width: 48rem) {
   .home-hero-section {
@@ -1044,7 +1126,7 @@ body::after {
     gap: 0.5rem;
     padding: 0.62rem 0.72rem;
     background:
-      linear-gradient(90deg, rgba(var(--signal-core-rgb), 0.08), transparent 58%),
+      linear-gradient(90deg, rgba(var(--proof-rgb), 0.08), transparent 58%),
       rgba(26, 21, 16, 0.78);
   }
 
@@ -2134,6 +2216,40 @@ body::after {
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.72rem;
   letter-spacing: 0.04em;
+}
+
+.tool-list-card {
+  --tool-signal: var(--signal-reference);
+  --tool-rgb: var(--signal-reference-rgb);
+  border-color: rgba(var(--tool-rgb), 0.28);
+  background-image:
+    linear-gradient(90deg, rgba(var(--tool-rgb), 0.065), transparent 50%),
+    linear-gradient(180deg, rgba(240, 226, 204, 0.025), transparent 44%);
+}
+
+.tool-list-card-core {
+  --tool-signal: var(--signal-core);
+  --tool-rgb: var(--signal-core-rgb);
+}
+
+.tool-list-card-evidence {
+  --tool-signal: var(--signal-evidence);
+  --tool-rgb: var(--signal-evidence-rgb);
+}
+
+.tool-list-card-reference {
+  --tool-signal: var(--signal-reference);
+  --tool-rgb: var(--signal-reference-rgb);
+}
+
+.tool-list-card-change {
+  --tool-signal: var(--signal-change);
+  --tool-rgb: var(--signal-change-rgb);
+}
+
+.tool-list-card-muted {
+  --tool-signal: var(--signal-muted);
+  --tool-rgb: var(--signal-muted-rgb);
 }
 
 /* Signal stats — compact role-coloured readouts for summary panels. */
