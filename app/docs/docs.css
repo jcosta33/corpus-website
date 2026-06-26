@@ -1236,29 +1236,77 @@
 
 /* ---------- Per-page footer: prev/next pager + get-started bridge ---------- */
 .docs-prose .docs-pager {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   margin-top: 3.5rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--color-panel-border);
+  border-top: 0;
+}
+.docs-prose .docs-pager::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(216, 138, 36, 0.46),
+    transparent
+  );
 }
 .docs-prose .docs-pager-link {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  padding: 0.85rem 1rem;
+  gap: 0.35rem;
+  min-height: 5rem;
+  overflow: hidden;
+  padding: 0.95rem 1rem 1rem;
   border: 1px solid var(--color-panel-border);
   border-radius: var(--radius-panel);
-  background: var(--color-panel-raised);
+  background:
+    linear-gradient(90deg, rgba(216, 138, 36, 0.055) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(36, 29, 21, 0.9), rgba(22, 17, 12, 0.82));
+  background-size:
+    32px 100%,
+    auto;
+  box-shadow:
+    inset 0 1px 0 rgba(240, 226, 204, 0.045),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.42);
   text-decoration: none;
   transition:
     border-color 0.12s,
-    background-color 0.12s;
+    background-color 0.12s,
+    box-shadow 0.12s,
+    transform 0.12s;
+}
+.docs-prose .docs-pager-link::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  top: 0.62rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(216, 138, 36, 0.34),
+    rgba(216, 138, 36, 0.08),
+    transparent
+  );
+  opacity: 0.62;
 }
 .docs-prose .docs-pager-link:hover {
   border-color: var(--color-brass);
-  background: var(--color-panel-recessed);
+  background-color: var(--color-panel-recessed);
+  box-shadow:
+    inset 0 1px 0 rgba(240, 226, 204, 0.06),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.44),
+    0 0 0 1px rgba(216, 138, 36, 0.06);
+  transform: translateY(-1px);
 }
 .docs-prose .docs-pager-next {
   text-align: right;
@@ -1272,18 +1320,33 @@
 }
 .docs-prose .docs-pager-title {
   color: var(--color-concrete-100);
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.03rem;
   font-weight: 500;
+  line-height: 1.25;
 }
 .docs-prose .docs-pager-link:hover .docs-pager-title {
   color: var(--color-corpus-yellow);
 }
+@media (prefers-reduced-motion: reduce) {
+  .docs-prose .docs-pager-link:hover {
+    transform: none;
+  }
+}
 .docs-prose .docs-bridge {
-  margin-top: 1.5rem;
-  padding: 1rem 1.1rem;
-  border: 1px solid var(--color-panel-border);
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid rgba(216, 138, 36, 0.3);
   border-left: 3px solid var(--color-corpus-yellow);
   border-radius: 0 var(--radius-panel) var(--radius-panel) 0;
-  background: var(--color-panel-raised);
+  background:
+    linear-gradient(90deg, rgba(216, 138, 36, 0.07) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(36, 29, 21, 0.84), rgba(22, 17, 12, 0.76));
+  background-size:
+    36px 100%,
+    auto;
   font-size: 0.95rem;
   color: var(--color-concrete-300);
 }
