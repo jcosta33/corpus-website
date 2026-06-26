@@ -152,6 +152,7 @@ const prompts = [
 const bridgeFlow = [
   {
     label: "Client",
+    channel: "host",
     detail: "Claude Desktop, Cursor, or another MCP host.",
     icon: MessagesSquare,
     href: "#mcp-config",
@@ -159,6 +160,7 @@ const bridgeFlow = [
   },
   {
     label: "stdio",
+    channel: "pipe",
     detail: "A local process pipe, not a hosted service.",
     icon: Cable,
     href: "#install",
@@ -166,6 +168,7 @@ const bridgeFlow = [
   },
   {
     label: "corpus-mcp",
+    channel: "adapter",
     detail: "Read-only adapter around the workspace.",
     icon: Boxes,
     href: "#guardrails",
@@ -173,6 +176,7 @@ const bridgeFlow = [
   },
   {
     label: "CLI JSON",
+    channel: "json",
     detail: "Commands return structured facts.",
     icon: Terminal,
     href: "#mcp-tools",
@@ -180,6 +184,7 @@ const bridgeFlow = [
   },
   {
     label: "Workspace",
+    channel: "records",
     detail: "Markdown artifacts stay the source of truth.",
     icon: FileJson,
     href: "#source",
@@ -220,6 +225,11 @@ export default function McpPage() {
           <div className="mcp-adapter-header">
             <p>client request</p>
             <span>local stdio</span>
+            <div className="mcp-adapter-path" aria-hidden="true">
+              {bridgeFlow.map((item) => (
+                <span key={item.channel}>{item.channel}</span>
+              ))}
+            </div>
           </div>
           <ol
             className="mcp-adapter-rail process-strip process-strip-signal-reference grid gap-px bg-panel-border sm:grid-cols-2 lg:grid-cols-5"
@@ -245,7 +255,7 @@ export default function McpPage() {
                         <p
                           className={`font-mono text-xs font-semibold uppercase tracking-wide ${signalRoles[item.signal].text}`}
                         >
-                          {String(index + 1).padStart(2, "0")}
+                          {String(index + 1).padStart(2, "0")} / {item.channel}
                         </p>
                         <h2 className="font-heading text-lg font-bold text-concrete-100">
                           {item.label}
