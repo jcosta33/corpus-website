@@ -46,8 +46,9 @@ utility with a small ritual charge.
 - **Gold:** sparse signal only; use for focus, primary action, seal lines, and
   active states.
 - **Accent palette:** use color by role, not by decoration. Proof green is for
-  evidence/review; field green is for greenfield setup; umber is for brownfield
-  adoption; red clay is for change/attention; olive is for reference/catalog.
+  evidence/review; field green is for greenfield setup; brownfield copper is
+  for existing-project adoption; red clay is for change/attention; verdigris is
+  for reference/catalog.
 - **Manuscript surfaces:** use paper only for specs, review packets, findings,
   docs notes, source metadata, and annotated examples.
 - **Copy:** ritual/manuscript words are labels, not extended metaphors.

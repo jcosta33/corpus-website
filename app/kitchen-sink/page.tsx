@@ -355,9 +355,9 @@ export default function KitchenSinkPage() {
         registerTone="evidence"
       >
         <div className="flex flex-wrap items-center gap-6">
-          <PilotLamp color="core" pulse label="active" />
-          <PilotLamp color="evidence" label="ok" />
-          <PilotLamp color="change" label="fault" />
+          {paletteRoles.map((role) => (
+            <PilotLamp key={role} color={role} label={role} />
+          ))}
           <PilotLamp color="off" label="idle" />
         </div>
       </PreviewSection>

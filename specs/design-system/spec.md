@@ -49,10 +49,10 @@ role's usage, example, and "do not use for" guardrail:
 | `--c-brass` | `#BF7927` | secondary gold, borders |
 | `--c-complement` | `#2472D8` | exact HSL complement to aurum; diagnostic accent only |
 | `--c-phosphor` | `#8ABF6B` | evidence / verified proof |
-| `--c-greenfield` | `#5FBD8B` | fresh workspace setup paths only |
-| `--c-brownfield` | `#B9784E` | existing-project adoption paths only |
+| `--c-greenfield` | `#62C79D` | fresh workspace setup paths only |
+| `--c-brownfield` | `#BC8055` | existing-project adoption paths only |
 | `--c-rubedo` | `#CA7059` | change / attention / blocked |
-| `--c-olive` | `#A6913D` | reference, docs, catalog surfaces |
+| `--c-verdigris` | `#76B8A9` | reference, docs, catalog surfaces |
 | `--c-paper` | `#F0E2CC` | manuscript artifact surfaces |
 | `--c-paper-warm` | `#DCC9A9` | paper depth |
 | `--c-ink` | `#100B07` | text on paper |
@@ -68,14 +68,16 @@ Accent colors are semantic, not decorative:
 | `brownfield` | existing-project adoption only |
 | `change` | edits, fixes, blocked or attention states |
 | `reference` | docs, manuals, command catalogs, ledgers |
+| `muted` | hardware chrome, low-emphasis labels, and neutral detail |
 
-The palette is a role system, not an accent grab bag. Page-level tone must
-describe the whole page; local cards may use stronger accents only where the
-choice itself has a named role. For example, `/get-started` uses a core setup
-hero, then reserves greenfield for the "New repo" path and brownfield for the
-"Existing project" path. Status colors follow the same rule: `READY` is core,
-`PASS` is evidence, `BLOCKED` is change, `DRAFT` is reference, and `ARCHIVED`
-is muted.
+The palette is a role system, not an accent grab bag. Pick the role at the
+group level first, then let that role drive the label, lamp, border, rail,
+hover state, and small icon pattern. Page-level tone must describe the whole
+page; local cards may use stronger accents only where the choice itself has a
+named role. For example, `/get-started` uses a core setup hero, then reserves
+greenfield for the "New repo" path and brownfield for the "Existing project"
+path. Status colors follow the same rule: `READY` is core, `PASS` is evidence,
+`BLOCKED` is change, `DRAFT` is reference, and `ARCHIVED` is muted.
 
 Compatibility aliases such as `--color-corpus-yellow`, `--color-hazard-orange`,
 and `--color-drone-green` may remain during migration, but they must map onto

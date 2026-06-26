@@ -32,8 +32,9 @@
 - App code lives in `app/`; global styles in `app/globals.css`.
 - Components live in `app/components/`.
 - Static assets in `public/`.
-- Design system: yellow primary (`#FACC15` / Tailwind `yellow-400`), concrete
-  greys (`gray-700`–`gray-950`), hazard-orange accents (`orange-500`).
+- Design system: warm chassis surfaces with semantic signal roles in
+  `app/components/signalStyles.ts`: core gold, evidence green, greenfield,
+  brownfield, change red clay, reference verdigris, and muted brass.
 - Tone: tongue-in-cheek, laid back, open-source. Avoid corporate buzzwords.
 
 ## Commands
