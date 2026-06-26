@@ -353,28 +353,29 @@ export default function HomePage() {
               and findings.
             </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="review-signal-rail" aria-label="Review signal path">
             {failureModes.map((mode) => (
-              <Card
+              <li
                 key={mode.title}
-                screws
-                className={`accent-card accent-card-${mode.accent} h-full`}
+                className={`review-signal-node review-signal-node-${mode.accent}`}
               >
-                <div className="flex items-start justify-between gap-3">
-                  <p className="accent-card-kicker font-mono text-xs uppercase tracking-wide">
+                <div className="review-signal-node-head">
+                  <p
+                    className={`font-mono text-xs uppercase tracking-wide ${signalRoles[mode.accent].text}`}
+                  >
                     {mode.code}
                   </p>
                   <PilotLamp color={mode.lamp} />
                 </div>
-                <h3 className="mt-3 font-heading text-lg font-bold text-concrete-100">
+                <h3 className="mt-4 font-heading text-lg font-bold text-concrete-100">
                   {mode.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-concrete-400">
                   {mode.text}
                 </p>
-              </Card>
+              </li>
             ))}
-          </div>
+          </ol>
         </Section>
       </section>
 
