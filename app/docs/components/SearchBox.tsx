@@ -28,6 +28,7 @@ export function SearchBox() {
     };
     const init = () => {
       if (!window.PagefindUI) return;
+      el.querySelector(".docs-search-fallback")?.remove();
       const ui = new window.PagefindUI({ element: el, showSubResults: true, resetStyles: false });
       // Deep-link: /docs/?q=term runs the search on load — this is what the WebSite SearchAction in
       // the JSON-LD points at, so that structured-data claim is real rather than decorative.
@@ -74,5 +75,12 @@ export function SearchBox() {
   // No role/aria-label on the wrapper: on the built site Pagefind renders its own
   // <form role="search" aria-label="Search this site">, so a wrapper role would create a second,
   // duplicate search landmark. The input itself is still named via the aria-label pass above.
-  return <div className="docs-search" ref={ref} />;
+  return (
+    <div className="docs-search" ref={ref}>
+      <div className="docs-search-fallback" aria-hidden="true">
+        <span className="docs-search-fallback-icon" />
+        <span>Search docs</span>
+      </div>
+    </div>
+  );
 }
