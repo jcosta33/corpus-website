@@ -4,12 +4,11 @@
   /* corpus — warm control surface + alchemical signal + manuscript archive.
      Palette math starts at primary gold #D88A24, HSL(34 71% 49%). Its exact
      complement is #2472D8, HSL(214 71% 49%), reserved for diagnostics only so
-     the public site stays warm. Public accents form a semantic routing table,
-     not a decorative rainbow: warm earth/clay handle existing work and change,
-     field/proof greens handle new setup and verified evidence, and verdigris is
-     the restrained public complement for manuals, ledgers, and catalogs. The
-     same role must drive text, lamp, border, rail, pattern, and hover state.
-     No orphan accent colors. */
+     the public site stays warm. Public accents are semantic, not decorative:
+     greenfield = new setup, brownfield = existing-project adoption, change =
+     active edits/attention, evidence = proof/review, reference = manuals and
+     catalogs. The role should travel as a set: text, lamp, rail, border, hatch,
+     hover. Panels stay dark; color marks meaning instead of painting surfaces. */
   --color-night: #110e0c;
   --color-chassis: #16100c;
   --color-section-band: #0e0c08;
@@ -35,11 +34,11 @@
   --color-brass: #bf7927;
   --color-amber: #f0a33a;
   --color-complement: #2472d8;
-  --color-phosphor: #98c873;
-  --color-greenfield: #56c978;
-  --color-brownfield: #b87d56;
-  --color-verdigris: #75bdae;
-  --color-rubedo: #ce7058;
+  --color-phosphor: #9fba72;
+  --color-greenfield: #63b875;
+  --color-brownfield: #b57e59;
+  --color-verdigris: #78b8aa;
+  --color-rubedo: #ca7058;
   --color-olive: var(--color-verdigris);
   --color-black-text: #100b07;
 
@@ -47,15 +46,15 @@
   --signal-core: var(--color-aurum);
   --signal-core-rgb: 216, 138, 36;
   --signal-evidence: var(--color-phosphor);
-  --signal-evidence-rgb: 152, 200, 115;
+  --signal-evidence-rgb: 159, 186, 114;
   --signal-greenfield: var(--color-greenfield);
-  --signal-greenfield-rgb: 86, 201, 120;
+  --signal-greenfield-rgb: 99, 184, 117;
   --signal-brownfield: var(--color-brownfield);
-  --signal-brownfield-rgb: 184, 125, 86;
+  --signal-brownfield-rgb: 181, 126, 89;
   --signal-change: var(--color-rubedo);
-  --signal-change-rgb: 206, 112, 88;
+  --signal-change-rgb: 202, 112, 88;
   --signal-reference: var(--color-verdigris);
-  --signal-reference-rgb: 117, 189, 174;
+  --signal-reference-rgb: 120, 184, 170;
   --signal-muted: var(--color-brass);
   --signal-muted-rgb: 191, 121, 39;
 
@@ -117,24 +116,24 @@
   --c-brass: #bf7927;
   --c-amber: #f0a33a;
   --c-complement: #2472d8;
-  --c-phosphor: #98c873;
-  --c-greenfield: #56c978;
-  --c-brownfield: #b87d56;
-  --c-verdigris: #75bdae;
-  --c-rubedo: #ce7058;
+  --c-phosphor: #9fba72;
+  --c-greenfield: #63b875;
+  --c-brownfield: #b57e59;
+  --c-verdigris: #78b8aa;
+  --c-rubedo: #ca7058;
   --c-olive: var(--c-verdigris);
   --signal-core: var(--color-aurum);
   --signal-core-rgb: 216, 138, 36;
   --signal-evidence: var(--color-phosphor);
-  --signal-evidence-rgb: 152, 200, 115;
+  --signal-evidence-rgb: 159, 186, 114;
   --signal-greenfield: var(--color-greenfield);
-  --signal-greenfield-rgb: 86, 201, 120;
+  --signal-greenfield-rgb: 99, 184, 117;
   --signal-brownfield: var(--color-brownfield);
-  --signal-brownfield-rgb: 184, 125, 86;
+  --signal-brownfield-rgb: 181, 126, 89;
   --signal-change: var(--color-rubedo);
-  --signal-change-rgb: 206, 112, 88;
+  --signal-change-rgb: 202, 112, 88;
   --signal-reference: var(--color-verdigris);
-  --signal-reference-rgb: 117, 189, 174;
+  --signal-reference-rgb: 120, 184, 170;
   --signal-muted: var(--color-brass);
   --signal-muted-rgb: 191, 121, 39;
   --c-paper: #f0e2cc;
@@ -4295,21 +4294,21 @@ body::after {
   );
   --plate-signal: var(--choice-signal);
   --plate-rgb: var(--choice-rgb);
-  border-color: rgba(var(--choice-rgb), 0.44);
+  border-color: rgba(var(--choice-rgb), 0.36);
   background-image:
     linear-gradient(
       90deg,
-      rgba(var(--choice-rgb), 0.5) 0,
-      rgba(var(--choice-rgb), 0.5) 3px,
+      rgba(var(--choice-rgb), 0.42) 0,
+      rgba(var(--choice-rgb), 0.42) 3px,
       transparent 3px
     ),
     var(--choice-pattern),
     radial-gradient(
       78% 68% at 10% 0%,
-      rgba(var(--choice-rgb), 0.13),
+      rgba(var(--choice-rgb), 0.085),
       transparent 62%
     ),
-    linear-gradient(180deg, rgba(var(--choice-rgb), 0.035), transparent 42%),
+    linear-gradient(180deg, rgba(var(--choice-rgb), 0.024), transparent 42%),
     radial-gradient(
       80% 80% at 100% 100%,
       rgba(0, 0, 0, 0.2),
@@ -4321,7 +4320,7 @@ body::after {
       transparent 38%
     );
   box-shadow:
-    inset 3px 0 0 rgba(var(--choice-rgb), 0.34),
+    inset 3px 0 0 rgba(var(--choice-rgb), 0.28),
     inset 0 1px 0 rgba(232, 222, 203, 0.07),
     inset 0 -1px 0 rgba(0, 0, 0, 0.55),
     0 1px 2px rgba(0, 0, 0, 0.5);
@@ -4329,7 +4328,7 @@ body::after {
 
 .setup-choice-card .surface-engraving {
   background:
-    linear-gradient(90deg, rgba(var(--choice-rgb), 0.2), transparent 24%) left
+    linear-gradient(90deg, rgba(var(--choice-rgb), 0.14), transparent 24%) left
       top / 1px 100% no-repeat,
     var(--choice-pattern),
     repeating-linear-gradient(
@@ -4395,39 +4394,39 @@ body::after {
   --choice-rgb: var(--signal-greenfield-rgb);
   --choice-pattern: repeating-linear-gradient(
     90deg,
-    rgba(var(--choice-rgb), 0.07) 0 1px,
+    rgba(var(--choice-rgb), 0.045) 0 1px,
     transparent 1px 16px
   );
   background-image:
     linear-gradient(
       90deg,
-      rgba(var(--choice-rgb), 0.5) 0,
-      rgba(var(--choice-rgb), 0.5) 3px,
+      rgba(var(--choice-rgb), 0.42) 0,
+      rgba(var(--choice-rgb), 0.42) 3px,
       transparent 3px
     ),
     radial-gradient(
       circle at 2.1rem 2.1rem,
-      rgba(var(--choice-rgb), 0.48) 0 1.8px,
+      rgba(var(--choice-rgb), 0.34) 0 1.8px,
       transparent 2.4px
     ),
     radial-gradient(
       circle at calc(100% - 2.1rem) calc(100% - 2.1rem),
-      rgba(var(--choice-rgb), 0.32) 0 1.6px,
+      rgba(var(--choice-rgb), 0.22) 0 1.6px,
       transparent 2.3px
     ),
     repeating-linear-gradient(
       90deg,
-      rgba(var(--choice-rgb), 0.075) 0 1px,
+      rgba(var(--choice-rgb), 0.045) 0 1px,
       transparent 1px 16px
     ),
     repeating-linear-gradient(
       0deg,
       transparent 0 23px,
-      rgba(var(--choice-rgb), 0.032) 23px 24px
+      rgba(var(--choice-rgb), 0.016) 23px 24px
     ),
     radial-gradient(
       78% 68% at 10% 0%,
-      rgba(var(--choice-rgb), 0.16),
+      rgba(var(--choice-rgb), 0.09),
       transparent 62%
     ),
     linear-gradient(180deg, rgba(232, 222, 203, 0.045) 0%, transparent 38%);
@@ -4440,10 +4439,10 @@ body::after {
 
 .setup-choice-card-greenfield .kit-icon {
   background:
-    linear-gradient(180deg, rgba(var(--choice-rgb), 0.12), transparent 62%),
+    linear-gradient(180deg, rgba(var(--choice-rgb), 0.1), transparent 62%),
     repeating-linear-gradient(
       90deg,
-      rgba(var(--choice-rgb), 0.1) 0 1px,
+      rgba(var(--choice-rgb), 0.075) 0 1px,
       transparent 1px 14px
     ),
     var(--color-panel-raised);
@@ -4451,10 +4450,10 @@ body::after {
 
 .setup-choice-card-greenfield .setup-choice-command {
   background:
-    linear-gradient(90deg, rgba(var(--choice-rgb), 0.16), transparent 42%),
+    linear-gradient(90deg, rgba(var(--choice-rgb), 0.11), transparent 42%),
     repeating-linear-gradient(
       90deg,
-      rgba(var(--choice-rgb), 0.12) 0 1px,
+      rgba(var(--choice-rgb), 0.075) 0 1px,
       transparent 1px 18px
     ),
     rgba(10, 7, 5, 0.42);
@@ -4465,35 +4464,35 @@ body::after {
   --choice-rgb: var(--signal-brownfield-rgb);
   --choice-pattern: repeating-linear-gradient(
     -24deg,
-    rgba(var(--choice-rgb), 0.07) 0 1px,
+    rgba(var(--choice-rgb), 0.045) 0 1px,
     transparent 1px 13px
   );
   background-image:
     linear-gradient(
       90deg,
-      rgba(var(--choice-rgb), 0.5) 0,
-      rgba(var(--choice-rgb), 0.5) 3px,
+      rgba(var(--choice-rgb), 0.42) 0,
+      rgba(var(--choice-rgb), 0.42) 3px,
       transparent 3px
     ),
     linear-gradient(
       135deg,
       transparent 0 calc(100% - 2.1rem),
-      rgba(var(--choice-rgb), 0.16) calc(100% - 2.1rem) calc(100% - 2rem),
+      rgba(var(--choice-rgb), 0.1) calc(100% - 2.1rem) calc(100% - 2rem),
       transparent calc(100% - 2rem)
     ),
     repeating-linear-gradient(
       -24deg,
-      rgba(var(--choice-rgb), 0.07) 0 1px,
+      rgba(var(--choice-rgb), 0.045) 0 1px,
       transparent 1px 13px
     ),
     repeating-linear-gradient(
       90deg,
       transparent 0 27px,
-      rgba(var(--choice-rgb), 0.026) 27px 28px
+      rgba(var(--choice-rgb), 0.014) 27px 28px
     ),
     radial-gradient(
       78% 68% at 10% 0%,
-      rgba(var(--choice-rgb), 0.15),
+      rgba(var(--choice-rgb), 0.085),
       transparent 62%
     ),
     linear-gradient(180deg, rgba(232, 222, 203, 0.045) 0%, transparent 38%);
@@ -4506,10 +4505,10 @@ body::after {
 
 .setup-choice-card-brownfield .kit-icon {
   background:
-    linear-gradient(180deg, rgba(var(--choice-rgb), 0.13), transparent 62%),
+    linear-gradient(180deg, rgba(var(--choice-rgb), 0.1), transparent 62%),
     repeating-linear-gradient(
       -24deg,
-      rgba(var(--choice-rgb), 0.11) 0 1px,
+      rgba(var(--choice-rgb), 0.075) 0 1px,
       transparent 1px 12px
     ),
     var(--color-panel-raised);
@@ -4517,10 +4516,10 @@ body::after {
 
 .setup-choice-card-brownfield .setup-choice-command {
   background:
-    linear-gradient(90deg, rgba(var(--choice-rgb), 0.16), transparent 42%),
+    linear-gradient(90deg, rgba(var(--choice-rgb), 0.11), transparent 42%),
     repeating-linear-gradient(
       -24deg,
-      rgba(var(--choice-rgb), 0.1) 0 1px,
+      rgba(var(--choice-rgb), 0.075) 0 1px,
       transparent 1px 13px
     ),
     rgba(10, 7, 5, 0.42);
@@ -5293,13 +5292,13 @@ body::after {
 .pilot-lamp-green {
   --lamp-signal: var(--signal-evidence);
   --lamp-rgb: var(--signal-evidence-rgb);
-  --lamp-highlight: rgba(239, 250, 221, 0.68);
+  --lamp-highlight: rgba(244, 250, 225, 0.68);
 }
 
 .pilot-lamp-greenfield {
   --lamp-signal: var(--signal-greenfield);
   --lamp-rgb: var(--signal-greenfield-rgb);
-  --lamp-highlight: rgba(226, 252, 237, 0.66);
+  --lamp-highlight: rgba(226, 250, 233, 0.66);
 }
 
 .pilot-lamp-brownfield {
@@ -5312,7 +5311,7 @@ body::after {
 .pilot-lamp-olive {
   --lamp-signal: var(--signal-reference);
   --lamp-rgb: var(--signal-reference-rgb);
-  --lamp-highlight: rgba(239, 229, 174, 0.66);
+  --lamp-highlight: rgba(222, 250, 244, 0.66);
 }
 
 .pilot-lamp-change,

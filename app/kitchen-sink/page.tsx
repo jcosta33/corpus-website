@@ -62,13 +62,15 @@ const specimenRegister = [
 
 const paletteRoles: SignalRole[] = [
   "core",
-  "evidence",
   "greenfield",
   "brownfield",
   "change",
+  "evidence",
   "reference",
   "muted",
 ];
+
+const terminalSpecimenCommand = "corpus status";
 
 function PreviewSection({
   id,
@@ -398,7 +400,11 @@ export default function KitchenSinkPage() {
         title="Terminal window"
         registerTone="reference"
       >
-        <TerminalWindow title="terminal">
+        <TerminalWindow
+          title="terminal"
+          copyText={terminalSpecimenCommand}
+          copyLabel="Copy command"
+        >
           <p className="text-concrete-500"># CRT monitor panel</p>
           <p className="text-concrete-100">
               <span className="text-corpus-yellow">$</span>{" "}corpus status

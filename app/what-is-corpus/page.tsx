@@ -132,6 +132,8 @@ const adjacent = [
   relation: string;
 }>;
 
+const overviewDiagnosticCommand = "cat what-is-corpus.md";
+
 const boundarySteps = [
   {
     label: "01",
@@ -253,11 +255,13 @@ export default function WhatIsCorpusPage() {
         <Panel brushed className="overview-terminal-shell mx-auto h-full max-w-3xl p-2">
           <TerminalWindow
             title="diagnostics"
+            copyText={overviewDiagnosticCommand}
+            copyLabel="Copy command"
             className="overview-terminal mx-auto h-full max-w-3xl"
             contentClassName="overview-terminal-content"
           >
             <p className="text-concrete-400">
-              <span className="text-corpus-yellow">$</span> cat
+              <span className="text-corpus-yellow">$</span> cat{" "}
               what-is-corpus.md
             </p>
             <p className="mt-2 text-concrete-100">

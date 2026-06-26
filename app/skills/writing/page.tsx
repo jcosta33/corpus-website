@@ -52,6 +52,25 @@ const descriptionRules = [
   "Name when to skip it.",
 ];
 
+const skillFolderLayout = [
+  "# minimal",
+  "skills/write-feature/",
+  "  SKILL.md",
+  "",
+  "# with one reference",
+  "skills/write-feature/",
+  "  SKILL.md",
+  "  references/",
+  "    task-template.md",
+].join("\n");
+
+const skillFrontMatter = [
+  "---",
+  "name: write-feature",
+  "description: Implement a feature from a spec. ALWAYS apply when the task adds behavior. Do not refactor in passing. Skip fixes, migrations, and test-only work.",
+  "---",
+].join("\n");
+
 const bodyRules = [
   {
     icon: ListOrdered,
@@ -176,7 +195,11 @@ export default function WritingSkillsPage() {
           </p>
         </div>
         <Panel brushed className="p-2">
-          <TerminalWindow title="terminal">
+          <TerminalWindow
+            title="terminal"
+            copyText={skillFolderLayout}
+            copyLabel="Copy layout"
+          >
             <p className="text-concrete-500"># minimal</p>
             <p className="text-concrete-100">
               skills/write-feature/
@@ -223,7 +246,11 @@ export default function WritingSkillsPage() {
           </ul>
         </Card>
         <Panel brushed className="p-2">
-          <TerminalWindow title="SKILL.md">
+          <TerminalWindow
+            title="SKILL.md"
+            copyText={skillFrontMatter}
+            copyLabel="Copy front matter"
+          >
             <p className="text-concrete-500">---</p>
             <p className="text-concrete-100">name: write-feature</p>
             <p className="text-concrete-100">

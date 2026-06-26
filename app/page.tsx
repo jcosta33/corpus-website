@@ -74,6 +74,8 @@ const loopSteps = [
   { label: "Close", signal: "reference" },
 ] as const satisfies Array<{ label: string; signal: SignalRole }>;
 
+const heroReviewCommand = "corpus review TASK-auth-refresh";
+
 const heroProofs = [
   {
     label: "Plain markdown",
@@ -291,7 +293,12 @@ export default function HomePage() {
                   <Badge variant="ready">ready</Badge>
                 </div>
                 <StepRail />
-                <TerminalWindow title="corpus status" className="mt-4">
+                <TerminalWindow
+                  title="corpus status"
+                  copyText={heroReviewCommand}
+                  copyLabel="Copy command"
+                  className="mt-4"
+                >
                   <p className="text-concrete-500"># current run</p>
                   <p>
                     <span className="text-signal-core">$</span> corpus review
