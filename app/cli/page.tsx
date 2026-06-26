@@ -254,8 +254,8 @@ export default function CliPage() {
               return (
                 <li
                   key={family.label}
-                    className={`cli-command-step ${signalRoles[family.signal].processItem} bg-panel-raised/95`}
-                  >
+                  className={`cli-command-step ${signalRoles[family.signal].processItem} bg-panel-raised/95`}
+                >
                   <a
                     href={`#${family.id}`}
                     className="cli-command-link focus-ring group block h-full p-5 transition-colors duration-150 hover:bg-panel sm:p-6"
@@ -414,6 +414,7 @@ export default function CliPage() {
         </div>
         <div className="grid gap-8">
           {commandFamilies.map((family) => {
+            const signal = family.signal;
             const familyCommands = commands.filter(
               (command) => command.family === family.label,
             );
@@ -421,12 +422,12 @@ export default function CliPage() {
               <section
                 key={family.label}
                 id={family.id}
-                className="scroll-mt-28"
+                className={`cli-command-section cli-command-section-${signal} scroll-mt-28`}
                 aria-labelledby={`${family.id}-heading`}
               >
-                <div className="mb-4 flex flex-wrap items-end justify-between gap-3 border-b border-panel-border pb-3">
+                <div className="cli-command-section-heading mb-4 flex flex-wrap items-end justify-between gap-3 pb-3">
                   <div>
-                    <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-signal-reference">
+                    <p className={`font-mono text-xs font-semibold uppercase tracking-[0.12em] ${signalRoles[signal].text}`}>
                       {family.commands}
                     </p>
                     <h3
@@ -436,10 +437,10 @@ export default function CliPage() {
                       {family.label} commands
                     </h3>
                   </div>
-                  <Badge variant="ready">
+                  <span className="cli-command-count">
                     {familyCommands.length} command
                     {familyCommands.length === 1 ? "" : "s"}
-                  </Badge>
+                  </span>
                 </div>
                 <ul className="grid gap-4 sm:grid-cols-2">
                   {familyCommands.map((c) => {
@@ -448,15 +449,15 @@ export default function CliPage() {
                       <li key={c.cmd} className="min-w-0">
                         <Card
                           screws
-                          className="group h-full border-panel-border hover-border-signal-reference"
+                          className={`group h-full border-panel-border ${signalRoles[signal].hoverBorder}`}
                         >
-                          <div className="catalog-row catalog-row-reference relative pr-8">
+                          <div className={`catalog-row catalog-row-${signal} relative pr-8`}>
                             <div className="flex min-w-0 items-start gap-4">
-                              <HexBadge color="reference" className="catalog-row-badge">
+                              <HexBadge color={signal} className="catalog-row-badge">
                                 <Icon className="h-5 w-5" aria-hidden="true" />
                               </HexBadge>
                               <div className="min-w-0">
-                                <h4 className="catalog-row-title font-mono text-[13px] leading-snug font-semibold text-signal-reference break-words sm:text-sm">
+                                <h4 className={`catalog-row-title font-mono text-[13px] leading-snug font-semibold break-words sm:text-sm ${signalRoles[signal].text}`}>
                                   corpus {c.cmd}
                                 </h4>
                                 <p className="catalog-row-copy mt-1 text-sm leading-relaxed text-concrete-400">
@@ -465,7 +466,7 @@ export default function CliPage() {
                               </div>
                             </div>
                             <PilotLamp
-                              color="reference"
+                              color={signal}
                               className="absolute top-0 right-0"
                             />
                           </div>

@@ -649,6 +649,29 @@ body::after {
     auto;
 }
 
+@supports (animation-timeline: scroll()) {
+  .site-header {
+    animation: site-header-scroll-reveal linear both;
+    animation-range: 0 5rem;
+    animation-timeline: scroll(root block);
+  }
+}
+
+@keyframes site-header-scroll-reveal {
+  0% {
+    background-color: transparent;
+    border-bottom-color: transparent;
+    box-shadow: none;
+  }
+
+  18%,
+  100% {
+    background-color: var(--color-footer);
+    border-bottom-color: var(--color-panel-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  }
+}
+
 .site-nav-link {
   isolation: isolate;
 }
@@ -1765,6 +1788,68 @@ body::after {
   .cli-command-link {
     min-height: 10.2rem;
   }
+}
+
+.cli-command-section {
+  --cli-section-signal: var(--signal-reference);
+  --cli-section-rgb: var(--signal-reference-rgb);
+}
+
+.cli-command-section-core {
+  --cli-section-signal: var(--signal-core);
+  --cli-section-rgb: var(--signal-core-rgb);
+}
+
+.cli-command-section-evidence {
+  --cli-section-signal: var(--signal-evidence);
+  --cli-section-rgb: var(--signal-evidence-rgb);
+}
+
+.cli-command-section-change {
+  --cli-section-signal: var(--signal-change);
+  --cli-section-rgb: var(--signal-change-rgb);
+}
+
+.cli-command-section-reference {
+  --cli-section-signal: var(--signal-reference);
+  --cli-section-rgb: var(--signal-reference-rgb);
+}
+
+.cli-command-section-heading {
+  position: relative;
+  border-bottom: 1px solid rgba(var(--cli-section-rgb), 0.3);
+}
+
+.cli-command-section-heading::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--cli-section-rgb), 0.68),
+    rgba(var(--cli-section-rgb), 0.16) 34%,
+    transparent 72%
+  );
+}
+
+.cli-command-count {
+  display: inline-flex;
+  min-height: 1.75rem;
+  align-items: center;
+  border: 1px solid rgba(var(--cli-section-rgb), 0.44);
+  border-radius: calc(var(--radius-control) - 3px);
+  background:
+    linear-gradient(180deg, rgba(var(--cli-section-rgb), 0.12), transparent 70%),
+    rgba(10, 7, 5, 0.38);
+  color: var(--cli-section-signal);
+  padding: 0.18rem 0.58rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: inset 0 1px 0 rgba(240, 226, 204, 0.045);
 }
 
 /* Skill anatomy rail — small manual index for SKILL.md. */
