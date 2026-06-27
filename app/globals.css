@@ -4580,18 +4580,13 @@ body::after {
     rgba(var(--loop-step-rgb), 0.72),
     transparent
   );
-  opacity: 0.68;
-  transform: scaleY(0.62);
-  transform-origin: center;
-  transition:
-    opacity 150ms ease,
-    transform 150ms ease;
+  opacity: 0.64;
+  transition: opacity 150ms ease;
 }
 
 .loop-step-card:hover::before,
 .loop-step-card:focus-visible::before {
-  opacity: 1;
-  transform: scaleY(1);
+  opacity: 0.9;
 }
 
 .loop-step-connector {
@@ -5270,7 +5265,7 @@ body::after {
 .catalog-row {
   --catalog-signal: var(--signal-core);
   --catalog-rgb: var(--signal-core-rgb);
-  --catalog-signal-soft: rgba(var(--catalog-rgb), 0.62);
+  --catalog-signal-soft: rgba(var(--catalog-rgb), 0.44);
   --catalog-mark: var(--signal-mark-core);
   --catalog-pattern:
     linear-gradient(90deg, rgba(var(--catalog-rgb), 0.05), transparent 56%),
@@ -5297,12 +5292,8 @@ body::after {
     var(--catalog-signal),
     transparent
   );
-  opacity: 0.38;
-  transform: scaleY(0.62);
-  transform-origin: center;
-  transition:
-    opacity 160ms ease,
-    transform 160ms ease;
+  opacity: 0.42;
+  transition: opacity 160ms ease;
 }
 
 .catalog-row-reference,
@@ -5380,20 +5371,20 @@ body::after {
 
 .catalog-row-badge {
   transition:
-    filter 160ms ease,
-    transform 160ms ease;
+    filter 160ms ease;
 }
 
 .group:hover .catalog-row::before,
-.group:focus-within .catalog-row::before {
-  opacity: 0.92;
-  transform: scaleY(1);
+.group:focus-within .catalog-row::before,
+.catalog-row:hover::before,
+.catalog-row:focus-visible::before {
+  opacity: 0.74;
 }
 
 .group:hover .catalog-row-title,
 .group:focus-within .catalog-row-title {
   color: var(--catalog-signal);
-  text-shadow: 0 0 14px var(--catalog-signal-soft);
+  text-shadow: 0 0 10px var(--catalog-signal-soft);
 }
 
 .group:hover .catalog-row-copy,
@@ -5403,7 +5394,7 @@ body::after {
 
 .group:hover .catalog-row-badge,
 .group:focus-within .catalog-row-badge {
-  filter: saturate(1.16) brightness(1.08);
+  filter: saturate(1.08) brightness(1.04);
 }
 
 .accent-card {
@@ -6263,17 +6254,12 @@ body::after {
     transparent
   );
   opacity: 0;
-  transform: scaleY(0.48);
-  transform-origin: center;
-  transition:
-    opacity 160ms ease,
-    transform 160ms ease;
+  transition: opacity 160ms ease;
 }
 
 .agent-roster-cell:hover::before,
 .agent-roster-cell:focus-visible::before {
-  opacity: 0.78;
-  transform: scaleY(1);
+  opacity: 0.68;
 }
 
 .agent-roster-icon {
@@ -8096,9 +8082,6 @@ body::after {
     transform: none !important;
   }
 
-  .catalog-row::before {
-    transform: scaleY(1);
-  }
 }
 
 /* Scrollbars — keep the night silky-smooth even when content scrolls
