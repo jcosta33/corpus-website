@@ -7,8 +7,9 @@
      the public site stays warm. Public accents are semantic, not decorative:
      greenfield = literal new-workspace paths, brownfield = existing-project
      adoption, change = active edits/attention, evidence = proof/review,
-     reference = manuals and catalogs. Green means greenfield, not "good";
-     sage means evidence, not "new"; setup alone is not green.
+     reference = manuals and catalogs. Brown means existing-project work.
+     Green means greenfield, not "good"; sage means evidence, not "new";
+     setup alone is not green.
      The role should travel as a set: text, lamp, rail, border, hatch, hover.
      Panels stay dark; color marks meaning instead of painting surfaces. */
   --color-night: #110e0c;
@@ -37,9 +38,9 @@
   --color-amber: #f0a33a;
   --color-complement: #2472d8;
   --color-phosphor: #b7c96c;
-  --color-greenfield: #78c487;
-  --color-brownfield: #b87545;
-  --color-verdigris: #7fc7be;
+  --color-greenfield: #7fbd82;
+  --color-brownfield: #a96b40;
+  --color-verdigris: #78bdb2;
   --color-rubedo: #d2795c;
   --color-olive: var(--color-phosphor);
   --color-black-text: #100b07;
@@ -50,13 +51,13 @@
   --signal-evidence: var(--color-phosphor);
   --signal-evidence-rgb: 183, 201, 108;
   --signal-greenfield: var(--color-greenfield);
-  --signal-greenfield-rgb: 120, 196, 135;
+  --signal-greenfield-rgb: 127, 189, 130;
   --signal-brownfield: var(--color-brownfield);
-  --signal-brownfield-rgb: 184, 117, 69;
+  --signal-brownfield-rgb: 169, 107, 64;
   --signal-change: var(--color-rubedo);
   --signal-change-rgb: 210, 121, 92;
   --signal-reference: var(--color-verdigris);
-  --signal-reference-rgb: 127, 199, 190;
+  --signal-reference-rgb: 120, 189, 178;
   --signal-muted: var(--color-brass);
   --signal-muted-rgb: 184, 132, 74;
 
@@ -281,9 +282,9 @@
   --c-amber: #f0a33a;
   --c-complement: #2472d8;
   --c-phosphor: #b7c96c;
-  --c-greenfield: #78c487;
-  --c-brownfield: #b87545;
-  --c-verdigris: #7fc7be;
+  --c-greenfield: #7fbd82;
+  --c-brownfield: #a96b40;
+  --c-verdigris: #78bdb2;
   --c-rubedo: #d2795c;
   --c-olive: var(--c-phosphor);
   --signal-core: var(--color-aurum);
@@ -291,13 +292,13 @@
   --signal-evidence: var(--color-phosphor);
   --signal-evidence-rgb: 183, 201, 108;
   --signal-greenfield: var(--color-greenfield);
-  --signal-greenfield-rgb: 120, 196, 135;
+  --signal-greenfield-rgb: 127, 189, 130;
   --signal-brownfield: var(--color-brownfield);
-  --signal-brownfield-rgb: 184, 117, 69;
+  --signal-brownfield-rgb: 169, 107, 64;
   --signal-change: var(--color-rubedo);
   --signal-change-rgb: 210, 121, 92;
   --signal-reference: var(--color-verdigris);
-  --signal-reference-rgb: 127, 199, 190;
+  --signal-reference-rgb: 120, 189, 178;
   --signal-muted: var(--color-brass);
   --signal-muted-rgb: 184, 132, 74;
   --c-paper: #f0e2cc;
@@ -2777,56 +2778,6 @@ body::after {
 
 .home-hero-proof-label {
   color: var(--proof-signal);
-}
-
-.home-signal-key-wrap {
-  display: grid;
-  gap: 1rem;
-  border: 1px solid rgba(var(--signal-muted-rgb), 0.24);
-  border-radius: var(--radius-panel);
-  background:
-    linear-gradient(90deg, rgba(var(--signal-muted-rgb), 0.055), transparent 48%),
-    repeating-linear-gradient(
-      90deg,
-      rgba(var(--signal-muted-rgb), 0.025) 0 1px,
-      transparent 1px 1.5rem
-    ),
-    rgba(22, 16, 12, 0.54);
-  padding: clamp(1rem, 2vw, 1.25rem);
-  box-shadow:
-    inset 0 1px 0 rgba(240, 226, 204, 0.045),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.42);
-}
-
-.home-signal-key {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.5rem;
-}
-
-.home-signal-key .signal-key-item {
-  min-width: 0;
-  min-height: 4rem;
-  flex: initial;
-  align-items: flex-start;
-  padding: 0.65rem 0.72rem;
-}
-
-.home-signal-key .signal-key-detail {
-  font-size: 0.72rem;
-  line-height: 1.25;
-}
-
-@media (max-width: 62rem) {
-  .home-signal-key {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 40rem) {
-  .home-signal-key {
-    grid-template-columns: 1fr;
-  }
 }
 
 .home-step-rail-item {

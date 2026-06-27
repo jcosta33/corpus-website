@@ -24,13 +24,8 @@ import { Panel } from "./components/Panel";
 import { PaperArtifact } from "./components/PaperArtifact";
 import { PilotLamp } from "./components/PilotLamp";
 import { Section } from "./components/Section";
-import { SignalKey } from "./components/SignalKey";
 import { TerminalWindow } from "./components/TerminalWindow";
-import {
-  signalRoles,
-  signalSystemKey,
-  type SignalRole,
-} from "./components/signalStyles";
+import { signalRoles, type SignalRole } from "./components/signalStyles";
 
 const softwareApp = {
   "@context": "https://schema.org",
@@ -379,23 +374,6 @@ export default function HomePage() {
               A useful run leaves a trail: request, scope, checks, evidence,
               and findings.
             </p>
-          </div>
-          <div className="home-signal-key-wrap">
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-signal-muted">
-                signal key
-              </p>
-              <p className="mt-2 max-w-xl text-sm leading-relaxed text-concrete-400">
-                Signals mark what a record is doing: setup path, action,
-                change, evidence, source context, or neutral chrome. The role
-                drives the color, lamp, rail, border, and hover state together.
-              </p>
-            </div>
-            <SignalKey
-              ariaLabel="Corpus site color role key"
-              items={signalSystemKey}
-              className="home-signal-key"
-            />
           </div>
           <ol className="review-signal-rail" aria-label="Review signal path">
             {failureModes.map((mode) => (

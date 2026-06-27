@@ -276,6 +276,58 @@ const rehypeFocusableScrollables: Plugin<[], HastRoot> = () => (tree) => {
   });
 };
 
+const rehypeWrapCodeBlocks: Plugin<[], HastRoot> = () => (tree) => {
+  visit(tree, "element", (node, index, parent) => {
+    if (node.tagName !== "pre" || index === undefined || !parent) return;
+    if (!("children" in parent)) return;
+    if (
+      "tagName" in parent &&
+      parent.tagName === "div" &&
+      hasClass(parent, "docs-code-shell")
+    )
+      return SKIP;
+
+    const wrapper: HastElement = {
+      type: "element",
+      tagName: "div",
+      properties: { className: ["docs-code-shell"] },
+      children: [
+        {
+          type: "element",
+          tagName: "div",
+          properties: {
+            className: ["docs-code-toolbar"],
+            dataPagefindIgnore: "true",
+          },
+          children: [
+            {
+              type: "element",
+              tagName: "span",
+              properties: { className: ["docs-code-label"] },
+              children: [{ type: "text", value: "code" }],
+            },
+            {
+              type: "element",
+              tagName: "button",
+              properties: {
+                type: "button",
+                className: ["docs-code-copy", "copy-button", "focus-ring"],
+                ariaLabel: "Copy code sample",
+                dataDocsCodeCopy: "true",
+              },
+              children: [{ type: "text", value: "copy" }],
+            },
+          ],
+        },
+        node,
+      ],
+    };
+
+    parent.children[index] = wrapper as ElementContent;
+    return SKIP;
+  });
+};
+
 // Group every h2-led section so the generated manual can carry a consistent ledger surface without
 // requiring source-doc wrappers. Content before the first h2 stays as normal opening prose.
 const rehypeWrapLedgerSections: Plugin<[], HastRoot> = () => (tree) => {
@@ -511,6 +563,7 @@ export async function renderDoc(
     .use(rehypeLabelTaskCheckboxes)
     .use(rehypeLabelTableCells)
     .use(rehypeWrapTables)
+    .use(rehypeWrapCodeBlocks)
     .use(rehypeFocusableScrollables)
     .use(rehypeWrapLedgerSections)
     .use(rehypeStringify, { allowDangerousHtml: true })

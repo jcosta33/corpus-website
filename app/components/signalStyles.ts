@@ -9,11 +9,12 @@
 // Prefer these role names over raw color aliases in new component code.
 // The hue family is intentional: core starts at gold HSL(34 71% 49%).
 // The exact complement is reserved for diagnostics; public complements use
-// softer field, sage, umber, clay, and verdigris roles. Green means
-// greenfield, not "good"; sage means evidence, not "new". A role is more than a
-// color: use it for the text, lamp, rail, border, hatch, mark, icon, command
-// plate, and hover state. Setup is not automatically green: only new-workspace
-// paths get greenfield; mixed setup surfaces use reference, core, or muted. If a
+// softer field, sage, umber, clay, and verdigris roles. Brown means existing
+// project; green means greenfield, not "good"; sage means evidence, not "new".
+// A role is more than a color: use it for the text, lamp, rail, border, hatch,
+// mark, icon, command plate, and hover state. Setup is not automatically green:
+// only new-workspace paths get greenfield; mixed setup surfaces use reference,
+// core, or muted. If a
 // role appears on only one of those surfaces, the color will read as random
 // decoration instead of product meaning.
 // In CSS, reach for --signal-pattern-* and --signal-mark-* with the matching
@@ -49,9 +50,9 @@ export const signalRoleMeta = {
   greenfield: {
     label: "greenfield",
     family: "setup path",
-    hex: "#78C487",
-    relationship: "fresh field green: HSL(132 39% 62%)",
-    wheel: "+98° from core",
+    hex: "#7FBD82",
+    relationship: "fresh field green: HSL(123 32% 62%)",
+    wheel: "+89° from core",
     tone: "fresh field green",
     use: "Fresh workspace setup paths, starter kits, first-run tutorial paths, and new-repo choices.",
     surface: "new-file icons, starter-kit cards, clean-start rails, and first-run command plates",
@@ -62,8 +63,8 @@ export const signalRoleMeta = {
   brownfield: {
     label: "brownfield",
     family: "setup path",
-    hex: "#B87545",
-    relationship: "survey umber: HSL(25 45% 50%)",
+    hex: "#A96B40",
+    relationship: "survey umber: HSL(25 45% 46%)",
     wheel: "-9° from core",
     tone: "survey umber",
     use: "Existing-project adoption, migration, repo-history paths, and brownfield choices only.",
@@ -88,9 +89,9 @@ export const signalRoleMeta = {
   reference: {
     label: "reference",
     family: "manual / catalog",
-    hex: "#7FC7BE",
-    relationship: "tempered split-complement: HSL(173 39% 64%)",
-    wheel: "+139° from core",
+    hex: "#78BDB2",
+    relationship: "tempered split-complement: HSL(170 34% 61%)",
+    wheel: "+136° from core",
     tone: "verdigris ledger",
     use: "Docs, manuals, command catalogs, ledgers, index surfaces, loaders, and read-only rosters.",
     surface: "ledger rules, source notes, and reference shelves",

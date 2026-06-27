@@ -11,6 +11,7 @@ import {
 } from "../lib/canon";
 import { renderDoc, titleOf, descriptionOf } from "../lib/render";
 import { JsonLd } from "../../components/JsonLd";
+import { DocsCodeCopy } from "../components/DocsCodeCopy";
 import { DocsToc } from "../components/DocsToc";
 
 export const dynamicParams = false;
@@ -207,6 +208,7 @@ export default async function DocPage({
             )}
           </div>
         </header>
+        <DocsCodeCopy />
         <div className="docs-article-html" dangerouslySetInnerHTML={{ __html: html }} />
 
         {(prev || next) && (
