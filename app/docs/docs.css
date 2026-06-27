@@ -991,7 +991,11 @@
   }
 
   .docs-source-path {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     flex-basis: 100%;
+    gap: 0.24rem 0.36rem;
     order: 3;
     overflow: visible;
     text-overflow: clip;
@@ -999,9 +1003,14 @@
   }
 
   .docs-prose .docs-source-note .docs-source-path a {
-    display: inline;
-    min-height: auto;
+    display: inline-flex;
+    min-height: 2rem;
+    align-items: center;
     margin-top: 0;
+    border: 1px solid rgba(var(--signal-core-rgb), 0.22);
+    border-radius: calc(var(--radius-control) - 4px);
+    padding: 0.08rem 0.42rem;
+    background: rgba(var(--signal-core-rgb), 0.055);
   }
 
   .docs-source-date {
