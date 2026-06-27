@@ -898,10 +898,18 @@
 
 @media (max-width: 48rem) {
   .docs-article-html h2 {
-    gap: 0.55rem;
-    margin-top: 2.45rem;
-    padding: 0.62rem 0.7rem;
-    font-size: 1.2rem;
+    gap: 0.5rem;
+    margin-top: 2.15rem;
+    margin-bottom: 0.8rem;
+    padding: 0.52rem 0.62rem;
+    font-size: 1.12rem;
+  }
+
+  .docs-article-html h2::before,
+  .docs-heading-prefix {
+    width: 1.55rem;
+    height: 1.32rem;
+    font-size: 0.62rem;
   }
 
   .docs-article-html h2::after {
@@ -909,6 +917,7 @@
   }
 
   .docs-article-html h3 {
+    margin-top: 1.65rem;
     padding-left: 0.72rem;
   }
 }
@@ -1445,6 +1454,7 @@
 }
 @media (max-width: 48rem) {
   .docs-table-scroll {
+    margin: 1.15rem 0;
     overflow-x: visible;
     border: 0;
     border-radius: 0;
@@ -1457,6 +1467,7 @@
   .docs-prose table {
     display: block;
     min-width: 100%;
+    font-size: 0.86rem;
   }
 
   .docs-prose thead {
@@ -1470,7 +1481,7 @@
 
   .docs-prose tbody {
     display: grid;
-    gap: 0.5rem;
+    gap: 0.42rem;
   }
 
   .docs-prose tr {
@@ -1478,14 +1489,14 @@
     overflow: hidden;
     border: 1px solid var(--color-panel-border);
     border-radius: var(--radius-panel);
-    background: rgba(36, 29, 21, 0.74);
+    background: rgba(32, 25, 18, 0.72);
   }
 
   .docs-prose td {
     display: grid;
     gap: 0.12rem;
     border: 0;
-    padding: 0.5rem 0.7rem;
+    padding: 0.42rem 0.6rem;
     overflow-wrap: anywhere;
   }
 
