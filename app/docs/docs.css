@@ -1837,26 +1837,18 @@
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.38rem;
+  gap: 0.42rem;
   align-content: start;
-  overflow: hidden;
+  overflow: visible;
   margin: 0;
-  padding: 0.56rem;
-  border: 1px solid rgba(var(--signal-reference-rgb), 0.34);
-  border-radius: var(--radius-panel);
+  padding: 0.32rem 0 0;
+  border: 0;
+  border-radius: 0;
   background:
-    linear-gradient(90deg, rgba(var(--signal-reference-rgb), 0.08), transparent 48%),
-    var(--signal-pattern-reference),
-    radial-gradient(
-      80% 90% at 100% 0%,
-      rgba(var(--signal-core-rgb), 0.08),
-      transparent 62%
-    ),
-    linear-gradient(180deg, rgba(20, 17, 13, 0.78), rgba(10, 7, 5, 0.58));
-  box-shadow:
-    inset 0 1px 0 rgba(240, 226, 204, 0.055),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.42),
-    0 0 0 1px rgba(var(--signal-reference-rgb), 0.035);
+    linear-gradient(90deg, rgba(var(--signal-reference-rgb), 0.34), transparent 74%)
+      top left / 100% 1px no-repeat,
+    radial-gradient(82% 90% at 100% 0%, rgba(var(--signal-reference-rgb), 0.045), transparent 66%);
+  box-shadow: none;
 }
 
 .docs-index-manual::before,
@@ -1867,43 +1859,41 @@
 }
 
 .docs-index-manual::before {
-  top: 0.64rem;
-  right: 0.7rem;
-  left: 0.7rem;
-  height: 1px;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 2.35rem;
   background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(var(--signal-reference-rgb), 0.44),
-    rgba(var(--signal-core-rgb), 0.34),
+    180deg,
+    rgba(var(--signal-reference-rgb), 0.055),
     transparent
   );
-  opacity: 0.74;
+  opacity: 0.9;
 }
 
 .docs-index-manual::after {
-  right: 0.7rem;
-  bottom: 0.7rem;
-  left: 0.7rem;
-  height: 0.38rem;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 0.3rem;
   background: radial-gradient(
       circle,
-      rgba(var(--signal-reference-rgb), 0.36) 0 1.2px,
-      transparent 1.8px
+      rgba(var(--signal-reference-rgb), 0.28) 0 1px,
+      transparent 1.55px
     )
-    left center / 0.86rem 0.38rem repeat-x;
-  opacity: 0.48;
+    left center / 0.78rem 0.3rem repeat-x;
+  opacity: 0.42;
 }
 
 .docs-index-manual > span {
   position: relative;
   z-index: 1;
   display: inline-flex;
-  min-height: 1.35rem;
+  min-height: 1.45rem;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(var(--signal-reference-rgb), 0.24);
-  border-radius: calc(var(--radius-control) - 3px);
+  border: 1px solid rgba(var(--signal-reference-rgb), 0.18);
+  border-radius: calc(var(--radius-control) - 4px);
   padding: 0.08rem 0.38rem;
   color: var(--color-concrete-300);
   font-family: var(--font-mono), ui-monospace, monospace;
@@ -1913,16 +1903,19 @@
   line-height: 1.2;
   text-align: center;
   text-transform: uppercase;
-  background: rgba(10, 7, 5, 0.34);
+  background: rgba(10, 7, 5, 0.18);
 }
 
 .docs-index-manual > span:first-child {
   grid-column: 1 / -1;
-  border-color: rgba(var(--signal-core-rgb), 0.34);
+  justify-content: flex-start;
+  border-color: transparent;
+  border-bottom: 1px solid rgba(var(--signal-core-rgb), 0.32);
+  border-radius: 0;
   color: var(--signal-core);
   background:
-    linear-gradient(90deg, rgba(var(--signal-core-rgb), 0.1), transparent 58%),
-    rgba(10, 7, 5, 0.38);
+    linear-gradient(90deg, rgba(var(--signal-core-rgb), 0.08), transparent 58%),
+    transparent;
 }
 
 .docs-index-legend {
@@ -1930,11 +1923,11 @@
   z-index: 1;
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(6.25rem, 1fr));
-  gap: 0.3rem;
-  margin: 0.02rem 0 0;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+  gap: 0.16rem 0.56rem;
+  margin: 0.1rem 0 0;
   border-top: 1px solid rgba(var(--signal-reference-rgb), 0.18);
-  padding: 0.34rem 0 0;
+  padding: 0.42rem 0 0.3rem;
   list-style: none;
 }
 
@@ -1942,33 +1935,31 @@
   --legend-signal: var(--signal-muted);
   --legend-rgb: var(--signal-muted-rgb);
   display: grid;
-  min-height: 36px;
+  min-height: 2.5rem;
   align-content: center;
   gap: 0.16rem;
-  border: 1px solid rgba(var(--legend-rgb), 0.3);
-  border-left-color: rgba(var(--legend-rgb), 0.72);
-  border-radius: calc(var(--radius-control) - 3px);
+  border: 0;
+  border-left: 2px solid rgba(var(--legend-rgb), 0.56);
+  border-radius: 0;
   background:
-    linear-gradient(90deg, rgba(var(--legend-rgb), 0.1), transparent 64%),
-    rgba(10, 7, 5, 0.28);
-  padding: 0.25rem 0.42rem;
-  box-shadow: inset 2px 0 0 rgba(var(--legend-rgb), 0.24);
+    linear-gradient(90deg, rgba(var(--legend-rgb), 0.07), transparent 74%),
+    transparent;
+  padding: 0.28rem 0.46rem;
+  box-shadow: none;
   transition:
     border-color 160ms ease,
-    box-shadow 160ms ease;
+    background-color 160ms ease;
 }
 
 .docs-index-legend-item:hover,
 .docs-index-legend-item:focus-within {
-  border-color: rgba(var(--legend-rgb), 0.5);
-  box-shadow:
-    inset 2px 0 0 rgba(var(--legend-rgb), 0.42),
-    0 0 0 1px rgba(var(--legend-rgb), 0.08);
+  border-left-color: rgba(var(--legend-rgb), 0.82);
+  background-color: rgba(var(--legend-rgb), 0.035);
 }
 
 .docs-prose .docs-index-legend-item a {
   display: grid;
-  min-height: 36px;
+  min-height: 2.5rem;
   align-content: center;
   gap: 0.16rem;
   color: inherit;
@@ -2046,33 +2037,37 @@
 @media (max-width: 40rem) {
   .docs-index-cover {
     margin-bottom: 0.95rem;
+    padding: 0.95rem 0.9rem 1rem 1.1rem;
   }
 
   .docs-index-manual {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-top: 0.42rem;
   }
 
   .docs-index-legend {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.16rem 0.35rem;
+    padding: 0.34rem 0 0.18rem;
   }
 
   .docs-index-legend-item {
-    min-height: 2rem;
-    padding: 0.22rem;
+    min-height: 1.95rem;
+    padding: 0.2rem 0.32rem;
   }
 
   .docs-prose .docs-index-legend-item a {
-    min-height: 2rem;
-    justify-items: center;
+    min-height: 1.95rem;
+    justify-items: start;
   }
 
   .docs-index-legend-item span {
-    text-align: center;
+    text-align: left;
     white-space: normal;
   }
 
   .docs-index-legend-item span:first-child {
-    font-size: 0.56rem;
+    font-size: 0.58rem;
     line-height: 1;
   }
 
