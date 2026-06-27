@@ -172,6 +172,42 @@ export function Shell({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
+    const canTrackPointer = window.matchMedia(
+      "(pointer: fine) and (prefers-reduced-motion: no-preference)",
+    );
+    if (!canTrackPointer.matches) return;
+
+    const root = document.documentElement;
+    let frame = 0;
+    let pointerX = window.innerWidth / 2;
+    let pointerY = window.innerHeight * 0.18;
+
+    const updatePointer = () => {
+      frame = 0;
+      root.style.setProperty("--cursor-x", `${pointerX}px`);
+      root.style.setProperty("--cursor-y", `${pointerY}px`);
+    };
+
+    const onPointerMove = (event: PointerEvent) => {
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+      if (frame === 0) {
+        frame = window.requestAnimationFrame(updatePointer);
+      }
+    };
+
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    updatePointer();
+
+    return () => {
+      window.removeEventListener("pointermove", onPointerMove);
+      if (frame !== 0) window.cancelAnimationFrame(frame);
+      root.style.removeProperty("--cursor-x");
+      root.style.removeProperty("--cursor-y");
+    };
+  }, []);
+
+  useEffect(() => {
     if (!menuOpen) return;
 
     const originalOverflow = document.body.style.overflow;
