@@ -3299,26 +3299,31 @@ body::after {
   }
 
   .review-signal-rail {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
   }
 
   .review-signal-rail::before {
-    top: 0.75rem;
-    bottom: 0.75rem;
-    left: 1.15rem;
-    width: 1px;
-    height: auto;
-    background: linear-gradient(
-      180deg,
-      rgba(var(--signal-reference-rgb), 0.56),
-      rgba(var(--signal-change-rgb), 0.54) 50%,
-      rgba(var(--signal-reference-rgb), 0.56)
-    );
+    display: none;
   }
 
   .review-signal-node {
-    min-height: 8.8rem;
-    padding-left: 1.25rem;
+    min-height: auto;
+    padding: 0.85rem 0.75rem;
+  }
+
+  .review-signal-node-head {
+    min-height: 1.25rem;
+  }
+
+  .review-signal-node h3 {
+    margin-top: 0.7rem;
+    font-size: 1rem;
+    line-height: 1.15;
+  }
+
+  .review-signal-node > p:last-child {
+    display: none;
   }
 }
 
