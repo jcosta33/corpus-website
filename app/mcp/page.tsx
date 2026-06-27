@@ -205,9 +205,19 @@ const bridgeSignalKey = [
     detail: "client outside the workspace",
   },
   {
+    label: "Pipe",
+    role: "reference",
+    detail: "local stdio transport",
+  },
+  {
     label: "Adapter",
     role: "core",
     detail: "corpus-mcp process",
+  },
+  {
+    label: "JSON",
+    role: "reference",
+    detail: "CLI contract surface",
   },
   {
     label: "Records",
@@ -215,6 +225,19 @@ const bridgeSignalKey = [
     detail: "CLI JSON and markdown facts",
   },
 ] as const;
+
+const mcpPageNav = [
+  { label: "Bridge", href: "#bridge", signal: "reference" },
+  { label: "Config", href: "#mcp-config", signal: "reference" },
+  { label: "Limits", href: "#guardrails", signal: "change" },
+  { label: "Tools", href: "#mcp-tools", signal: "reference" },
+  { label: "Install", href: "#install", signal: "reference" },
+  { label: "Source", href: "#source", signal: "reference" },
+] as const satisfies Array<{
+  label: string;
+  href: string;
+  signal: SignalRole;
+}>;
 
 export default function McpPage() {
   return (
@@ -245,10 +268,36 @@ export default function McpPage() {
         </PageHero>
       </Section>
 
+      <nav
+        className="mx-auto w-full max-w-7xl px-6 lg:px-8"
+        aria-label="corpus-mcp page sections"
+      >
+        <div className="agent-page-nav">
+          {mcpPageNav.map((item, index) => (
+            <a
+              key={item.href}
+              href={item.href}
+              data-color-role={item.signal}
+              className={`agent-page-nav-link agent-page-nav-link-${item.signal} focus-ring group`}
+            >
+              <span className="agent-page-nav-index">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="agent-page-nav-label">{item.label}</span>
+              <ArrowRight
+                className="motion-nudge-x h-3.5 w-3.5"
+                aria-hidden="true"
+              />
+            </a>
+          ))}
+        </div>
+      </nav>
+
       <Section
+        id="bridge"
         register="01 / bridge"
         registerTone="reference"
-        className="space-y-4"
+        className="scroll-mt-28 space-y-4"
       >
         <SignalKey
           ariaLabel="corpus-mcp bridge color roles"
