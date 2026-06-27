@@ -108,7 +108,7 @@ export default function DocsIndex() {
                 key={item.label}
                 className={`docs-index-legend-item docs-index-legend-${item.role}`}
               >
-                <a href={item.href}>
+                <a href={item.href} aria-label={`${item.label}: ${item.detail}`}>
                   <span>{item.label}</span>
                   <span>{item.detail}</span>
                 </a>
