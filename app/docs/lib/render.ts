@@ -444,6 +444,48 @@ const rehypeCollectHeadings =
     });
   };
 
+// Source docs often use numbered h2s (`1. Pull`). The site already renders a chapter plate, so
+// split the source number into that plate instead of showing `01 1. Pull`.
+const rehypeMarkNumberedHeadings: Plugin<[], HastRoot> = () => (tree) => {
+  visit(tree, "element", (node: HastElement) => {
+    if (node.tagName !== "h2") return;
+    const text = hastText(node.children).trim();
+    const match = text.match(/^(\d+)\.\s+(.+)$/);
+    if (!match) return;
+
+    node.properties = node.properties ?? {};
+    const value = node.properties.className;
+    const classes = Array.isArray(value)
+      ? value
+      : typeof value === "string"
+        ? value.split(/\s+/).filter(Boolean)
+        : [];
+    if (!classes.includes("docs-numbered-heading")) {
+      classes.push("docs-numbered-heading");
+    }
+    node.properties.className = classes;
+    node.children = [
+      {
+        type: "element",
+        tagName: "span",
+        properties: { className: ["docs-heading-prefix"], ariaHidden: "true" },
+        children: [
+          {
+            type: "text",
+            value: match[1].padStart(2, "0"),
+          },
+        ],
+      },
+      {
+        type: "element",
+        tagName: "span",
+        properties: { className: ["docs-heading-title"] },
+        children: [{ type: "text", value: match[2] }],
+      },
+    ];
+  });
+};
+
 export async function renderDoc(
   markdown: string,
   currentDir: string,
@@ -463,6 +505,7 @@ export async function renderDoc(
     .use(rehypeNormalizeDisplayHeadings)
     .use(rehypeHandleBodyH1, pageTitle)
     .use(rehypeCollectHeadings(headings))
+    .use(rehypeMarkNumberedHeadings)
     .use(rehypeLabelFlowCodeBlocks)
     .use(rehypeLabelWrappedTextCodeBlocks)
     .use(rehypeLabelTaskCheckboxes)
