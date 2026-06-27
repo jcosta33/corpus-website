@@ -3521,6 +3521,37 @@ body::after {
     0 12px 24px rgba(0, 0, 0, 0.18);
 }
 
+@media (max-width: 40rem) {
+  .setup-path-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .setup-path-strip > li:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .setup-path-strip > li > a {
+    min-height: 9.25rem;
+    padding: 0.95rem;
+  }
+
+  .setup-path-strip .kit-icon {
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+
+  .setup-path-strip h2 {
+    font-size: 1rem;
+    line-height: 1.15;
+  }
+
+  .setup-path-strip p.mt-3 {
+    margin-top: 0.7rem;
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+}
+
 /* MCP adapter rail — a read-only path, not another generic card row. */
 .mcp-adapter-panel {
   border-color: rgba(var(--signal-reference-rgb), 0.34);

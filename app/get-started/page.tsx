@@ -199,7 +199,7 @@ export default function GetStartedPage() {
       <Section register="01 / setup path" registerTone="core">
         <Panel brushed screws className="p-0">
           <ol
-            className="process-strip process-strip-signal-muted grid gap-px bg-panel-border sm:grid-cols-2 lg:grid-cols-5"
+            className="setup-path-strip process-strip process-strip-signal-muted grid gap-px bg-panel-border sm:grid-cols-2 lg:grid-cols-5"
             aria-label="Corpus setup paths and next steps"
           >
             {setupPath.map((step, index) => {
