@@ -1661,10 +1661,10 @@
 .docs-index-cover {
   position: relative;
   display: grid;
-  gap: 1.1rem;
+  gap: 1rem;
   overflow: hidden;
-  margin-bottom: 1.45rem;
-  padding: 1.18rem 1.15rem 1.18rem 1.35rem;
+  margin-bottom: 1.1rem;
+  padding: 1rem 1rem 1rem 1.25rem;
   border: 1px solid rgba(var(--signal-reference-rgb), 0.3);
   border-radius: var(--radius-panel);
   background:
@@ -1781,6 +1781,8 @@
 
 .docs-index-cover h1 {
   margin-bottom: 0.45rem;
+  font-size: clamp(2.25rem, 4.2vw, 3rem);
+  line-height: 1.08;
 }
 
 .docs-index-lede {
@@ -1802,7 +1804,7 @@
   align-content: start;
   overflow: hidden;
   margin: 0;
-  padding: 0.66rem;
+  padding: 0.56rem;
   border: 1px solid rgba(var(--signal-reference-rgb), 0.34);
   border-radius: var(--radius-panel);
   background:
@@ -1860,7 +1862,7 @@
   position: relative;
   z-index: 1;
   display: inline-flex;
-  min-height: 1.48rem;
+  min-height: 1.35rem;
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(var(--signal-reference-rgb), 0.24);
@@ -1868,7 +1870,7 @@
   padding: 0.08rem 0.38rem;
   color: var(--color-concrete-300);
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.6rem;
+  font-size: 0.56rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   line-height: 1.2;
@@ -1891,11 +1893,11 @@
   z-index: 1;
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(7.15rem, 1fr));
-  gap: 0.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(6.25rem, 1fr));
+  gap: 0.3rem;
   margin: 0.02rem 0 0;
   border-top: 1px solid rgba(var(--signal-reference-rgb), 0.18);
-  padding: 0.42rem 0 0;
+  padding: 0.34rem 0 0;
   list-style: none;
 }
 
@@ -1903,7 +1905,7 @@
   --legend-signal: var(--signal-muted);
   --legend-rgb: var(--signal-muted-rgb);
   display: grid;
-  min-height: 44px;
+  min-height: 36px;
   align-content: center;
   gap: 0.16rem;
   border: 1px solid rgba(var(--legend-rgb), 0.3);
@@ -1912,7 +1914,7 @@
   background:
     linear-gradient(90deg, rgba(var(--legend-rgb), 0.1), transparent 64%),
     rgba(10, 7, 5, 0.28);
-  padding: 0.32rem 0.48rem;
+  padding: 0.25rem 0.42rem;
   box-shadow: inset 2px 0 0 rgba(var(--legend-rgb), 0.24);
   transition:
     border-color 160ms ease,
@@ -1929,7 +1931,7 @@
 
 .docs-prose .docs-index-legend-item a {
   display: grid;
-  min-height: 44px;
+  min-height: 36px;
   align-content: center;
   gap: 0.16rem;
   color: inherit;
@@ -1957,7 +1959,7 @@
 .docs-index-legend-item span:first-child {
   color: var(--color-concrete-200);
   font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 750;
   letter-spacing: 0;
   text-transform: none;
@@ -1966,7 +1968,7 @@
 .docs-index-legend-item span:last-child {
   color: var(--legend-signal);
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.54rem;
+  font-size: 0.5rem;
   font-weight: 750;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1999,8 +2001,46 @@
 
 @media (min-width: 58rem) {
   .docs-index-cover {
-    grid-template-columns: minmax(0, 1fr) minmax(15rem, 19rem);
-    align-items: end;
+    grid-template-columns: minmax(0, 1fr) minmax(14rem, 17rem);
+    align-items: center;
+  }
+}
+
+@media (max-width: 40rem) {
+  .docs-index-cover {
+    margin-bottom: 0.95rem;
+  }
+
+  .docs-index-manual {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .docs-index-legend {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .docs-index-legend-item {
+    min-height: 2rem;
+    padding: 0.22rem;
+  }
+
+  .docs-prose .docs-index-legend-item a {
+    min-height: 2rem;
+    justify-items: center;
+  }
+
+  .docs-index-legend-item span {
+    text-align: center;
+    white-space: normal;
+  }
+
+  .docs-index-legend-item span:first-child {
+    font-size: 0.56rem;
+    line-height: 1;
+  }
+
+  .docs-index-legend-item span:last-child {
+    display: none;
   }
 }
 
@@ -2125,15 +2165,12 @@
       transparent 60%
     );
   opacity: 0.42;
-  transition:
-    opacity 180ms ease,
-    transform 180ms ease;
+  transition: opacity 180ms ease;
 }
 
 .docs-index-section:hover::after,
 .docs-index-section:focus-within::after {
   opacity: 0.64;
-  transform: translateX(0.35rem);
 }
 
 .docs-index-section:hover,
@@ -2241,10 +2278,8 @@
   text-decoration-color: rgba(var(--docs-index-rgb), 0.42);
   text-underline-offset: 0.22rem;
   transition:
-    background-color 0.12s,
     color 0.12s,
-    text-decoration-color 0.12s,
-    transform 0.12s;
+    text-decoration-color 0.12s;
 }
 
 .docs-index-item-number {
@@ -2268,7 +2303,6 @@
 .docs-prose .docs-index-list a:hover,
 .docs-prose .docs-index-list a:focus-visible {
   color: var(--docs-index-signal);
-  transform: translateX(0.12rem);
 }
 
 .docs-prose .docs-index-section .docs-index-list a:focus-visible {
