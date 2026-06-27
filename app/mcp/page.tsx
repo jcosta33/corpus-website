@@ -226,7 +226,7 @@ export default function McpPage() {
           tone="reference"
           title={
             <>
-              corpus<span className="text-corpus-yellow">-mcp</span>
+              corpus<span className="product-name-suffix">-mcp</span>
             </>
           }
         >

@@ -2027,6 +2027,33 @@ body::after {
   text-transform: uppercase;
 }
 
+.product-name-suffix {
+  position: relative;
+  display: inline-block;
+  color: var(--signal-core);
+  text-shadow:
+    0 0 18px rgba(var(--signal-core-rgb), 0.16),
+    0 1px 0 rgba(0, 0, 0, 0.32);
+}
+
+.product-name-suffix::after {
+  content: "";
+  position: absolute;
+  right: 0.03em;
+  bottom: 0.04em;
+  left: 0.14em;
+  height: 0.06em;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--signal-core-rgb), 0.66),
+    rgba(var(--signal-core-rgb), 0.16),
+    transparent
+  );
+  opacity: 0.72;
+  pointer-events: none;
+}
+
 .page-hero > .page-hero-calibration span {
   display: inline-flex;
   min-width: 0;

@@ -246,7 +246,7 @@ export default function CliPage() {
           tone="reference"
           title={
             <>
-              corpus<span className="text-corpus-yellow">-cli</span>
+              corpus<span className="product-name-suffix">-cli</span>
             </>
           }
         >

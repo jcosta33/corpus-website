@@ -236,7 +236,7 @@ export default function AgentsPage() {
           tone="reference"
           title={
             <>
-              corpus<span className="text-corpus-yellow">-agents</span>
+              corpus<span className="product-name-suffix">-agents</span>
             </>
           }
         >

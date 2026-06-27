@@ -201,7 +201,7 @@ export default function SkillsPage() {
           tone="reference"
           title={
             <>
-              corpus<span className="text-corpus-yellow">-skills</span>
+              corpus<span className="product-name-suffix">-skills</span>
             </>
           }
         >
