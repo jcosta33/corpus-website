@@ -176,7 +176,7 @@ const commandFamilies = [
     commands: "init · update · new · pull · agents emit",
     detail: "Create or refresh kit-owned files.",
     icon: Blocks,
-    signal: "greenfield",
+    signal: "core",
   },
   {
     label: "Check",
