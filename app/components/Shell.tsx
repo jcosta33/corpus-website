@@ -24,9 +24,9 @@ const mobileNavGroups = [
     title: "Work",
     tone: "core",
     links: [
-      { label: "What is Corpus", href: "/what-is-corpus" },
-      { label: "Loop", href: "/the-loop" },
-      { label: "Get started", href: "/get-started" },
+      { label: "What is Corpus", href: "/what-is-corpus", step: "01" },
+      { label: "Loop", href: "/the-loop", step: "02" },
+      { label: "Get started", href: "/get-started", step: "03" },
     ],
   },
   {
@@ -130,7 +130,7 @@ function NavLink({
   isActive,
   showIndicator = false,
 }: {
-  link: { label: string; href: string };
+  link: { label: string; href: string; step?: string };
   onClick?: () => void;
   className: string;
   isActive?: boolean;
@@ -148,7 +148,14 @@ function NavLink({
       onClick={onClick}
     >
       <span className="inline-flex items-center gap-1.5">
-        {link.label}
+        <span className="mobile-menu-link-main">
+          {link.step && (
+            <span className="mobile-menu-link-index" aria-hidden="true">
+              {link.step}
+            </span>
+          )}
+          <span>{link.label}</span>
+        </span>
         {external && <ExternalLink className="h-3 w-3" aria-hidden="true" />}
       </span>
       {isActive && showIndicator && (
