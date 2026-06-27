@@ -3266,7 +3266,8 @@ body::after {
 
   .home-step-rail-item {
     gap: 0.35rem;
-    padding: 0.42rem 0.5rem;
+    min-height: 2.75rem;
+    padding: 0.5rem 0.58rem;
   }
 
   .home-step-rail-item span:nth-child(2) {
