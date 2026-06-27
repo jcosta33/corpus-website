@@ -357,7 +357,7 @@ export default function HomePage() {
         </Section>
       </section>
 
-      <section className="py-16 sm:py-20">
+      <section className="home-review-section py-16 sm:py-20">
         <Section
           register="01 / review signals"
           registerTone="change"
