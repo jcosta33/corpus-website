@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
   BookOpen,
@@ -7,7 +8,6 @@ import {
   FolderPlus,
   FolderTree,
   LayoutTemplate,
-  Rocket,
   ScrollText,
   Terminal,
   Wrench,
@@ -130,16 +130,23 @@ const kitContents = [
 
 const setupPath = [
   {
-    label: "Choose",
-    text: "Start fresh or adopt an existing repo.",
-    icon: Rocket,
+    label: "New repo",
+    text: "Start from the starter kit.",
+    icon: FolderPlus,
     href: "#choose",
-    signal: "muted",
+    signal: "greenfield",
+  },
+  {
+    label: "Existing",
+    text: "Adopt files into a repo with history.",
+    icon: FolderTree,
+    href: "#choose",
+    signal: "brownfield",
   },
   {
     label: "Copy",
-    text: "Add the starter kit files once.",
-    icon: FolderPlus,
+    text: "Add the kit files once.",
+    icon: LayoutTemplate,
     href: "#copy",
     signal: "reference",
   },
@@ -160,7 +167,7 @@ const setupPath = [
 ] as const satisfies Array<{
   label: string;
   text: string;
-  icon: typeof Rocket;
+  icon: LucideIcon;
   href: string;
   signal: SignalRole;
 }>;
@@ -192,8 +199,8 @@ export default function GetStartedPage() {
       <Section register="01 / setup path" registerTone="core">
         <Panel brushed screws className="p-0">
           <ol
-            className="process-strip process-strip-signal-muted grid gap-px bg-panel-border sm:grid-cols-2 lg:grid-cols-4"
-            aria-label="Corpus setup path"
+            className="process-strip process-strip-signal-muted grid gap-px bg-panel-border sm:grid-cols-2 lg:grid-cols-5"
+            aria-label="Corpus setup paths and next steps"
           >
             {setupPath.map((step, index) => {
               const Icon = step.icon;
@@ -247,7 +254,7 @@ export default function GetStartedPage() {
       >
         <div className="md:col-span-2">
           <div className={`section-kicker ${signalRoles.muted.sectionKicker}`}>
-            <Rocket className="h-4 w-4" aria-hidden="true" />
+            <FolderTree className="h-4 w-4" aria-hidden="true" />
             <span>choose a path</span>
           </div>
           <Heading className="mt-3">Pick a setup path</Heading>

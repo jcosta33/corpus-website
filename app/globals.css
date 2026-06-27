@@ -35,11 +35,11 @@
   --color-brass: #bf7927;
   --color-amber: #f0a33a;
   --color-complement: #2472d8;
-  --color-phosphor: #aab96a;
-  --color-greenfield: #5fbe73;
-  --color-brownfield: #b47a50;
-  --color-verdigris: #70bdb2;
-  --color-rubedo: #cc735a;
+  --color-phosphor: #b8c56f;
+  --color-greenfield: #75c985;
+  --color-brownfield: #c08452;
+  --color-verdigris: #82c8bd;
+  --color-rubedo: #d07960;
   --color-olive: var(--color-phosphor);
   --color-black-text: #100b07;
 
@@ -47,15 +47,15 @@
   --signal-core: var(--color-aurum);
   --signal-core-rgb: 216, 138, 36;
   --signal-evidence: var(--color-phosphor);
-  --signal-evidence-rgb: 170, 185, 106;
+  --signal-evidence-rgb: 184, 197, 111;
   --signal-greenfield: var(--color-greenfield);
-  --signal-greenfield-rgb: 95, 190, 115;
+  --signal-greenfield-rgb: 117, 201, 133;
   --signal-brownfield: var(--color-brownfield);
-  --signal-brownfield-rgb: 180, 122, 80;
+  --signal-brownfield-rgb: 192, 132, 82;
   --signal-change: var(--color-rubedo);
-  --signal-change-rgb: 204, 115, 90;
+  --signal-change-rgb: 208, 121, 96;
   --signal-reference: var(--color-verdigris);
-  --signal-reference-rgb: 112, 189, 178;
+  --signal-reference-rgb: 130, 200, 189;
   --signal-muted: var(--color-brass);
   --signal-muted-rgb: 191, 121, 39;
 
@@ -230,24 +230,24 @@
   --c-brass: #bf7927;
   --c-amber: #f0a33a;
   --c-complement: #2472d8;
-  --c-phosphor: #aab96a;
-  --c-greenfield: #5fbe73;
-  --c-brownfield: #b47a50;
-  --c-verdigris: #70bdb2;
-  --c-rubedo: #cc735a;
+  --c-phosphor: #b8c56f;
+  --c-greenfield: #75c985;
+  --c-brownfield: #c08452;
+  --c-verdigris: #82c8bd;
+  --c-rubedo: #d07960;
   --c-olive: var(--c-phosphor);
   --signal-core: var(--color-aurum);
   --signal-core-rgb: 216, 138, 36;
   --signal-evidence: var(--color-phosphor);
-  --signal-evidence-rgb: 170, 185, 106;
+  --signal-evidence-rgb: 184, 197, 111;
   --signal-greenfield: var(--color-greenfield);
-  --signal-greenfield-rgb: 95, 190, 115;
+  --signal-greenfield-rgb: 117, 201, 133;
   --signal-brownfield: var(--color-brownfield);
-  --signal-brownfield-rgb: 180, 122, 80;
+  --signal-brownfield-rgb: 192, 132, 82;
   --signal-change: var(--color-rubedo);
-  --signal-change-rgb: 204, 115, 90;
+  --signal-change-rgb: 208, 121, 96;
   --signal-reference: var(--color-verdigris);
-  --signal-reference-rgb: 112, 189, 178;
+  --signal-reference-rgb: 130, 200, 189;
   --signal-muted: var(--color-brass);
   --signal-muted-rgb: 191, 121, 39;
   --c-paper: #f0e2cc;
@@ -2201,21 +2201,18 @@ body::after {
 
 @media (max-width: 40rem) {
   .hero-trace {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: center;
     gap: 0.38rem;
-    width: min(100%, calc(100vw - 2.5rem));
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
+    width: min(100%, 22rem);
+    overflow: visible;
     margin-top: 1rem;
-    padding-bottom: 0.25rem;
-    scrollbar-width: thin;
   }
 
   .hero-trace-item {
-    min-width: 5.85rem;
+    min-width: 0;
     min-height: 2.58rem;
-    flex: 0 0 5.85rem;
     padding-block: 0.42rem;
   }
 
