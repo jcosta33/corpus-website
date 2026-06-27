@@ -181,6 +181,7 @@ export default function WritingSkillsPage() {
             <a
               key={item.href}
               href={item.href}
+              aria-label={`Jump to ${item.label} section`}
               data-color-role={item.signal}
               className={`section-jump-nav-link section-jump-nav-link-${item.signal} focus-ring group`}
             >
@@ -226,6 +227,7 @@ export default function WritingSkillsPage() {
               >
                 <a
                   href={item.href}
+                  aria-label={`Jump to ${item.label} section`}
                   className="focus-ring group flex min-h-[9.4rem] h-full flex-col p-5 no-underline sm:p-6"
                 >
                   <span className="flex items-start justify-between gap-3">

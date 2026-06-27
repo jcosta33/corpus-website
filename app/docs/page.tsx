@@ -49,7 +49,10 @@ function Section({
       <ul className="docs-index-list">
         {sec.items.map((it, index) => (
           <li key={it.slug}>
-            <Link href={`/docs/${it.slug}/`}>
+            <Link
+              href={`/docs/${it.slug}/`}
+              aria-label={`Open ${it.label} documentation page`}
+            >
               <span
                 className="docs-index-item-number"
                 aria-hidden="true"
