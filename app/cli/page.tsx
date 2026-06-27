@@ -264,11 +264,10 @@ export default function CliPage() {
           }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            Optional command-line help for the Corpus workflow.
+            Optional CLI for the Corpus workflow.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
-            It scaffolds files, runs checks, manages task worktrees, and prints
-            the board.
+            Scaffold files, run checks, manage worktrees.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
             <Badge variant="unverified">Command surface settling</Badge>

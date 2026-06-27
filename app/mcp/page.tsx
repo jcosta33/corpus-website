@@ -254,11 +254,10 @@ export default function McpPage() {
           }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            A read-only MCP server for Corpus workspace facts.
+            Read-only MCP for Corpus workspace facts.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
-            It runs over standard I/O and gives clients read access to status,
-            checks, artifacts, and review data.
+            Status, checks, artifacts, and review data over stdio.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
             <Badge variant="ready">v0 surface</Badge>
