@@ -4685,7 +4685,7 @@ body::after {
 }
 
 .loop-operating-copy {
-  min-height: 100%;
+  align-self: start;
   border: 1px solid rgba(var(--loop-operating-rgb), 0.16);
   border-radius: var(--radius-panel);
   background-image:
@@ -4699,6 +4699,10 @@ body::after {
 }
 
 @media (min-width: 64rem) {
+  .loop-operating-copy {
+    min-height: 9.5rem;
+  }
+
   .loop-operating-step::after {
     content: "";
     position: absolute;
