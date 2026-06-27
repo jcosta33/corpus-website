@@ -41,12 +41,18 @@ export function PageHero({
   return (
     <div
       className={`page-hero page-hero-tone-${tone} ${HERO_MOTIFS[motif]} motion-surface mx-auto w-full min-w-0 max-w-4xl text-center`}
+      data-motif={motif}
+      data-tone={tone}
     >
       <div className="page-hero-motif" aria-hidden="true">
         <span />
         <span />
         <span />
         <span />
+      </div>
+      <div className="page-hero-calibration" aria-hidden="true">
+        <span>{motif}</span>
+        <span>{tone}</span>
       </div>
       <Eyebrow
         className="mb-6"
