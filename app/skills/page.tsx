@@ -60,14 +60,7 @@ export const metadata: Metadata = {
 };
 
 const skillInstallCommands = [
-  'CMD="npx skills add"',
-  "CAT=jcosta33/corpus-skills",
-  "SK=persona-skeptic",
-  '$CMD "$CAT" --list',
-  '$CMD "$CAT" --skill "$SK"',
-  "REPO=<your-repo>",
-  'DEST="$REPO"/.agents/skills',
-  'cp -R skills/"$SK" "$DEST"/',
+  "npx skills add jcosta33/corpus-skill",
 ].join("\n");
 
 const stances = [
@@ -153,7 +146,7 @@ const skillRoutes = [
     count: "4",
     icon: ShieldCheck,
     text: "Judgment, evidence, research, and challenge stances.",
-    signal: "evidence",
+    signal: "reference",
   },
   {
     label: "Change guides",
@@ -161,7 +154,7 @@ const skillRoutes = [
     count: "10",
     icon: Hammer,
     text: "Feature, fix, refactor, rewrite, migration, performance, tests, docs.",
-    signal: "change",
+    signal: "reference",
   },
   {
     label: "Guide format",
@@ -196,10 +189,10 @@ export default function SkillsPage() {
           <HeroTrace
             ariaLabel="Skill guide trace"
             items={[
-              { label: "Describe", signal: "reference" },
-              { label: "Match", signal: "core" },
+              { label: "Source", signal: "reference" },
+              { label: "Install", signal: "core" },
               { label: "Load", signal: "reference" },
-              { label: "Run", signal: "change" },
+              { label: "Run", signal: "reference" },
             ]}
           />
         </PageHero>
@@ -213,13 +206,10 @@ export default function SkillsPage() {
         <PaperArtifact
           label="index"
           title="load when"
-          meta="skill description -> matching work"
+          meta="source -> local install"
           className="h-full"
         >
-          <p>
-            A skill is a markdown instruction file. It loads when the task
-            matches.
-          </p>
+          <p>Install the guide set once. Load only what the task needs.</p>
         </PaperArtifact>
         <Card
           screws
@@ -228,8 +218,8 @@ export default function SkillsPage() {
         >
           <p className="repo-manifest-label">guide files</p>
           <div className="repo-manifest-grid">
-            <SignalStat label="review" value="4" signal="evidence" />
-            <SignalStat label="change" value="10" signal="change" />
+            <SignalStat label="review" value="4" signal="reference" />
+            <SignalStat label="change" value="10" signal="reference" />
             <SignalStat
               label="file"
               value="SKILL.md"
@@ -238,8 +228,8 @@ export default function SkillsPage() {
             />
           </div>
           <p className="repo-manifest-note">
-            Install one guide at a time. The description is the trigger; the
-            body is the checklist.
+            The catalog is guidance, not runtime. Read the file before relying
+            on it.
           </p>
         </Card>
       </Section>
@@ -301,52 +291,20 @@ export default function SkillsPage() {
       >
         <div className={`section-kicker ${signalRoles.reference.sectionKicker}`}>
           <DroneIcon className="h-4 w-4" />
-          <span>install.sh — add one skill</span>
+          <span>install.sh</span>
         </div>
         <Panel brushed className="p-2">
           <TerminalWindow title="terminal" copyText={skillInstallCommands}>
-            <p className="text-concrete-500"># choose a catalog + skill</p>
             <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span>{" "}CMD=&quot;npx skills add&quot;
-            </p>
-            <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span>{" "}CAT=jcosta33/corpus-skills
-            </p>
-            <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span>{" "}SK=persona-skeptic
-            </p>
-            <p className="mt-2 text-concrete-500">
-              # inspect, then install locally
-            </p>
-            <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span>{" "}$CMD &quot;$CAT&quot; --list
-            </p>
-            <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span>{" "}$CMD &quot;$CAT&quot; --skill &quot;$SK&quot;
-            </p>
-            <p className="mt-2 text-concrete-500">
-              # scopes: -g / -a claude-code
-            </p>
-            <p className="mt-2 text-concrete-500">
-              # no CLI? copy the folder
-            </p>
-            <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span>{" "}REPO=&lt;your-repo&gt;
-            </p>
-            <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span>{" "}DEST=&quot;$REPO&quot;/.agents/skills
-            </p>
-            <p className="text-concrete-100">
-              <span className="text-corpus-yellow">$</span>{" "}cp -R skills/&quot;$SK&quot; &quot;$DEST&quot;/
+              <span className="text-corpus-yellow">$</span>{" "}npx skills add{" "}
+              jcosta33/corpus-skill
             </p>
           </TerminalWindow>
         </Panel>
         <p className="text-concrete-400">
-          Skills name abstract command slots like{" "}
-          <code className="text-corpus-yellow">cmdTest</code> and{" "}
-          <code className="text-corpus-yellow">cmdLint</code>; your repo&apos;s{" "}
-          <code className="text-corpus-yellow">AGENTS.md</code> supplies the
-          real commands.
+          Keep repo-specific commands in{" "}
+          <code className="text-corpus-yellow">AGENTS.md</code>. The installed
+          guide should stay portable.
         </p>
       </Section>
 
@@ -525,9 +483,8 @@ export default function SkillsPage() {
           </div>
           <Heading className="mt-3">Why there is no runtime</Heading>
           <p className="mt-4 text-concrete-400">
-            A skill is a markdown guide your agent reads when the work matches.
-            Read it before installing and pin to a commit. For scaffolding and
-            checks, use{" "}
+            Review the guide before installing and pin to a commit when you use
+            it in a team repo. For scaffolding and checks, use{" "}
             <TextLink href="/cli/">corpus-cli</TextLink>.
           </p>
           <p className="mt-6">

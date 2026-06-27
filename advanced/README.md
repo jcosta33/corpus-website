@@ -37,8 +37,7 @@ guides** (the name the kit README and the corpus-skills catalog both use). Nothi
 Conditioning stances (the personas) and long-form implementation guides per change
 shape (feature, fix, refactor, rewrite, migration, performance, testing,
 documentation, flaky tests) live in the
-[corpus-skills catalog](https://github.com/jcosta33/corpus-skills). Install into
-`.agents/skills/` with `npx skills add jcosta33/corpus-skills` (add `--list` to preview
-without installing), or copy the folders.
+[corpus-skills catalog](https://github.com/jcosta33/corpus-skills). Install them with
+`npx skills add jcosta33/corpus-skill`.
 
 Copy what you need; ignore the rest. Full instructions: `docs/ADOPTING.md` in the Corpus repo.

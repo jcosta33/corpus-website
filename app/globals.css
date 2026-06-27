@@ -1502,6 +1502,7 @@ body::after {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  cursor: pointer;
   box-shadow:
     inset 0 1px 0 rgba(240, 226, 204, 0.08),
     inset 0 -1px 0 rgba(0, 0, 0, 0.36);
@@ -1509,8 +1510,7 @@ body::after {
     background-color 140ms ease,
     border-color 140ms ease,
     color 140ms ease,
-    box-shadow 140ms ease,
-    transform 140ms ease;
+    box-shadow 140ms ease;
 }
 
 .copy-button::after {
@@ -1546,7 +1546,6 @@ body::after {
 }
 
 .copy-button:active {
-  transform: translateY(1px);
   box-shadow:
     inset 0 1px 0 rgba(0, 0, 0, 0.32),
     inset 0 -1px 0 rgba(240, 226, 204, 0.05);
@@ -2795,8 +2794,7 @@ body::after {
   box-shadow: inset 0 1px 0 rgba(240, 226, 204, 0.035);
   transition:
     border-color 0.16s ease,
-    box-shadow 0.16s ease,
-    transform 0.16s ease;
+    box-shadow 0.16s ease;
 }
 
 .home-step-rail-item:hover,
@@ -2806,7 +2804,6 @@ body::after {
     inset 0 1px 0 rgba(240, 226, 204, 0.055),
     0 0 0 1px rgba(var(--step-rgb), 0.08),
     0 8px 18px rgba(0, 0, 0, 0.2);
-  transform: translateY(-1px);
 }
 
 .home-step-rail-item:hover span:nth-child(2),
@@ -2921,8 +2918,7 @@ body::after {
     inset 0 -1px 0 rgba(0, 0, 0, 0.42);
   transition:
     border-color 160ms ease,
-    box-shadow 160ms ease,
-    transform 160ms ease;
+    box-shadow 160ms ease;
 }
 
 .review-signal-node::before,
@@ -2990,12 +2986,6 @@ body::after {
     inset 0 -1px 0 rgba(0, 0, 0, 0.42),
     0 0 0 1px rgba(var(--review-node-rgb), 0.06),
     0 12px 24px rgba(0, 0, 0, 0.18);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .review-signal-node:hover {
-    transform: translateY(-1px);
-  }
 }
 
 .home-hero-section {
@@ -3459,8 +3449,7 @@ body::after {
     var(--process-pattern);
   transition:
     border-color 160ms ease,
-    box-shadow 160ms ease,
-    transform 160ms ease;
+    box-shadow 160ms ease;
 }
 
 .process-strip > :is(li, a, div)::before,
@@ -3525,11 +3514,6 @@ body::after {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .process-strip
-    > :is(li:hover, li:focus-within, a:hover, a:focus-visible, div:hover) {
-    transform: translateY(-1px);
-  }
-
   .process-strip
     :is(a:hover, a:focus-visible)
     .lucide-arrow-right:not(.motion-nudge-x):not(.motion-nudge-x-centered) {
@@ -4133,8 +4117,7 @@ body::after {
     inset 0 1px 0 rgba(240, 226, 204, 0.035);
   transition:
     border-color 160ms ease,
-    box-shadow 160ms ease,
-    transform 160ms ease;
+    box-shadow 160ms ease;
 }
 
 .cli-command-row.catalog-row:hover,
@@ -4150,13 +4133,6 @@ body::after {
   position: absolute;
   right: 0.78rem;
   top: 0.85rem;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .cli-command-row.catalog-row:hover,
-  .cli-command-row.catalog-row:focus-within {
-    transform: translateY(-1px);
-  }
 }
 
 @media (max-width: 40rem) {
@@ -4264,8 +4240,7 @@ body::after {
     inset 0 1px 0 rgba(240, 226, 204, 0.035);
   transition:
     border-color 160ms ease,
-    box-shadow 160ms ease,
-    transform 160ms ease;
+    box-shadow 160ms ease;
 }
 
 .skill-guide-row.catalog-row:hover,
@@ -4290,13 +4265,6 @@ body::after {
 .skill-guide-row.catalog-row:hover .skill-guide-row-arrow,
 .skill-guide-row.catalog-row:focus-visible .skill-guide-row-arrow {
   opacity: 1;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .skill-guide-row.catalog-row:hover,
-  .skill-guide-row.catalog-row:focus-visible {
-    transform: translateY(-1px);
-  }
 }
 
 @media (max-width: 40rem) {
@@ -4988,8 +4956,7 @@ body::after {
   transition:
     border-color 160ms ease,
     box-shadow 160ms ease,
-    background-color 160ms ease,
-    transform 160ms ease;
+    background-color 160ms ease;
 }
 
 /* Recessed well / screen — a deep inset terminal cavity. */
@@ -5423,7 +5390,6 @@ body::after {
 .group:hover .catalog-row-badge,
 .group:focus-within .catalog-row-badge {
   filter: saturate(1.16) brightness(1.08);
-  transform: translateY(-1px);
 }
 
 .accent-card {
@@ -5961,8 +5927,7 @@ body::after {
     inset 0 1px 0 rgba(240, 226, 204, 0.04);
   transition:
     border-color 150ms ease,
-    box-shadow 150ms ease,
-    transform 150ms ease;
+    box-shadow 150ms ease;
 }
 
 .agent-page-nav-link:hover,
@@ -5974,7 +5939,6 @@ body::after {
     inset 2px 0 0 rgba(var(--agent-nav-rgb), 0.62),
     inset 0 1px 0 rgba(240, 226, 204, 0.06),
     0 0 0 1px rgba(var(--agent-nav-rgb), 0.07);
-  transform: translateY(-1px);
 }
 
 .agent-page-nav-index,
@@ -7346,8 +7310,7 @@ body::after {
 .terminal-window {
   transition:
     border-color 160ms ease,
-    box-shadow 160ms ease,
-    transform 160ms ease;
+    box-shadow 160ms ease;
 }
 
 .terminal-window:hover,
@@ -8047,15 +8010,6 @@ body::after {
    never slides the wrong way. Button-scoped via .btn (the bare .toggle hamburger is unaffected),
    and fully gated behind reduced-motion — transition AND end-state — so there's no movement at all. */
 @media (prefers-reduced-motion: no-preference) {
-  .btn:not(:disabled):hover,
-  .btn:focus-visible,
-  .terminal-window:hover,
-  .terminal-window:focus-within,
-  .paper-artifact:hover,
-  .paper-artifact:focus-within {
-    transform: translateY(-1px);
-  }
-
   .btn .lucide-arrow-right {
     transition: transform 150ms ease;
   }

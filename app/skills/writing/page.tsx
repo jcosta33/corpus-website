@@ -154,11 +154,11 @@ export default function WritingSkillsPage() {
           }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            A skill is a markdown instruction file.
+            Write the trigger, the operating rules, and the references.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
-            Write the trigger, the rules, and any references the agent needs.
-            Keep the rest out.
+            Keep local commands, product facts, and team policy in the consuming
+            repo.
           </p>
           <HeroTrace
             ariaLabel="Skill file anatomy trace"
@@ -166,7 +166,7 @@ export default function WritingSkillsPage() {
               { label: "Trigger", signal: "reference" },
               { label: "Rules", signal: "core" },
               { label: "References", signal: "reference" },
-              { label: "Scope", signal: "change" },
+              { label: "Scope", signal: "reference" },
             ]}
           />
         </PageHero>
