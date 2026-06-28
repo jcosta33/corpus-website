@@ -3569,6 +3569,23 @@ body::after {
 }
 
 @media (max-width: 40rem) {
+  .process-strip {
+    gap: 0.55rem !important;
+    background-color: transparent !important;
+  }
+
+  .process-strip > :is(li, a, div) {
+    border: 1px solid rgba(var(--process-rgb), 0.3);
+    border-radius: var(--radius-panel);
+  }
+
+  .process-strip > :is(li, a, div)::after {
+    top: 0.45rem;
+    opacity: 0.38;
+  }
+}
+
+@media (max-width: 40rem) {
   .setup-path-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

@@ -517,7 +517,11 @@ export default function WhatIsCorpusPage() {
               </TextLink>
             </p>
           </div>
-          <TextLink href="/the-loop/" className="shrink-0 gap-2 text-base font-semibold">
+          <TextLink
+            href="/the-loop/"
+            className="shrink-0 gap-2 text-base font-semibold"
+            touchTarget
+          >
             See the loop <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </TextLink>
         </Card>

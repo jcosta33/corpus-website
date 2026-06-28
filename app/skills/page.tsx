@@ -469,6 +469,7 @@ export default function SkillsPage() {
           <p className="mt-6">
             <TextLink
               href="/skills/writing/"
+              touchTarget
             >
               Read the skill-writing guide →
             </TextLink>
@@ -491,6 +492,7 @@ export default function SkillsPage() {
               href="https://github.com/jcosta33/corpus-skills"
               target="_blank"
               rel="noopener noreferrer"
+              touchTarget
             >
               Browse the full catalog on GitHub →
             </TextLink>

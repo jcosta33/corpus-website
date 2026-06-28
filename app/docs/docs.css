@@ -1284,6 +1284,18 @@
   text-transform: uppercase;
 }
 
+@media (max-width: 48rem) {
+  .docs-code-toolbar {
+    min-height: 2.75rem;
+    padding: 0.4rem 0.5rem 0.4rem 0.7rem;
+  }
+
+  .docs-code-copy {
+    min-height: 2.75rem;
+    padding-inline: 0.8rem;
+  }
+}
+
 .docs-prose pre {
   font-family: var(--font-mono), monospace;
   font-size: 0.84rem;

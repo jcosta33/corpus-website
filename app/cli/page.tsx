@@ -649,6 +649,7 @@ export default function CliPage() {
           <TextLink
             href="/get-started/"
             className="mt-auto w-fit gap-2 text-base font-semibold"
+            touchTarget
           >
             Get started <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </TextLink>
@@ -671,6 +672,7 @@ export default function CliPage() {
                 href="https://github.com/jcosta33/corpus-cli"
                 target="_blank"
                 rel="noopener noreferrer"
+                touchTarget
               >
                 Open corpus-cli on GitHub →
               </TextLink>

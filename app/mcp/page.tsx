@@ -628,12 +628,14 @@ export default function McpPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="w-fit gap-2 text-base font-semibold"
+              touchTarget
             >
               GitHub <ExternalLink className="h-4 w-4" aria-hidden="true" />
             </TextLink>
             <TextLink
               href="/cli/"
               className="w-fit gap-2 text-base font-semibold"
+              touchTarget
             >
               See the CLI <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </TextLink>

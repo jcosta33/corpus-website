@@ -374,6 +374,7 @@ export default function TheLoopPage() {
           <TextLink
             href="/get-started/"
             className="shrink-0 gap-2 text-base font-semibold"
+            touchTarget
           >
             Set up your workspace{" "}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

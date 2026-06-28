@@ -596,6 +596,7 @@ export default function AgentsPage() {
               href="https://github.com/jcosta33/corpus-agents/blob/main/docs/enforcement.md"
               target="_blank"
               rel="noopener noreferrer"
+              touchTarget
             >
               Read the enforcement notes →
             </TextLink>
@@ -619,6 +620,7 @@ export default function AgentsPage() {
               href="https://github.com/jcosta33/corpus-agents/blob/main/docs/provenance.md"
               target="_blank"
               rel="noopener noreferrer"
+              touchTarget
             >
               How the delegation trace works →
             </TextLink>
@@ -664,6 +666,7 @@ export default function AgentsPage() {
               href="https://github.com/jcosta33/corpus-agents"
               target="_blank"
               rel="noopener noreferrer"
+              touchTarget
             >
               Browse corpus-agents on GitHub →
             </TextLink>

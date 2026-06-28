@@ -471,6 +471,7 @@ export default function WritingSkillsPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="gap-2"
+                  touchTarget
                 >
                   corpus-skills docs{" "}
                   <ExternalLink className="h-4 w-4" aria-hidden="true" />
@@ -482,6 +483,7 @@ export default function WritingSkillsPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="gap-2"
+                  touchTarget
                 >
                   sample skills{" "}
                   <ExternalLink className="h-4 w-4" aria-hidden="true" />
