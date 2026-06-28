@@ -49,10 +49,10 @@ role's usage, example, and "do not use for" guardrail:
 | `--c-brass` | `#B8844A` | secondary gold, borders |
 | `--c-complement` | `#2472D8` | exact HSL complement to aurum; diagnostic accent only |
 | `--c-phosphor` | `#B7C96C` | evidence / verified proof |
-| `--c-greenfield` | `#78C487` | fresh workspace setup paths only |
-| `--c-brownfield` | `#B87545` | existing-project adoption paths only |
-| `--c-rubedo` | `#D85A90` | change / attention / blocked |
-| `--c-verdigris` | `#7FC7BE` | reference, docs, catalog surfaces |
+| `--c-greenfield` | `#7FBD82` | fresh workspace setup paths only |
+| `--c-brownfield` | `#A96B40` | existing-project adoption paths only |
+| `--c-rubedo` | `#D66ADF` | change / attention / blocked |
+| `--c-verdigris` | `#78BDB2` | reference, docs, catalog surfaces |
 | `--c-paper` | `#F0E2CC` | manuscript artifact surfaces |
 | `--c-paper-warm` | `#DCC9A9` | paper depth |
 | `--c-ink` | `#100B07` | text on paper |

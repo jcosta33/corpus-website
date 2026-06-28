@@ -41,8 +41,8 @@
   --color-greenfield: #7fbd82;
   --color-brownfield: #a96b40;
   --color-verdigris: #78bdb2;
-  --color-neon-bridge: #b79be8;
-  --color-rubedo: #d85a90;
+  --color-neon-bridge: #9e8cf0;
+  --color-rubedo: #d66adf;
   --color-olive: var(--color-phosphor);
   --color-black-text: #100b07;
 
@@ -56,7 +56,7 @@
   --signal-brownfield: var(--color-brownfield);
   --signal-brownfield-rgb: 169, 107, 64;
   --signal-change: var(--color-rubedo);
-  --signal-change-rgb: 216, 90, 144;
+  --signal-change-rgb: 214, 106, 223;
   --signal-reference: var(--color-verdigris);
   --signal-reference-rgb: 120, 189, 178;
   --signal-muted: var(--color-brass);
@@ -71,7 +71,7 @@
   --package-cli: var(--signal-change);
   --package-cli-rgb: var(--signal-change-rgb);
   --package-mcp: var(--color-neon-bridge);
-  --package-mcp-rgb: 183, 155, 232;
+  --package-mcp-rgb: 158, 140, 240;
 
   /* Role patterns: hue + mark travel together, so color does not become decoration. */
   --signal-pattern-core: linear-gradient(
@@ -262,7 +262,7 @@
   --color-cinnabar: var(--color-rubedo);
   --color-aluminium: var(--color-mercury);
   --color-corpus-yellow: var(--color-aurum);
-  --color-hazard-orange: var(--color-rubedo);
+  --color-hazard-orange: var(--color-amber);
   --color-drone-green: var(--color-phosphor);
 
   --color-background: var(--color-night);
@@ -297,7 +297,7 @@
   --c-greenfield: #7fbd82;
   --c-brownfield: #a96b40;
   --c-verdigris: #78bdb2;
-  --c-rubedo: #d85a90;
+  --c-rubedo: #d66adf;
   --c-olive: var(--c-phosphor);
   --signal-core: var(--color-aurum);
   --signal-core-rgb: 216, 138, 36;
@@ -308,7 +308,7 @@
   --signal-brownfield: var(--color-brownfield);
   --signal-brownfield-rgb: 169, 107, 64;
   --signal-change: var(--color-rubedo);
-  --signal-change-rgb: 216, 90, 144;
+  --signal-change-rgb: 214, 106, 223;
   --signal-reference: var(--color-verdigris);
   --signal-reference-rgb: 120, 189, 178;
   --signal-muted: var(--color-brass);

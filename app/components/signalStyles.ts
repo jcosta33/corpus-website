@@ -9,7 +9,7 @@
 // Prefer these role names over raw color aliases in new component code.
 // The hue family is intentional: core starts at gold HSL(34 71% 49%).
 // The exact complement is reserved for diagnostics; public complements use
-// softer field, sage, umber, rubedo rose, and verdigris roles. Brown means existing
+// softer field, sage, umber, magenta-violet, and verdigris roles. Brown means existing
 // project; green means greenfield, not "good"; sage means evidence, not "new".
 // A role is more than a color: use it for the text, lamp, rail, border, hatch,
 // mark, icon, command plate, and hover state. Setup is not automatically green:
@@ -76,10 +76,10 @@ export const signalRoleMeta = {
   change: {
     label: "change",
     family: "work / attention",
-    hex: "#D85A90",
-    relationship: "rubedo rose: HSL(334 62% 60%)",
-    wheel: "-60° from core",
-    tone: "rubedo rose",
+    hex: "#D66ADF",
+    relationship: "magenta-violet: HSL(295 65% 65%)",
+    wheel: "-99° from core",
+    tone: "magenta-violet",
     use: "Edits, fixes, run work, blocked states, and attention markers.",
     surface: "angled change hatching and work-in-progress rails",
     pattern: "angled change hatching",
@@ -242,7 +242,7 @@ export type SignalInput = SignalRole | SignalAlias;
 const aliases = {
   yellow: "core",
   gold: "core",
-  orange: "change",
+  orange: "core",
   olive: "evidence",
   brass: "muted",
 } as const satisfies Record<SignalAlias, SignalRole>;

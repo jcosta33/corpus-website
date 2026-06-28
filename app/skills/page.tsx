@@ -219,8 +219,8 @@ export default function SkillsPage() {
         >
           <p className="repo-manifest-label">guide files</p>
           <div className="repo-manifest-grid">
-            <SignalStat label="review" value="4" signal="reference" />
-            <SignalStat label="change" value="10" signal="reference" />
+            <SignalStat label="review" value="4" signal="evidence" />
+            <SignalStat label="change" value="10" signal="change" />
             <SignalStat
               label="file"
               value="SKILL.md"

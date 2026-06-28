@@ -34,7 +34,7 @@
 - Static assets in `public/`.
 - Design system: warm chassis surfaces with semantic signal roles in
   `app/components/signalStyles.ts`: core gold, evidence sage, greenfield field
-  green, brownfield umber, change rubedo rose, reference verdigris, and muted
+  green, brownfield umber, change magenta-violet, reference verdigris, and muted
   brass.
 - Tone: tongue-in-cheek, laid back, open-source. Avoid corporate buzzwords.
 
