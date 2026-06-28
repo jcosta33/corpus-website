@@ -768,6 +768,54 @@ body::after {
 }
 
 @media (max-width: 40rem) {
+  .signal-key {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem;
+  }
+
+  .signal-key-item {
+    min-width: 0;
+    min-height: 2.45rem;
+    flex: initial;
+    gap: 0.45rem;
+    padding: 0.46rem 0.55rem;
+  }
+
+  .signal-key-item:nth-child(odd):last-child {
+    grid-column: 1 / -1;
+  }
+
+  .signal-key-swatch {
+    width: 0.46rem;
+    min-height: 1.35rem;
+  }
+
+  .signal-key-lamp {
+    transform: scale(0.72);
+    transform-origin: center;
+  }
+
+  .signal-key-copy {
+    gap: 0;
+  }
+
+  .signal-key-label {
+    font-size: 0.58rem;
+    line-height: 1.1;
+  }
+
+  .signal-key-detail {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 40rem) {
   .kitchen-specimen-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3857,16 +3905,17 @@ body::after {
   }
 
   .mcp-adapter-rail {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.7rem !important;
   }
 
   .mcp-adapter-step:last-child {
-    grid-column: auto;
+    grid-column: 1 / -1;
   }
 
   .mcp-adapter-step-link {
-    min-height: auto;
-    padding: 0.95rem 0.9rem;
+    min-height: 9rem;
+    padding: 0.95rem 0.85rem 1rem;
   }
 
   .mcp-adapter-step-link::before {
@@ -3874,7 +3923,8 @@ body::after {
   }
 
   .mcp-adapter-heading {
-    gap: 0.55rem;
+    align-items: flex-start;
+    gap: 0.6rem;
   }
 
   .mcp-adapter-heading .hex-badge {
@@ -3894,6 +3944,7 @@ body::after {
   }
 
   .mcp-adapter-detail {
+    max-width: 16rem;
     font-size: 0.82rem;
     line-height: 1.45;
   }
@@ -4184,20 +4235,22 @@ body::after {
   }
 
   .cli-command-rail {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.7rem !important;
   }
 
   .cli-command-step:last-child {
-    grid-column: auto;
+    grid-column: 1 / -1;
   }
 
   .cli-command-link {
-    min-height: auto;
-    padding: 0.9rem 0.85rem;
+    min-height: 8.75rem;
+    padding: 0.95rem 0.85rem 1rem;
   }
 
   .cli-command-heading {
-    gap: 0.4rem;
+    align-items: flex-start;
+    gap: 0.55rem;
   }
 
   .cli-command-heading .hex-badge {
@@ -4225,13 +4278,11 @@ body::after {
   }
 
   .cli-command-code {
-    margin-top: 0.55rem;
-    font-size: 0.68rem;
-    line-height: 1.35;
+    display: none;
   }
 
   .cli-command-detail {
-    margin-top: 0.35rem;
+    margin-top: 0.65rem;
     font-size: 0.82rem;
     line-height: 1.45;
   }
