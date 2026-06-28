@@ -1241,7 +1241,7 @@
 
 .docs-code-toolbar {
   display: flex;
-  min-height: 2.25rem;
+  min-height: 2.75rem;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
@@ -1268,7 +1268,7 @@
 
 .docs-code-copy {
   min-width: 3.35rem;
-  min-height: 2.25rem;
+  min-height: 2.75rem;
   border: 1px solid rgba(var(--signal-reference-rgb), 0.32);
   border-radius: calc(var(--radius-control) - 4px);
   background:
