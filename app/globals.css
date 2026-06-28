@@ -7,8 +7,8 @@
      the public site stays warm. Public accents are semantic, not decorative:
      greenfield = literal new-workspace paths, brownfield = existing-project
      adoption, change = active edits/attention, evidence = proof/review,
-     reference = manuals and catalogs. Change is a readable cinnabar red, separate
-     from the orange-gold core; violet/blue are muted package accents only.
+     reference = manuals and catalogs. Change is a readable red-clay signal,
+     separate from the orange-gold core; blue/lavender are package accents only.
      Brown means existing-project work.
      Green means greenfield, not "good"; sage means evidence, not "new";
      setup alone is not green.
@@ -43,9 +43,9 @@
   --color-greenfield: #7fbd82;
   --color-brownfield: #a96b40;
   --color-verdigris: #78bdb2;
-  --color-neon-bridge: #a486b1;
-  --color-interface-blue: #5ea8cf;
-  --color-rubedo: #d15d66;
+  --color-neon-bridge: #9b86a6;
+  --color-interface-blue: #6a9fd0;
+  --color-rubedo: #d06257;
   --color-olive: var(--color-phosphor);
   --color-black-text: #100b07;
 
@@ -59,7 +59,7 @@
   --signal-brownfield: var(--color-brownfield);
   --signal-brownfield-rgb: 169, 107, 64;
   --signal-change: var(--color-rubedo);
-  --signal-change-rgb: 209, 93, 102;
+  --signal-change-rgb: 208, 98, 87;
   --signal-reference: var(--color-verdigris);
   --signal-reference-rgb: 120, 189, 178;
   --signal-muted: var(--color-brass);
@@ -72,9 +72,9 @@
   --package-agents: var(--signal-reference);
   --package-agents-rgb: var(--signal-reference-rgb);
   --package-cli: var(--color-interface-blue);
-  --package-cli-rgb: 94, 168, 207;
+  --package-cli-rgb: 106, 159, 208;
   --package-mcp: var(--color-neon-bridge);
-  --package-mcp-rgb: 164, 134, 177;
+  --package-mcp-rgb: 155, 134, 166;
 
   /* Role patterns: hue + mark travel together, so color does not become decoration. */
   --signal-pattern-core: linear-gradient(
@@ -300,7 +300,7 @@
   --c-greenfield: #7fbd82;
   --c-brownfield: #a96b40;
   --c-verdigris: #78bdb2;
-  --c-rubedo: #c44e58;
+  --c-rubedo: #d06257;
   --c-olive: var(--c-phosphor);
   --signal-core: var(--color-aurum);
   --signal-core-rgb: 216, 138, 36;
@@ -311,7 +311,7 @@
   --signal-brownfield: var(--color-brownfield);
   --signal-brownfield-rgb: 169, 107, 64;
   --signal-change: var(--color-rubedo);
-  --signal-change-rgb: 209, 93, 102;
+  --signal-change-rgb: 208, 98, 87;
   --signal-reference: var(--color-verdigris);
   --signal-reference-rgb: 120, 189, 178;
   --signal-muted: var(--color-brass);
@@ -2889,26 +2889,32 @@ body::after {
   --hero-rgb: var(--package-mcp-rgb);
   --hero-pattern: repeating-linear-gradient(
       0deg,
-      rgba(var(--hero-rgb), 0.036) 0 1px,
+      rgba(var(--hero-rgb), 0.024) 0 1px,
       transparent 1px 14px
     ),
-    linear-gradient(180deg, rgba(var(--hero-rgb), 0.032), transparent 44%);
+    linear-gradient(180deg, rgba(var(--hero-rgb), 0.022), transparent 44%);
   --hero-mark: radial-gradient(
       circle at 24% 50%,
-      rgba(var(--hero-rgb), 0.18) 0 0.42rem,
+      rgba(var(--hero-rgb), 0.11) 0 0.42rem,
       transparent 0.46rem
     ),
     radial-gradient(
       circle at 76% 50%,
-      rgba(var(--hero-rgb), 0.15) 0 0.42rem,
+      rgba(var(--hero-rgb), 0.09) 0 0.42rem,
       transparent 0.46rem
     ),
     linear-gradient(
       90deg,
       transparent 16%,
-      rgba(var(--hero-rgb), 0.12),
+      rgba(var(--hero-rgb), 0.08),
       transparent 84%
     );
+}
+
+.page-hero.page-hero-package-mcp .product-name-suffix {
+  text-shadow:
+    0 0 12px rgba(var(--product-name-suffix-rgb), 0.08),
+    0 1px 0 rgba(0, 0, 0, 0.32);
 }
 
 .page-hero.page-hero-package-cli .pilot-lamp-change {
@@ -3750,8 +3756,8 @@ body::after {
   overflow: hidden;
   background-color: rgba(28, 22, 16, 0.96);
   background-image:
-    linear-gradient(90deg, rgba(var(--process-rgb), 0.018), transparent 34%),
-    linear-gradient(90deg, rgba(var(--process-rgb), 0.22) 0 2px, transparent 2px),
+    linear-gradient(90deg, rgba(var(--process-rgb), 0.012), transparent 34%),
+    linear-gradient(90deg, rgba(var(--process-rgb), 0.18) 0 1px, transparent 1px),
     var(--signal-pattern-muted);
   transition:
     border-color 160ms ease,
@@ -3774,9 +3780,9 @@ body::after {
     linear-gradient(
       112deg,
       transparent 0%,
-      rgba(var(--process-rgb), 0.018) 42%,
-      rgba(var(--process-rgb), 0.07) 50%,
-      rgba(var(--process-rgb), 0.018) 58%,
+      rgba(var(--process-rgb), 0.012) 42%,
+      rgba(var(--process-rgb), 0.042) 50%,
+      rgba(var(--process-rgb), 0.012) 58%,
       transparent 100%
     ),
     radial-gradient(
@@ -3796,8 +3802,8 @@ body::after {
   opacity: 0.56;
   background: linear-gradient(
     90deg,
-    rgba(var(--process-rgb), 0.34),
-    rgba(var(--process-rgb), 0.08),
+    rgba(var(--process-rgb), 0.24),
+    rgba(var(--process-rgb), 0.06),
     transparent
   );
 }
@@ -4039,7 +4045,7 @@ body::after {
   background-image:
     radial-gradient(
       70% 64% at 18% 0%,
-      rgba(var(--process-rgb), 0.09),
+      rgba(var(--process-rgb), 0.045),
       transparent 64%
     ),
     linear-gradient(
@@ -4367,18 +4373,18 @@ body::after {
 
 .mcp-install-ledger {
   overflow: hidden;
-  border: 1px solid rgba(var(--package-mcp-rgb), 0.22);
+  border: 1px solid rgba(var(--package-mcp-rgb), 0.18);
   border-radius: var(--radius-panel);
   background:
-    linear-gradient(90deg, rgba(var(--package-mcp-rgb), 0.04), transparent 58%),
+    linear-gradient(90deg, rgba(var(--package-mcp-rgb), 0.026), transparent 58%),
     repeating-linear-gradient(
       0deg,
-      rgba(var(--package-mcp-rgb), 0.032) 0 1px,
+      rgba(var(--package-mcp-rgb), 0.02) 0 1px,
       transparent 1px 14px
     ),
     rgba(15, 11, 8, 0.52);
   box-shadow:
-    inset 2px 0 0 rgba(var(--package-mcp-rgb), 0.16),
+    inset 2px 0 0 rgba(var(--package-mcp-rgb), 0.12),
     inset 0 1px 0 rgba(240, 226, 204, 0.04);
 }
 
@@ -4390,7 +4396,7 @@ body::after {
 }
 
 .mcp-install-ledger > div + div {
-  border-top: 1px solid rgba(var(--package-mcp-rgb), 0.12);
+  border-top: 1px solid rgba(var(--package-mcp-rgb), 0.09);
 }
 
 .mcp-install-ledger dt {
@@ -4476,7 +4482,7 @@ body::after {
   background-image:
     radial-gradient(
       70% 64% at 18% 0%,
-      rgba(var(--process-rgb), 0.09),
+      rgba(var(--process-rgb), 0.045),
       transparent 64%
     ),
     linear-gradient(
@@ -7024,12 +7030,16 @@ body::after {
   border-right: 1px solid rgba(70, 57, 44, 0.42);
   border-radius: 0;
   background:
-    linear-gradient(90deg, rgba(var(--agent-nav-rgb), 0.016), transparent 48%),
-    linear-gradient(90deg, rgba(var(--agent-nav-rgb), 0.14) 0 1px, transparent 1px);
+    linear-gradient(90deg, rgba(var(--signal-muted-rgb), 0.018), transparent 48%),
+    linear-gradient(
+      90deg,
+      rgba(var(--signal-muted-rgb), 0.12) 0 1px,
+      transparent 1px
+    );
   padding: 0.58rem 0.75rem;
   color: var(--color-concrete-100);
   text-decoration: none;
-  box-shadow: inset 1px 0 0 rgba(var(--agent-nav-rgb), 0.08);
+  box-shadow: inset 1px 0 0 rgba(var(--signal-muted-rgb), 0.08);
   transition:
     background-color 150ms ease,
     color 150ms ease,
@@ -7045,10 +7055,10 @@ body::after {
 .agent-page-nav-link:focus-visible,
 .section-jump-nav-link:hover,
 .section-jump-nav-link:focus-visible {
-  background-color: rgba(var(--agent-nav-rgb), 0.045);
+  background-color: rgba(240, 226, 204, 0.028);
   box-shadow:
-    inset 1px 0 0 rgba(var(--agent-nav-rgb), 0.2),
-    inset 0 -1px 0 rgba(var(--agent-nav-rgb), 0.22);
+    inset 1px 0 0 rgba(var(--signal-muted-rgb), 0.14),
+    inset 0 -1px 0 rgba(var(--agent-nav-rgb), 0.3);
 }
 
 .agent-page-nav-index,
