@@ -51,8 +51,10 @@ role's usage, example, and "do not use for" guardrail:
 | `--c-phosphor` | `#B7C96C` | evidence / verified proof |
 | `--c-greenfield` | `#7FBD82` | fresh workspace setup paths only |
 | `--c-brownfield` | `#A96B40` | existing-project adoption paths only |
-| `--c-rubedo` | `#D66ADF` | change / attention / blocked |
+| `--c-rubedo` | `#C44E58` | change / attention / blocked |
 | `--c-verdigris` | `#78BDB2` | reference, docs, catalog surfaces |
+| `--package-cli` | `#64A7D8` | corpus-cli hero accent only |
+| `--package-mcp` | `#927AC0` | corpus-mcp hero accent only |
 | `--c-paper` | `#F0E2CC` | manuscript artifact surfaces |
 | `--c-paper-warm` | `#DCC9A9` | paper depth |
 | `--c-ink` | `#100B07` | text on paper |
@@ -78,6 +80,9 @@ named role. For example, `/get-started` uses a core setup hero, then reserves
 greenfield for the "New repo" path and brownfield for the "Existing project"
 path. Status colors follow the same rule: `READY` is core, `PASS` is evidence,
 `BLOCKED` is change, `DRAFT` is reference, and `ARCHIVED` is muted.
+
+Violet and electric blue are repo identity accents for package heroes, not
+general semantic roles. Do not use them as status colors.
 
 Compatibility aliases such as `--color-corpus-yellow`, `--color-hazard-orange`,
 and `--color-drone-green` may remain during migration, but they must map onto

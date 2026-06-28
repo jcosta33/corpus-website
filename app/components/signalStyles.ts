@@ -9,8 +9,10 @@
 // Prefer these role names over raw color aliases in new component code.
 // The hue family is intentional: core starts at gold HSL(34 71% 49%).
 // The exact complement is reserved for diagnostics; public complements use
-// softer field, sage, umber, magenta-violet, and verdigris roles. Brown means existing
+// softer field, sage, umber, cinnabar red, and verdigris roles. Brown means existing
 // project; green means greenfield, not "good"; sage means evidence, not "new".
+// Violet and electric blue are reserved for package hero accents, not general
+// status or work-state meaning.
 // A role is more than a color: use it for the text, lamp, rail, border, hatch,
 // mark, icon, command plate, and hover state. Setup is not automatically green:
 // only new-workspace paths get greenfield; mixed setup surfaces use reference,
@@ -76,14 +78,15 @@ export const signalRoleMeta = {
   change: {
     label: "change",
     family: "work / attention",
-    hex: "#D66ADF",
-    relationship: "magenta-violet: HSL(295 65% 65%)",
-    wheel: "-99° from core",
-    tone: "magenta-violet",
+    hex: "#C44E58",
+    relationship: "cinnabar red: HSL(355 50% 54%)",
+    wheel: "-39° from core",
+    tone: "muted cinnabar red",
     use: "Edits, fixes, run work, blocked states, and attention markers.",
     surface: "angled change hatching and work-in-progress rails",
     pattern: "angled change hatching",
-    avoid: "Do not use for normal navigation or reference material.",
+    avoid:
+      "Do not use for normal navigation, reference material, or decorative contrast beside core gold.",
     example: "Change plans, run work, blocked, unverified, needs attention.",
   },
   reference: {

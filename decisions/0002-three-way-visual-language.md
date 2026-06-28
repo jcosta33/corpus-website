@@ -47,8 +47,9 @@ utility with a small ritual charge.
   active states.
 - **Accent palette:** use color by role, not by decoration. Proof green is for
   evidence/review; field green is for greenfield setup; brownfield copper is
-  for existing-project adoption; magenta-violet is for change/attention;
-  verdigris is for reference/catalog.
+  for existing-project adoption; cinnabar red is for change/attention;
+  verdigris is for reference/catalog. Violet and electric blue are package
+  identity accents, not semantic status colors.
 - **Manuscript surfaces:** use paper only for specs, review packets, findings,
   docs notes, source metadata, and annotated examples.
 - **Copy:** ritual/manuscript words are labels, not extended metaphors.

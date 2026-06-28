@@ -33,7 +33,7 @@ the public marketing palette. Public accents stay warm or tempered:
 | Evidence | `#B7C96C` / `HSL(72 46% 61%)` | review proof, verified output, pass states | checkpoint ticks |
 | Greenfield | `#7FBD82` / `HSL(123 32% 62%)` | new repo, starter kit, first-run setup only | upright field rows |
 | Brownfield | `#A96B40` / `HSL(25 45% 46%)` | existing-project adoption, migration, repo history | diagonal survey hatching |
-| Change | `#D66ADF` / `HSL(295 65% 65%)` | edits, fixes, run work, blocked or attention states | angled change hatching |
+| Change | `#C44E58` / `HSL(355 50% 54%)` | edits, fixes, run work, blocked or attention states | angled change hatching |
 | Reference | `#78BDB2` / `HSL(170 34% 61%)` | docs, manuals, ledgers, catalogs, read-only rosters | horizontal ledger rules |
 | Muted | `#B8844A` / `HSL(32 44% 51%)` | hardware chrome, counters, low-emphasis labels | brass ruler marks |
 
@@ -50,7 +50,9 @@ Implementation follows the same rule. A role should use the shared CSS signal
 variables for hue, pattern, and mark (`--signal-*`, `--signal-*-rgb`,
 `--signal-pattern-*`, and `--signal-mark-*`) before adding any local treatment.
 A local treatment may change layout, density, or strength, but it should not
-invent a new meaning for green, brown, sage, magenta-violet, verdigris, or gold.
+invent a new meaning for green, brown, sage, cinnabar red, verdigris, or gold.
+Violet and electric blue are reserved for package identity accents such as
+`corpus-mcp` and `corpus-cli`; they are not status colors.
 
 Visible semantic color should usually travel through at least three surfaces:
 label text, icon/lamp, rail/border, hatch/mark, or hover state. If color appears
