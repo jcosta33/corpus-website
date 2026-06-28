@@ -2770,6 +2770,7 @@ body::after {
   --step-pattern: var(--signal-pattern-core);
   --step-mark: var(--signal-mark-core);
   position: relative;
+  min-height: 2.75rem;
   border-color: rgba(var(--step-rgb), 0.24);
   background-image:
     linear-gradient(90deg, rgba(var(--step-rgb), 0.06), transparent 52%),
@@ -4132,8 +4133,8 @@ body::after {
   }
 
   .cli-command-link {
-    min-height: auto;
-    padding: 0.55rem 0.58rem;
+    min-height: 2.75rem;
+    padding: 0.62rem 0.58rem;
   }
 
   .cli-command-heading {
@@ -4716,8 +4717,8 @@ body::after {
   }
 
   .cli-command-legend-item {
-    min-height: 2.35rem;
-    padding: 0.34rem 0.46rem;
+    min-height: 2.75rem;
+    padding: 0.42rem 0.5rem;
   }
 
   .cli-command-legend-item:last-child:nth-child(odd) {
@@ -6611,9 +6612,9 @@ body::after {
 
   .agent-page-nav-link,
   .section-jump-nav-link {
-    min-height: 2.36rem;
+    min-height: 2.75rem;
     gap: 0.46rem;
-    padding: 0.46rem 0.54rem;
+    padding: 0.5rem 0.58rem;
   }
 
   .agent-page-nav-label,
