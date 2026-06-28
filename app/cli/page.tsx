@@ -256,7 +256,7 @@ export default function CliPage() {
         <PageHero
           eyebrow="corpus-cli — reference implementation"
           motif="catalog"
-          tone="reference"
+          tone="change"
           title={
             <>
               corpus<span className="product-name-suffix">-cli</span>

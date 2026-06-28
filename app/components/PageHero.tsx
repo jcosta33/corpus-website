@@ -22,6 +22,7 @@ const HERO_MOTIFS = {
 export interface PageHeroProps {
   eyebrow: ReactNode;
   title: ReactNode;
+  className?: string;
   cursor?: boolean;
   titleSize?: keyof typeof TITLE_SIZES;
   tone?: SignalRole;
@@ -32,6 +33,7 @@ export interface PageHeroProps {
 export function PageHero({
   eyebrow,
   title,
+  className = "",
   cursor = false,
   titleSize = "default",
   tone = "core",
@@ -40,7 +42,7 @@ export function PageHero({
 }: PageHeroProps) {
   return (
     <div
-      className={`page-hero page-hero-tone-${tone} ${HERO_MOTIFS[motif]} motion-surface mx-auto w-full min-w-0 max-w-4xl text-center`}
+      className={`page-hero page-hero-tone-${tone} ${HERO_MOTIFS[motif]} motion-surface mx-auto w-full min-w-0 max-w-4xl text-center ${className}`}
       data-motif={motif}
       data-tone={tone}
     >

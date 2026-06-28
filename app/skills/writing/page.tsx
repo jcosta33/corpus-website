@@ -145,7 +145,7 @@ export default function WritingSkillsPage() {
         <PageHero
           eyebrow="SKILL.md"
           motif="manual"
-          tone="reference"
+          tone="core"
           title={
             <>
               Writing a{" "}

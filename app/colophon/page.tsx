@@ -80,7 +80,7 @@ export default function ColophonPage() {
           eyebrow="site record / build notes"
           motif="manual"
           title="Colophon"
-          tone="muted"
+          tone="core"
         >
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-concrete-400 sm:text-xl">
             How this website is built, sourced, and shipped.

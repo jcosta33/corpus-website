@@ -245,6 +245,7 @@ export default function McpPage() {
       <Section className="ambient-header">
         <PageHero
           eyebrow="mcp server / read-only adapter"
+          className="page-hero-package-mcp"
           motif="bridge"
           tone="reference"
           title={

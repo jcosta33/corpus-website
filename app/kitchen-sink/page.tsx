@@ -108,7 +108,7 @@ export default function KitchenSinkPage() {
           eyebrow="component preview"
           motif="internal"
           title="Kitchen sink"
-          tone="muted"
+          tone="core"
         >
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-concrete-400">
             Internal preview for checking surfaces, state, and artifact

@@ -245,7 +245,7 @@ export default function WhatIsCorpusPage() {
         <PageHero
           eyebrow="system overview"
           motif="overview"
-          tone="reference"
+          tone="core"
           title={
             <>
               What is{" "}

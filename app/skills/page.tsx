@@ -173,7 +173,7 @@ export default function SkillsPage() {
         <PageHero
           eyebrow="tool index / agent guides"
           motif="catalog"
-          tone="reference"
+          tone="evidence"
           title={
             <>
               corpus<span className="product-name-suffix">-skills</span>
