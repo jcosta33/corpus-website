@@ -2105,6 +2105,14 @@
   gap: 0.875rem;
 }
 
+@media (max-width: 45.99rem) {
+  .docs-index-grid,
+  .docs-index-top,
+  .docs-index-stack {
+    gap: 1.25rem;
+  }
+}
+
 .docs-index-section {
   --docs-index-signal: var(--signal-core);
   --docs-index-rgb: var(--signal-core-rgb);
