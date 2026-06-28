@@ -258,13 +258,13 @@ export default function GetStartedPage() {
             <span>choose a path</span>
           </div>
           <Heading className="mt-3">Pick a setup path</Heading>
-          <p className="mt-3 max-w-2xl text-concrete-400">
+          <p className="mt-4 max-w-2xl leading-relaxed text-concrete-400">
             Fresh repo uses greenfield. Existing repo uses brownfield.
           </p>
           <SignalKey
             ariaLabel="Setup path color roles"
             items={setupPathSignalKey}
-            className="setup-choice-signal-key mt-5"
+            className="setup-choice-signal-key"
           />
         </div>
         <Card

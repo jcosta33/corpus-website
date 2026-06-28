@@ -7136,6 +7136,7 @@ body::after {
 }
 
 .setup-choice-signal-key {
+  margin-top: 1.35rem;
   max-width: 40rem;
 }
 
@@ -7504,7 +7505,7 @@ body::after {
 
 @media (max-width: 40rem) {
   .setup-choice-signal-key {
-    margin-top: 0.8rem !important;
+    margin-top: 1rem;
     gap: 0.4rem;
   }
 
