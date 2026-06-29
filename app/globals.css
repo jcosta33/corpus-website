@@ -4132,14 +4132,14 @@ body::after {
   .mcp-adapter-step:not(:last-child) .mcp-adapter-step-link::after {
     content: "";
     position: absolute;
-    right: -0.55rem;
+    right: 0;
     top: 50%;
-    width: 1.1rem;
+    width: 0.72rem;
     height: 1px;
     background: linear-gradient(
       90deg,
-      rgba(var(--process-rgb), 0.38),
-      rgba(var(--process-rgb), 0.08)
+      rgba(var(--process-rgb), 0.08),
+      rgba(var(--process-rgb), 0.38)
     );
     transform: translateY(-50%);
     pointer-events: none;
@@ -4550,14 +4550,14 @@ body::after {
   .cli-command-step:not(:last-child) .cli-command-link::after {
     content: "";
     position: absolute;
-    right: -0.55rem;
+    right: 0;
     top: 50%;
-    width: 1.1rem;
+    width: 0.72rem;
     height: 1px;
     background: linear-gradient(
       90deg,
-      rgba(var(--process-rgb), 0.34),
-      rgba(var(--process-rgb), 0.07)
+      rgba(var(--process-rgb), 0.07),
+      rgba(var(--process-rgb), 0.34)
     );
     transform: translateY(-50%);
     pointer-events: none;
