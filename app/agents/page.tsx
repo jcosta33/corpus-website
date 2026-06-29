@@ -226,6 +226,7 @@ export default function AgentsPage() {
           className="page-hero-package-agents"
           motif="catalog"
           tone="reference"
+          toneLabel="agents"
           title={
             <>
               corpus<span className="product-name-suffix">-agents</span>

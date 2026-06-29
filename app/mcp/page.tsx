@@ -248,6 +248,7 @@ export default function McpPage() {
           className="page-hero-package-mcp"
           motif="bridge"
           tone="reference"
+          toneLabel="mcp"
           title={
             <>
               corpus<span className="product-name-suffix">-mcp</span>

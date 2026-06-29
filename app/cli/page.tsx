@@ -258,6 +258,7 @@ export default function CliPage() {
           className="page-hero-package-cli"
           motif="catalog"
           tone="change"
+          toneLabel="cli"
           title={
             <>
               corpus<span className="product-name-suffix">-cli</span>

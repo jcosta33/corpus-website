@@ -175,6 +175,7 @@ export default function SkillsPage() {
           className="page-hero-package-skills"
           motif="catalog"
           tone="evidence"
+          toneLabel="skills"
           title={
             <>
               corpus<span className="product-name-suffix">-skills</span>

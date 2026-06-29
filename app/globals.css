@@ -8,7 +8,7 @@
      greenfield = literal new-workspace paths, brownfield = existing-project
      adoption, change = active edits/attention, evidence = proof/review,
      reference = manuals and catalogs. Change is a red-oxide signal, separate
-     from the orange-gold core; cyan/faded violet are package accents only.
+     from the orange-gold core; cyan/dusty violet are package accents only.
      Brown means existing-project work.
      Green means greenfield, not "good"; sage means evidence, not "new";
      setup alone is not green.
@@ -43,8 +43,8 @@
   --color-greenfield: #7fbd82;
   --color-brownfield: #a96b40;
   --color-verdigris: #78bdb2;
-  --color-neon-bridge: #8b7e91;
-  --color-interface-blue: #6dbbc4;
+  --color-neon-bridge: #a28aa6;
+  --color-interface-blue: #61c7d1;
   --color-rubedo: #c44f43;
   --color-olive: var(--color-phosphor);
   --color-black-text: #100b07;
@@ -72,9 +72,9 @@
   --package-agents: #79ad99;
   --package-agents-rgb: 121, 173, 153;
   --package-cli: var(--color-interface-blue);
-  --package-cli-rgb: 109, 187, 196;
+  --package-cli-rgb: 97, 199, 209;
   --package-mcp: var(--color-neon-bridge);
-  --package-mcp-rgb: 139, 126, 145;
+  --package-mcp-rgb: 162, 138, 166;
 
   /* Role patterns: hue + mark travel together, so color does not become decoration. */
   --signal-pattern-core: linear-gradient(
@@ -300,8 +300,8 @@
   --c-greenfield: #7fbd82;
   --c-brownfield: #a96b40;
   --c-verdigris: #78bdb2;
-  --c-neon-bridge: #8b7e91;
-  --c-interface-blue: #6dbbc4;
+  --c-neon-bridge: #a28aa6;
+  --c-interface-blue: #61c7d1;
   --c-rubedo: #c44f43;
   --c-olive: var(--c-phosphor);
   --signal-core: var(--color-aurum);
@@ -319,9 +319,9 @@
   --package-agents: #79ad99;
   --package-agents-rgb: 121, 173, 153;
   --package-cli: var(--color-interface-blue);
-  --package-cli-rgb: 109, 187, 196;
+  --package-cli-rgb: 97, 199, 209;
   --package-mcp: var(--color-neon-bridge);
-  --package-mcp-rgb: 139, 126, 145;
+  --package-mcp-rgb: 162, 138, 166;
   --signal-reference: var(--color-verdigris);
   --signal-reference-rgb: 120, 189, 178;
   --signal-muted: var(--color-brass);
@@ -3797,7 +3797,7 @@ body::after {
   background-color: rgba(28, 22, 16, 0.96);
   background-image:
     linear-gradient(90deg, rgba(var(--process-rgb), 0.002), transparent 34%),
-    linear-gradient(90deg, rgba(var(--process-rgb), 0.026) 0 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--process-rgb), 0.018) 0 1px, transparent 1px),
     var(--signal-pattern-muted);
   transition:
     border-color 160ms ease,
@@ -3821,7 +3821,7 @@ body::after {
       112deg,
       transparent 0%,
       rgba(var(--process-rgb), 0.003) 42%,
-      rgba(var(--process-rgb), 0.007) 50%,
+      rgba(var(--process-rgb), 0.005) 50%,
       rgba(var(--process-rgb), 0.003) 58%,
       transparent 100%
     ),
@@ -4888,6 +4888,11 @@ body::after {
   }
 }
 
+/* Skill category rail — color is a marker, not the whole label. */
+.skill-category-title {
+  color: var(--color-concrete-100);
+}
+
 /* Skill category rail — quick guide-family index on small screens. */
 @media (max-width: 40rem) {
   .skill-category-rail {
@@ -4932,9 +4937,9 @@ body::after {
   --skill-guide-pattern: var(--signal-pattern-reference);
   --skill-guide-mark: var(--signal-mark-reference);
   overflow: hidden;
-  border-color: rgba(var(--skill-guide-rgb), 0.24);
+  border-color: rgba(var(--skill-guide-rgb), 0.2);
   background:
-    linear-gradient(90deg, rgba(var(--skill-guide-rgb), 0.026), transparent 44%),
+    linear-gradient(90deg, rgba(var(--skill-guide-rgb), 0.016), transparent 44%),
     var(--skill-guide-mark),
     var(--skill-guide-pattern),
     var(--color-panel-raised);
@@ -4959,9 +4964,9 @@ body::after {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  border-bottom: 1px solid rgba(var(--skill-guide-rgb), 0.16);
+  border-bottom: 1px solid rgba(var(--skill-guide-rgb), 0.12);
   background:
-    linear-gradient(90deg, rgba(var(--skill-guide-rgb), 0.035), transparent 48%),
+    linear-gradient(90deg, rgba(var(--skill-guide-rgb), 0.022), transparent 48%),
     rgba(10, 7, 5, 0.28);
   padding: 0.78rem 1rem;
   color: var(--color-concrete-400);
@@ -5000,16 +5005,16 @@ body::after {
   justify-content: space-between;
   gap: 1rem;
   overflow: hidden;
-  border: 1px solid rgba(var(--catalog-rgb), 0.14);
+  border: 1px solid rgba(var(--catalog-rgb), 0.11);
   border-radius: calc(var(--radius-panel) - 2px);
   background:
-    linear-gradient(90deg, rgba(var(--catalog-rgb), 0.028), transparent 56%),
+    linear-gradient(90deg, rgba(var(--catalog-rgb), 0.016), transparent 56%),
     rgba(10, 7, 5, 0.2);
   color: inherit;
   padding: 0.85rem 0.9rem;
   text-decoration: none;
   box-shadow:
-    inset 2px 0 0 rgba(var(--catalog-rgb), 0.18),
+    inset 2px 0 0 rgba(var(--catalog-rgb), 0.13),
     inset 0 1px 0 rgba(240, 226, 204, 0.035);
   transition:
     border-color 160ms ease,
@@ -5018,9 +5023,9 @@ body::after {
 
 .skill-guide-row.catalog-row:hover,
 .skill-guide-row.catalog-row:focus-visible {
-  border-color: rgba(var(--catalog-rgb), 0.3);
+  border-color: rgba(var(--catalog-rgb), 0.24);
   box-shadow:
-    inset 2px 0 0 rgba(var(--catalog-rgb), 0.34),
+    inset 2px 0 0 rgba(var(--catalog-rgb), 0.26),
     inset 0 1px 0 rgba(240, 226, 204, 0.05),
     0 0 0 1px rgba(var(--catalog-rgb), 0.035);
 }
@@ -6097,22 +6102,22 @@ body::after {
   --surface-mark: var(--signal-mark-core);
   --plate-signal: var(--surface-signal);
   --plate-rgb: var(--surface-rgb);
-  border-color: rgba(var(--surface-rgb), 0.22);
-  border-left-color: rgba(var(--surface-rgb), 0.42);
+  border-color: rgba(var(--surface-rgb), 0.18);
+  border-left-color: rgba(var(--surface-rgb), 0.34);
   background-color: var(--color-panel-raised);
   background-image:
     linear-gradient(
       90deg,
-      rgba(var(--surface-rgb), 0.14) 0,
-      rgba(var(--surface-rgb), 0.14) 2px,
+      rgba(var(--surface-rgb), 0.105) 0,
+      rgba(var(--surface-rgb), 0.105) 2px,
       transparent 2px
     ),
-    linear-gradient(90deg, rgba(var(--surface-rgb), 0.014), transparent 34%),
+    linear-gradient(90deg, rgba(var(--surface-rgb), 0.01), transparent 34%),
     var(--surface-mark),
     var(--surface-pattern),
     radial-gradient(
       70% 58% at 16% 0%,
-      rgba(var(--surface-rgb), 0.018),
+      rgba(var(--surface-rgb), 0.014),
       transparent 62%
     ),
     radial-gradient(
@@ -6129,12 +6134,12 @@ body::after {
 
 .panel-raised:where(.signal-surface):hover,
 .panel-raised:where(.signal-surface):focus-within {
-  border-color: rgba(var(--surface-rgb), 0.32);
+  border-color: rgba(var(--surface-rgb), 0.26);
   box-shadow:
     inset 0 1px 0 rgba(232, 222, 203, 0.09),
     inset 0 -1px 0 rgba(0, 0, 0, 0.55),
-    inset 2px 0 0 rgba(var(--surface-rgb), 0.14),
-    0 0 0 1px rgba(var(--surface-rgb), 0.032),
+    inset 2px 0 0 rgba(var(--surface-rgb), 0.1),
+    0 0 0 1px rgba(var(--surface-rgb), 0.026),
     0 8px 20px rgba(0, 0, 0, 0.24);
 }
 
@@ -6143,7 +6148,7 @@ body::after {
   --surface-rgb: var(--signal-core-rgb);
   --surface-pattern: var(--signal-pattern-core);
   --surface-mark: var(--signal-mark-core);
-  border-top-color: rgba(var(--signal-core-rgb), 0.38);
+  border-top-color: rgba(var(--signal-core-rgb), 0.3);
 }
 
 .signal-surface-evidence {
@@ -6151,8 +6156,8 @@ body::after {
   --surface-rgb: var(--signal-evidence-rgb);
   --surface-pattern: var(--signal-pattern-evidence);
   --surface-mark: var(--signal-mark-evidence);
-  border-left-color: rgba(var(--signal-evidence-rgb), 0.36);
-  border-top-color: rgba(var(--signal-evidence-rgb), 0.22);
+  border-left-color: rgba(var(--signal-evidence-rgb), 0.3);
+  border-top-color: rgba(var(--signal-evidence-rgb), 0.18);
 }
 
 .signal-surface-greenfield {
@@ -6160,8 +6165,8 @@ body::after {
   --surface-rgb: var(--signal-greenfield-rgb);
   --surface-pattern: var(--signal-pattern-greenfield);
   --surface-mark: var(--signal-mark-greenfield);
-  border-left-color: rgba(var(--signal-greenfield-rgb), 0.4);
-  border-right-color: rgba(var(--signal-greenfield-rgb), 0.14);
+  border-left-color: rgba(var(--signal-greenfield-rgb), 0.32);
+  border-right-color: rgba(var(--signal-greenfield-rgb), 0.1);
 }
 
 .signal-surface-brownfield {
@@ -6169,8 +6174,8 @@ body::after {
   --surface-rgb: var(--signal-brownfield-rgb);
   --surface-pattern: var(--signal-pattern-brownfield);
   --surface-mark: var(--signal-mark-brownfield);
-  border-left-color: rgba(var(--signal-brownfield-rgb), 0.42);
-  border-bottom-color: rgba(var(--signal-brownfield-rgb), 0.2);
+  border-left-color: rgba(var(--signal-brownfield-rgb), 0.34);
+  border-bottom-color: rgba(var(--signal-brownfield-rgb), 0.16);
 }
 
 .signal-surface-change {
@@ -6178,8 +6183,8 @@ body::after {
   --surface-rgb: var(--signal-change-rgb);
   --surface-pattern: var(--signal-pattern-change);
   --surface-mark: var(--signal-mark-change);
-  border-left-color: rgba(var(--signal-change-rgb), 0.36);
-  border-bottom-color: rgba(var(--signal-change-rgb), 0.22);
+  border-left-color: rgba(var(--signal-change-rgb), 0.3);
+  border-bottom-color: rgba(var(--signal-change-rgb), 0.18);
 }
 
 .signal-surface-reference {
@@ -6187,8 +6192,8 @@ body::after {
   --surface-rgb: var(--signal-reference-rgb);
   --surface-pattern: var(--signal-pattern-reference);
   --surface-mark: var(--signal-mark-reference);
-  border-left-color: rgba(var(--signal-reference-rgb), 0.36);
-  border-top-color: rgba(var(--signal-reference-rgb), 0.18);
+  border-left-color: rgba(var(--signal-reference-rgb), 0.3);
+  border-top-color: rgba(var(--signal-reference-rgb), 0.14);
 }
 
 .signal-surface-muted {
@@ -6196,7 +6201,7 @@ body::after {
   --surface-rgb: var(--signal-muted-rgb);
   --surface-pattern: var(--signal-pattern-muted);
   --surface-mark: var(--signal-mark-muted);
-  border-left-color: rgba(var(--signal-muted-rgb), 0.28);
+  border-left-color: rgba(var(--signal-muted-rgb), 0.22);
 }
 
 .panel-raised.skill-guide-catalog {
@@ -6334,7 +6339,7 @@ body::after {
 .catalog-row {
   --catalog-signal: var(--signal-core);
   --catalog-rgb: var(--signal-core-rgb);
-  --catalog-signal-soft: rgba(var(--catalog-rgb), 0.28);
+  --catalog-signal-soft: rgba(var(--catalog-rgb), 0.2);
   --catalog-mark: var(--signal-mark-core);
   --catalog-pattern:
     linear-gradient(90deg, rgba(var(--catalog-rgb), 0.01), transparent 52%),
@@ -6420,7 +6425,7 @@ body::after {
 }
 
 .catalog-row .catalog-row-title {
-  color: color-mix(in oklab, var(--catalog-signal) 82%, var(--color-concrete-100));
+  color: color-mix(in oklab, var(--catalog-signal) 74%, var(--color-concrete-100));
   transition:
     color 160ms ease,
     text-shadow 160ms ease;
@@ -6456,7 +6461,7 @@ body::after {
 
 .group:hover .catalog-row-badge,
 .group:focus-within .catalog-row-badge {
-  filter: saturate(1.08) brightness(1.04);
+  filter: saturate(1.04) brightness(1.02);
 }
 
 .accent-card {
@@ -6466,19 +6471,19 @@ body::after {
   --accent-mark: var(--signal-mark-core);
   --plate-signal: var(--accent-signal);
   --plate-rgb: var(--accent-rgb);
-  border-color: rgba(var(--accent-rgb), 0.18);
+  border-color: rgba(var(--accent-rgb), 0.15);
   background-image:
     linear-gradient(
       90deg,
-      rgba(var(--accent-rgb), 0.13) 0,
-      rgba(var(--accent-rgb), 0.13) 2px,
+      rgba(var(--accent-rgb), 0.095) 0,
+      rgba(var(--accent-rgb), 0.095) 2px,
       transparent 2px
     ),
     var(--accent-mark),
     var(--accent-pattern),
     radial-gradient(
       72% 70% at 12% 0%,
-      rgba(var(--accent-rgb), 0.028),
+      rgba(var(--accent-rgb), 0.022),
       transparent 62%
     );
 }
@@ -6538,11 +6543,11 @@ body::after {
 
 .accent-card:hover,
 .accent-card:focus-within {
-  border-color: rgba(var(--accent-rgb), 0.3);
+  border-color: rgba(var(--accent-rgb), 0.24);
   box-shadow:
     0 18px 42px rgba(0, 0, 0, 0.26),
     inset 0 1px 0 rgba(240, 226, 204, 0.08),
-    0 0 0 1px rgba(var(--accent-rgb), 0.05);
+    0 0 0 1px rgba(var(--accent-rgb), 0.04);
 }
 
 .accent-card-kicker,

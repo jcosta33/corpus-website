@@ -24,6 +24,7 @@ export interface PageHeroProps {
   title: ReactNode;
   className?: string;
   cursor?: boolean;
+  toneLabel?: ReactNode;
   titleSize?: keyof typeof TITLE_SIZES;
   tone?: SignalRole;
   motif?: keyof typeof HERO_MOTIFS;
@@ -35,6 +36,7 @@ export function PageHero({
   title,
   className = "",
   cursor = false,
+  toneLabel,
   titleSize = "default",
   tone = "core",
   motif = "overview",
@@ -54,7 +56,7 @@ export function PageHero({
       </div>
       <div className="page-hero-calibration" aria-hidden="true">
         <span>{motif}</span>
-        <span>{tone}</span>
+        <span>{toneLabel ?? tone}</span>
       </div>
       <Eyebrow
         className="page-hero-eyebrow mb-6"
