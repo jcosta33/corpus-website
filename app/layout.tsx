@@ -89,7 +89,7 @@ const ebGaramond = EB_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://corpusframework.dev"),
-  title: "Corpus — Spec and review workflow",
+  title: "Corpus — spec and review workflow",
   description:
     "Corpus is a markdown workflow for specs, tasks, reviews, findings, and evidence.",
   icons: {
@@ -120,6 +120,14 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/",
+    // Surface the llms.txt files to agents/crawlers that look for a text/markdown alternate in the
+    // head. The Metadata API renders these as <link rel="alternate" type="text/markdown" href=...>.
+    types: {
+      "text/markdown": [
+        { url: "/llms.txt", title: "llms.txt" },
+        { url: "/llms-full.txt", title: "llms-full.txt" },
+      ],
+    },
   },
 };
 

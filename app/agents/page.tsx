@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import type { ComponentType } from "react";
 import {
-  ArrowRight,
   ExternalLink,
   FileSearch,
   Hammer,
@@ -27,6 +26,7 @@ import { Badge } from "../components/Badge";
 import { PaperArtifact } from "../components/PaperArtifact";
 import { TextLink } from "../components/TextLink";
 import { SignalStat } from "../components/SignalStat";
+import { PageNav } from "../components/PageNav";
 import { signalRoles, type SignalRole } from "../components/signalStyles";
 
 export const metadata: Metadata = {
@@ -268,29 +268,11 @@ export default function AgentsPage() {
         registerTone="muted"
         className="agent-roster-grid grid gap-4 lg:grid-cols-[0.62fr_1fr]"
       >
-        <nav
-          className="agent-page-nav lg:col-span-2"
-          aria-label="Agent page sections"
-        >
-          {agentPageNav.map((item, index) => (
-            <a
-              key={item.href}
-              href={item.href}
-              aria-label={`Jump to ${item.label} section`}
-              data-color-role={item.signal}
-              className={`agent-page-nav-link agent-page-nav-link-${item.signal} focus-ring group`}
-            >
-              <span className="agent-page-nav-index">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span className="agent-page-nav-label">{item.label}</span>
-              <ArrowRight
-                className="motion-nudge-x h-3.5 w-3.5"
-                aria-hidden="true"
-              />
-            </a>
-          ))}
-        </nav>
+        <PageNav
+          items={agentPageNav}
+          ariaLabel="Agent page sections"
+          className="lg:col-span-2"
+        />
         {rosterGroups.map((group, groupIndex) => (
           <Panel
             key={group.title}

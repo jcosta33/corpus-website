@@ -22,6 +22,7 @@ import { PaperArtifact } from "../components/PaperArtifact";
 import { Section } from "../components/Section";
 import { TerminalWindow } from "../components/TerminalWindow";
 import { TextLink } from "../components/TextLink";
+import { PageNav } from "../components/PageNav";
 import { signalRoles, type SignalRole } from "../components/signalStyles";
 
 export const metadata: Metadata = {
@@ -246,31 +247,11 @@ export default function McpPage() {
         </PageHero>
       </Section>
 
-      <nav
-        className="-mt-4 mx-auto w-full max-w-7xl px-6 sm:-mt-6 lg:px-8"
-        aria-label="corpus-mcp page sections"
-      >
-        <div className="agent-page-nav">
-          {mcpPageNav.map((item, index) => (
-            <a
-              key={item.href}
-              href={item.href}
-              aria-label={`Jump to ${item.label} section`}
-              data-color-role={item.signal}
-              className={`agent-page-nav-link agent-page-nav-link-${item.signal} focus-ring group`}
-            >
-              <span className="agent-page-nav-index">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span className="agent-page-nav-label">{item.label}</span>
-              <ArrowRight
-                className="motion-nudge-x h-3.5 w-3.5"
-                aria-hidden="true"
-              />
-            </a>
-          ))}
-        </div>
-      </nav>
+      <PageNav
+        items={mcpPageNav}
+        ariaLabel="corpus-mcp page sections"
+        wrapperClassName="-mt-4 mx-auto w-full max-w-7xl px-6 sm:-mt-6 lg:px-8"
+      />
 
       <Section
         id="bridge"

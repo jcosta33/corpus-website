@@ -17,6 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/agents/",
     "/cli/",
     "/mcp/",
+    "/llms.txt",
+    "/llms-full.txt",
   ];
   const marketingEntries = marketing.map((p) => ({
     url: `${BASE_URL}${p}`,

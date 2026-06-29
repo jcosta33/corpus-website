@@ -37,21 +37,43 @@ jobs:
           sleep 3
 
       - name: Check internal links
-        run: npx linkinator http://127.0.0.1:3000 --skip "^https://github.com" --skip "^https://corpusframework.dev"
+        run: npx linkinator http://127.0.0.1:3000 --skip "^https://github.com"
 
-      - name: Accessibility audit (home + docs)
-        run: npx axe http://127.0.0.1:3000 http://127.0.0.1:3000/docs/ http://127.0.0.1:3000/docs/01-what-is-corpus/ --exit
+      - name: Accessibility audit (home + docs + product)
+        run: npx axe http://127.0.0.1:3000 http://127.0.0.1:3000/docs/ http://127.0.0.1:3000/docs/01-what-is-corpus/ http://127.0.0.1:3000/what-is-corpus/ http://127.0.0.1:3000/the-loop/ http://127.0.0.1:3000/skills/ http://127.0.0.1:3000/agents/ http://127.0.0.1:3000/cli/ http://127.0.0.1:3000/mcp/ http://127.0.0.1:3000/get-started/ --exit
 
-      - name: Lighthouse audit (home + docs)
+      - name: Lighthouse audit (home + docs + product)
         run: |
-          npx lighthouse http://127.0.0.1:3000 --output=json --output-path=./lighthouse-home.json --chrome-flags="--headless --no-sandbox" --preset=desktop --only-categories=performance,accessibility,best-practices,seo
-          npx lighthouse http://127.0.0.1:3000/docs/01-what-is-corpus/ --output=json --output-path=./lighthouse-docs.json --chrome-flags="--headless --no-sandbox" --preset=desktop --only-categories=performance,accessibility,best-practices,seo
+          declare -A routes=(
+            ["home"]="http://127.0.0.1:3000"
+            ["docs"]="http://127.0.0.1:3000/docs/01-what-is-corpus/"
+            ["what-is-corpus"]="http://127.0.0.1:3000/what-is-corpus/"
+            ["the-loop"]="http://127.0.0.1:3000/the-loop/"
+            ["skills"]="http://127.0.0.1:3000/skills/"
+            ["agents"]="http://127.0.0.1:3000/agents/"
+            ["cli"]="http://127.0.0.1:3000/cli/"
+            ["mcp"]="http://127.0.0.1:3000/mcp/"
+            ["get-started"]="http://127.0.0.1:3000/get-started/"
+          )
+          for name in "${!routes[@]}"; do
+            npx lighthouse "${routes[$name]}" --output=json --output-path="./lighthouse-$name.json" --chrome-flags="--headless --no-sandbox" --preset=desktop --only-categories=performance,accessibility,best-practices,seo
+          done
 
-      - name: Check Lighthouse thresholds (home + docs)
+      - name: Check Lighthouse thresholds (home + docs + product)
         run: |
           node -e "
             const fs = require('fs');
-            const reports = ['./lighthouse-home.json', './lighthouse-docs.json'];
+            const reports = [
+              './lighthouse-home.json',
+              './lighthouse-docs.json',
+              './lighthouse-what-is-corpus.json',
+              './lighthouse-the-loop.json',
+              './lighthouse-skills.json',
+              './lighthouse-agents.json',
+              './lighthouse-cli.json',
+              './lighthouse-mcp.json',
+              './lighthouse-get-started.json',
+            ];
             const thresholds = { performance: 0.90, accessibility: 0.95, 'best-practices': 0.90, seo: 0.90 };
             let failed = false;
             for (const path of reports) {

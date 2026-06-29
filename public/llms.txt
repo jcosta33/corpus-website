@@ -24,7 +24,7 @@ Corpus keeps a human in charge of the firehose. Agents draft, run, and paste the
 ## Worked examples
 
 - [A bug fix](https://corpusframework.dev/docs/examples/bug-fix/): The loop on a small defect.
-- [A feature from a Jira ticket](https://corpusframework.dev/docs/examples/feature-from-jira/): A vague ticket turned into a spec, task, and review.
+- [A feature from a ticket](https://corpusframework.dev/docs/examples/feature-from-ticket/): A vague ticket turned into a spec, task, and review.
 - [A 41-file refactor, reviewed by exception](https://corpusframework.dev/docs/examples/large-pr-review/): The flagship demo — a large change reviewed without reading every line.
 
 ## Optional

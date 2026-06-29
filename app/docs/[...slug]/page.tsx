@@ -186,7 +186,7 @@ export default async function DocPage({
           dates,
         )}
       />
-      <div className="docs-prose" data-pagefind-body>
+      <article className="docs-prose" data-pagefind-body>
         <header className="docs-article-header">
           <div className="docs-article-kicker" data-pagefind-ignore>
             <span>manual page</span>
@@ -270,7 +270,7 @@ export default async function DocPage({
             <Link href="/get-started/">Set up a workspace</Link>
           </p>
         </div>
-      </div>
+      </article>
 
       {headings.length >= 3 && <DocsToc headings={headings} />}
     </>

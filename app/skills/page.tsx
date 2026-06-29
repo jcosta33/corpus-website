@@ -4,7 +4,6 @@ import {
   Bug,
   ClipboardCheck,
   Compass,
-  ExternalLink,
   FileCode,
   Files,
   FolderSearch,
@@ -37,6 +36,7 @@ import { Badge } from "../components/Badge";
 import { PaperArtifact } from "../components/PaperArtifact";
 import { TextLink } from "../components/TextLink";
 import { SignalStat } from "../components/SignalStat";
+import { SkillCatalog } from "../components/SkillCatalog";
 import { signalRoles } from "../components/signalStyles";
 
 export const metadata: Metadata = {
@@ -420,61 +420,13 @@ export default function SkillsPage() {
             <Badge variant="ready">on demand</Badge>
           </div>
         </div>
-        <Panel
-          brushed
-          screws
-          className="skill-guide-catalog skill-guide-catalog-evidence p-0"
-        >
-          <div className="skill-guide-catalog-header">
-            <span>corpus-skills catalog</span>
-            <span>{stances.length} guides</span>
-          </div>
-          <ul
-            className="skill-guide-list"
-            style={{
-              gridTemplateColumns:
-                "repeat(auto-fit, minmax(min(100%, 20rem), 1fr))",
-            }}
-          >
-            {stances.map((s) => {
-              const Icon = s.icon;
-              return (
-                <li key={s.skill}>
-                  <a
-                    href={`${catalogRepo}/${s.skill}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${s.skill} skill on GitHub (opens in new tab)`}
-                    className="skill-guide-row catalog-row catalog-row-evidence group focus-ring"
-                  >
-                    <div className="flex min-w-0 items-start gap-4">
-                      <HexBadge
-                        color="evidence"
-                        className="catalog-row-badge skill-guide-row-badge"
-                      >
-                        <Icon className="h-5 w-5" aria-hidden="true" />
-                      </HexBadge>
-                      <div className="min-w-0">
-                        <h3
-                          className={`catalog-row-title font-mono text-sm font-semibold ${signalRoles.evidence.text}`}
-                        >
-                          {s.skill}
-                        </h3>
-                        <p className="catalog-row-copy mt-1 text-sm leading-relaxed text-concrete-400">
-                          {s.use}
-                        </p>
-                      </div>
-                    </div>
-                    <ExternalLink
-                      className="skill-guide-row-arrow"
-                      aria-hidden="true"
-                    />
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </Panel>
+        <SkillCatalog
+          tone="evidence"
+          skills={stances}
+          repo={catalogRepo}
+          headerLabel="corpus-skills catalog"
+          guidesLabel={`${stances.length} guides`}
+        />
       </Section>
 
       <Section
@@ -495,61 +447,13 @@ export default function SkillsPage() {
             framework-free.
           </p>
         </div>
-        <Panel
-          brushed
-          screws
-          className="skill-guide-catalog skill-guide-catalog-core p-0"
-        >
-          <div className="skill-guide-catalog-header">
-            <span>corpus-skills catalog</span>
-            <span>{disciplines.length} guides</span>
-          </div>
-          <ul
-            className="skill-guide-list"
-            style={{
-              gridTemplateColumns:
-                "repeat(auto-fit, minmax(min(100%, 20rem), 1fr))",
-            }}
-          >
-            {disciplines.map((s) => {
-              const Icon = s.icon;
-              return (
-                <li key={s.skill}>
-                  <a
-                    href={`${catalogRepo}/${s.skill}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${s.skill} skill on GitHub (opens in new tab)`}
-                    className="skill-guide-row catalog-row catalog-row-core group focus-ring"
-                  >
-                    <div className="flex min-w-0 items-start gap-4">
-                      <HexBadge
-                        color="core"
-                        className="catalog-row-badge skill-guide-row-badge"
-                      >
-                        <Icon className="h-5 w-5" aria-hidden="true" />
-                      </HexBadge>
-                      <div className="min-w-0">
-                        <h3
-                          className={`catalog-row-title font-mono text-sm font-semibold ${signalRoles.core.text}`}
-                        >
-                          {s.skill}
-                        </h3>
-                        <p className="catalog-row-copy mt-1 text-sm leading-relaxed text-concrete-400">
-                          {s.use}
-                        </p>
-                      </div>
-                    </div>
-                    <ExternalLink
-                      className="skill-guide-row-arrow"
-                      aria-hidden="true"
-                    />
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </Panel>
+        <SkillCatalog
+          tone="core"
+          skills={disciplines}
+          repo={catalogRepo}
+          headerLabel="corpus-skills catalog"
+          guidesLabel={`${disciplines.length} guides`}
+        />
       </Section>
 
       <Section
@@ -580,61 +484,14 @@ export default function SkillsPage() {
             task-implementation depth.
           </p>
         </div>
-        <Panel
-          brushed
-          screws
-          className="skill-guide-catalog p-0"
-        >
-          <div className="skill-guide-catalog-header">
-            <span>corpus-starter-kit/.agents/skills</span>
-            <span>{kitSkills.length} guides</span>
-          </div>
-          <ul
-            className="skill-guide-list"
-            style={{
-              gridTemplateColumns:
-                "repeat(auto-fit, minmax(min(100%, 20rem), 1fr))",
-            }}
-          >
-            {kitSkills.map((s) => {
-              const Icon = s.icon;
-              return (
-                <li key={s.skill}>
-                  <a
-                    href={`${kitRepo}/${s.skill}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${s.skill} skill on GitHub (opens in new tab)`}
-                    className="skill-guide-row catalog-row catalog-row-reference group focus-ring"
-                  >
-                    <div className="flex min-w-0 items-start gap-4">
-                      <HexBadge
-                        color="reference"
-                        className="catalog-row-badge skill-guide-row-badge"
-                      >
-                        <Icon className="h-5 w-5" aria-hidden="true" />
-                      </HexBadge>
-                      <div className="min-w-0">
-                        <h3
-                          className={`catalog-row-title font-mono text-sm font-semibold ${signalRoles.reference.text}`}
-                        >
-                          {s.skill}
-                        </h3>
-                        <p className="catalog-row-copy mt-1 text-sm leading-relaxed text-concrete-400">
-                          {s.use}
-                        </p>
-                      </div>
-                    </div>
-                    <ExternalLink
-                      className="skill-guide-row-arrow"
-                      aria-hidden="true"
-                    />
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </Panel>
+        <SkillCatalog
+          tone="reference"
+          skills={kitSkills}
+          repo={kitRepo}
+          headerLabel="corpus-starter-kit/.agents/skills"
+          guidesLabel={`${kitSkills.length} guides`}
+          toned={false}
+        />
       </Section>
 
       <Section

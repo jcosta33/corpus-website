@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Documentation · Corpus",
   description: "The Corpus documentation.",
   alternates: { canonical: "/docs/" },
+  openGraph: { url: "/docs/" }, // /docs/ is indexable — emit og:url so reshares consolidate
 };
 
 const docsLegend = [
