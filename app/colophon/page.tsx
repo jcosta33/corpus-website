@@ -34,6 +34,13 @@ const buildTrace = [
   "deploy",
 ];
 
+const provenanceFacts = [
+  { label: "Source", value: "jcosta33/corpus-website" },
+  { label: "Canon", value: "../corpus/docs" },
+  { label: "Export", value: "dist/" },
+  { label: "Search", value: "Pagefind" },
+];
+
 const trace = [
   {
     label: "WORKFLOW",
@@ -164,6 +171,14 @@ export default function ColophonPage() {
                 </li>
               ))}
             </ol>
+            <dl className="colophon-provenance-grid">
+              {provenanceFacts.map((fact) => (
+                <div key={fact.label}>
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </Panel>
 
