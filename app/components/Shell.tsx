@@ -435,6 +435,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
       <div
         className="trace-rail"
         data-active={trace.active ? "true" : "false"}
+        data-started={trace.progress > 2 ? "true" : "false"}
         style={
           {
             "--trace-progress": `${trace.progress}%`,
