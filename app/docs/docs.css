@@ -2508,12 +2508,13 @@
 
   .docs-index-section-primary .docs-index-list {
     flex: 1;
-    align-content: space-between;
+    align-content: start;
   }
 
   .docs-index-section-wide {
     grid-column: 1 / -1;
   }
+
 }
 
 .docs-index-section-heading {
@@ -2625,6 +2626,25 @@
     border-color 0.12s,
     color 0.12s,
     box-shadow 0.12s;
+}
+
+@media (min-width: 46rem) {
+  .docs-index-section-heading {
+    margin-bottom: 0.54rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .docs-index-list {
+    gap: 0.32rem 0.72rem;
+  }
+
+  .docs-prose .docs-index-list a {
+    min-height: 2.34rem;
+    gap: 0.56rem;
+    padding: 0.28rem 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.24;
+  }
 }
 
 .docs-prose .docs-index-list a::before {
