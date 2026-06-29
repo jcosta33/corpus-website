@@ -2710,7 +2710,6 @@
 .docs-prose .docs-index-list a:hover::after,
 .docs-prose .docs-index-list a:focus-visible::after {
   opacity: 0.72;
-  right: 0.28rem;
 }
 
 .docs-prose .docs-index-section .docs-index-list a:focus-visible {
