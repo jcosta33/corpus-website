@@ -921,6 +921,30 @@ body::after {
   }
 }
 
+@media (min-width: 48rem) {
+  .kitchen-specimen-group {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+  }
+
+  .kitchen-specimen-group h3 {
+    font-size: 1.06rem;
+    line-height: 1.15;
+  }
+
+  .kitchen-specimen-note {
+    max-width: 17rem;
+  }
+
+  .kitchen-specimen-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.16rem 1rem;
+    margin-top: auto;
+    padding-top: 0.85rem;
+  }
+}
+
 .badge-signal {
   --badge-signal: var(--signal-core);
   --badge-rgb: var(--signal-core-rgb);

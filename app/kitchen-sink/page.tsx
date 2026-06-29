@@ -13,9 +13,7 @@ import { TerminalWindow } from "../components/TerminalWindow";
 import { Heading } from "../components/Heading";
 import { PaperArtifact } from "../components/PaperArtifact";
 import { PageHero } from "../components/PageHero";
-import { SignalKey } from "../components/SignalKey";
 import {
-  signalSystemKey,
   signalRoleOrder,
   signalRoleMeta,
   signalRoles,
@@ -120,8 +118,8 @@ export default function KitchenSinkPage() {
       <Section register="00 / specimen register" registerTone="muted">
         <nav aria-label="Kitchen sink specimen register">
           <Panel brushed screws className="p-0">
-            <div className="grid md:grid-cols-[0.85fr_2fr]">
-              <div className="border-b border-panel-border p-4 sm:p-6 md:border-b-0 md:border-r">
+            <div className="grid md:grid-cols-[minmax(13rem,0.62fr)_minmax(0,2.38fr)]">
+              <div className="border-b border-panel-border p-4 sm:p-5 md:border-b-0 md:border-r">
                 <p className="font-mono text-xs font-semibold uppercase tracking-wide text-brass">
                   Specimen register
                 </p>
@@ -137,7 +135,7 @@ export default function KitchenSinkPage() {
                 {specimenRegister.map((group, index) => (
                   <div
                     key={group.label}
-                    className="kitchen-specimen-group bg-panel-raised/95 p-4 sm:p-6"
+                    className="kitchen-specimen-group bg-panel-raised/95 p-4 sm:p-5"
                   >
                     <p className="font-mono text-xs font-semibold uppercase tracking-wide text-corpus-yellow">
                       {String(index + 1).padStart(2, "0")}
@@ -145,10 +143,10 @@ export default function KitchenSinkPage() {
                     <h3 className="mt-2 font-heading text-lg font-bold text-concrete-100 sm:mt-3 sm:text-xl">
                       {group.label}
                     </h3>
-                    <p className="kitchen-specimen-note mt-1 text-sm leading-relaxed text-concrete-400 sm:mt-2 md:min-h-[3.75rem]">
+                    <p className="kitchen-specimen-note mt-1 text-sm leading-relaxed text-concrete-400 sm:mt-2">
                       {group.note}
                     </p>
-                    <ul className="kitchen-specimen-links mt-3 grid grid-cols-2 gap-x-4 gap-y-0.5 sm:mt-4 sm:grid-cols-1 sm:gap-y-2">
+                    <ul className="kitchen-specimen-links mt-3 grid grid-cols-2 gap-x-4 gap-y-0.5 sm:mt-4">
                       {group.links.map((link) => (
                         <li key={link.href}>
                           <a
@@ -163,15 +161,6 @@ export default function KitchenSinkPage() {
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="border-t border-panel-border p-4 sm:p-5">
-              <p className="mb-3 font-mono text-xs font-semibold uppercase tracking-wide text-brass">
-                Signal key
-              </p>
-              <SignalKey
-                ariaLabel="Kitchen sink semantic signal roles"
-                items={signalSystemKey}
-              />
             </div>
           </Panel>
         </nav>
