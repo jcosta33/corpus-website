@@ -2522,6 +2522,10 @@ body::after {
     padding: 0.48rem 0.68rem;
   }
 
+  .hero-trace-item:nth-child(odd):last-child {
+    grid-column: 1 / -1;
+  }
+
   .hero-trace-label {
     font-size: 0.8rem;
   }
