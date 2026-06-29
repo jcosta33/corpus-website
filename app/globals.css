@@ -9134,8 +9134,8 @@ body::after {
   }
 
   .terminal-toolbar:has(.copy-button) {
-    grid-template-columns: minmax(0, 1fr);
-    align-items: stretch;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
   }
 
   .terminal-toolbar:has(.copy-button) .terminal-lamp-row {
@@ -9144,12 +9144,12 @@ body::after {
   }
 
   .terminal-toolbar:has(.copy-button) > div:last-child {
-    width: 100%;
-    justify-self: stretch;
+    width: auto;
+    justify-self: end;
   }
 
   .terminal-toolbar:has(.copy-button) .copy-button {
-    width: 100%;
+    width: auto;
     min-height: 2.45rem;
     justify-content: center;
   }
