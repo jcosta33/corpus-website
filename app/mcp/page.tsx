@@ -186,7 +186,7 @@ const bridgeFlow = [
     detail: "Commands return structured facts.",
     icon: Terminal,
     href: "#mcp-tools",
-    signal: "evidence",
+    signal: "reference",
   },
   {
     label: "Workspace",
@@ -216,7 +216,7 @@ const bridgeSignalKey = [
   },
   {
     label: "JSON",
-    role: "evidence",
+    role: "reference",
     detail: "CLI contract surface",
   },
   {

@@ -8,7 +8,7 @@
      greenfield = literal new-workspace paths, brownfield = existing-project
      adoption, change = active edits/attention, evidence = proof/review,
      reference = manuals and catalogs. Change is a red-oxide signal, separate
-     from the orange-gold core; cyan/faded periwinkle are package accents only.
+     from the orange-gold core; muted cyan/dusty periwinkle are package accents only.
      Brown means existing-project work.
      Green means greenfield, not "good"; sage means evidence, not "new";
      setup alone is not green.
@@ -43,8 +43,8 @@
   --color-greenfield: #7fbd82;
   --color-brownfield: #a96b40;
   --color-verdigris: #78bdb2;
-  --color-neon-bridge: #9a8aa8;
-  --color-interface-blue: #67b9ca;
+  --color-neon-bridge: #8c8492;
+  --color-interface-blue: #5aa7b7;
   --color-rubedo: #bd4b4f;
   --color-pwr-red: #d2624e;
   --color-olive: var(--color-phosphor);
@@ -70,12 +70,12 @@
      continues to use the semantic signal roles below. */
   --package-skills: var(--signal-evidence);
   --package-skills-rgb: var(--signal-evidence-rgb);
-  --package-agents: #8fb08d;
-  --package-agents-rgb: 143, 176, 141;
+  --package-agents: #86a984;
+  --package-agents-rgb: 134, 169, 132;
   --package-cli: var(--color-interface-blue);
-  --package-cli-rgb: 103, 185, 202;
+  --package-cli-rgb: 90, 167, 183;
   --package-mcp: var(--color-neon-bridge);
-  --package-mcp-rgb: 154, 138, 168;
+  --package-mcp-rgb: 140, 132, 146;
 
   /* Role patterns: hue + mark travel together, so color does not become decoration. */
   --signal-pattern-core: linear-gradient(
@@ -301,10 +301,12 @@
   --c-greenfield: #7fbd82;
   --c-brownfield: #a96b40;
   --c-verdigris: #78bdb2;
-  --c-neon-bridge: #9a8aa8;
-  --c-interface-blue: #67b9ca;
+  --c-neon-bridge: #8c8492;
+  --c-interface-blue: #5aa7b7;
   --c-rubedo: #bd4b4f;
+  --c-pwr-red: #d2624e;
   --c-olive: var(--c-phosphor);
+  --color-pwr-red: var(--c-pwr-red);
   --signal-core: var(--color-aurum);
   --signal-core-rgb: 216, 138, 36;
   --signal-evidence: var(--color-phosphor);
@@ -317,12 +319,12 @@
   --signal-change-rgb: 189, 75, 79;
   --package-skills: var(--signal-evidence);
   --package-skills-rgb: var(--signal-evidence-rgb);
-  --package-agents: #8fb08d;
-  --package-agents-rgb: 143, 176, 141;
+  --package-agents: #86a984;
+  --package-agents-rgb: 134, 169, 132;
   --package-cli: var(--color-interface-blue);
-  --package-cli-rgb: 103, 185, 202;
+  --package-cli-rgb: 90, 167, 183;
   --package-mcp: var(--color-neon-bridge);
-  --package-mcp-rgb: 154, 138, 168;
+  --package-mcp-rgb: 140, 132, 146;
   --signal-reference: var(--color-verdigris);
   --signal-reference-rgb: 120, 189, 178;
   --signal-muted: var(--color-brass);
@@ -3124,7 +3126,7 @@ section.bg-section-band::after {
 }
 
 .page-hero.page-hero-package-mcp .product-name-suffix {
-  color: color-mix(in oklab, var(--package-mcp) 48%, var(--color-concrete-100));
+  color: color-mix(in oklab, var(--package-mcp) 38%, var(--color-concrete-100));
   text-shadow:
     0 0 8px rgba(var(--product-name-suffix-rgb), 0.012),
     0 1px 0 rgba(0, 0, 0, 0.32);
@@ -3134,7 +3136,9 @@ section.bg-section-band::after {
   opacity: 0.38;
 }
 
-.page-hero.page-hero-package-cli .page-hero-eyebrow .pilot-lamp-change {
+.page-hero.page-hero-package-cli
+  .page-hero-eyebrow
+  :is(.pilot-lamp-change, .pilot-lamp-reference) {
   --lamp-signal: var(--package-cli);
   --lamp-rgb: var(--package-cli-rgb);
 }

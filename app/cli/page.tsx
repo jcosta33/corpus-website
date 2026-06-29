@@ -201,7 +201,7 @@ const commandFamilies = [
     commands: "worktree · run",
     detail: "Isolate task work and launch agents.",
     icon: GitBranch,
-    signal: "change",
+    signal: "reference",
   },
   {
     label: "JSON",
@@ -226,7 +226,7 @@ const commandSignalKey = [
   },
   {
     label: "Run",
-    role: "change",
+    role: "reference",
     detail: "isolate task work",
   },
   {
@@ -257,7 +257,7 @@ export default function CliPage() {
           eyebrow="corpus-cli — reference implementation"
           className="page-hero-package-cli"
           motif="catalog"
-          tone="change"
+          tone="reference"
           toneLabel="cli"
           title={
             <>
