@@ -9,10 +9,10 @@ const MARK =
   "data:image/svg+xml," +
   encodeURIComponent(
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">` +
-      `<circle cx="16" cy="16" r="15.1" stroke="#d88a24" stroke-width="1.7"/>` +
-      `<polygon points="16,2.55 27.65,9.28 27.65,22.72 16,29.45 4.35,22.72 4.35,9.28" stroke="#d88a24" stroke-width="1.4" stroke-linejoin="round" opacity="0.58"/>` +
-      `<polygon points="16,2.55 27.65,22.72 4.35,22.72" fill="#d88a24" fill-opacity="0.16" stroke="#d88a24" stroke-width="1.95" stroke-linejoin="round"/>` +
-      `<circle cx="16" cy="16" r="2.3" fill="#f0b85c"/>` +
+      `<circle cx="16" cy="16" r="15.1" stroke="#d88a24" stroke-width="1.6"/>` +
+      `<polygon points="16,2.55 27.65,9.28 27.65,22.72 16,29.45 4.35,22.72 4.35,9.28" stroke="#d88a24" stroke-width="1.2" stroke-linejoin="round" opacity="0.45"/>` +
+      `<polygon points="16,2.55 27.65,22.72 4.35,22.72" fill="#d88a24" fill-opacity="0.95" stroke="#d88a24" stroke-width="0.8" stroke-linejoin="round"/>` +
+      `<circle cx="16" cy="16.4" r="2.7" fill="#100b07"/>` +
       `</svg>`
   );
 

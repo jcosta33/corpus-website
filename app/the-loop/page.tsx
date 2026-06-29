@@ -177,7 +177,7 @@ const steps = [
     number: "06",
     name: "Close",
     signal: "core",
-    body: "Merge, save useful findings, and update the board.",
+    body: "Merge, record any decision, save durable findings, and update the board.",
     example: {
       title: "findings/FINDING-tailwind-v4-syntax.md",
       lines: [

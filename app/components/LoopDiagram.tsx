@@ -16,13 +16,14 @@ const steps = [
     icon: Inbox,
     optional: true,
     description:
-      "Point the spec's sources at the origin; capture an intake file only to keep the raw request. Intake is optional; the spec is the unit.",
+      "Point the spec's sources at the origin, or capture the raw request verbatim in an intake file first.",
   },
   {
     number: "02",
     label: "Spec",
     icon: FileText,
-    description: "Write requirements, each with a verification method.",
+    description:
+      "State the requirements one per id, each with the check that verifies it. The spec is the unit.",
   },
   {
     number: "03",
@@ -30,14 +31,14 @@ const steps = [
     icon: ListChecks,
     optional: true,
     description:
-      "Only when one spec splits into parallel slices — most work is one spec → one implementer, no task file.",
+      "When one spec splits into parallel slices, hand each agent a bounded packet. Most work needs none.",
   },
   {
     number: "04",
     label: "Run",
     icon: Terminal,
     description:
-      "The worker implements the spec (or the task, when split) and pastes real evidence.",
+      "The worker implements the spec, runs every check, and pastes the real output beside each requirement.",
   },
   {
     number: "05",
@@ -45,13 +46,14 @@ const steps = [
     icon: ScanEye,
     optional: true,
     description:
-      "A non-implementer checks evidence per requirement. The formal packet is optional for a small change you verified.",
+      "A non-implementer checks the evidence per requirement; the full review packet is reserved for substantial changes.",
   },
   {
     number: "06",
     label: "Close",
     icon: GitMerge,
-    description: "Merge, save findings, update the board.",
+    description:
+      "Merge, record the decision, save any durable finding, and update the board. Close feeds the next pull.",
   },
 ] as const;
 

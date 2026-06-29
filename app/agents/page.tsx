@@ -266,7 +266,7 @@ export default function AgentsPage() {
         id="worker-lanes"
         register="02 / worker lanes"
         registerTone="muted"
-        className="agent-roster-grid grid gap-4 lg:grid-cols-2 lg:items-start"
+        className="agent-roster-grid grid gap-4 lg:grid-cols-[0.62fr_1fr]"
       >
         <nav
           className="agent-page-nav lg:col-span-2"
@@ -319,7 +319,11 @@ export default function AgentsPage() {
                 <span>files</span>
               </div>
             </div>
-            <div className="agent-roster-cells grid gap-px bg-panel-border sm:grid-cols-2">
+            <div
+              className={`agent-roster-cells grid gap-px bg-panel-border ${
+                groupIndex === 0 ? "" : "sm:grid-cols-2"
+              }`}
+            >
               {group.items.map((item, index) => (
                 <a
                   key={item.file}
@@ -341,7 +345,13 @@ export default function AgentsPage() {
                         <p
                           className={`font-mono text-xs font-semibold uppercase tracking-wide ${signalRoles[item.signal].text}`}
                         >
-                          {String(groupIndex * 4 + index + 1).padStart(2, "0")}
+                          {String(
+                            (groupIndex === 0
+                              ? 0
+                              : rosterGroups[0].items.length) +
+                              index +
+                              1,
+                          ).padStart(2, "0")}
                         </p>
                         <ExternalLink
                           className="motion-nudge-x h-4 w-4 shrink-0 text-brass/70 transition-[opacity,transform] group-hover:opacity-100 group-focus:opacity-100"
