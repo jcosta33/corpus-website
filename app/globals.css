@@ -6711,6 +6711,20 @@ section.bg-section-band::after {
     0 0 0 1px rgba(var(--plate-rgb), 0.06);
 }
 
+.panel-raised.home-hero-preview:has(
+    :is(a, button, input, select, textarea, [tabindex]:not([tabindex="-1"]))
+  ):hover,
+.panel-raised.home-hero-preview:hover,
+.panel-raised.home-hero-preview:focus-within {
+  border-color: var(--color-panel-border);
+  background-color: var(--color-panel-raised);
+  box-shadow:
+    0 -1px 0 rgba(var(--signal-core-rgb), 0.18),
+    0 -18px 54px rgba(var(--signal-core-rgb), 0.045),
+    0 18px 44px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(240, 226, 204, 0.08);
+}
+
 /* Hover states may illuminate a surface, but they should never move it. */
 :where(
     .panel-raised,
