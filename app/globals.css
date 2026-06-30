@@ -281,9 +281,9 @@
   --radius-panel: 10px;
   --radius-control: 10px;
 
-  --rhythm-kicker-title: clamp(1.7rem, 2.15vw, 2.15rem);
-  --rhythm-title-body: clamp(1.08rem, 1.35vw, 1.28rem);
-  --rhythm-register-gap: clamp(2.9rem, 3.45vw, 3.35rem);
+  --rhythm-kicker-title: clamp(1.95rem, 2.45vw, 2.45rem);
+  --rhythm-title-body: clamp(1.1rem, 1.45vw, 1.38rem);
+  --rhythm-register-gap: clamp(3.25rem, 4vw, 3.9rem);
   --rhythm-hero-nav-clearance: clamp(2.35rem, 3.1vw, 3rem);
   --rhythm-hero-eyebrow-title: clamp(1.95rem, 2.55vw, 2.45rem);
   --rhythm-after-page-nav: clamp(1.08rem, 1.65vw, 1.55rem);
@@ -602,14 +602,14 @@ body::after {
 }
 
 .section-flow {
-  --section-flow-gap: clamp(2.15rem, 3vw, 2.7rem);
+  --section-flow-gap: clamp(2.35rem, 3.25vw, 3rem);
   display: flex;
   flex-direction: column;
   gap: var(--section-flow-gap);
 }
 
 .section-flow-tight {
-  --section-flow-gap: clamp(1.55rem, 2.05vw, 1.9rem);
+  --section-flow-gap: clamp(1.78rem, 2.25vw, 2.15rem);
 }
 
 .section-flow-spacious {
@@ -629,7 +629,7 @@ body::after {
 .section-prose-stack {
   display: grid;
   max-width: min(100%, 68ch);
-  gap: clamp(1.25rem, 1.75vw, 1.58rem);
+  gap: clamp(1.5rem, 2.05vw, 1.9rem);
 }
 
 .section-prose-stack > p,
@@ -2329,7 +2329,12 @@ section.bg-section-band::after {
 }
 
 .repo-product-page > .ambient-header {
-  padding-top: clamp(2.55rem, 3.35vw, 3.25rem);
+  padding-top: clamp(2.25rem, 2.9vw, 2.85rem);
+}
+
+.repo-product-page > .ambient-header .page-hero,
+.site-main-frame > .flex.flex-col > .ambient-header .page-hero {
+  padding-top: clamp(0.62rem, 0.95vw, 0.95rem);
 }
 
 .ambient-header:has(.page-hero-tone-core) {
@@ -8322,7 +8327,7 @@ section.bg-section-band::after {
 
 /* Agent roster — first-pass worker file map, denser than generic cards. */
 .repo-product-page {
-  row-gap: clamp(2.5rem, 3.35vw, 3.2rem) !important;
+  row-gap: clamp(2.12rem, 2.7vw, 2.65rem) !important;
   padding-top: clamp(4rem, 5.7vw, 4.45rem) !important;
 }
 
@@ -8337,11 +8342,11 @@ section.bg-section-band::after {
 }
 
 .repo-product-page > .ambient-header + .page-nav-wrap {
-  margin-top: clamp(0.18rem, 0.55vw, 0.45rem) !important;
+  margin-top: 0 !important;
 }
 
 .repo-product-page > .page-nav-wrap + .section-register {
-  margin-top: clamp(0.38rem, 0.85vw, 0.72rem);
+  margin-top: clamp(0.55rem, 1vw, 0.88rem);
 }
 
 .writing-page-nav {
@@ -8605,7 +8610,8 @@ section.bg-section-band::after {
 
 @media (max-width: 40rem) {
   .repo-product-page {
-    padding-top: 3.95rem !important;
+    row-gap: 2.45rem !important;
+    padding-top: 3.7rem !important;
   }
 
   .repo-product-page > .page-nav-wrap {
@@ -8619,11 +8625,11 @@ section.bg-section-band::after {
   }
 
   .repo-product-page > .ambient-header + .page-nav-wrap {
-    margin-top: 0.48rem !important;
+    margin-top: 0 !important;
   }
 
   .repo-product-page > .page-nav-wrap + .section-register {
-    margin-top: 0.72rem;
+    margin-top: 0.92rem;
   }
 
   .agent-page-nav,
@@ -8772,11 +8778,11 @@ section.bg-section-band::after {
 
 @media (min-width: 40.01rem) and (max-width: 48rem) {
   .repo-product-page {
-    row-gap: 2.75rem !important;
+    row-gap: 2.5rem !important;
   }
 
   .repo-product-page > .ambient-header + .page-nav-wrap {
-    margin-top: 0.42rem !important;
+    margin-top: 0 !important;
   }
 
   .repo-product-page > .page-nav-wrap,
@@ -10658,6 +10664,10 @@ section.bg-section-band::after {
   column-gap: clamp(0.7rem, 1.4vw, 1.1rem);
 }
 
+.terminal-toolbar:has(.copy-button) {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
 .terminal-lamp-row {
   min-width: 0;
 }
@@ -10692,30 +10702,27 @@ section.bg-section-band::after {
 }
 
 .terminal-toolbar-actions {
-  margin-left: auto;
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  column-gap: 0.7rem;
-  flex: 1 1 auto;
-  max-width: none;
-  width: 100%;
-  justify-content: flex-end;
-  justify-items: stretch;
-  min-width: 0;
+  display: contents !important;
 }
 
 .terminal-toolbar-actions .copy-button {
   flex: 0 0 auto;
-  grid-column: 2;
+  grid-column: 3;
   justify-self: end;
   margin-left: auto;
 }
 
 .terminal-toolbar:has(.copy-button) .terminal-title-label {
-  grid-column: 1;
-  width: min(100%, clamp(7.5rem, 20vw, 15rem));
-  max-width: min(100%, 15rem);
+  grid-column: 2;
+  width: min(100%, clamp(6.4rem, 17vw, 12.5rem));
+  max-width: min(100%, 12.5rem);
+  justify-self: end;
+}
+
+.terminal-toolbar:not(:has(.copy-button)) .terminal-title-label {
+  grid-column: 2;
+  width: min(100%, clamp(7.5rem, 24vw, 18rem));
+  max-width: min(100%, 18rem);
   justify-self: end;
 }
 
@@ -10758,10 +10765,7 @@ section.bg-section-band::after {
   }
 
   .terminal-toolbar-actions {
-    grid-column: 2;
-    grid-template-columns: auto;
-    min-width: 0;
-    max-width: none;
+    display: contents !important;
   }
 
   .terminal-toolbar .copy-button {

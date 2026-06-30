@@ -431,14 +431,14 @@ export default function SkillsPage() {
 
       <Section
         id="change-guides"
-        register="05 / method catalog"
+        register="05 / catalog methods"
         registerTone="core"
         className="section-flow scroll-mt-28"
       >
         <div className="section-intro">
           <div className="section-kicker section-kicker-core">
             <Hammer className="h-4 w-4" aria-hidden="true" />
-            <span>working methods</span>
+            <span>change discipline</span>
           </div>
           <Heading>Working disciplines</Heading>
           <p className="text-concrete-400">
