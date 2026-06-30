@@ -250,7 +250,7 @@ export default function McpPage() {
       <PageNav
         items={mcpPageNav}
         ariaLabel="suspec-mcp page sections"
-        wrapperClassName="-mt-4 mx-auto w-full max-w-7xl px-6 sm:-mt-6 lg:px-8"
+        wrapperClassName="mx-auto w-full max-w-7xl px-6 lg:px-8"
       />
 
       <Section

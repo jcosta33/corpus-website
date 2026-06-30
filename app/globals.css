@@ -594,14 +594,14 @@ body::after {
 }
 
 .section-flow {
-  --section-flow-gap: clamp(2rem, 3.2vw, 2.75rem);
+  --section-flow-gap: clamp(2.25rem, 3.5vw, 3rem);
   display: flex;
   flex-direction: column;
   gap: var(--section-flow-gap);
 }
 
 .section-flow-tight {
-  --section-flow-gap: clamp(1.35rem, 2vw, 1.75rem);
+  --section-flow-gap: clamp(1.65rem, 2.4vw, 2rem);
 }
 
 .section-flow-spacious {
@@ -636,13 +636,13 @@ body::after {
 }
 
 .section-register :where(.section-kicker + .font-heading) {
-  margin-top: clamp(0.95rem, 1.35vw, 1.2rem) !important;
+  margin-top: clamp(1.16rem, 1.7vw, 1.45rem) !important;
 }
 
 .section-register :where(.font-heading + p) {
-  margin-top: clamp(0.9rem, 1.25vw, 1.1rem) !important;
+  margin-top: clamp(1.05rem, 1.45vw, 1.3rem) !important;
   max-width: min(100%, 68ch);
-  line-height: 1.64;
+  line-height: 1.7;
 }
 
 @media (min-width: 48rem) {
@@ -1126,7 +1126,7 @@ body::after {
   --section-register-signal: var(--signal-muted);
   --section-register-rgb: var(--signal-muted-rgb);
   position: relative;
-  padding-top: clamp(1.15rem, 1.6vw, 1.4rem);
+  padding-top: clamp(1.65rem, 2.3vw, 2rem);
 }
 
 .section-register::before {
@@ -1264,7 +1264,7 @@ body::after {
 
 @media (max-width: 40rem) {
   .section-register {
-    padding-top: 1.05rem;
+    padding-top: 1.45rem;
   }
 
   .section-register::before {
@@ -2309,7 +2309,7 @@ section.bg-section-band::after {
   position: relative;
   isolation: isolate;
   overflow: clip;
-  padding-top: clamp(2.65rem, 3.8vw, 3.45rem);
+  padding-top: clamp(2.2rem, 3.2vw, 2.95rem);
 }
 
 .ambient-header:has(.page-hero-tone-core) {
@@ -2410,7 +2410,7 @@ section.bg-section-band::after {
 }
 
 .ambient-header::before {
-  top: 1.1rem;
+  top: 1.35rem;
   width: min(48rem, 86vw);
   height: 8.5rem;
   border-radius: 9999px;
@@ -2623,6 +2623,18 @@ section.bg-section-band::after {
   overflow-wrap: break-word;
 }
 
+.page-hero .page-hero-eyebrow {
+  margin-bottom: clamp(1.45rem, 1.8vw, 1.75rem) !important;
+}
+
+.page-hero-datum + p {
+  margin-top: clamp(1.25rem, 1.7vw, 1.55rem) !important;
+}
+
+.page-hero > p + p {
+  margin-top: clamp(1rem, 1.35vw, 1.22rem) !important;
+}
+
 .hero-trace {
   position: relative;
   isolation: isolate;
@@ -2631,7 +2643,7 @@ section.bg-section-band::after {
   justify-content: center;
   gap: 0.48rem;
   max-width: min(100%, 56rem);
-  margin: 1.2rem auto 0;
+  margin: clamp(1.45rem, 2vw, 1.75rem) auto 0;
   padding: 0;
   list-style: none;
 }
@@ -2986,7 +2998,7 @@ section.bg-section-band::after {
 
 @media (max-width: 40rem) {
   .ambient-header {
-    padding-top: 4.35rem;
+    padding-top: 3.65rem;
   }
 
   .page-hero {
@@ -3058,7 +3070,7 @@ section.bg-section-band::after {
       .page-hero-package-mcp
     )
     .page-hero-eyebrow {
-    margin-bottom: 1.1rem;
+    margin-bottom: 1.35rem;
   }
 
   .page-hero:is(
@@ -3102,7 +3114,7 @@ section.bg-section-band::after {
   }
 
   .page-hero.page-hero-package-skills > p + p {
-    margin-top: 0.56rem;
+    margin-top: 0.72rem;
     max-width: 18.2rem;
     font-size: 0.9rem;
     line-height: 1.36;
@@ -8223,16 +8235,24 @@ section.bg-section-band::after {
 
 /* Agent roster — first-pass worker file map, denser than generic cards. */
 .repo-product-page > .page-nav-wrap {
-  margin-bottom: clamp(-1.6rem, -1.7vw, -1.1rem);
+  margin-top: clamp(0.15rem, 0.5vw, 0.45rem) !important;
+  margin-bottom: clamp(0.75rem, 1.3vw, 1.1rem);
 }
 
 .repo-product-page > nav.page-nav-wrap {
-  margin-bottom: clamp(-1.6rem, -1.7vw, -1.1rem);
+  margin-top: clamp(0.15rem, 0.5vw, 0.45rem) !important;
+  margin-bottom: clamp(0.75rem, 1.3vw, 1.1rem);
 }
 
 .writing-page-nav {
-  margin-top: clamp(-1.5rem, -2vw, -1rem);
-  margin-bottom: clamp(-3rem, -3vw, -2rem);
+  margin-top: clamp(0.65rem, 1.4vw, 1.15rem);
+  margin-bottom: clamp(0.75rem, 1.3vw, 1.1rem);
+}
+
+@media (min-width: 64rem) {
+  .writing-page-nav .section-jump-nav {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
 }
 
 .agent-page-nav,
@@ -8481,11 +8501,13 @@ section.bg-section-band::after {
 
 @media (max-width: 40rem) {
   .repo-product-page > .page-nav-wrap {
-    margin-bottom: -1rem;
+    margin-top: 0.75rem !important;
+    margin-bottom: 0.9rem;
   }
 
   .repo-product-page > nav.page-nav-wrap {
-    margin-bottom: -1rem;
+    margin-top: 0.75rem !important;
+    margin-bottom: 0.9rem;
   }
 
   .agent-page-nav,
@@ -8634,8 +8656,8 @@ section.bg-section-band::after {
 
 @media (max-width: 40rem) {
   .writing-page-nav {
-    margin-top: -1.25rem;
-    margin-bottom: -0.35rem;
+    margin-top: 1.05rem;
+    margin-bottom: 1.05rem;
     overflow: visible;
   }
 
@@ -8653,7 +8675,7 @@ section.bg-section-band::after {
     border-radius: 0;
     background: transparent;
     box-shadow: none;
-    padding: 0.05rem 1.05rem 0.22rem 0;
+    padding: 0.08rem 1.05rem 0.24rem 0;
     scroll-padding-inline: 0.1rem 1.05rem;
     scroll-snap-type: x proximity;
     scrollbar-width: none;
@@ -8666,21 +8688,21 @@ section.bg-section-band::after {
 
   .writing-page-nav .section-jump-nav-link {
     flex: 0 0 auto;
-    min-width: 5.65rem;
-    min-height: 2.02rem;
+    min-width: 5.45rem;
+    min-height: 1.92rem;
     scroll-snap-align: start;
     border: 1px solid rgba(70, 57, 44, 0.36);
     border-left-color: rgba(var(--agent-nav-rgb), 0.28);
     border-radius: calc(var(--radius-control) - 3px);
     background:
-      linear-gradient(90deg, rgba(var(--agent-nav-rgb), 0.014), transparent 46%),
-      linear-gradient(90deg, rgba(var(--agent-nav-rgb), 0.11) 0 1px, transparent 1px),
+      linear-gradient(90deg, rgba(var(--agent-nav-rgb), 0.01), transparent 46%),
+      linear-gradient(90deg, rgba(var(--agent-nav-rgb), 0.08) 0 1px, transparent 1px),
       var(--signal-pattern-muted),
-      rgba(18, 14, 10, 0.38);
+      rgba(18, 14, 10, 0.28);
     box-shadow:
-      inset 1px 0 0 rgba(var(--agent-nav-rgb), 0.1),
+      inset 1px 0 0 rgba(var(--agent-nav-rgb), 0.08),
       inset 0 1px 0 rgba(240, 226, 204, 0.025);
-    padding: 0.34rem 0.52rem;
+    padding: 0.32rem 0.5rem;
   }
 
   .writing-page-nav .section-jump-nav-link:nth-child(odd):last-child {
@@ -10489,7 +10511,8 @@ section.bg-section-band::after {
 .terminal-title-label {
   position: relative;
   isolation: isolate;
-  max-width: min(14rem, 34vw);
+  flex: 0 1 auto;
+  max-width: clamp(7rem, 22vw, 12rem);
   overflow: hidden;
   padding: 0.24rem 0.48rem 0.22rem;
   border: 1px solid rgba(var(--signal-muted-rgb), 0.18);
@@ -10505,11 +10528,21 @@ section.bg-section-band::after {
   box-shadow:
     inset 0 1px 0 rgba(240, 226, 204, 0.04),
     0 0 0 1px rgba(0, 0, 0, 0.12);
-  font-size: 0.66rem;
-  letter-spacing: 0.075em;
+  font-size: 0.58rem;
+  letter-spacing: 0.065em;
   line-height: 1.12;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.terminal-toolbar-actions {
+  margin-left: auto;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+}
+
+.terminal-toolbar-actions .copy-button {
+  flex: 0 0 auto;
 }
 
 .terminal-title-label::before {

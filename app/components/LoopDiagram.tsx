@@ -127,9 +127,9 @@ export function LoopDiagram({ linkSteps = false }: { linkSteps?: boolean }) {
               points={sealPath}
               fill="none"
               stroke="var(--color-aurum)"
-              strokeWidth="0.48"
+              strokeWidth="0.38"
               strokeLinejoin="round"
-              opacity="0.3"
+              opacity="0.2"
             />
             {sealPoints.map((point) => (
               <line
@@ -140,7 +140,7 @@ export function LoopDiagram({ linkSteps = false }: { linkSteps?: boolean }) {
                 y2={point.y}
                 stroke="var(--color-aurum)"
                 strokeWidth="0.36"
-                opacity="0.34"
+                opacity="0.24"
               />
             ))}
             <polygon
