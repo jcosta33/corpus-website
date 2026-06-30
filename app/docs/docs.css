@@ -3006,7 +3006,7 @@
   .docs-layout {
     flex-direction: column;
     gap: 1.25rem;
-    padding-top: 1rem;
+    padding-top: clamp(5.25rem, 15vw, 6rem);
   }
   .docs-layout > aside {
     position: static;
@@ -3028,7 +3028,7 @@
 
 @media (max-width: 40rem) {
   .docs-layout {
-    gap: 0.95rem;
+    gap: 1.1rem;
   }
 
   .docs-layout > aside {
