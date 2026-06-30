@@ -281,8 +281,8 @@
   --radius-panel: 10px;
   --radius-control: 10px;
 
-  --rhythm-kicker-title: clamp(2.1rem, 2.75vw, 2.6rem);
-  --rhythm-title-body: clamp(1.15rem, 1.55vw, 1.45rem);
+  --rhythm-kicker-title: clamp(2.3rem, 2.9vw, 2.85rem);
+  --rhythm-title-body: clamp(1.05rem, 1.35vw, 1.32rem);
   --rhythm-register-gap: clamp(2.85rem, 3.7vw, 3.45rem);
   --rhythm-hero-nav-clearance: clamp(3.35rem, 4.5vw, 4.25rem);
   --rhythm-hero-eyebrow-title: clamp(1.95rem, 2.55vw, 2.45rem);
@@ -601,14 +601,14 @@ body::after {
 }
 
 .section-flow {
-  --section-flow-gap: clamp(2.25rem, 3.5vw, 3rem);
+  --section-flow-gap: clamp(1.85rem, 2.7vw, 2.35rem);
   display: flex;
   flex-direction: column;
   gap: var(--section-flow-gap);
 }
 
 .section-flow-tight {
-  --section-flow-gap: clamp(1.35rem, 2vw, 1.65rem);
+  --section-flow-gap: clamp(1.25rem, 1.8vw, 1.55rem);
 }
 
 .section-flow-spacious {
@@ -1959,7 +1959,7 @@ body::after {
 }
 
 .site-main-frame > .flex.flex-col {
-  row-gap: clamp(2.45rem, 3.8vw, 3.35rem) !important;
+  row-gap: clamp(2.2rem, 3.35vw, 3rem) !important;
 }
 
 section.bg-section-band {
@@ -5513,6 +5513,24 @@ section.bg-section-band::after {
     var(--color-panel-raised);
 }
 
+.cli-command-reference {
+  --section-flow-gap: clamp(1.45rem, 2vw, 1.8rem);
+}
+
+.cli-command-reference-intro {
+  display: grid;
+  gap: clamp(1rem, 1.35vw, 1.25rem);
+}
+
+.cli-command-reference-intro > :where(.section-kicker, .font-heading, p, ul) {
+  margin: 0 !important;
+}
+
+.cli-command-reference-intro > p {
+  max-width: min(100%, 64ch);
+  line-height: 1.62;
+}
+
 .cli-command-catalog-header {
   display: flex;
   align-items: center;
@@ -5945,16 +5963,16 @@ section.bg-section-band::after {
 
 .cli-command-legend {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11.5rem), 1fr));
-  gap: 0.5rem;
-  max-width: 54rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  gap: 0.48rem;
+  max-width: min(100%, 62rem);
 }
 
 .cli-command-legend-item {
   --cli-legend-signal: var(--signal-reference);
   --cli-legend-rgb: var(--signal-reference-rgb);
   display: grid;
-  min-height: 3.45rem;
+  min-height: 3.25rem;
   align-content: center;
   gap: 0.16rem;
   border: 1px solid rgba(var(--cli-legend-rgb), 0.18);
@@ -5968,7 +5986,7 @@ section.bg-section-band::after {
       transparent 1px 0.78rem
     ),
     rgba(10, 7, 5, 0.22);
-  padding: 0.48rem 0.6rem;
+  padding: 0.48rem 0.62rem;
   box-shadow:
     inset 2px 0 0 rgba(var(--cli-legend-rgb), 0.12),
     inset 0 1px 0 rgba(240, 226, 204, 0.04);
@@ -6029,18 +6047,18 @@ section.bg-section-band::after {
 }
 
 @media (max-width: 40rem) {
+  .cli-command-reference {
+    --section-flow-gap: 1.2rem;
+  }
+
   .cli-command-legend {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.38rem;
+    grid-template-columns: 1fr;
+    gap: 0.42rem;
   }
 
   .cli-command-legend-item {
-    min-height: 2.75rem;
-    padding: 0.42rem 0.5rem;
-  }
-
-  .cli-command-legend-item:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
+    min-height: 0;
+    padding: 0.5rem 0.58rem;
   }
 
   .cli-command-legend-item span:first-child {
@@ -6049,7 +6067,9 @@ section.bg-section-band::after {
   }
 
   .cli-command-legend-item span:last-child {
-    display: none;
+    display: block;
+    font-size: 0.72rem;
+    line-height: 1.32;
   }
 }
 
@@ -10609,7 +10629,7 @@ section.bg-section-band::after {
   isolation: isolate;
   flex: 1 1 auto;
   min-width: 0;
-  width: min(100%, 14rem);
+  width: min(100%, 10.5rem);
   max-width: 100%;
   overflow: hidden;
   padding: 0.23rem 0.42rem 0.21rem;
@@ -10636,12 +10656,13 @@ section.bg-section-band::after {
 .terminal-toolbar-actions {
   margin-left: auto;
   display: grid !important;
-  grid-template-columns: minmax(0, clamp(8rem, 22vw, 14rem)) auto;
+  grid-template-columns: minmax(0, clamp(6.5rem, 17vw, 10.5rem)) auto;
   align-items: center;
   column-gap: 0.7rem;
   flex: 1 1 auto;
   max-width: none;
   justify-content: flex-end;
+  justify-items: end;
   min-width: 0;
 }
 
@@ -10652,8 +10673,9 @@ section.bg-section-band::after {
 }
 
 .terminal-toolbar:has(.copy-button) .terminal-title-label {
-  width: min(100%, 14rem);
+  width: min(100%, 10.5rem);
   max-width: 100%;
+  justify-self: end;
 }
 
 .terminal-title-label > span:first-child {

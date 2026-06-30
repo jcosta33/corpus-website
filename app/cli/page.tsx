@@ -428,9 +428,9 @@ export default function CliPage() {
         id="commands"
         register="04 / command reference"
         registerTone="reference"
-        className="section-flow scroll-mt-28"
+        className="cli-command-reference section-flow section-flow-tight scroll-mt-28"
       >
-        <div className="max-w-5xl">
+        <div className="cli-command-reference-intro max-w-5xl">
           <div className="section-kicker section-kicker-reference">
             <Bug className="h-4 w-4" aria-hidden="true" />
             <span>commands.md — public surface</span>
