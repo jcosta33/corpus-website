@@ -6872,6 +6872,31 @@ section.bg-section-band::after {
   transform: none !important;
 }
 
+.hover-stable-surface,
+.hover-stable-surface:is(:hover, :focus-within),
+.hover-stable-surface:has(
+    :is(a, button, input, select, textarea, [tabindex]:not([tabindex="-1"]))
+  ):hover {
+  translate: 0 0 !important;
+  scale: 1 !important;
+  transform: none !important;
+  border-color: var(--color-panel-border);
+  background-color: var(--color-panel-raised);
+}
+
+.hover-stable-surface > .surface-engraving,
+.hover-stable-surface > .surface-glint {
+  transition: none;
+}
+
+.hover-stable-surface:is(:hover, :focus-within) > .surface-engraving {
+  opacity: 0.5;
+}
+
+.hover-stable-surface:is(:hover, :focus-within) > .surface-glint {
+  opacity: 0.42;
+}
+
 .panel-raised:has(.catalog-row-evidence) {
   --plate-signal: var(--signal-evidence);
   --plate-rgb: var(--signal-evidence-rgb);
