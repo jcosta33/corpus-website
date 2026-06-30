@@ -8,7 +8,7 @@
      greenfield = literal new-workspace paths, brownfield = existing-project
      adoption, change = attention/change records, evidence = proof/review,
      reference = manuals and catalogs. Change is a red-clay signal, separate
-     from the orange-gold core; muted cyan/dusty violet are package accents only.
+     from the orange-gold core; muted terminal blue/dusty violet are package accents only.
      Brown means existing-project work.
      Green means greenfield, not "good"; sage means evidence, not "new";
      setup alone is not green.
@@ -45,7 +45,7 @@
   --color-brownfield: #a96b40;
   --color-verdigris: #78bdb2;
   --color-neon-bridge: #9a839b;
-  --color-interface-blue: #6ab8c4;
+  --color-interface-blue: #7fa6d9;
   --color-rubedo: #cf7079;
   --color-pwr-red: #d2624e;
   --color-olive: var(--color-phosphor);
@@ -74,7 +74,7 @@
   --package-agents: var(--signal-reference);
   --package-agents-rgb: var(--signal-reference-rgb);
   --package-cli: var(--color-interface-blue);
-  --package-cli-rgb: 106, 184, 196;
+  --package-cli-rgb: 127, 166, 217;
   --package-mcp: var(--color-neon-bridge);
   --package-mcp-rgb: 154, 131, 155;
 
@@ -300,7 +300,7 @@
   --package-agents: var(--signal-reference);
   --package-agents-rgb: var(--signal-reference-rgb);
   --package-cli: var(--color-interface-blue);
-  --package-cli-rgb: 106, 184, 196;
+  --package-cli-rgb: 127, 166, 217;
   --package-mcp: var(--color-neon-bridge);
   --package-mcp-rgb: 154, 131, 155;
   --signal-reference: var(--color-verdigris);
