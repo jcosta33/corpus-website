@@ -1567,15 +1567,20 @@
 
 @media (max-width: 48rem) {
   .docs-prose pre.docs-flow-pre {
-    overflow-x: auto;
+    overflow-x: visible;
+    padding-inline: 0.95rem;
   }
 
   .docs-prose pre.docs-flow-pre code {
     display: block;
-    width: max-content;
-    min-width: 100%;
-    white-space: pre;
-    overflow-wrap: normal;
+    width: auto;
+    min-width: 0;
+    white-space: pre-line;
+    overflow-wrap: break-word;
+  }
+
+  .docs-prose pre.docs-flow-pre::after {
+    display: none;
   }
 
   .docs-prose pre.docs-wrap-pre {
