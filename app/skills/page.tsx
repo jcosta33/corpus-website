@@ -211,7 +211,7 @@ const catalogCount = stances.length + disciplines.length;
 
 const skillRoutes = [
   {
-    label: "Review stances",
+    label: "Review catalog",
     href: "#review-guides",
     count: String(stances.length),
     icon: ShieldCheck,
@@ -219,7 +219,7 @@ const skillRoutes = [
     signal: "evidence",
   },
   {
-    label: "Working disciplines",
+    label: "Method catalog",
     href: "#change-guides",
     count: String(disciplines.length),
     icon: Hammer,
@@ -227,7 +227,7 @@ const skillRoutes = [
     signal: "core",
   },
   {
-    label: "Suspec kit",
+    label: "Suspec-coupled kit",
     href: "#kit-skills",
     count: String(kitSkills.length),
     icon: Puzzle,
@@ -336,7 +336,7 @@ export default function SkillsPage() {
                   key={route.href}
                   href={route.href}
                   className={`skill-category-link ${signalRoles[route.signal].processItem} focus-ring group block bg-panel-raised/95 p-5 transition-colors duration-150 hover:bg-panel sm:p-6`}
-                  aria-label={`Jump to ${route.label.toLowerCase()}`}
+                  aria-label={`Jump to ${route.text.toLowerCase()}`}
                 >
                   <div className="skill-category-heading flex items-center gap-3">
                     <HexBadge color={route.signal} className="h-10 w-10 shrink-0">
