@@ -46,7 +46,7 @@ function Section({
         <h2>{sec.title}</h2>
         <span>{sec.items.length}</span>
       </div>
-      {intro ? <p>{intro}</p> : null}
+      {intro ? <p className="docs-index-section-intro">{intro}</p> : null}
       <ul className="docs-index-list">
         {sec.items.map((it, index) => (
           <li key={it.slug}>
@@ -126,6 +126,7 @@ export default function DocsIndex() {
             <Section
               id="start-here"
               sec={balancedGrid.startHere}
+              intro="Core pages in the order most changes need."
               role="core"
               className="docs-index-section-primary"
             />
@@ -133,12 +134,14 @@ export default function DocsIndex() {
               <Section
                 id="tutorial"
                 sec={balancedGrid.tutorial}
+                intro="A single pass through the loop."
                 role="core"
                 className="docs-index-section-tutorial"
               />
               <Section
                 id="examples"
                 sec={balancedGrid.examples}
+                intro="Worked records you can copy into real changes."
                 role="muted"
                 className="docs-index-section-examples"
               />
@@ -150,6 +153,7 @@ export default function DocsIndex() {
               <Section
                 id="start-here"
                 sec={startHere}
+                intro="Core pages in the order most changes need."
                 role="core"
                 className="docs-index-section-primary"
               />
@@ -158,6 +162,7 @@ export default function DocsIndex() {
               <Section
                 id="tutorial"
                 sec={tutorial}
+                intro="A single pass through the loop."
                 role="core"
                 className="docs-index-section-tutorial"
               />
@@ -166,6 +171,7 @@ export default function DocsIndex() {
               <Section
                 id="examples"
                 sec={examples}
+                intro="Worked records you can copy into real changes."
                 role="muted"
                 className="docs-index-section-examples"
               />
