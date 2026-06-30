@@ -8231,7 +8231,7 @@ section.bg-section-band::after {
 @media (max-width: 40rem) {
   .writing-page-nav {
     margin-top: -1.25rem;
-    margin-bottom: -2rem;
+    margin-bottom: -0.35rem;
     overflow: visible;
   }
 
