@@ -1755,6 +1755,10 @@ body::after {
     box-shadow 140ms ease;
 }
 
+.copy-button-label-compact {
+  display: none;
+}
+
 .copy-button::after {
   content: "";
   position: absolute;
@@ -2908,6 +2912,18 @@ section.bg-section-band::after {
     line-height: 1.28;
     font-size: 0.68rem;
     letter-spacing: 0.075em;
+  }
+
+  .page-hero:is(
+      .page-hero-package-agents,
+      .page-hero-package-skills,
+      .page-hero-package-cli,
+      .page-hero-package-mcp
+    )
+    .page-hero-eyebrow
+    > span:last-child {
+    font-size: 0.62rem;
+    letter-spacing: 0.045em;
   }
 
   .page-hero > .page-hero-calibration {
@@ -9686,6 +9702,20 @@ section.bg-section-band::after {
   .terminal-toolbar .copy-button svg {
     width: 0.78rem;
     height: 0.78rem;
+  }
+
+  .terminal-toolbar .copy-button[data-compact-label="true"] .copy-button-label-full {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .terminal-toolbar .copy-button[data-compact-label="true"] .copy-button-label-compact {
+    display: inline;
   }
 
   .terminal-toolbar:has(.copy-button) {

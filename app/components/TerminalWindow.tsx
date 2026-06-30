@@ -5,6 +5,7 @@ import { PilotLamp } from "./PilotLamp";
 export interface TerminalWindowProps {
   children: ReactNode;
   className?: string;
+  copyCompactLabel?: string;
   copyLabel?: string;
   copyText?: string;
   contentClassName?: string;
@@ -15,6 +16,7 @@ export interface TerminalWindowProps {
 export function TerminalWindow({
   children,
   className = "",
+  copyCompactLabel = "Copy",
   copyLabel,
   copyText,
   contentClassName = "",
@@ -39,7 +41,13 @@ export function TerminalWindow({
             <span className="min-w-0 break-words">{title}</span>
             <span className="terminal-title-caret shrink-0" aria-hidden="true" />
           </span>
-          {copyText && <CopyButton text={copyText} label={copyLabel} />}
+          {copyText && (
+            <CopyButton
+              text={copyText}
+              label={copyLabel}
+              compactLabel={copyCompactLabel}
+            />
+          )}
         </div>
       </div>
       <div
