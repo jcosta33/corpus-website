@@ -27,11 +27,11 @@ const facts = [
 ];
 
 const buildTrace = [
-  "decision",
-  "spec",
-  "review",
-  "export",
-  "deploy",
+  { label: "decision", detail: "intent" },
+  { label: "spec", detail: "tasks" },
+  { label: "review", detail: "evidence" },
+  { label: "export", detail: "dist/" },
+  { label: "deploy", detail: "Vercel" },
 ];
 
 const provenanceFacts = [
@@ -162,9 +162,16 @@ export default function ColophonPage() {
             </p>
             <ol aria-label="Website build trace">
               {buildTrace.map((item, index) => (
-                <li key={item}>
+                <li key={item.label}>
                   <span className="colophon-build-trace-dot" aria-hidden="true" />
-                  <span>{item}</span>
+                  <span className="colophon-build-trace-copy">
+                    <span className="colophon-build-trace-title">
+                      {item.label}
+                    </span>
+                    <span className="colophon-build-trace-detail">
+                      {item.detail}
+                    </span>
+                  </span>
                   <span className="sr-only">
                     {index + 1} of {buildTrace.length}
                   </span>
