@@ -1126,7 +1126,7 @@ body::after {
   --section-register-signal: var(--signal-muted);
   --section-register-rgb: var(--signal-muted-rgb);
   position: relative;
-  padding-top: clamp(1.65rem, 2.3vw, 2rem);
+  padding-top: clamp(2.15rem, 2.85vw, 2.65rem);
 }
 
 .section-register::before {
@@ -1264,7 +1264,7 @@ body::after {
 
 @media (max-width: 40rem) {
   .section-register {
-    padding-top: 1.45rem;
+    padding-top: 1.85rem;
   }
 
   .section-register::before {
@@ -2628,11 +2628,11 @@ section.bg-section-band::after {
 }
 
 .page-hero-datum + p {
-  margin-top: clamp(1.25rem, 1.7vw, 1.55rem) !important;
+  margin-top: clamp(0.82rem, 1.2vw, 1.05rem) !important;
 }
 
 .page-hero > p + p {
-  margin-top: clamp(1rem, 1.35vw, 1.22rem) !important;
+  margin-top: clamp(0.72rem, 1vw, 0.95rem) !important;
 }
 
 .hero-trace {
@@ -2643,7 +2643,7 @@ section.bg-section-band::after {
   justify-content: center;
   gap: 0.48rem;
   max-width: min(100%, 56rem);
-  margin: clamp(1.45rem, 2vw, 1.75rem) auto 0;
+  margin: clamp(1.15rem, 1.6vw, 1.45rem) auto 0;
   padding: 0;
   list-style: none;
 }
@@ -3511,8 +3511,8 @@ section.bg-section-band::after {
   align-items: center;
   gap: 0.55rem;
   width: min(22rem, 62vw);
-  height: 0.9rem;
-  margin: 0.95rem auto 0;
+  height: 0.72rem;
+  margin: 0.62rem auto 0;
   color: var(--hero-signal);
   opacity: 0.82;
 }
@@ -8235,18 +8235,18 @@ section.bg-section-band::after {
 
 /* Agent roster — first-pass worker file map, denser than generic cards. */
 .repo-product-page > .page-nav-wrap {
-  margin-top: clamp(0.15rem, 0.5vw, 0.45rem) !important;
-  margin-bottom: clamp(0.75rem, 1.3vw, 1.1rem);
+  margin-top: clamp(0.35rem, 0.8vw, 0.7rem) !important;
+  margin-bottom: clamp(0.9rem, 1.5vw, 1.25rem);
 }
 
 .repo-product-page > nav.page-nav-wrap {
-  margin-top: clamp(0.15rem, 0.5vw, 0.45rem) !important;
-  margin-bottom: clamp(0.75rem, 1.3vw, 1.1rem);
+  margin-top: clamp(0.35rem, 0.8vw, 0.7rem) !important;
+  margin-bottom: clamp(0.9rem, 1.5vw, 1.25rem);
 }
 
 .writing-page-nav {
-  margin-top: clamp(0.65rem, 1.4vw, 1.15rem);
-  margin-bottom: clamp(0.75rem, 1.3vw, 1.1rem);
+  margin-top: clamp(0.35rem, 0.8vw, 0.7rem);
+  margin-bottom: clamp(0.9rem, 1.5vw, 1.25rem);
 }
 
 @media (min-width: 64rem) {
@@ -10512,7 +10512,7 @@ section.bg-section-band::after {
   position: relative;
   isolation: isolate;
   flex: 0 1 auto;
-  max-width: clamp(7rem, 22vw, 12rem);
+  max-width: clamp(5.4rem, 12vw, 7.75rem);
   overflow: hidden;
   padding: 0.24rem 0.48rem 0.22rem;
   border: 1px solid rgba(var(--signal-muted-rgb), 0.18);
@@ -10537,8 +10537,9 @@ section.bg-section-band::after {
 
 .terminal-toolbar-actions {
   margin-left: auto;
-  flex: 1 1 auto;
+  flex: 0 1 min(56%, 22rem);
   justify-content: flex-end;
+  min-width: 0;
 }
 
 .terminal-toolbar-actions .copy-button {
