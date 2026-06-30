@@ -5803,13 +5803,36 @@ section.bg-section-band::after {
   --skill-guide-rgb: var(--signal-reference-rgb);
   --skill-guide-pattern: var(--signal-pattern-reference);
   --skill-guide-mark: var(--signal-mark-reference);
+  position: relative;
   overflow: hidden;
-  border-color: rgba(var(--skill-guide-rgb), 0.2);
+  border-color: rgba(var(--skill-guide-rgb), 0.24);
   background:
-    linear-gradient(90deg, rgba(var(--skill-guide-rgb), 0.01), transparent 44%),
+    linear-gradient(180deg, rgba(240, 226, 204, 0.018), transparent 34%),
+    linear-gradient(90deg, rgba(var(--skill-guide-rgb), 0.012), transparent 48%),
     var(--signal-mark-muted),
     var(--signal-pattern-muted),
-    var(--color-panel-raised);
+    rgba(31, 25, 18, 0.98);
+  box-shadow:
+    inset 0 1px 0 rgba(240, 226, 204, 0.052),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.42);
+}
+
+.skill-guide-catalog::before {
+  content: "";
+  position: absolute;
+  top: 3.05rem;
+  right: 1rem;
+  left: 1rem;
+  z-index: 1;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--skill-guide-rgb), 0.34),
+    rgba(var(--skill-guide-rgb), 0.08) 44%,
+    transparent
+  );
+  opacity: 0.55;
 }
 
 .skill-guide-catalog-core {
@@ -5838,10 +5861,16 @@ section.bg-section-band::after {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  border-bottom: 1px solid rgba(var(--skill-guide-rgb), 0.12);
+  min-height: 3.1rem;
+  border-bottom: 1px solid rgba(var(--skill-guide-rgb), 0.16);
   background:
-    linear-gradient(90deg, rgba(var(--skill-guide-rgb), 0.022), transparent 48%),
-    rgba(10, 7, 5, 0.28);
+    linear-gradient(90deg, rgba(var(--skill-guide-rgb), 0.032), transparent 48%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 1.32rem,
+      rgba(var(--skill-guide-rgb), 0.018) 1.32rem calc(1.32rem + 1px)
+    ),
+    rgba(10, 7, 5, 0.32);
   padding: 0.78rem 1rem;
   color: var(--color-concrete-400);
   font-family: var(--font-mono), ui-monospace, monospace;
@@ -5859,19 +5888,39 @@ section.bg-section-band::after {
   );
 }
 
+.skill-guide-catalog-header span:last-child {
+  border: 1px solid rgba(var(--skill-guide-rgb), 0.22);
+  border-radius: calc(var(--radius-control) - 4px);
+  background:
+    linear-gradient(90deg, rgba(var(--skill-guide-rgb), 0.08), transparent 72%),
+    rgba(10, 7, 5, 0.34);
+  color: color-mix(
+    in oklab,
+    var(--skill-guide-signal) 62%,
+    var(--color-concrete-200)
+  );
+  padding: 0.18rem 0.52rem;
+}
+
 .skill-guide-list {
+  counter-reset: skill-guide;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
-  gap: 1px;
+  gap: 0.55rem;
   margin: 0;
-  padding: 0.75rem;
+  padding: 0.95rem;
   list-style: none;
   background:
-    linear-gradient(90deg, rgba(var(--skill-guide-rgb), 0.024), transparent 55%),
-    rgba(var(--skill-guide-rgb), 0.038);
+    radial-gradient(
+      88% 72% at 48% 0%,
+      rgba(var(--skill-guide-rgb), 0.045),
+      transparent 62%
+    ),
+    rgba(10, 7, 5, 0.18);
 }
 
 .skill-guide-list > li {
+  counter-increment: skill-guide;
   min-width: 0;
 }
 
@@ -5887,14 +5936,19 @@ section.bg-section-band::after {
   justify-content: space-between;
   gap: 1rem;
   overflow: hidden;
-  border: 1px solid rgba(var(--catalog-rgb), 0.08);
-  border-radius: calc(var(--radius-panel) - 5px);
+  border: 1px solid rgba(var(--catalog-rgb), 0.13);
+  border-radius: calc(var(--radius-panel) - 3px);
   background:
-    linear-gradient(90deg, rgba(var(--catalog-rgb), 0.022), transparent 52%),
-    linear-gradient(180deg, rgba(240, 226, 204, 0.018), transparent 44%),
-    rgba(11, 8, 6, 0.62);
+    linear-gradient(90deg, rgba(var(--catalog-rgb), 0.032), transparent 52%),
+    linear-gradient(180deg, rgba(240, 226, 204, 0.024), transparent 44%),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 1.08rem,
+      rgba(240, 226, 204, 0.014) 1.08rem calc(1.08rem + 1px)
+    ),
+    rgba(11, 8, 6, 0.66);
   color: inherit;
-  padding: 0.92rem 0.95rem;
+  padding: 0.92rem 2.45rem 0.92rem 0.95rem;
   text-decoration: none;
   box-shadow:
     inset 1px 0 0 rgba(var(--catalog-rgb), 0.2),
@@ -5905,17 +5959,34 @@ section.bg-section-band::after {
     box-shadow 160ms ease;
 }
 
+.skill-guide-row.catalog-row::after {
+  content: counter(skill-guide, decimal-leading-zero);
+  position: absolute;
+  right: 0.78rem;
+  bottom: 0.66rem;
+  color: rgba(var(--catalog-rgb), 0.44);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  pointer-events: none;
+}
+
 .skill-guide-row.catalog-row:hover,
 .skill-guide-row.catalog-row:focus-visible {
-  border-color: rgba(var(--catalog-rgb), 0.18);
+  border-color: rgba(var(--catalog-rgb), 0.26);
   box-shadow:
     inset 1px 0 0 rgba(var(--catalog-rgb), 0.32),
     inset 0 1px 0 rgba(240, 226, 204, 0.04),
-    0 0 0 1px rgba(var(--catalog-rgb), 0.026);
+    0 0 0 1px rgba(var(--catalog-rgb), 0.04);
 }
 
 .skill-guide-row-arrow {
-  margin-top: 0.15rem;
+  position: absolute;
+  top: 0.9rem;
+  right: 0.78rem;
+  margin-top: 0;
   width: 1rem;
   height: 1rem;
   flex: 0 0 auto;
@@ -5937,7 +6008,7 @@ section.bg-section-band::after {
   }
 
   .skill-guide-list {
-    gap: 1px;
+    gap: 0.42rem;
     padding: 0.55rem;
   }
 
@@ -5946,7 +6017,7 @@ section.bg-section-band::after {
     align-items: center;
     gap: 0.65rem;
     border-radius: calc(var(--radius-panel) - 6px);
-    padding: 0.68rem 0.72rem;
+    padding: 0.68rem 2.1rem 0.68rem 0.72rem;
   }
 
   .skill-guide-row.catalog-row > div:first-child {
@@ -8871,12 +8942,16 @@ section.bg-section-band::after {
   --roster-rgb: var(--signal-core-rgb);
   --roster-pattern: var(--signal-pattern-core);
   --roster-mark: var(--signal-mark-core);
-  border-color: rgba(var(--roster-rgb), 0.18);
+  border-color: rgba(var(--roster-rgb), 0.22);
   background:
+    linear-gradient(180deg, rgba(240, 226, 204, 0.018), transparent 34%),
     linear-gradient(90deg, rgba(var(--roster-rgb), 0.018), transparent 35%),
     var(--signal-mark-muted),
     var(--signal-pattern-muted),
-    var(--color-panel-raised);
+    rgba(31, 25, 18, 0.98);
+  box-shadow:
+    inset 0 1px 0 rgba(240, 226, 204, 0.052),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.42);
 }
 
 .agent-roster-panel-evidence {
@@ -8906,14 +8981,20 @@ section.bg-section-band::after {
   align-items: flex-start;
   justify-content: space-between;
   gap: 1.25rem;
-  border-bottom: 1px solid var(--color-panel-border);
+  border-bottom: 1px solid rgba(var(--roster-rgb), 0.16);
   background:
+    linear-gradient(90deg, rgba(var(--roster-rgb), 0.035), transparent 42%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 1.35rem,
+      rgba(var(--roster-rgb), 0.016) 1.35rem calc(1.35rem + 1px)
+    ),
     radial-gradient(
       70% 80% at 12% 0%,
-      rgba(var(--roster-rgb), 0.024),
+      rgba(var(--roster-rgb), 0.034),
       transparent 64%
     ),
-    rgba(36, 29, 21, 0.78);
+    rgba(36, 29, 21, 0.82);
   padding: 1.25rem;
 }
 
@@ -8943,9 +9024,15 @@ section.bg-section-band::after {
 }
 
 .agent-roster-cells {
+  gap: 0.55rem !important;
+  padding: 0.75rem;
   background:
-    linear-gradient(90deg, rgba(var(--roster-rgb), 0.018), transparent 24%),
-    var(--color-panel-border);
+    radial-gradient(
+      90% 75% at 45% 0%,
+      rgba(var(--roster-rgb), 0.045),
+      transparent 62%
+    ),
+    rgba(10, 7, 5, 0.22);
 }
 
 .agent-roster-cell {
@@ -8957,15 +9044,23 @@ section.bg-section-band::after {
   isolation: isolate;
   min-height: 13.25rem;
   overflow: hidden;
+  border: 1px solid rgba(var(--cell-rgb), 0.13);
+  border-radius: calc(var(--radius-panel) - 3px);
+  background-color: rgba(11, 8, 6, 0.66);
   background-image:
     linear-gradient(
       180deg,
-      rgba(240, 226, 204, 0.025),
+      rgba(240, 226, 204, 0.03),
       transparent 42%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 1.12rem,
+      rgba(240, 226, 204, 0.013) 1.12rem calc(1.12rem + 1px)
     ),
     radial-gradient(
       70% 64% at 20% 0%,
-      rgba(var(--cell-rgb), 0.014),
+      rgba(var(--cell-rgb), 0.02),
       transparent 64%
     ),
     var(--signal-mark-muted),
@@ -9032,13 +9127,13 @@ section.bg-section-band::after {
     rgba(var(--cell-rgb), 0.58),
     transparent
   );
-  opacity: 0;
+  opacity: 0.26;
   transition: opacity 160ms ease;
 }
 
 .agent-roster-cell:hover::before,
 .agent-roster-cell:focus-visible::before {
-  opacity: 0.54;
+  opacity: 0.48;
 }
 
 .agent-roster-icon {
@@ -9083,10 +9178,13 @@ section.bg-section-band::after {
 
   .agent-roster-cells {
     grid-template-columns: minmax(0, 1fr);
+    gap: 0.42rem !important;
+    padding: 0.55rem;
   }
 
   .agent-roster-cell {
     min-height: auto;
+    border-radius: calc(var(--radius-panel) - 6px);
     padding: 0.82rem 0.9rem;
   }
 
