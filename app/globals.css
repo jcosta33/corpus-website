@@ -281,11 +281,11 @@
   --radius-panel: 10px;
   --radius-control: 10px;
 
-  --rhythm-kicker-title: clamp(1.86rem, 2.42vw, 2.32rem);
-  --rhythm-title-body: clamp(1.24rem, 1.65vw, 1.56rem);
-  --rhythm-register-gap: clamp(2.96rem, 3.7vw, 3.52rem);
+  --rhythm-kicker-title: clamp(2.1rem, 2.76vw, 2.62rem);
+  --rhythm-title-body: clamp(1.02rem, 1.38vw, 1.28rem);
+  --rhythm-register-gap: clamp(3.12rem, 3.92vw, 3.72rem);
   --rhythm-hero-nav-clearance: clamp(2.35rem, 3.1vw, 3rem);
-  --rhythm-hero-eyebrow-title: clamp(1.95rem, 2.55vw, 2.45rem);
+  --rhythm-hero-eyebrow-title: clamp(2.1rem, 2.72vw, 2.62rem);
   --rhythm-after-page-nav: clamp(1.02rem, 1.42vw, 1.34rem);
 }
 
@@ -609,7 +609,7 @@ body::after {
 }
 
 .section-flow-tight {
-  --section-flow-gap: clamp(1.42rem, 1.95vw, 1.78rem);
+  --section-flow-gap: clamp(1.18rem, 1.58vw, 1.45rem);
 }
 
 .section-flow-spacious {
@@ -617,19 +617,33 @@ body::after {
 }
 
 .section-intro {
-  display: grid;
+  display: block;
   max-width: min(100%, 42rem);
-  gap: clamp(1.2rem, 1.62vw, 1.52rem);
 }
 
 .section-intro > :where(h1, h2, h3, p, ul, ol, div) {
   margin-block: 0;
 }
 
+.section-intro > .section-kicker + .font-heading,
+.section-intro > .section-kicker + :where(h1, h2, h3) {
+  margin-top: var(--rhythm-kicker-title) !important;
+}
+
+.section-intro > .font-heading + :where(p, .section-prose-stack),
+.section-intro > :where(h1, h2, h3) + :where(p, .section-prose-stack) {
+  margin-top: var(--rhythm-title-body) !important;
+}
+
+.section-intro > :where(p, .section-prose-stack) + :where(p, ul, ol, div),
+.section-intro > :where(ul, ol, div) + :where(p, ul, ol, div) {
+  margin-top: clamp(1.05rem, 1.42vw, 1.34rem);
+}
+
 .section-prose-stack {
   display: grid;
   max-width: min(100%, 68ch);
-  gap: clamp(1.5rem, 2.05vw, 1.9rem);
+  gap: clamp(0.88rem, 1.18vw, 1.12rem);
 }
 
 .section-prose-stack > p,
@@ -641,6 +655,10 @@ body::after {
 
 .section-after-panel-note {
   max-width: min(100%, 82ch);
+}
+
+.section-flow-tight > .section-after-panel-note {
+  margin-top: clamp(-0.18rem, -0.18vw, -0.08rem);
 }
 
 .section-register :where(.section-kicker + .font-heading) {
@@ -2665,11 +2683,11 @@ section.bg-section-band::after {
 }
 
 .page-hero-datum + p {
-  margin-top: clamp(1.18rem, 1.6vw, 1.45rem) !important;
+  margin-top: clamp(0.82rem, 1.08vw, 1.05rem) !important;
 }
 
 .page-hero > p + p {
-  margin-top: clamp(0.9rem, 1.15vw, 1.08rem) !important;
+  margin-top: clamp(0.72rem, 0.95vw, 0.92rem) !important;
 }
 
 .page-hero .hero-badge-row {
@@ -3560,8 +3578,8 @@ section.bg-section-band::after {
   align-items: center;
   gap: 0.55rem;
   width: min(22rem, 62vw);
-  height: 0.72rem;
-  margin: 0.62rem auto 0;
+  height: 0.6rem;
+  margin: 0.48rem auto 0;
   color: var(--hero-signal);
   opacity: 0.82;
 }
@@ -3982,6 +4000,13 @@ section.bg-section-band::after {
   scale: 1 !important;
 }
 
+.home-hero-preview,
+.home-hero-preview *,
+.home-hero-run-card,
+.home-hero-run-card * {
+  overflow-anchor: none;
+}
+
 .home-hero-run-card:is(:hover, :focus-within) {
   border-color: var(--color-panel-border);
   background-color: var(--color-panel);
@@ -3992,6 +4017,8 @@ section.bg-section-band::after {
 }
 
 .home-hero-run-card .home-step-rail-item:is(:hover, :focus-visible) {
+  border-color: var(--color-panel-border);
+  background-color: var(--color-panel);
   box-shadow: inset 0 1px 0 rgba(240, 226, 204, 0.035);
 }
 
