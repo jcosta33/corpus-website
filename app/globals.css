@@ -2462,7 +2462,7 @@ section.bg-section-band::after {
 }
 
 .ambient-header::before {
-  top: clamp(3.05rem, 3.6vw, 3.55rem);
+  top: clamp(1.85rem, 2.35vw, 2.22rem);
   width: min(48rem, 86vw);
   height: 8.5rem;
   border-radius: 9999px;
@@ -2632,7 +2632,7 @@ section.bg-section-band::after {
 
 .page-hero-motif {
   position: absolute;
-  top: -0.95rem;
+  top: -1.35rem;
   left: 50%;
   z-index: 0;
   width: min(58rem, calc(100vw - 2rem));
