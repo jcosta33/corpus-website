@@ -5,7 +5,7 @@
   --background-plane-tilt-x: 0deg;
   --background-plane-tilt-y: 0deg;
   --background-plane-origin-x: 50%;
-  --background-plane-origin-y: 44%;
+  --background-plane-origin-y: 52%;
   --background-plane-drift-x: 0px;
   --background-plane-drift-y: 0px;
   --background-header-drift-x: 0px;
@@ -68,14 +68,14 @@ body {
     display: block;
     overflow: hidden;
     pointer-events: none;
-    perspective: 310px;
+    perspective: 540px;
     perspective-origin: var(--background-plane-origin-x) var(--background-plane-origin-y);
     contain: paint;
   }
 
   .site-background-plane {
     position: absolute;
-    inset: -28vmax;
+    inset: -18vmax;
     display: block;
     background:
       linear-gradient(rgba(70, 57, 44, 0.088) 1px, transparent 1px),
@@ -99,13 +99,13 @@ body {
       calc(50% + var(--background-plane-grid-minor-x))
         var(--background-plane-grid-minor-y),
       center top;
-    opacity: 0.9;
+    opacity: 0.96;
     transform:
-      translate3d(var(--background-plane-drift-x), var(--background-plane-drift-y), -62px)
-      rotateX(calc(var(--background-plane-tilt-x) * 1.92))
-      rotateY(calc(var(--background-plane-tilt-y) * 1.82))
-      scale(1.44);
-    transform-origin: 50% 50%;
+      translate3d(var(--background-plane-drift-x), var(--background-plane-drift-y), 0)
+      rotateX(var(--background-plane-tilt-x))
+      rotateY(var(--background-plane-tilt-y))
+      scale(1.16);
+    transform-origin: var(--background-plane-origin-x) var(--background-plane-origin-y);
     transform-style: preserve-3d;
     backface-visibility: hidden;
     will-change: transform;
@@ -126,10 +126,10 @@ body {
   .site-main-frame .ambient-header::before {
     animation-name: ambient-calibration-breathe-pointer;
     transform: translateX(-50%)
-      translate3d(var(--background-header-drift-x), var(--background-header-drift-y), 22px)
-      rotateX(calc(var(--background-plane-tilt-x) * 1.78))
-      rotateY(calc(var(--background-plane-tilt-y) * 1.84))
-      scale(1.1);
+      translate3d(var(--background-header-drift-x), var(--background-header-drift-y), 20px)
+      rotateX(calc(var(--background-plane-tilt-x) * 0.72))
+      rotateY(calc(var(--background-plane-tilt-y) * 0.78))
+      scale(1.07);
     background-position:
       calc(50% + var(--background-header-grid-x)) 50%,
       var(--background-plane-grid-x) var(--background-header-grid-y),
@@ -144,10 +144,10 @@ body {
 
   .site-main-frame .ambient-header::after {
     transform: translateX(-50%)
-      translate3d(var(--background-header-drift-x), var(--background-header-drift-y), 19px)
-      rotateX(calc(var(--background-plane-tilt-x) * 1.62))
-      rotateY(calc(var(--background-plane-tilt-y) * 1.68))
-      scale(1.085);
+      translate3d(var(--background-header-drift-x), var(--background-header-drift-y), 18px)
+      rotateX(calc(var(--background-plane-tilt-x) * 0.64))
+      rotateY(calc(var(--background-plane-tilt-y) * 0.7))
+      scale(1.055);
     background-position:
       left calc(50% + var(--background-header-grid-y)),
       right calc(50% + var(--background-header-grid-y)),
@@ -160,10 +160,10 @@ body {
   .site-main-frame .page-hero::before,
   .site-main-frame .page-hero::after {
     transform:
-      translate3d(var(--background-header-drift-x), var(--background-header-drift-y), 17px)
-      rotateX(calc(var(--background-plane-tilt-x) * 1.56))
-      rotateY(calc(var(--background-plane-tilt-y) * 1.62))
-      scale(1.074);
+      translate3d(var(--background-header-drift-x), var(--background-header-drift-y), 15px)
+      rotateX(calc(var(--background-plane-tilt-x) * 0.56))
+      rotateY(calc(var(--background-plane-tilt-y) * 0.62))
+      scale(1.045);
     transform-origin: center 42%;
     backface-visibility: hidden;
     will-change: transform;
@@ -172,10 +172,10 @@ body {
   .site-main-frame .ambient-header .page-hero-motif {
     animation-name: page-hero-motif-breathe-pointer;
     transform: translateX(-50%)
-      translate3d(var(--background-header-drift-x), var(--background-header-drift-y), 22px)
-      rotateX(calc(var(--background-plane-tilt-x) * 1.68))
-      rotateY(calc(var(--background-plane-tilt-y) * 1.78))
-      scale(1.092);
+      translate3d(var(--background-header-drift-x), var(--background-header-drift-y), 21px)
+      rotateX(calc(var(--background-plane-tilt-x) * 0.68))
+      rotateY(calc(var(--background-plane-tilt-y) * 0.76))
+      scale(1.065);
     transform-origin: center 48%;
     will-change: transform;
   }

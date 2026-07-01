@@ -228,7 +228,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
     const root = document.documentElement;
     let frame = 0;
     let pointerX = window.innerWidth / 2;
-    let pointerY = window.innerHeight * 0.18;
+    let pointerY = window.innerHeight * 0.42;
     let tracking = false;
 
     const resetPointer = () => {
@@ -259,20 +259,20 @@ export function Shell({ children }: { children: React.ReactNode }) {
 
       root.style.setProperty("--background-plane-normal-x", normalX.toFixed(4));
       root.style.setProperty("--background-plane-normal-y", normalY.toFixed(4));
-      root.style.setProperty("--background-plane-tilt-x", `${(normalY * 8.2).toFixed(3)}deg`);
-      root.style.setProperty("--background-plane-tilt-y", `${(-normalX * 9.2).toFixed(3)}deg`);
-      root.style.setProperty("--background-plane-origin-x", `${(50 + normalX * 13).toFixed(2)}%`);
-      root.style.setProperty("--background-plane-origin-y", `${(45 + normalY * 10).toFixed(2)}%`);
-      root.style.setProperty("--background-plane-drift-x", `${(-normalX * 4.5).toFixed(2)}px`);
-      root.style.setProperty("--background-plane-drift-y", `${(-normalY * 3.5).toFixed(2)}px`);
-      root.style.setProperty("--background-header-drift-x", `${(-normalX * 3.2).toFixed(2)}px`);
-      root.style.setProperty("--background-header-drift-y", `${(-normalY * 2.5).toFixed(2)}px`);
-      root.style.setProperty("--background-plane-grid-x", `${(normalX * 14).toFixed(2)}px`);
-      root.style.setProperty("--background-plane-grid-y", `${(normalY * 8).toFixed(2)}px`);
-      root.style.setProperty("--background-plane-grid-minor-x", `${(normalX * 7).toFixed(2)}px`);
-      root.style.setProperty("--background-plane-grid-minor-y", `${(normalY * 4).toFixed(2)}px`);
-      root.style.setProperty("--background-header-grid-x", `${(normalX * 8).toFixed(2)}px`);
-      root.style.setProperty("--background-header-grid-y", `${(normalY * 4).toFixed(2)}px`);
+      root.style.setProperty("--background-plane-tilt-x", `${(normalY * -5.4).toFixed(3)}deg`);
+      root.style.setProperty("--background-plane-tilt-y", `${(normalX * 6.2).toFixed(3)}deg`);
+      root.style.setProperty("--background-plane-origin-x", `${(50 + normalX * 5).toFixed(2)}%`);
+      root.style.setProperty("--background-plane-origin-y", `${(52 + normalY * 4).toFixed(2)}%`);
+      root.style.setProperty("--background-plane-drift-x", `${(-normalX * 1.8).toFixed(2)}px`);
+      root.style.setProperty("--background-plane-drift-y", `${(-normalY * 1.4).toFixed(2)}px`);
+      root.style.setProperty("--background-header-drift-x", `${(-normalX * 4.6).toFixed(2)}px`);
+      root.style.setProperty("--background-header-drift-y", `${(-normalY * 3.4).toFixed(2)}px`);
+      root.style.setProperty("--background-plane-grid-x", "0px");
+      root.style.setProperty("--background-plane-grid-y", "0px");
+      root.style.setProperty("--background-plane-grid-minor-x", "0px");
+      root.style.setProperty("--background-plane-grid-minor-y", "0px");
+      root.style.setProperty("--background-header-grid-x", `${(normalX * 12).toFixed(2)}px`);
+      root.style.setProperty("--background-header-grid-y", `${(normalY * 7).toFixed(2)}px`);
     };
 
     const onPointerMove = (event: PointerEvent) => {
