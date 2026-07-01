@@ -579,6 +579,12 @@ body {
   align-self: start;
 }
 
+@media (min-width: 64rem) {
+  .docs-index-prose {
+    max-width: min(100%, 56rem) !important;
+  }
+}
+
 @media (max-width: 40rem) {
   .home-hero-section .page-hero-title {
     padding-inline: 0.3rem;
