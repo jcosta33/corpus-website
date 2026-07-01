@@ -7,7 +7,22 @@ export const metadata: Metadata = {
   title: "Documentation · Suspec",
   description: "The Suspec documentation.",
   alternates: { canonical: "/docs/" },
-  openGraph: { url: "/docs/" }, // /docs/ is indexable — emit og:url so reshares consolidate
+  openGraph: {
+    title: "Documentation · Suspec",
+    description: "The Suspec documentation.",
+    type: "website",
+    url: "/docs/",
+    siteName: "Suspec",
+    locale: "en_US",
+    images: [
+      {
+        url: "/og-docs.png",
+        width: 1200,
+        height: 630,
+        alt: "Suspec docs — canonical manual and artifact reference",
+      },
+    ],
+  },
 };
 
 const docsLegend = [

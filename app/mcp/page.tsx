@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og-home.png",
+        url: "/og-mcp.png",
         width: 1200,
         height: 630,
         alt: "suspec-mcp — a verdict-free MCP bridge for Suspec workspaces",

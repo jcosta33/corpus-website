@@ -43,10 +43,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og-home.png",
+        url: "/og-agents.png",
         width: 1200,
         height: 630,
-        alt: "suspec-agents",
+        alt: "suspec-agents — Claude Code worker files for review, challenge, and authoring",
       },
     ],
   },
