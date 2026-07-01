@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import {
-  Fraunces,
+  Eczar,
   Inter,
   JetBrains_Mono,
 } from "next/font/google";
@@ -67,14 +67,13 @@ const jetbrainsMono = JetBrains_Mono({
   preload: false,
 });
 
-// Display face for headings and title moments: manuscript warmth with enough
-// variable-axis control to stay serious at product UI sizes.
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+// Display face for headings and title moments: book-cover serif with enough
+// weight range to stay sturdy in the wordmark and compact product UI.
+const eczar = Eczar({
+  variable: "--font-eczar",
   subsets: ["latin"],
   display: "swap",
   weight: "variable",
-  axes: ["SOFT", "WONK", "opsz"],
 });
 
 export const metadata: Metadata = {
@@ -134,7 +133,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} ${fraunces.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${eczar.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-chassis text-concrete-100">
         <JsonLd data={siteGraph} />

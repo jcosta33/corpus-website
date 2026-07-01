@@ -275,9 +275,9 @@
 
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
-  --font-heading: var(--font-fraunces);
-  --font-display: var(--font-fraunces);
-  --font-title: var(--font-fraunces);
+  --font-heading: var(--font-eczar);
+  --font-display: var(--font-eczar);
+  --font-title: var(--font-eczar);
 
   --radius-panel: 10px;
   --radius-control: 10px;
@@ -297,9 +297,9 @@
   color-scheme: dark;
   /* Runtime aliases for next/font variables. Tailwind's theme layer also exposes
      these names for utilities; this keeps computed CSS variables aligned. */
-  --font-heading: var(--font-fraunces);
-  --font-display: var(--font-fraunces);
-  --font-title: var(--font-fraunces);
+  --font-heading: var(--font-eczar);
+  --font-display: var(--font-eczar);
+  --font-title: var(--font-eczar);
   --color-pwr-red: #d2624e;
   --signal-core: var(--color-aurum);
   --signal-core-rgb: 216, 138, 36;
@@ -511,16 +511,14 @@ body::after {
   );
 }
 
-/* Heading font utility — warm manuscript serif for compact UI headings. */
+/* Heading font utility — warm book-cover serif for compact UI headings. */
 .font-heading {
   font-family: var(--font-heading), "Iowan Old Style", Palatino, Georgia, serif;
   font-optical-sizing: auto;
   font-feature-settings:
     "kern" 1,
     "liga" 1;
-  font-variation-settings:
-    "SOFT" 18,
-    "WONK" 0.06;
+  font-variation-settings: normal;
 }
 
 /* Display font — bookish display serif for title-page voice. */
@@ -530,9 +528,7 @@ body::after {
   font-feature-settings:
     "kern" 1,
     "liga" 1;
-  font-variation-settings:
-    "SOFT" 22,
-    "WONK" 0.08;
+  font-variation-settings: normal;
 }
 
 /* Title font — book-cover scale only: heroes, docs H1, wordmark. */
@@ -542,9 +538,7 @@ body::after {
   font-feature-settings:
     "kern" 1,
     "liga" 1;
-  font-variation-settings:
-    "SOFT" 24,
-    "WONK" 0.1;
+  font-variation-settings: normal;
 }
 
 /* Focus ring */
