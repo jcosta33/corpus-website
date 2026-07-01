@@ -85,6 +85,10 @@
     0 0 24px rgba(var(--signal-core-rgb), 0.1);
 }
 
+.home-hero-section {
+  overflow-x: clip;
+}
+
 .home-hero-section .page-hero-title::before,
 .home-hero-section .page-hero-title::after {
   content: "";
@@ -722,6 +726,42 @@
   .repo-product-page .agent-roster-cell-body {
     grid-template-rows: auto auto auto auto;
     row-gap: 0.34rem;
+  }
+
+  .repo-product-page .repo-manifest-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 0.44rem !important;
+  }
+
+  .repo-product-page .repo-manifest-grid .signal-stat,
+  .repo-product-page .repo-manifest-grid .signal-stat:nth-child(3) {
+    display: grid !important;
+    grid-column: auto !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    min-height: 2.65rem !important;
+    align-items: center !important;
+    gap: 0.7rem !important;
+    padding: 0.52rem 0.62rem !important;
+  }
+
+  .repo-product-page .repo-manifest-grid .signal-stat p:last-child,
+  .repo-product-page
+    .repo-manifest-grid
+    .signal-stat:not(:nth-child(3))
+    p:last-child,
+  .repo-product-page
+    .repo-manifest-grid
+    .signal-stat:nth-child(3)
+    p:last-child {
+    justify-self: end;
+    margin-top: 0 !important;
+    overflow: hidden !important;
+    overflow-wrap: normal !important;
+    text-align: right !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    font-size: 0.82rem !important;
+    line-height: 1.1 !important;
   }
 
   .repo-product-page .agent-worker-card .catalog-row,
