@@ -215,7 +215,7 @@ const skillRoutes = [
     href: "#review-guides",
     count: String(stances.length),
     icon: ShieldCheck,
-    text: "Catalog stances for judgment, evidence, security, and debugging.",
+    text: "Judgment, evidence, security, and debugging stances.",
     signal: "evidence",
   },
   {
@@ -223,7 +223,7 @@ const skillRoutes = [
     href: "#change-guides",
     count: String(disciplines.length),
     icon: Hammer,
-    text: "Catalog methods: exploration, planning, PRs, concision, flaky tests.",
+    text: "Exploration, planning, PRs, concision, and flaky tests.",
     signal: "core",
   },
   {
@@ -231,14 +231,14 @@ const skillRoutes = [
     href: "#kit-skills",
     count: String(kitSkills.length),
     icon: Puzzle,
-    text: "Suspec-coupled skills that ship in suspec-starter-kit, not the catalog.",
+    text: "Loop-specific guides that ship with suspec-starter-kit.",
     signal: "reference",
   },
 ] as const;
 
 export default function SkillsPage() {
   return (
-    <div className="repo-product-page flex flex-col gap-12 py-14 sm:gap-16 sm:py-16">
+    <div className="repo-product-page skills-page flex flex-col gap-12 py-14 sm:gap-16 sm:py-16">
       <Section className="ambient-header">
         <PageHero
           eyebrow="tool index / agent guides"
@@ -253,13 +253,8 @@ export default function SkillsPage() {
           }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            Two tiers of task-scoped guides: a framework-free catalog and a
-            Suspec-coupled kit.
-          </p>
-          <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
-            The catalog (suspec-skills) installs into any repo via{" "}
-            <code className="text-suspec-yellow">npx skills</code>. The kit ships
-            in suspec-starter-kit. Load only the guide in scope.
+            Framework-free agent disciplines, plus Suspec-coupled kit files for
+            the loop. Install the catalog anywhere; load only the guide in scope.
           </p>
           <HeroTrace
             ariaLabel="Skill guide trace"
@@ -470,12 +465,8 @@ export default function SkillsPage() {
           <Heading>The Suspec kit</Heading>
           <div className="section-prose-stack">
             <p>
-              These skills operate Suspec concepts: specs, optional task
-              packets, review packets, and findings. They are not
-              framework-free.
-            </p>
-            <p>
-              They ship in{" "}
+              These guides operate Suspec artifacts: specs, optional task
+              packets, review packets, and findings. They ship in{" "}
               <TextLink
                 href="https://github.com/jcosta33/suspec-starter-kit"
                 target="_blank"
@@ -483,10 +474,8 @@ export default function SkillsPage() {
               >
                 suspec-starter-kit
               </TextLink>{" "}
-              under <code className="text-suspec-yellow">.agents/skills/</code>,
-              not in the <code className="text-suspec-yellow">npx skills</code>{" "}
-              catalog. The <code className="text-suspec-yellow">write-*</code>{" "}
-              family is opt-in task-implementation depth.
+              under <code className="text-suspec-yellow">.agents/skills/</code>;
+              they are not framework-free catalog entries.
             </p>
           </div>
         </div>
