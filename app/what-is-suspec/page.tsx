@@ -146,6 +146,14 @@ const overviewJumpLinks = [
   signal: SignalRole;
 }>;
 
+const overviewArtifactChain = [
+  "Intake",
+  "Spec",
+  "Task",
+  "Review",
+  "Finding",
+] as const;
+
 const boundarySteps = [
   {
     label: "01",
@@ -306,14 +314,21 @@ export default function WhatIsSuspecPage() {
         <PaperArtifact
           label="example"
           title="artifact chain"
-          meta="intake -> spec -> task -> review -> finding"
+          meta="record sequence"
           className="overview-paper-artifact order-2"
         >
-          <p>Intent becomes a requirement.</p>
-          <p className="text-pencil">The task bounds what may change.</p>
-          <p>The run pastes evidence.</p>
-          <p className="text-pencil">The review routes exceptions.</p>
-          <p>The finding preserves what the next task should know.</p>
+          <ol className="overview-artifact-chain" aria-label="Artifact chain">
+            {overviewArtifactChain.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+          </ol>
+          <div className="overview-artifact-lines">
+            <p>Intent becomes a requirement.</p>
+            <p className="text-pencil">The task bounds what may change.</p>
+            <p>The run pastes evidence.</p>
+            <p className="text-pencil">The review routes exceptions.</p>
+            <p>The finding preserves what the next task should know.</p>
+          </div>
         </PaperArtifact>
       </Section>
 
