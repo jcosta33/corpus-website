@@ -143,12 +143,12 @@ const kitSkills = [
   {
     skill: "implement-task",
     icon: Terminal,
-    use: "implement a Suspec task packet",
+    use: "implement a Suspec spec or task packet",
   },
   {
     skill: "review-output",
     icon: ShieldCheck,
-    use: "build the review packet for a finished task",
+    use: "build the review packet for a finished run",
   },
   {
     skill: "spec-check",
@@ -163,7 +163,7 @@ const kitSkills = [
   {
     skill: "save-findings",
     icon: Save,
-    use: "save what a task taught as findings",
+    use: "save what a run taught as findings",
   },
   {
     skill: "write-feature",
@@ -425,7 +425,7 @@ export default function SkillsPage() {
           skills={stances}
           repo={catalogRepo}
           headerLabel="suspec-skills catalog"
-          guidesLabel={`${stances.length} guides`}
+          guidesLabel="guides"
         />
       </Section>
 
@@ -452,7 +452,7 @@ export default function SkillsPage() {
           skills={disciplines}
           repo={catalogRepo}
           headerLabel="suspec-skills catalog"
-          guidesLabel={`${disciplines.length} guides`}
+          guidesLabel="guides"
         />
       </Section>
 
@@ -470,8 +470,9 @@ export default function SkillsPage() {
           <Heading>The Suspec kit</Heading>
           <div className="section-prose-stack">
             <p>
-              These skills operate Suspec concepts: task packets, review
-              packets, specs, and findings. They are not framework-free.
+              These skills operate Suspec concepts: specs, optional task
+              packets, review packets, and findings. They are not
+              framework-free.
             </p>
             <p>
               They ship in{" "}
@@ -494,7 +495,7 @@ export default function SkillsPage() {
           skills={kitSkills}
           repo={kitRepo}
           headerLabel="suspec-starter-kit/.agents/skills"
-          guidesLabel={`${kitSkills.length} guides`}
+          guidesLabel="guides"
           toned={false}
         />
       </Section>

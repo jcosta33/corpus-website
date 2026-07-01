@@ -7,16 +7,15 @@
 ## Suspec workspace
 
 The specs, tasks, reviews, findings, decisions, and board for this site live in
-**`../suspec-website-works`** — the dedicated Suspec workspace. Read the task packet
-you were given there first; for 1:1 work with no task, read the linked spec in
-`../suspec-website-works/specs/`. Do not implement behavior outside the task's scope.
-Record the run (the spec's `## Execution`, or the task's `## Run summary`) and flip
-the board row in the workspace, not here.
+**`../suspec-website-works`** — the dedicated Suspec workspace. Read the spec first;
+if you were given a task packet, follow that bounded slice. Do not implement behavior
+outside the spec or task scope. Record the run (the spec's `## Execution`, or the
+task's `## Run summary`) and flip the board row in the workspace, not here.
 
 ## The loop
 
-Pull → Spec → Task → Run → Review → Close (+ Inventory / Change Plan for structural
-work). Agent guides live in the workspace's `.agents/skills/`.
+Pull → Spec → Run → Review → Close (+ Task when split, + Inventory / Change Plan for
+structural work). Agent guides live in the workspace's `.agents/skills/`.
 
 ## Project facts
 

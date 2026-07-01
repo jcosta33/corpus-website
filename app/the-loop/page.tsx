@@ -243,8 +243,8 @@ export default function TheLoopPage() {
           <div className="order-1 lg:order-none">
             <PaperArtifact
               label="note"
-              title="six points / six steps"
-              meta="Pull · Spec · Task · Run · Review · Close"
+              title="loop points / core steps"
+              meta="Pull · Spec · (Task) · Run · Review · Close"
             >
               <p>
                 Each point creates or checks the record the next point needs.

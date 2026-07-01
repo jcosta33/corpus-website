@@ -143,7 +143,7 @@ const features = [
     icon: FileText,
     title: "Spec-first",
     label: "spec",
-    text: "Write the contract. Hand the agent a bounded task.",
+    text: "Write the contract. Hand the agent bounded scope.",
     accent: "core",
   },
   {
@@ -157,7 +157,7 @@ const features = [
     icon: GitBranch,
     title: "Worktree discipline",
     label: "branch",
-    text: "One task, one branch, one diff to inspect.",
+    text: "One bounded change, one branch, one diff to inspect.",
     accent: "muted",
   },
   {
@@ -260,7 +260,7 @@ export default function HomePage() {
             eyebrow="workflow / six steps"
             motif="loop"
             titleSize="default"
-            title="Trust humans, not agents"
+            title="Show, not tell."
           >
             <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-100">
               Structured agent work, checked at every step.
@@ -543,8 +543,8 @@ export default function HomePage() {
             Start with one spec.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-concrete-400">
-            Copy the kit, write one contract, run one bounded task, review the
-            evidence.
+            Copy the kit, write one contract, run one bounded change, review
+            the evidence.
           </p>
           <div className="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
             <Button asChild className="w-full sm:w-auto">

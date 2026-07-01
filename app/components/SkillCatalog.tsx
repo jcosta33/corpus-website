@@ -16,7 +16,7 @@ export interface SkillCatalogProps {
   repo: string;
   /** First header span — the source label. */
   headerLabel: string;
-  /** Second header span — the guide count, e.g. "6 guides". */
+  /** Second header span — the catalog detail. */
   guidesLabel: string;
   /**
    * Whether the catalog Panel carries the `skill-guide-catalog-${tone}` class.

@@ -52,7 +52,7 @@ export const metadata: Metadata = {
 
 const isList = [
   { text: "specs humans write and agents work from", icon: FileText },
-  { text: "task packets with scope and checks", icon: LayoutList },
+  { text: "optional task packets for split work", icon: LayoutList },
   {
     text: "review packets with evidence per requirement",
     icon: NotebookPen,
@@ -184,7 +184,7 @@ const failureModes = [
   {
     mode: "Lost handoff",
     looksLike: "the plan lives only in chat",
-    answer: "handoff through a bounded task packet",
+    answer: "handoff through a bounded spec, or a task packet when split",
   },
   {
     mode: "Hallucinated completion",
