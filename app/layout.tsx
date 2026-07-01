@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import {
+  Fraunces,
   Inter,
   JetBrains_Mono,
-  Texturina,
 } from "next/font/google";
 import "./globals.css";
 import { Shell } from "./components/Shell";
@@ -67,13 +67,14 @@ const jetbrainsMono = JetBrains_Mono({
   preload: false,
 });
 
-// Display face for headings and title moments: a softened blackletter-derived
-// serif, keeping the manuscript/occult signal legible at software-site scale.
-const texturina = Texturina({
-  variable: "--font-texturina",
+// Display face for headings and title moments: bookish and a little strange,
+// but sturdy enough for product UI at software-site scale.
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
   display: "swap",
-  weight: ["500", "600", "700"],
+  weight: "variable",
+  axes: ["SOFT", "WONK", "opsz"],
 });
 
 export const metadata: Metadata = {
@@ -133,7 +134,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} ${texturina.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-chassis text-concrete-100">
         <JsonLd data={siteGraph} />
