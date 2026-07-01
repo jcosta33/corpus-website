@@ -234,10 +234,7 @@ export default function McpPage() {
           }
         >
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-concrete-400">
-            A verdict-free MCP for Suspec workspace facts.
-          </p>
-          <p className="mx-auto mt-4 max-w-2xl text-concrete-400">
-            Status, checks, artifacts, and review data over stdio.
+            Local MCP access to Suspec status, checks, artifacts, and review data over stdio.
           </p>
           <div className="hero-badge-row mt-8 flex flex-wrap items-center justify-center gap-2">
             <Badge variant="ready">v0.2 surface</Badge>
@@ -295,7 +292,7 @@ export default function McpPage() {
                         >
                           {String(index + 1).padStart(2, "0")} / {item.channel}
                         </p>
-                        <h2 className="mcp-adapter-title font-heading text-lg font-bold text-concrete-100">
+                        <h2 className="mcp-adapter-title font-heading text-lg font-semibold text-concrete-100">
                           {item.label}
                         </h2>
                       </div>
