@@ -605,6 +605,45 @@ export function descriptionOf(markdown: string): string {
       .replace(/[`*_]/g, "")
       .replace(/\s+/g, " ")
       .trim();
+  const joinItems = (items: string[]): string => {
+    if (items.length <= 1) return items[0] ?? "";
+    if (items.length === 2) return `${items[0]} and ${items[1]}`;
+    return `${items.slice(0, -1).join(", ")}, and ${items[items.length - 1]}`;
+  };
+  const listLeadDescription = (): string | null => {
+    let lead = "";
+    let inCodeBlock = false;
+    let items: string[] = [];
+    const describe = (): string | null => {
+      if (!lead.endsWith(":") || items.length === 0) return null;
+      const cleanLead = clean(lead).replace(/:$/, "");
+      const title = titleOf(markdown);
+      const subject = /^this page creates$/i.test(cleanLead)
+        ? `${title} creates`
+        : cleanLead;
+      return `${subject} ${joinItems(items.slice(0, 4))}.`;
+    };
+
+    for (const raw of body.split(/\r?\n/)) {
+      const line = raw.trim();
+      if (line.startsWith("```") || line.startsWith("~~~")) {
+        inCodeBlock = !inCodeBlock;
+        continue;
+      }
+      if (inCodeBlock || isHeading(line)) continue;
+      const bullet = line.match(/^[-*+]\s+(.+)$/);
+      if (lead && bullet) {
+        items.push(clean(bullet[1]));
+        continue;
+      }
+      const text = describe();
+      if (text) return text;
+      if (line === "" && lead && items.length === 0) continue;
+      lead = isProse(line) && line.endsWith(":") ? line : "";
+      items = [];
+    }
+    return describe();
+  };
   const tableDescription = (): string | null => {
     const parseCells = (row: string): string[] =>
       row
@@ -690,9 +729,15 @@ export function descriptionOf(markdown: string): string {
   );
   const chosen =
     candidates.find((p) => p.text.length >= 40 && !p.text.endsWith(":")) ??
-    candidates[0];
+    null;
   const text = chosen?.text ?? "";
-  if (!text) return tableDescription() ?? "Suspec documentation";
+  if (!text)
+    return (
+      listLeadDescription() ??
+      tableDescription() ??
+      candidates[0]?.text ??
+      "Suspec documentation"
+    );
   if (text.length <= 155) return text;
   const slice = text.slice(0, 152);
   const cut = slice.lastIndexOf(" ");
