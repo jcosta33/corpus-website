@@ -281,6 +281,8 @@
   --radius-panel: 10px;
   --radius-control: 10px;
 
+  --font-weight-title: 600;
+  --font-weight-title-compact: 600;
   --rhythm-kicker-title: clamp(1.16rem, 1.58vw, 1.42rem);
   --rhythm-title-body: clamp(1.02rem, 1.38vw, 1.28rem);
   --rhythm-register-gap: clamp(3rem, 3.65vw, 3.45rem);
@@ -442,6 +444,33 @@ body {
     :where(p, li, dd) {
     text-wrap: wrap;
   }
+}
+
+h1.font-heading,
+h2.font-heading,
+h3.font-heading,
+h4.font-heading,
+h5.font-heading,
+h6.font-heading,
+.page-hero-title {
+  font-weight: var(--font-weight-title);
+}
+
+.paper-artifact .paper-artifact-title,
+.loop-step-card .loop-step-label,
+.catalog-row .catalog-row-title,
+.feature-accent-title,
+.agent-roster-cell-title,
+.mcp-guardrail-title,
+.kit-ledger-title,
+.setup-route-title,
+.setup-choice-title,
+.skill-anatomy-label,
+.boundary-step-title,
+.relation-card-title,
+.colophon-build-trace-title,
+.site-footer-link-title {
+  font-weight: var(--font-weight-title-compact);
 }
 
 /* Archival tooth — barely visible paper grain over the dark instrument shell. */
@@ -2694,6 +2723,18 @@ section.bg-section-band::after {
 
 .page-hero-title {
   margin: 0;
+}
+
+@media (max-width: 40rem) {
+  .home-hero-section .page-hero-title {
+    max-inline-size: min(100%, 18rem);
+    margin-inline: auto;
+    font-size: clamp(2rem, 8.2vw, 2.35rem);
+    line-height: 1.08;
+    overflow-wrap: break-word;
+    text-wrap: balance;
+    word-break: normal;
+  }
 }
 
 .page-hero-datum + p {

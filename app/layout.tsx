@@ -72,7 +72,7 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
   display: "swap",
-  weight: ["700"],
+  weight: ["600", "700"],
 });
 
 // Old-style serif for the title-page voice — the hero headings and the wordmark
