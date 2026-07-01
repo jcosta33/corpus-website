@@ -8847,23 +8847,16 @@ section.bg-section-band::after {
   }
 
   .repo-product-page .agent-page-nav {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1px;
-    overflow: visible;
-    border: 1px solid rgba(var(--signal-muted-rgb), 0.2);
-    border-radius: calc(var(--radius-control) - 2px);
-    background:
-      linear-gradient(180deg, rgba(240, 226, 204, 0.018), transparent 48%),
-      linear-gradient(90deg, rgba(var(--signal-muted-rgb), 0.032), transparent 58%),
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 1.3rem,
-        rgba(var(--signal-muted-rgb), 0.018) 1.3rem calc(1.3rem + 1px)
-      ),
-      rgba(12, 9, 6, 0.34);
-    padding: 0.14rem;
-    mask-image: none;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.38rem;
+    overflow-x: auto;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    padding: 0.04rem 1.08rem 0.22rem 0;
+    mask-image: linear-gradient(90deg, #000 0 calc(100% - 1.4rem), transparent);
   }
 
   .agent-page-nav::-webkit-scrollbar,
@@ -8920,7 +8913,7 @@ section.bg-section-band::after {
 
   .agent-page-nav-link {
     min-height: 2.18rem;
-    min-width: 0;
+    min-width: 6.05rem;
     width: auto;
     border-color: rgba(70, 57, 44, 0.2);
     border-left-color: rgba(var(--agent-nav-rgb), 0.26);
@@ -9007,18 +9000,18 @@ section.bg-section-band::after {
   }
 
   .writing-page-nav .section-jump-nav {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1px;
-    overflow: visible;
-    border: 1px solid rgba(var(--signal-muted-rgb), 0.18);
-    border-radius: calc(var(--radius-control) - 2px);
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.38rem;
+    overflow-x: auto;
+    border: 0;
+    border-radius: 0;
     background: transparent;
     box-shadow: none;
-    padding: 0.12rem;
-    scroll-snap-type: none;
-    scrollbar-width: auto;
-    mask-image: none;
+    padding: 0.04rem 1.08rem 0.22rem 0;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    mask-image: linear-gradient(90deg, #000 0 calc(100% - 1.4rem), transparent);
   }
 
   .writing-page-nav .section-jump-nav::-webkit-scrollbar {
@@ -9026,10 +9019,10 @@ section.bg-section-band::after {
   }
 
   .writing-page-nav .section-jump-nav-link {
-    flex: initial;
-    min-width: 0;
+    flex: 0 0 auto;
+    min-width: 6.05rem;
     min-height: 2.42rem;
-    scroll-snap-align: none;
+    scroll-snap-align: start;
     border: 1px solid rgba(70, 57, 44, 0.36);
     border-left-color: rgba(var(--agent-nav-rgb), 0.28);
     border-radius: calc(var(--radius-control) - 3px);
