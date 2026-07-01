@@ -275,9 +275,9 @@
 
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
-  --font-heading: var(--font-spectral);
-  --font-display: var(--font-spectral);
-  --font-title: var(--font-spectral);
+  --font-heading: var(--font-ibm-plex-mono);
+  --font-display: var(--font-ibm-plex-mono);
+  --font-title: var(--font-ibm-plex-mono);
 
   --radius-panel: 10px;
   --radius-control: 10px;
@@ -297,9 +297,9 @@
   color-scheme: dark;
   /* Runtime aliases for next/font variables. Tailwind's theme layer also exposes
      these names for utilities; this keeps computed CSS variables aligned. */
-  --font-heading: var(--font-spectral);
-  --font-display: var(--font-spectral);
-  --font-title: var(--font-spectral);
+  --font-heading: var(--font-ibm-plex-mono);
+  --font-display: var(--font-ibm-plex-mono);
+  --font-title: var(--font-ibm-plex-mono);
   --color-pwr-red: #d2624e;
   --signal-core: var(--color-aurum);
   --signal-core-rgb: 216, 138, 36;
@@ -511,31 +511,34 @@ body::after {
   );
 }
 
-/* Heading font utility — warm archival serif for compact UI headings. */
+/* Heading font utility — console display face for compact UI headings. */
 .font-heading {
-  font-family: var(--font-heading), "Iowan Old Style", Palatino, Georgia, serif;
+  font-family: var(--font-heading), var(--font-mono), ui-monospace, monospace;
   font-optical-sizing: auto;
   font-feature-settings:
     "kern" 1,
-    "liga" 1;
+    "liga" 0,
+    "zero" 1;
 }
 
-/* Display font — bookish display serif for title-page voice. */
+/* Display font — terminal-console voice for title-page moments. */
 .font-display {
-  font-family: var(--font-display), "Iowan Old Style", Palatino, Georgia, serif;
+  font-family: var(--font-display), var(--font-mono), ui-monospace, monospace;
   font-optical-sizing: auto;
   font-feature-settings:
     "kern" 1,
-    "liga" 1;
+    "liga" 0,
+    "zero" 1;
 }
 
-/* Title font — book-cover scale only: heroes, docs H1, wordmark. */
+/* Title font — console-cover scale only: heroes, docs H1, wordmark. */
 .font-title {
-  font-family: var(--font-title), "Iowan Old Style", Palatino, Georgia, serif;
+  font-family: var(--font-title), var(--font-mono), ui-monospace, monospace;
   font-optical-sizing: auto;
   font-feature-settings:
     "kern" 1,
-    "liga" 1;
+    "liga" 0,
+    "zero" 1;
 }
 
 /* Focus ring */
@@ -686,7 +689,7 @@ body::after {
 .section-register > :where(div, header):first-child
   :where(.eyebrow, .section-kicker)
   + :where(.font-heading, h1, h2, h3) {
-  font-family: var(--font-title), "Iowan Old Style", Palatino, Georgia, serif;
+  font-family: var(--font-title), var(--font-mono), ui-monospace, monospace;
   font-weight: var(--font-weight-title);
   line-height: 1.05;
   margin-top: var(--rhythm-kicker-title) !important;
@@ -734,7 +737,7 @@ body::after {
 }
 
 .section-register .section-kicker + .font-heading {
-  font-family: var(--font-title), "Iowan Old Style", Palatino, Georgia, serif;
+  font-family: var(--font-title), var(--font-mono), ui-monospace, monospace;
   font-weight: var(--font-weight-title);
   line-height: 1.05;
   margin-top: var(--rhythm-kicker-title) !important;
@@ -743,7 +746,7 @@ body::after {
 .section-register
   :where(.panel-raised, .panel-inset, .paper-artifact, .terminal-window)
   :where(.section-kicker + .font-heading) {
-  font-family: var(--font-heading), "Iowan Old Style", Palatino, Georgia, serif;
+  font-family: var(--font-heading), var(--font-mono), ui-monospace, monospace;
   line-height: inherit;
 }
 
@@ -4696,6 +4699,51 @@ section.bg-section-band::after {
   border-color: rgba(var(--signal-core-rgb), 0.26);
 }
 
+.get-started-page {
+  row-gap: clamp(2.8rem, 4vw, 4rem);
+}
+
+.get-started-page > .ambient-header {
+  margin-bottom: -0.28rem;
+}
+
+.get-started-page .page-hero {
+  max-width: 50rem !important;
+}
+
+.get-started-page .hero-trace {
+  margin-top: 1.12rem !important;
+}
+
+.get-started-page .setup-route-panel {
+  max-width: 76rem;
+  margin-inline: auto;
+  background:
+    linear-gradient(180deg, rgba(240, 226, 204, 0.018), transparent 38%),
+    linear-gradient(90deg, rgba(var(--signal-core-rgb), 0.02), transparent 44%),
+    var(--color-panel-raised);
+}
+
+.get-started-page .setup-path-strip > li > a {
+  min-height: 7.45rem;
+  padding: 1rem 1.08rem;
+}
+
+.get-started-page .setup-path-strip .kit-icon {
+  height: 2.25rem;
+  width: 2.25rem;
+}
+
+.get-started-page .setup-path-strip h2 {
+  font-size: 0.98rem;
+  line-height: 1.18;
+}
+
+.get-started-page .setup-path-strip p.mt-3 {
+  margin-top: 0.62rem;
+  color: var(--color-concrete-400);
+}
+
 .setup-route-header {
   position: relative;
   display: flex;
@@ -4792,6 +4840,32 @@ section.bg-section-band::after {
 }
 
 @media (max-width: 40rem) {
+  .get-started-page {
+    row-gap: 2.35rem;
+  }
+
+  .get-started-page > .ambient-header {
+    margin-bottom: -0.18rem;
+  }
+
+  .get-started-page .page-hero {
+    max-width: 20.5rem !important;
+  }
+
+  .get-started-page .hero-trace {
+    margin-top: 0.95rem !important;
+  }
+
+  .get-started-page .setup-path-strip > li > a {
+    min-height: 3.2rem;
+    padding: 0.56rem 0.62rem;
+  }
+
+  .get-started-page .setup-path-strip .kit-icon {
+    height: 1.46rem;
+    width: 1.46rem;
+  }
+
   .setup-route-header {
     align-items: flex-start;
     flex-direction: column;
@@ -5954,6 +6028,10 @@ section.bg-section-band::after {
 }
 
 .skills-page .skill-guide-row.catalog-row {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 0 0.78rem;
   min-height: 5.42rem;
   border-color: rgba(var(--catalog-rgb), 0.105);
   background:
@@ -5968,12 +6046,38 @@ section.bg-section-band::after {
   padding: 0.84rem 2.35rem 0.84rem 0.9rem;
 }
 
+.skills-page .skill-guide-row.catalog-row > div:first-child {
+  display: contents;
+}
+
 .skills-page .skill-guide-row-badge {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  margin-top: 0;
   opacity: 0.86;
+}
+
+.skills-page .skill-guide-row.catalog-row > div:first-child > div:last-child {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.skills-page .skill-guide-row-arrow {
+  position: static;
+  grid-column: 3;
+  grid-row: 1;
+  margin-top: 0.08rem;
 }
 
 .skills-page .skill-guide-row .catalog-row-title {
   font-weight: 650;
+  line-height: 1.25;
+}
+
+.skills-page .skill-guide-row .catalog-row-copy {
+  margin-top: 0.42rem !important;
+  max-width: 44ch;
+  line-height: 1.5;
 }
 
 .skills-page .skill-guide-row.catalog-row::after {
@@ -6036,8 +6140,19 @@ section.bg-section-band::after {
   }
 
   .skills-page .skill-guide-row.catalog-row {
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    gap: 0 0.65rem;
     min-height: auto;
     padding: 0.64rem 2rem 0.64rem 0.68rem;
+  }
+
+  .skills-page .skill-guide-row-arrow {
+    display: none;
+  }
+
+  .skills-page .skill-guide-row .catalog-row-copy {
+    margin-top: 0.24rem !important;
+    max-width: none;
   }
 }
 
@@ -9561,12 +9676,62 @@ section.bg-section-band::after {
 }
 
 .agent-roster-icon {
-  margin-top: 0.1rem;
+  margin-top: 0;
 }
 
 .agent-roster-cell-title {
   color: color-mix(in oklab, var(--cell-signal) 84%, var(--color-concrete-100));
   text-shadow: 0 0 10px rgba(var(--cell-rgb), 0.08);
+}
+
+.agent-roster-cell > div {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.agent-roster-cell-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  column-gap: 0.85rem;
+}
+
+.agent-roster-cell-body > div:first-child {
+  display: contents;
+}
+
+.agent-roster-cell-body > div:first-child p {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  line-height: 1.2;
+}
+
+.agent-roster-cell-body .motion-nudge-x {
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 0;
+}
+
+.agent-roster-cell-title {
+  grid-column: 1 / -1;
+  margin-top: 0.78rem !important;
+  line-height: 1.18;
+}
+
+.agent-roster-file {
+  grid-column: 1 / -1;
+  margin-top: 0.72rem !important;
+  line-height: 1.35;
+}
+
+.agent-roster-use {
+  grid-column: 1 / -1;
+  margin-top: 0.9rem !important;
+  max-width: 30rem;
+  line-height: 1.58;
 }
 
 @media (max-width: 40rem) {
@@ -9613,8 +9778,9 @@ section.bg-section-band::after {
   }
 
   .agent-roster-cell > div {
-    align-items: center;
+    grid-template-columns: 2rem minmax(0, 1fr);
     gap: 0.72rem;
+    align-items: start;
   }
 
   .agent-roster-icon {
@@ -9623,39 +9789,34 @@ section.bg-section-band::after {
     width: 1.85rem;
   }
 
-  .agent-roster-cell-body {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    column-gap: 0.72rem;
-    align-items: start;
-  }
-
   .agent-roster-cell-body > div:first-child {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    gap: 0.34rem;
-    justify-content: flex-end;
+    display: contents;
   }
 
   .agent-roster-cell-body > div:first-child p {
+    grid-column: 1;
+    grid-row: 1;
     font-size: 0.62rem;
     line-height: 1;
   }
 
   .agent-roster-cell-body .motion-nudge-x {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 0;
     opacity: 0.72;
   }
 
   .agent-roster-cell-title {
     grid-column: 1;
-    margin-top: 0;
+    margin-top: 0.42rem !important;
     font-size: 1.02rem;
     line-height: 1.15;
   }
 
   .agent-roster-file {
     grid-column: 1;
-    margin-top: 0.2rem;
+    margin-top: 0.36rem !important;
     font-size: 0.66rem;
     line-height: 1.35;
   }
@@ -9663,7 +9824,7 @@ section.bg-section-band::after {
   .agent-roster-use {
     grid-column: 1 / -1;
     display: -webkit-box;
-    margin-top: 0.42rem;
+    margin-top: 0.58rem !important;
     overflow: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -9682,6 +9843,45 @@ section.bg-section-band::after {
 
 .agent-worker-card .catalog-row {
   min-height: 0 !important;
+}
+
+.agent-worker-card .catalog-row {
+  display: grid !important;
+  grid-template-columns: 3.25rem minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 0.85rem;
+  padding-left: 0 !important;
+}
+
+.agent-worker-card .catalog-row > div:first-child {
+  display: contents;
+}
+
+.agent-worker-card .catalog-row-badge {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  margin-top: 0;
+}
+
+.agent-worker-card .catalog-row > div:first-child > div:last-child {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.agent-worker-card .catalog-row > svg {
+  grid-column: 3;
+  grid-row: 1;
+  margin-top: 0.12rem;
+}
+
+.agent-worker-card .catalog-row-title {
+  line-height: 1.25;
+}
+
+.agent-worker-card .catalog-row-copy {
+  margin-top: 0.48rem !important;
+  max-width: 54ch;
+  line-height: 1.55;
 }
 
 @media (max-width: 40rem) {
@@ -9707,11 +9907,11 @@ section.bg-section-band::after {
     );
     background-color: rgba(10, 7, 5, 0.16);
     gap: 0.65rem;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
   }
 
   .agent-worker-card .catalog-row > div:first-child {
-    align-items: center;
-    gap: 0.72rem;
+    display: contents;
   }
 
   .agent-worker-card .catalog-row-badge {
@@ -9730,7 +9930,7 @@ section.bg-section-band::after {
   }
 
   .agent-worker-card .catalog-row-copy {
-    margin-top: 0.18rem;
+    margin-top: 0.24rem !important;
     font-size: 0.73rem;
     line-height: 1.4;
   }

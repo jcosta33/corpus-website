@@ -381,7 +381,7 @@ export default function AgentsPage() {
                     >
                       <item.icon className="h-4 w-4" aria-hidden="true" />
                     </HexBadge>
-                      <div className="agent-roster-cell-body min-w-0 flex-1">
+                    <div className="agent-roster-cell-body min-w-0">
                       <div className="flex items-start justify-between gap-4">
                         <p
                           className={`font-mono text-xs font-semibold uppercase tracking-wide ${signalRoles[item.signal].text}`}

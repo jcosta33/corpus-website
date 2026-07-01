@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import {
+  IBM_Plex_Mono,
   Inter,
   JetBrains_Mono,
-  Spectral,
 } from "next/font/google";
 import "./globals.css";
 import { Shell } from "./components/Shell";
@@ -67,10 +67,10 @@ const jetbrainsMono = JetBrains_Mono({
   preload: false,
 });
 
-// Display face for headings and title moments: sharp editorial serif for the
-// archive/manual layer, with enough restraint for a technical product surface.
-const spectral = Spectral({
-  variable: "--font-spectral",
+// Display face for headings and title moments: console-like, technical, and
+// still warm enough for the manuscript/manual layer.
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700"],
@@ -133,7 +133,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} ${spectral.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${ibmPlexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-chassis text-concrete-100">
         <JsonLd data={siteGraph} />

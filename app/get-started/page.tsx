@@ -186,7 +186,7 @@ const setupPath = [
   },
   {
     label: "Work",
-    text: "Write a spec, run it, keep evidence — split into tasks only for parallel work.",
+    text: "Write a spec, run it, keep evidence.",
     icon: ClipboardList,
     href: "#work",
     signal: "core",
@@ -199,9 +199,19 @@ const setupPath = [
   signal: SignalRole;
 }>;
 
+const setupHeroTrace = [
+  { label: "Choose", signal: "reference" },
+  { label: "Copy", signal: "core" },
+  { label: "Check", signal: "core" },
+  { label: "Work", signal: "reference" },
+] as const satisfies Array<{
+  label: string;
+  signal: SignalRole;
+}>;
+
 export default function GetStartedPage() {
   return (
-    <div className="flex flex-col gap-12 py-14 sm:gap-16 sm:py-16">
+    <div className="get-started-page flex flex-col gap-12 py-14 sm:gap-16 sm:py-16">
       <Section className="ambient-header">
         <PageHero
           eyebrow="setup / first workspace"
@@ -210,15 +220,12 @@ export default function GetStartedPage() {
           tone="core"
         >
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-concrete-400 sm:text-xl">
-            Start with the starter kit. Use the CLI when you want scaffolding
-            and checks.
+            Start with the starter kit. Add the CLI only when you want
+            scaffolding or a check.
           </p>
           <HeroTrace
             ariaLabel="Suspec setup path trace"
-            items={setupPath.map((step) => ({
-              label: step.label,
-              signal: step.signal,
-            }))}
+            items={setupHeroTrace}
           />
         </PageHero>
       </Section>
@@ -262,7 +269,7 @@ export default function GetStartedPage() {
                         >
                           {String(index + 1).padStart(2, "0")}
                         </p>
-                        <h2 className="font-heading text-lg font-bold text-concrete-100">
+                        <h2 className="font-heading text-lg font-semibold text-concrete-100">
                           {step.label}
                         </h2>
                       </div>
@@ -295,7 +302,8 @@ export default function GetStartedPage() {
           </div>
           <Heading className="mt-3">Pick a setup path</Heading>
           <p className="mt-4 max-w-2xl leading-relaxed text-concrete-400">
-            Fresh repo uses greenfield. Existing repo uses brownfield.
+            Greenfield is for a new workspace. Brownfield is for a repo that
+            already has history.
           </p>
           <SignalKey
             ariaLabel="Setup path color roles"
