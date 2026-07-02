@@ -372,6 +372,30 @@ export default function WhatIsSuspecPage() {
             ))}
           </dl>
         </div>
+        <nav
+          className="overview-section-nav-shell overview-section-nav-inline lg:col-span-2"
+          aria-label="What is Suspec page sections"
+        >
+          <div className="section-jump-nav">
+            {overviewJumpLinks.map((item, index) => (
+              <a
+                key={item.href}
+                href={item.href}
+                data-color-role={item.signal}
+                className={`section-jump-nav-link section-jump-nav-link-${item.signal} focus-ring group`}
+              >
+                <span className="section-jump-nav-index">
+                  {String(index + 2).padStart(2, "0")}
+                </span>
+                <span className="section-jump-nav-label">{item.label}</span>
+                <ArrowRight
+                  className="motion-nudge-x h-3.5 w-3.5"
+                  aria-hidden="true"
+                />
+              </a>
+            ))}
+          </div>
+        </nav>
         <Panel brushed className="overview-terminal-shell order-1 mx-auto h-full max-w-3xl p-2">
           <TerminalWindow
             title="diagnostics"
@@ -419,31 +443,6 @@ export default function WhatIsSuspecPage() {
           </div>
         </PaperArtifact>
       </Section>
-
-      <nav
-        className="overview-section-nav-shell mx-auto w-full max-w-7xl px-6 lg:px-8"
-        aria-label="What is Suspec page sections"
-      >
-        <div className="section-jump-nav">
-          {overviewJumpLinks.map((item, index) => (
-            <a
-              key={item.href}
-              href={item.href}
-              data-color-role={item.signal}
-              className={`section-jump-nav-link section-jump-nav-link-${item.signal} focus-ring group`}
-            >
-              <span className="section-jump-nav-index">
-                {String(index + 2).padStart(2, "0")}
-              </span>
-              <span className="section-jump-nav-label">{item.label}</span>
-              <ArrowRight
-                className="motion-nudge-x h-3.5 w-3.5"
-                aria-hidden="true"
-              />
-            </a>
-          ))}
-        </div>
-      </nav>
 
       <Section
         id="boundaries"

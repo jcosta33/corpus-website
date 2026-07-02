@@ -11022,6 +11022,23 @@ section.bg-section-band::after {
   line-height: 1.45;
 }
 
+.overview-section-nav-inline {
+  width: 100%;
+  max-width: none !important;
+}
+
+.overview-section-nav-inline .section-jump-nav {
+  background:
+    linear-gradient(180deg, rgba(240, 226, 204, 0.018), transparent 44%),
+    linear-gradient(90deg, rgba(var(--signal-muted-rgb), 0.03), transparent 58%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 1.45rem,
+      rgba(var(--signal-muted-rgb), 0.018) 1.45rem calc(1.45rem + 1px)
+    ),
+    rgba(12, 9, 6, 0.38);
+}
+
 .overview-terminal-shell {
   border-color: rgba(var(--signal-evidence-rgb), 0.24);
 }
