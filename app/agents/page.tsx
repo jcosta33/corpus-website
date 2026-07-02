@@ -177,6 +177,37 @@ const rosterGroups = [
   }>;
 }>;
 
+const laneSummary = [
+  {
+    href: "#read-only-workers",
+    label: "Read-only",
+    count: "2 roles",
+    files: "reviewer · challenger",
+    text: "Inspect, verify, and challenge without writing artifacts.",
+    ariaLabel:
+      "Read-only lane: two roles, reviewer and challenger. Inspect, verify, and challenge without writing artifacts.",
+    signal: "reference",
+  },
+  {
+    href: "#bounded-authoring",
+    label: "Bounded authoring",
+    count: "4 roles",
+    files: "spec · research · audit · docs",
+    text: "Draft one named artifact; review still decides.",
+    ariaLabel:
+      "Bounded authoring lane: four roles, spec, research, audit, and docs. Draft one named artifact; review still decides.",
+    signal: "core",
+  },
+] as const satisfies Array<{
+  href: string;
+  label: string;
+  count: string;
+  files: string;
+  text: string;
+  ariaLabel: string;
+  signal: SignalRole;
+}>;
+
 const agentPageNav = [
   { label: "Roster", href: "#roster-brief", signal: "reference" },
   { label: "Install", href: "#install", signal: "core" },
@@ -364,6 +395,23 @@ export default function AgentsPage() {
             </TextLink>
             .
           </p>
+          <div className="agent-lane-summary" aria-label="Agent role lanes">
+            {laneSummary.map((lane) => (
+              <a
+                key={lane.label}
+                href={lane.href}
+                aria-label={lane.ariaLabel}
+                className={`agent-lane-summary-link agent-lane-summary-link-${lane.signal} focus-ring`}
+              >
+                <span>
+                  <span className="agent-lane-summary-title">{lane.label}</span>
+                  <span className="agent-lane-summary-count">{lane.count}</span>
+                </span>
+                <span className="agent-lane-summary-files">{lane.files}</span>
+                <span className="agent-lane-summary-copy">{lane.text}</span>
+              </a>
+            ))}
+          </div>
         </Card>
       </Section>
 
