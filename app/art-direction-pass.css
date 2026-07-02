@@ -72,7 +72,7 @@ body {
     display: block;
     overflow: hidden;
     pointer-events: none;
-    perspective: 400px;
+    perspective: 560px;
     perspective-origin: var(--background-plane-origin-x) var(--background-plane-origin-y);
     transform-style: preserve-3d;
     contain: paint;
@@ -80,7 +80,7 @@ body {
 
   .site-background-plane {
     position: absolute;
-    inset: -16vmax;
+    inset: -22vmax;
     display: block;
     background:
       linear-gradient(rgba(70, 57, 44, 0.17) 1px, transparent 1px),
@@ -111,9 +111,9 @@ body {
         var(--background-plane-drift-y),
         0
       )
-      rotateX(calc(var(--background-plane-tilt-x) * 1.28))
-      rotateY(calc(var(--background-plane-tilt-y) * 1.28))
-      scale(1.18);
+      rotateX(calc(var(--background-plane-tilt-x) * 1.18))
+      rotateY(calc(var(--background-plane-tilt-y) * 1.18))
+      scale(1.2);
     transform-origin: var(--background-plane-origin-x) var(--background-plane-origin-y);
     transform-style: preserve-3d;
     backface-visibility: hidden;
@@ -131,8 +131,8 @@ body {
     background:
       radial-gradient(
         78% 58% at
-          calc(50% + var(--background-plane-grid-x))
-          calc(18% + var(--background-plane-grid-y)),
+          50%
+          18%,
         rgba(var(--signal-core-rgb), 0.036),
         transparent 66%
       ),
@@ -155,15 +155,15 @@ body {
           rgba(var(--signal-core-rgb), 0.032) 1px,
           transparent 1px
         )
-        calc(50% + var(--background-plane-grid-x))
-        var(--background-plane-grid-minor-y) / 96px 96px,
+        50%
+        0 / 96px 96px,
       linear-gradient(
           90deg,
           rgba(var(--signal-reference-rgb), 0.024) 1px,
           transparent 1px
         )
-        calc(50% + var(--background-plane-grid-minor-x))
-        var(--background-plane-grid-y) / 96px 96px,
+        50%
+        0 / 96px 96px,
       linear-gradient(
         115deg,
         transparent 0 38%,
@@ -182,7 +182,7 @@ body {
   }
 
   .site-main-frame .ambient-header {
-    perspective: 400px;
+    perspective: 520px;
     perspective-origin: var(--background-header-origin-x) var(--background-header-origin-y);
     transform-style: preserve-3d;
   }
@@ -196,8 +196,8 @@ body {
         var(--background-header-drift-y),
         34px
       )
-      rotateX(calc(var(--background-header-tilt-x) * 2.14))
-      rotateY(calc(var(--background-header-tilt-y) * 2.28))
+      rotateX(calc(var(--background-header-tilt-x) * 2.34))
+      rotateY(calc(var(--background-header-tilt-y) * 2.46))
       scale(1.14);
     background-position:
       calc(50% + var(--background-header-grid-x)) 50%,
@@ -221,8 +221,8 @@ body {
         var(--background-header-drift-y),
         30px
       )
-      rotateX(calc(var(--background-header-tilt-x) * 1.98))
-      rotateY(calc(var(--background-header-tilt-y) * 2.08))
+      rotateX(calc(var(--background-header-tilt-x) * 2.16))
+      rotateY(calc(var(--background-header-tilt-y) * 2.24))
       scale(1.12);
     background-position:
       left calc(50% + var(--background-header-grid-y)),
@@ -240,8 +240,8 @@ body {
   .site-main-frame .page-hero::after {
     transform:
       translate3d(var(--background-header-drift-x), var(--background-header-drift-y), 30px)
-      rotateX(calc(var(--background-header-tilt-x) * 2.02))
-      rotateY(calc(var(--background-header-tilt-y) * 2.14))
+      rotateX(calc(var(--background-header-tilt-x) * 2.2))
+      rotateY(calc(var(--background-header-tilt-y) * 2.32))
       scale(1.12);
     transform-origin: var(--background-header-origin-x) var(--background-header-origin-y);
     backface-visibility: hidden;
@@ -277,8 +277,8 @@ body {
         var(--background-header-drift-y),
         36px
       )
-      rotateX(calc(var(--background-header-tilt-x) * 2.28))
-      rotateY(calc(var(--background-header-tilt-y) * 2.42))
+      rotateX(calc(var(--background-header-tilt-x) * 2.5))
+      rotateY(calc(var(--background-header-tilt-y) * 2.64))
       scale(1.15);
     transform-origin: var(--background-header-origin-x) var(--background-header-origin-y);
     background-position:

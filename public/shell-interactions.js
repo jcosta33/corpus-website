@@ -30,7 +30,7 @@
     );
     let frame = 0;
     let pointerX = window.innerWidth / 2;
-    let pointerY = window.innerHeight * 0.42;
+    let pointerY = window.innerHeight / 2;
     let tracking = false;
     const pointerMoveEvent =
       "PointerEvent" in window ? "pointermove" : "mousemove";
@@ -50,75 +50,75 @@
       root.style.setProperty("--background-plane-normal-y", normalY.toFixed(4));
       root.style.setProperty(
         "--background-plane-tilt-x",
-        `${(normalY * -7.2).toFixed(3)}deg`,
+        `${(normalY * -5.6).toFixed(3)}deg`,
       );
       root.style.setProperty(
         "--background-plane-tilt-y",
-        `${(normalX * 8.4).toFixed(3)}deg`,
+        `${(normalX * 6.4).toFixed(3)}deg`,
       );
       root.style.setProperty(
         "--background-header-tilt-x",
-        `${(normalY * -4.8).toFixed(3)}deg`,
+        `${(normalY * -3.8).toFixed(3)}deg`,
       );
       root.style.setProperty(
         "--background-header-tilt-y",
-        `${(normalX * 5.8).toFixed(3)}deg`,
+        `${(normalX * 4.6).toFixed(3)}deg`,
       );
       root.style.setProperty(
         "--background-plane-origin-x",
-        `${(50 + normalX * 7).toFixed(2)}%`,
+        `${(50 + normalX * 5.5).toFixed(2)}%`,
       );
       root.style.setProperty(
         "--background-plane-origin-y",
-        `${(52 + normalY * 5).toFixed(2)}%`,
+        `${(52 + normalY * 4).toFixed(2)}%`,
       );
       root.style.setProperty(
         "--background-plane-drift-x",
-        `${(-normalX * 2.8).toFixed(2)}px`,
+        `${(-normalX * 0.6).toFixed(2)}px`,
       );
       root.style.setProperty(
         "--background-plane-drift-y",
-        `${(-normalY * 2).toFixed(2)}px`,
+        `${(-normalY * 0.4).toFixed(2)}px`,
       );
       root.style.setProperty(
         "--background-header-drift-x",
-        `${(-normalX * 5.6).toFixed(2)}px`,
+        `${(-normalX * 3.2).toFixed(2)}px`,
       );
       root.style.setProperty(
         "--background-header-drift-y",
-        `${(-normalY * 3.8).toFixed(2)}px`,
+        `${(-normalY * 2.4).toFixed(2)}px`,
       );
       root.style.setProperty(
         "--background-header-origin-x",
-        `${(50 + normalX * 7).toFixed(2)}%`,
+        `${(50 + normalX * 5.5).toFixed(2)}%`,
       );
       root.style.setProperty(
         "--background-header-origin-y",
-        `${(46 + normalY * 5).toFixed(2)}%`,
+        `${(46 + normalY * 4).toFixed(2)}%`,
       );
       root.style.setProperty(
         "--background-plane-grid-x",
-        `${(-normalX * 6.4).toFixed(2)}px`,
+        `${(-normalX * 0.8).toFixed(2)}px`,
       );
       root.style.setProperty(
         "--background-plane-grid-y",
-        `${(-normalY * 4.8).toFixed(2)}px`,
+        `${(-normalY * 0.6).toFixed(2)}px`,
       );
       root.style.setProperty(
         "--background-plane-grid-minor-x",
-        `${(-normalX * 2.8).toFixed(2)}px`,
+        `${(-normalX * 0.36).toFixed(2)}px`,
       );
       root.style.setProperty(
         "--background-plane-grid-minor-y",
-        `${(-normalY * 2.1).toFixed(2)}px`,
+        `${(-normalY * 0.28).toFixed(2)}px`,
       );
       root.style.setProperty(
         "--background-header-grid-x",
-        `${(normalX * 15).toFixed(2)}px`,
+        `${(normalX * 10).toFixed(2)}px`,
       );
       root.style.setProperty(
         "--background-header-grid-y",
-        `${(normalY * 10).toFixed(2)}px`,
+        `${(normalY * 7).toFixed(2)}px`,
       );
     }
 
@@ -132,6 +132,7 @@
     function startTracking() {
       if (tracking) return;
       tracking = true;
+      root.dataset.backgroundMotion = "active";
       document.addEventListener(pointerMoveEvent, queuePointer, {
         capture: true,
         passive: true,
@@ -142,6 +143,7 @@
     function stopTracking() {
       if (!tracking) return;
       tracking = false;
+      delete root.dataset.backgroundMotion;
       document.removeEventListener(pointerMoveEvent, queuePointer, true);
       if (frame !== 0) window.cancelAnimationFrame(frame);
       frame = 0;
