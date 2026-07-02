@@ -43,6 +43,32 @@ const docsLegend = [
   href: string;
 }>;
 
+const readingPath = [
+  {
+    label: "Start with the model",
+    href: "/docs/01-what-is-suspec/",
+    detail: "What Suspec is, which records exist, and what it does not decide.",
+    role: "core",
+  },
+  {
+    label: "Walk one loop",
+    href: "/docs/tutorial/README/",
+    detail: "Pull through Close on a small change before adapting the workflow.",
+    role: "core",
+  },
+  {
+    label: "Review the proof",
+    href: "/docs/reference/checks/",
+    detail: "Use checks and artifact formats when a packet needs inspection.",
+    role: "reference",
+  },
+] as const satisfies Array<{
+  label: string;
+  href: string;
+  detail: string;
+  role: SignalRole;
+}>;
+
 function Section({
   sec,
   intro,
@@ -128,6 +154,12 @@ export default function DocsIndex() {
         url: `${SITE_URL}/docs/#${section.title.toLowerCase().replaceAll(" ", "-")}`,
       })),
     },
+    hasPart: readingPath.map((item) => ({
+      "@type": "WebPage",
+      name: item.label,
+      url: `${SITE_URL}${item.href}`,
+      description: item.detail,
+    })),
   };
 
   return (
@@ -162,6 +194,39 @@ export default function DocsIndex() {
           </ul>
         </div>
       </header>
+      <section
+        className="docs-reading-path"
+        aria-labelledby="docs-reading-path-title"
+      >
+        <div className="docs-reading-path-copy">
+          <p className="docs-reading-path-kicker" data-pagefind-ignore>
+            recommended path
+          </p>
+          <h2 id="docs-reading-path-title">Read this first</h2>
+          <p>
+            Three pages cover the model, one pass through the loop, and the
+            review contract. The full canon stays below.
+          </p>
+        </div>
+        <ol className="docs-reading-path-list">
+          {readingPath.map((item, index) => (
+            <li
+              key={item.href}
+              className={`docs-reading-path-item docs-reading-path-item-${item.role}`}
+            >
+              <Link href={item.href}>
+                <span className="docs-reading-path-index" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span>
+                  <span className="docs-reading-path-label">{item.label}</span>
+                  <span className="docs-reading-path-detail">{item.detail}</span>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ol>
+      </section>
       <div
         className={`docs-index-grid ${balancedGrid ? "docs-index-grid-balanced" : ""}`}
       >
