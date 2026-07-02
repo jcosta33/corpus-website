@@ -306,6 +306,14 @@ export default function WhatIsSuspecPage() {
         "@type": "WebPageElement",
         name: "Where Suspec sits",
       },
+      {
+        "@type": "WebPageElement",
+        name: "Common failure modes Suspec helps make reviewable",
+      },
+      {
+        "@type": "WebPageElement",
+        name: "How Suspec differs from agent runtimes, issue trackers, CI, and review tools",
+      },
       ...overviewAnswerFacts.map((fact) => ({
         "@type": "WebPageElement",
         name: `${fact.label}: ${fact.text}`,
@@ -509,6 +517,10 @@ export default function WhatIsSuspecPage() {
             <span>nearby tools</span>
           </div>
           <Heading className="mt-3">Where Suspec sits</Heading>
+          <p className="mt-4 text-concrete-400">
+            Suspec is the file layer between the request, the agent, and the
+            review. The surrounding tools keep their jobs.
+          </p>
         </div>
         <BoundaryMap />
         <ul className="overview-relation-grid reveal grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -562,11 +574,16 @@ export default function WhatIsSuspecPage() {
         <div className="max-w-2xl">
           <div className={`section-kicker ${signalRoles.change.sectionKicker}`}>
             <ShieldAlert className="h-4 w-4" aria-hidden="true" />
-            <span>common failure modes</span>
+            <span>where handoffs fail</span>
           </div>
           <Heading className="mt-3">
             Common failure modes
           </Heading>
+          <p className="mt-4 text-concrete-400">
+            These are the places chat-only agent work tends to lose the plot.
+            Suspec makes the missing record visible before review has to
+            reconstruct the run from chat.
+          </p>
         </div>
         <ul className="overview-failure-grid reveal grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {failureModes.map((fm) => (
