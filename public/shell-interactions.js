@@ -12,6 +12,16 @@
     "--background-header-drift-y",
     "--background-header-tilt-x",
     "--background-header-tilt-y",
+    "--background-plane-rotate-x",
+    "--background-plane-rotate-y",
+    "--background-header-before-rotate-x",
+    "--background-header-before-rotate-y",
+    "--background-header-after-rotate-x",
+    "--background-header-after-rotate-y",
+    "--background-hero-edge-rotate-x",
+    "--background-hero-edge-rotate-y",
+    "--background-hero-motif-rotate-x",
+    "--background-hero-motif-rotate-y",
     "--background-plane-normal-x",
     "--background-plane-normal-y",
     "--background-plane-grid-x",
@@ -45,24 +55,124 @@
       const height = Math.max(window.innerHeight, 1);
       const normalX = Math.max(-1, Math.min(1, (pointerX / width - 0.5) * 2));
       const normalY = Math.max(-1, Math.min(1, (pointerY / height - 0.5) * 2));
+      const planeTiltX = normalY * -4.4;
+      const planeTiltY = normalX * 5.1;
+      const headerTiltX = normalY * -3.2;
+      const headerTiltY = normalX * 3.8;
 
       root.style.setProperty("--background-plane-normal-x", normalX.toFixed(4));
       root.style.setProperty("--background-plane-normal-y", normalY.toFixed(4));
       root.style.setProperty(
         "--background-plane-tilt-x",
-        `${(normalY * -4.4).toFixed(3)}deg`,
+        `${planeTiltX.toFixed(3)}deg`,
       );
       root.style.setProperty(
         "--background-plane-tilt-y",
-        `${(normalX * 5.1).toFixed(3)}deg`,
+        `${planeTiltY.toFixed(3)}deg`,
       );
       root.style.setProperty(
         "--background-header-tilt-x",
-        `${(normalY * -3.2).toFixed(3)}deg`,
+        `${headerTiltX.toFixed(3)}deg`,
       );
       root.style.setProperty(
         "--background-header-tilt-y",
-        `${(normalX * 3.8).toFixed(3)}deg`,
+        `${headerTiltY.toFixed(3)}deg`,
+      );
+      root.style.setProperty(
+        "--background-plane-rotate-x",
+        `${(planeTiltX * 1.42).toFixed(3)}deg`,
+      );
+      root.style.setProperty(
+        "--background-plane-rotate-y",
+        `${(planeTiltY * 1.42).toFixed(3)}deg`,
+      );
+      root.style.setProperty(
+        "--background-header-before-rotate-x",
+        `${(headerTiltX * 2.85).toFixed(3)}deg`,
+      );
+      root.style.setProperty(
+        "--background-header-before-rotate-y",
+        `${(headerTiltY * 3.05).toFixed(3)}deg`,
+      );
+      root.style.setProperty(
+        "--background-header-after-rotate-x",
+        `${(headerTiltX * 2.55).toFixed(3)}deg`,
+      );
+      root.style.setProperty(
+        "--background-header-after-rotate-y",
+        `${(headerTiltY * 2.75).toFixed(3)}deg`,
+      );
+      root.style.setProperty(
+        "--background-hero-edge-rotate-x",
+        `${(headerTiltX * 2.65).toFixed(3)}deg`,
+      );
+      root.style.setProperty(
+        "--background-hero-edge-rotate-y",
+        `${(headerTiltY * 2.85).toFixed(3)}deg`,
+      );
+      root.style.setProperty(
+        "--background-hero-motif-rotate-x",
+        `${(headerTiltX * 3.05).toFixed(3)}deg`,
+      );
+      root.style.setProperty(
+        "--background-hero-motif-rotate-y",
+        `${(headerTiltY * 3.25).toFixed(3)}deg`,
+      );
+      root.style.setProperty(
+        "--background-plane-origin-x",
+        `${(50 + normalX * 4).toFixed(2)}%`,
+      );
+      root.style.setProperty(
+        "--background-plane-origin-y",
+        `${(52 + normalY * 3).toFixed(2)}%`,
+      );
+      root.style.setProperty(
+        "--background-header-origin-x",
+        `${(50 + normalX * 3).toFixed(2)}%`,
+      );
+      root.style.setProperty(
+        "--background-header-origin-y",
+        `${(46 + normalY * 2).toFixed(2)}%`,
+      );
+      root.style.setProperty(
+        "--background-plane-drift-x",
+        `${(normalX * -10).toFixed(2)}px`,
+      );
+      root.style.setProperty(
+        "--background-plane-drift-y",
+        `${(normalY * -8).toFixed(2)}px`,
+      );
+      root.style.setProperty(
+        "--background-header-drift-x",
+        `${(normalX * -7).toFixed(2)}px`,
+      );
+      root.style.setProperty(
+        "--background-header-drift-y",
+        `${(normalY * -4).toFixed(2)}px`,
+      );
+      root.style.setProperty(
+        "--background-plane-grid-x",
+        `${(normalX * -18).toFixed(2)}px`,
+      );
+      root.style.setProperty(
+        "--background-plane-grid-y",
+        `${(normalY * -12).toFixed(2)}px`,
+      );
+      root.style.setProperty(
+        "--background-plane-grid-minor-x",
+        `${(normalX * -8).toFixed(2)}px`,
+      );
+      root.style.setProperty(
+        "--background-plane-grid-minor-y",
+        `${(normalY * -6).toFixed(2)}px`,
+      );
+      root.style.setProperty(
+        "--background-header-grid-x",
+        `${(normalX * -10).toFixed(2)}px`,
+      );
+      root.style.setProperty(
+        "--background-header-grid-y",
+        `${(normalY * -6).toFixed(2)}px`,
       );
     }
 
