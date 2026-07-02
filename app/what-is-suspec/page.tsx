@@ -157,6 +157,33 @@ const overviewArtifactChain = [
   "Finding",
 ] as const;
 
+const overviewAnswerFacts = [
+  {
+    label: "For",
+    text: "Teams using coding agents on work that needs a reviewable trail.",
+    signal: "reference",
+  },
+  {
+    label: "Use when",
+    text: "A request needs scoped requirements, bounded execution, and evidence.",
+    signal: "core",
+  },
+  {
+    label: "Records",
+    text: "Specs, task packets, review packets, findings, and execution notes.",
+    signal: "evidence",
+  },
+  {
+    label: "Never",
+    text: "Runs an agent, approves code, replaces CI, or declares correctness.",
+    signal: "change",
+  },
+] as const satisfies Array<{
+  label: string;
+  text: string;
+  signal: SignalRole;
+}>;
+
 const boundarySteps = [
   {
     label: "01",
@@ -279,6 +306,10 @@ export default function WhatIsSuspecPage() {
         "@type": "WebPageElement",
         name: "Where Suspec sits",
       },
+      ...overviewAnswerFacts.map((fact) => ({
+        "@type": "WebPageElement",
+        name: `${fact.label}: ${fact.text}`,
+      })),
     ],
   };
 
@@ -320,6 +351,27 @@ export default function WhatIsSuspecPage() {
         registerTone="evidence"
         className="overview-summary-grid grid gap-4 lg:grid-cols-[1fr_0.9fr]"
       >
+        <div className="overview-answer-panel panel-raised lg:col-span-2">
+          <div className="overview-answer-copy">
+            <p className="overview-answer-kicker">plain answer</p>
+            <h2>What Suspec does</h2>
+            <p>
+              Suspec is the record around agent work: the request, the scope,
+              the run, the evidence, and the lesson saved for next time.
+            </p>
+          </div>
+          <dl className="overview-answer-list">
+            {overviewAnswerFacts.map((fact) => (
+              <div
+                key={fact.label}
+                className={`overview-answer-fact overview-answer-fact-${fact.signal}`}
+              >
+                <dt>{fact.label}</dt>
+                <dd>{fact.text}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
         <Panel brushed className="overview-terminal-shell order-1 mx-auto h-full max-w-3xl p-2">
           <TerminalWindow
             title="diagnostics"
