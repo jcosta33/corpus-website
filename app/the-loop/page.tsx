@@ -451,6 +451,7 @@ export default function TheLoopPage() {
                 href="/docs/02-basic-workflow/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Read docs/02-basic-workflow.md (opens in new tab)"
               >
                 docs/02-basic-workflow.md
               </TextLink>

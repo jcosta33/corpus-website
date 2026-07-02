@@ -150,6 +150,7 @@ function StarterKitContentsNote({ className = "" }: { className?: string }) {
           href="/docs/ADOPTING/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Read docs/ADOPTING.md (opens in new tab)"
         >
           docs/ADOPTING.md
         </TextLink>
@@ -394,7 +395,7 @@ export default function GetStartedPage() {
           href="/docs/ADOPTING/"
           target="_blank"
           rel="noopener noreferrer"
-          ariaLabel="Read the adopting guide"
+          ariaLabel="Read the adopting guide (opens in new tab)"
           screws
           className="setup-choice-card setup-choice-card-brownfield h-full"
           contentClassName="flex h-full flex-col gap-5"
