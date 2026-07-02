@@ -267,6 +267,14 @@ export default function AgentsPage() {
           "challenge agents",
           "authoring agents",
         ]}
+        catalogItems={rosterGroups.flatMap((group) =>
+          group.items.map((item) => ({
+            name: item.file,
+            description: item.use,
+            url: repoHref(item.file),
+            category: group.title,
+          })),
+        )}
       />
       <Section className="ambient-header">
         <PageHero
