@@ -591,13 +591,35 @@ body {
   }
 
   .cli-command-list {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16.5rem), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20.5rem), 1fr));
     gap: clamp(0.58rem, 0.85vw, 0.72rem);
   }
 
   .cli-command-row.catalog-row {
     min-height: 5.45rem;
     padding: 0.82rem 2.35rem 0.82rem 0.86rem;
+  }
+}
+
+@media (min-width: 40.01rem) and (max-width: 63.99rem) {
+  .cli-command-rail .cli-command-step:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .cli-command-rail .cli-command-step:last-child .cli-command-link {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0.9rem 1rem;
+  }
+
+  .cli-command-rail .cli-command-step:last-child .cli-command-heading {
+    grid-column: 1 / -1;
+  }
+
+  .cli-command-rail .cli-command-step:last-child .cli-command-code,
+  .cli-command-rail .cli-command-step:last-child .cli-command-detail {
+    margin-top: 0;
   }
 }
 
