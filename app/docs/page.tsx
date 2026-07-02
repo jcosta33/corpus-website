@@ -96,13 +96,9 @@ function Section({
       <ul className="docs-index-list">
         {sec.items.map((it, index) => (
           <li key={it.slug}>
-            <Link
-              href={`/docs/${it.slug}/`}
-              aria-label={`Open ${it.label} documentation page`}
-            >
+            <Link href={`/docs/${it.slug}/`}>
               <span
                 className="docs-index-item-number"
-                aria-hidden="true"
                 data-pagefind-ignore
               >
                 {String(index + 1).padStart(2, "0")}

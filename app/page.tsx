@@ -207,7 +207,6 @@ function StepRail() {
           <Link
             href={step.href}
             className="home-step-rail-item home-step-rail-item-workflow focus-ring flex min-w-0 items-center justify-between gap-3 rounded-panel border bg-panel px-3 py-2 no-underline"
-            aria-label={`Read the ${step.label} step in the loop`}
           >
             <span className="font-mono text-xs text-signal-core">
               {String(index + 1).padStart(2, "0")}
