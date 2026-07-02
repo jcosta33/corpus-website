@@ -640,6 +640,10 @@ body {
 }
 
 @media (min-width: 40.01rem) and (max-width: 63.99rem) {
+  .cli-command-rail {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
   .cli-command-rail .cli-command-step:last-child {
     grid-column: 1 / -1;
   }
