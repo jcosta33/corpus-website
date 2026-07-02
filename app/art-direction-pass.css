@@ -95,18 +95,22 @@ body {
       192px 192px,
       auto;
     background-position:
-      50% 0,
-      50% 0,
-      50% 0,
-      50% 0,
+      calc(50% + var(--background-plane-grid-minor-x))
+        var(--background-plane-grid-y),
+      calc(50% + var(--background-plane-grid-x))
+        var(--background-plane-grid-minor-y),
+      calc(50% + var(--background-plane-grid-minor-x))
+        var(--background-plane-grid-y),
+      calc(50% + var(--background-plane-grid-x))
+        var(--background-plane-grid-minor-y),
       center top;
     opacity: 0.96;
     transform:
       translate3d(var(--background-plane-drift-x), var(--background-plane-drift-y), 0)
-      translateZ(-118px)
+      translateZ(-110px)
       rotateX(calc(var(--background-plane-tilt-x) * 1.48))
       rotateY(calc(var(--background-plane-tilt-y) * 1.5))
-      scale(1.56);
+      scale(1.5);
     transform-origin: center;
     transform-style: preserve-3d;
     backface-visibility: hidden;
@@ -178,8 +182,28 @@ body {
       scale(1.075);
     transform-origin: var(--background-header-origin-x) var(--background-header-origin-y);
     backface-visibility: hidden;
-    transition: transform 80ms linear;
+    transition:
+      transform 80ms linear,
+      background-position 80ms linear;
     will-change: transform;
+  }
+
+  .site-main-frame .page-hero::before {
+    background-position:
+      calc(50% + var(--background-header-grid-x))
+        calc(42% + var(--background-header-grid-y)),
+      calc(50% + var(--background-header-grid-x)) 50%,
+      calc(50% + var(--background-plane-grid-minor-x))
+        calc(50% + var(--background-plane-grid-minor-y));
+    transition:
+      transform 80ms linear,
+      background-position 80ms linear;
+  }
+
+  .site-main-frame .page-hero::after {
+    transition:
+      transform 80ms linear,
+      background-position 80ms linear;
   }
 
   .site-main-frame .ambient-header .page-hero-motif {
@@ -190,8 +214,19 @@ body {
       translate3d(var(--background-header-drift-x), var(--background-header-drift-y), 64px)
       scale(1.095);
     transform-origin: var(--background-header-origin-x) var(--background-header-origin-y);
-    transition: transform 80ms linear;
-    will-change: transform;
+    background-position:
+      calc(50% + var(--background-header-grid-x))
+        calc(48% + var(--background-header-grid-y)),
+      calc(50% + var(--background-plane-grid-minor-x))
+        calc(50% + var(--background-plane-grid-minor-y)),
+      calc(50% + var(--background-header-grid-x))
+        calc(48% + var(--background-header-grid-y)),
+      calc(50% + var(--background-plane-grid-x))
+        calc(50% + var(--background-plane-grid-minor-y));
+    transition:
+      transform 80ms linear,
+      background-position 80ms linear;
+    will-change: transform, background-position;
   }
 }
 

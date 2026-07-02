@@ -72,11 +72,11 @@
       );
       root.style.setProperty(
         "--background-plane-drift-x",
-        "0px",
+        `${(-normalX * 7.5).toFixed(2)}px`,
       );
       root.style.setProperty(
         "--background-plane-drift-y",
-        "0px",
+        `${(-normalY * 5.5).toFixed(2)}px`,
       );
       root.style.setProperty(
         "--background-header-drift-x",
@@ -96,27 +96,27 @@
       );
       root.style.setProperty(
         "--background-plane-grid-x",
-        "0px",
+        `${(-normalX * 18).toFixed(2)}px`,
       );
       root.style.setProperty(
         "--background-plane-grid-y",
-        "0px",
+        `${(-normalY * 12).toFixed(2)}px`,
       );
       root.style.setProperty(
         "--background-plane-grid-minor-x",
-        "0px",
+        `${(-normalX * 7).toFixed(2)}px`,
       );
       root.style.setProperty(
         "--background-plane-grid-minor-y",
-        "0px",
+        `${(-normalY * 5).toFixed(2)}px`,
       );
       root.style.setProperty(
         "--background-header-grid-x",
-        `${(normalX * 12).toFixed(2)}px`,
+        `${(normalX * 15).toFixed(2)}px`,
       );
       root.style.setProperty(
         "--background-header-grid-y",
-        `${(normalY * 7).toFixed(2)}px`,
+        `${(normalY * 9).toFixed(2)}px`,
       );
     }
 
